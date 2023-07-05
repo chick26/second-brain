@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Cards MOC](../Cards%20MOC.md) | Docker MOC
+# 🌏 [[Cards/Cards MOC|Cards MOC]] | Docker MOC
 
 ```dataview
 table WITHOUT ID
