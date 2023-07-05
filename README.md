@@ -1,19 +1,25 @@
-# Quartz
+# Second Brain
 
-Host your second brain and [digital garden](https://jzhao.xyz/posts/networked-thought) for free. Quartz features
+## 🗺 [[Atlases MOC|ATLAS]]
 
-1. Extremely fast natural-language search
-2. Customizable and hackable design based on Hugo
-3. Automatically generated backlinks, link previews, and local graph
-4. Built-in CJK + Latex Support and Admonition-style callouts
-5. Support for both Markdown Links and Wikilinks
+>[!INFO]- Start With Your Cooling Pad for today
 
-Check out some of the [amazing gardens that community members](https://quartz.jzhao.xyz/notes/showcase/) have published with Quartz!
+- Sense Making
+	-  📬 [[Cooling pad]]
+	-  💾 [[Cards MOC|Making Cards]]
+	-  📤 [[Outbox]]
+	-  📆 [[Journal MOC|Daily Notes]]
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+-  [[Sources MOC|Things]]
+	-  📚 [[Bookshelf|Library]]
+	-  🧑‍🏫 [[• TOC for Talks|Talks]]
+	-  😶‍🌫️ [[Concepts MOC|Concepts]]
+	-  🔬 [[Courses MOC|Courses]]
 
-🔗 Get Started: https://quartz.jzhao.xyz/
+- Action
+	- ✅ [[Tasks]]
 
-![Quartz Example Screenshot](./screenshot.png)*Quartz Example Screenshot*
-
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+- Personal
+	- [[Health MOC]] 
+	- [[Finance MOC]]
+	- [[Life Map]]
