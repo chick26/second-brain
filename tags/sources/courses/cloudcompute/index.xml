@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sources/Courses/CloudCompute on </title>
+    <link>chick26.github.io/tags/sources/courses/cloudcompute/</link>
+    <description>Recent content in Sources/Courses/CloudCompute on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/sources/courses/cloudcompute/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ACA-云计算基础</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-cloud-tech/aca-%E4%BA%91%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-cloud-tech/aca-%E4%BA%91%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/</guid>
+      <description>数据中心概述  理解、掌握数据中心的基础设施组成及现状
+ 分类级别 国内 GB50174 一 2017  A 级，运行中断将造成将重大的损失、将造成公共场所秩序严过混乱 B 级，运行中断将造成将较大的经济损失、将造成公共场所秩序混乱 C 级，不属于 A 级或者 B 级的数据中心为 C 级  国际 TAL-942-B-2017  Tier 1 基级，基本基础设施，数据中心的只具有一组线，包括电力和互联网，连接系统的所有缺乏冗余的设备 （ 包括计算和存储 ） Tier 2 冗余设备级，冗余能力元件基础设施，具有冗余设备的数据中心的水平，但仍然是一组线连接到系统的所有设备 Tier 3 平行维护级别，同时维护的基础设施与设备的冗余数据中心的级别, 所有的计算机都有双电源和数据中心建筑结构按照合理的安装。此外 Tier3 数据中心的要求有几套动力配电线路系统来同时连接电脑设备 Tier 4 容错级，容错基础设施，数据中心水平多重、独立、相互冗余设备物理上分离，所有的电脑设备有双电源孬并根据数据中心建筑结构的合理安排  基础设施  基础设施：机房、装修、供电 （ 强电和 UPS ) 、散热、综合布线、安防、空调等相关设施 物理设施 ： 机柜、服务器、网络设备、网络安全设备、存储设备、灾备设备等 基础软件 ． 操作系统、数据库软件、防病毒软件等 管理支撑软件 ： 机房管理软件、集群管理软件、云平台软件、虚拟化软件等  传统数据中心现状  资源物理隔离 网络架构局限  传统三层架构，核心+汇聚+接入 [[STP]] 只能支持 50 个网络节点，且收敛时间长，不适宜云数据中心大规模组网    1 云计算关键技术 1.</description>
+    </item>
+    
+    <item>
+      <title>云计算架构</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-cloud-tech/%E4%BA%91%E8%AE%A1%E7%AE%97%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-cloud-tech/%E4%BA%91%E8%AE%A1%E7%AE%97%E6%9E%B6%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development/Backend/Database/MySQL/InnoDB on </title>
+    <link>chick26.github.io/tags/development/backend/database/mysql/innodb/</link>
+    <description>Recent content in Development/Backend/Database/MySQL/InnoDB on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/development/backend/database/mysql/innodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>InnoDB存储引擎</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/innodb%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/innodb%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</guid>
+      <description>up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+InnoDB 存储引擎  有助于 Oracle、达梦、MongoDB
+ 存储结构  数据库都是通过逻辑存储结构管理物理存储结构</description>
+    </item>
+    
+  </channel>
+</rss>

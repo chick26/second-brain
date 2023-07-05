@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development/Frontend/Deploy on </title>
+    <link>chick26.github.io/tags/development/frontend/deploy/</link>
+    <description>Recent content in Development/Frontend/Deploy on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/development/frontend/deploy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dumi 组件库搭建</title>
+      <link>chick26.github.io/cards/-front-dev/uilibrary/dumi-%E7%BB%84%E4%BB%B6%E5%BA%93%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-front-dev/uilibrary/dumi-%E7%BB%84%E4%BB%B6%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
+      <description>up:: [ • TOC for Frontend
+配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于：</description>
+    </item>
+    
+    <item>
+      <title>rollup.js</title>
+      <link>chick26.github.io/cards/-front-dev/package/rollup.js/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-front-dev/package/rollup.js/</guid>
+      <description>up:: [ • TOC for Frontend
+ rollup.js 是一个 JavaScript 打包工具。本文介绍它的基本用法。
+一、简介 打包工具的作用是，将多个 JavaScript 脚本合并成一个脚本，供浏览器使用。浏览器需要脚本打包，主要原因有三个。
+（1）早期的浏览器不支持模块，大型网页项目只能先合并成单一脚本再执行。 （2）Node.js 的模块机制与浏览器不兼容，必须通过打包工具进行兼容处理。 （3）浏览器加载一个大脚本，要比加载多个小脚本，性能更好。
+目前，最常用的打包工具是 Webpack。它的功能强大，但是难学难用，一直被人诟病。</description>
+    </item>
+    
+    <item>
+      <title>前端部署</title>
+      <link>chick26.github.io/cards/-front-dev/package/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-front-dev/package/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
+      <description>up:: [ • TOC for Frontend
+静态页面 先从简单的静态页面开始，众所周知，前端资源由 HTML、JavaScript、CSS 三剑客组成，假设我们有一个简单的页面，用 Nginx 作为 Web 服务器，资源组织结构大概如下：
+HTML 1 2 3 4  &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>前端部署</title>
+      <link>chick26.github.io/cards/-front-dev/package/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-front-dev/package/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
+      <description>up:: [ • TOC for Frontend
+静态页面 先从简单的静态页面开始，众所周知，前端资源由 HTML、JavaScript、CSS 三剑客组成，假设我们有一个简单的页面，用 Nginx 作为 Web 服务器，资源组织结构大概如下：
+HTML 1 2 3 4  &amp;lt;!</description>
+    </item>
+    
+  </channel>
+</rss>

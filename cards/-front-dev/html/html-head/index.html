@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Frontend
+🤯 HEAD  HTML &lt;head&gt; 元素的简单指南
+ 最小推荐 以下是构成任何 Web 页面（网站/应用程序）的基本要素：
+1 2 3 4 5 6 7  &lt;meta charset=&#34;utf-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt; &lt;!"
+  />
+  <meta property="og:title" content="HTML-HEAD">
+  <meta property="og:description" content="up:: [ • TOC for Frontend
+🤯 HEAD  HTML &lt;head&gt; 元素的简单指南
+ 最小推荐 以下是构成任何 Web 页面（网站/应用程序）的基本要素：
+1 2 3 4 5 6 7  &lt;meta charset=&#34;utf-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt; &lt;!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/cards/-front-dev/html/html-head/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="HTML-HEAD" />
+  <meta name="twitter:description" content="up:: [ • TOC for Frontend
+🤯 HEAD  HTML &lt;head&gt; 元素的简单指南
+ 最小推荐 以下是构成任何 Web 页面（网站/应用程序）的基本要素：
+1 2 3 4 5 6 7  &lt;meta charset=&#34;utf-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt; &lt;!" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+  
+
+  <title>
+    HTML-HEAD
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">Chick&#39;s Second Brain</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>HTML-HEAD</h1>
+      <p class="meta">
+        Last updated 
+Unknown
+
+ 
+          
+<a href="https://github.com/chick26/Cards/%f0%9f%93%b2%20Front%20Dev/HTML/HTML-HEAD.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/development/frontend/html/">
+          
+            Development frontend HTML
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/development/frontend/html/tag/">
+          
+            Development frontend HTML tag
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#最小推荐">最小推荐</a></li>
+    <li><a href="#网页元素">网页元素</a></li>
+    <li><a href="#meta-标签">Meta 标签</a></li>
+    <li><a href="#链接">链接</a></li>
+    <li><a href="#网站图标">网站图标</a></li>
+    <li><a href="#社交">社交</a>
+      <ol>
+        <li><a href="#facebook-open-graph">Facebook Open Graph</a></li>
+        <li><a href="#twitter-card">Twitter Card</a></li>
+        <li><a href="#twitter-privacy">Twitter Privacy</a></li>
+        <li><a href="#schemaorg">Schema.org</a></li>
+        <li><a href="#pinterest">Pinterest</a></li>
+        <li><a href="#facebook-instant-articles">Facebook Instant Articles</a></li>
+        <li><a href="#oembed">OEmbed</a></li>
+        <li><a href="#qq微信">QQ/微信</a></li>
+      </ol>
+    </li>
+    <li><a href="#浏览器--平台">浏览器 / 平台</a>
+      <ol>
+        <li><a href="#apple-ios">Apple iOS</a></li>
+        <li><a href="#google-android">Google Android</a></li>
+        <li><a href="#google-chrome">Google Chrome</a></li>
+        <li><a href="#microsoft-internet-explorer">Microsoft Internet Explorer</a></li>
+      </ol>
+    </li>
+    <li><a href="#国内的浏览器">国内的浏览器</a>
+      <ol>
+        <li><a href="#360-浏览器">360 浏览器</a></li>
+        <li><a href="#qq-移动浏览器">QQ 移动浏览器</a></li>
+        <li><a href="#uc-移动浏览器">UC 移动浏览器</a></li>
+      </ol>
+    </li>
+    <li><a href="#应用链接">应用链接</a></li>
+    <li><a href="#其他资源">其他资源</a></li>
+    <li><a href="#相关项目">相关项目</a></li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<a href="#-head"><h1 id="-head"><span class="hanchor" ariaLabel="Anchor"># </span>🤯 HEAD</h1></a>
+<blockquote>
+<p>HTML <code>&lt;head&gt;</code> 元素的简单指南</p>
+</blockquote>
+<a href="#最小推荐"><h2 id="最小推荐"><span class="hanchor" ariaLabel="Anchor"># </span>最小推荐</h2></a>
+<p>以下是构成任何 Web 页面（网站/应用程序）的基本要素：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">  以上 2 个 meta 标签 *必须* 放在 &lt;head&gt; 标签内 最前面，以确保正确的文档呈现；
+</span></span></span><span class="line"><span class="cl"><span class="c">  其他任何 head 元素 *必须* 在这些标签之后。
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>页面标题<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>meta charset</strong> - 定义网站的编码格式，默认为 <code>utf-8</code>。</li>
+<li><strong>meta name=&ldquo;viewport&rdquo;</strong> - 与移动端设备响应式有关的视口设置。</li>
+<li><strong>width=device-width</strong> 表示它将使用设备的物理宽度（而不是缩放），这对于移动设备友好的页面来说是很有帮助。</li>
+<li><strong>initial-scale=1</strong> 默认缩放，1 表示不缩放</li>
+</ul>
+<a href="#网页元素"><h2 id="网页元素"><span class="hanchor" ariaLabel="Anchor"># </span>网页元素</h2></a>
+<p>有效的 <code>&lt;head&gt;</code> 元素包括 <code>meta</code>、<code>link</code>、<code>title</code>、<code>style</code>、<code>script</code>、<code>noscript</code> 和 <code>base</code>。</p>
+<p>这些元素提供了如何通过如浏览器，搜索引擎，网络爬虫等网络技术来感知和呈现文档的信息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 设置此文档的字符编码，以便 UTF-8 范围中的所有字符（如 emoji）都能正确显示 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 设置文档标题 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>页面标题<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 设置文档中所有相对链接的基础链接 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">base</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/page.html&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 链接一个外部 CSS 文件 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;styles.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 用于文档内的 CSS --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">/* ... */</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- JavaScript &amp; No-JavaScript 标签 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// function(s) go here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">noscript</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="c">&lt;!--无 JS 时显示--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">noscript</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#meta-标签"><h2 id="meta-标签"><span class="hanchor" ariaLabel="Anchor"># </span>Meta 标签</h2></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">  以上 2 个 meta 标签 *必须* 放在 head 之前，以确保正确的文档呈现；
+</span></span></span><span class="line"><span class="cl"><span class="c">  其他任何 head 元素 *必须* 在这些标签之后。
+</span></span></span><span class="line"><span class="cl"><span class="c">  † 如果你的项目需要支持 Internet Explorer 11 之前的版本，请使用 content=&#34;ie-edge&#34; 标签。
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 允许控制资源从何处加载。在 &lt;head&gt; 中尽可能地靠前放置，因为该标签仅适用于在其之后声明的资源。--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Content-Security-Policy&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;default-src &#39;self&#39;&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Web 应用的名称（仅当网站被用作为一个应用时才使用）--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;application-name&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;应用名称&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Chrome、Firefox OS 和 Opera 的主题颜色 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;theme-color&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;#4285f4&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 针对页面的简短描述（限制 150 字符）--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 此内容*可能*被用作搜索引擎结果的一部分。 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;description&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;一个页面描述&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 控制搜索引擎的抓取和索引行为 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;robots&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;index,follow&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- 所有搜索引擎 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;googlebot&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;index,follow&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- 仅对 Google 有效 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 告诉 Google 不显示网站链接的搜索框 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;google&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;nositelinkssearchbox&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 告诉 Google 不提供此页面的翻译 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;google&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;notranslate&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 验证网址所有权 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;google-site-verification&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;verification_token&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- Google Search Console --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;yandex-verification&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;verification_token&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- Yandex Webmasters --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;msvalidate.01&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;verification_token&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- Bing Webmaster Center --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;alexaVerifyID&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;verification_token&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- Alexa Console --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;p:domain_verify&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;code from pinterest&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- Pinterest Console --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;norton-safeweb-site-verification&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;norton code&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- Norton Safe Web --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 确定用于构建页面的软件（如 - WordPress、Dreamweaver）--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;generator&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;program&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 关于你的网站主题的简短描述 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;subject&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;你的网站主题&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 基于网站内容给出一般的年龄分级 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;rating&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;General&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 允许控制 referrer 信息如何传递 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;referrer&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 禁用自动检测和格式化可能的电话号码 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;format-detection&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;telephone=no&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 通过设置为 &#34;off&#34; 完全退出 DNS 预取 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;x-dns-prefetch-control&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;off&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 指定要显示在一个特定框架中的页面 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Window-Target&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;_value&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 地理标签 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;ICBM&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;latitude, longitude&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;geo.position&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;latitude;longitude&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;geo.region&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;country[-state]&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- 国家代码 (ISO 3166-1): 强制性, 州代码 (ISO 3166-2): 可选; 如 content=&#34;US&#34; / content=&#34;US-NY&#34; --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;geo.placename&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;city/town&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- 如 content=&#34;New York City&#34; --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;monetization&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;$paymentpointer.example&#34;</span><span class="p">&gt;</span><span class="c">&lt;!-- 网络货币化 https://webmonetization.org/docs/getting-started --&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://support.google.com/webmasters/answer/79812?hl=zh-Hans" rel="noopener">Google 可以识别的 Meta 标签</a></li>
+<li>📖 
+<a href="https://wiki.whatwg.org/wiki/MetaExtensions" rel="noopener">WHATWG Wiki: Meta 拓展</a></li>
+<li>📖 
+<a href="https://en.wikipedia.org/wiki/ICBM_address#Modern_use" rel="noopener">ICBM - 维基百科</a></li>
+<li>📖 
+<a href="https://en.wikipedia.org/wiki/Geotagging#HTML_pages" rel="noopener">地理标记 - 维基百科</a></li>
+</ul>
+<a href="#链接"><h2 id="链接"><span class="hanchor" ariaLabel="Anchor"># </span>链接</h2></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 指向一个外部 CSS 样式表 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/styles.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 有助于防止出现内容重复的问题 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;canonical&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/article/?page=2&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 链接到当前文档的一个 AMP HTML 版本 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;amphtml&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/path/to/amp-version.html&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 链接到一个指定 Web 应用程序“安装”凭据的 JSON 文件 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;manifest&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;manifest.json&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 链接到关于页面所有者的信息 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;author&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;humans.txt&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 指向一个适用于链接内容的版权申明 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;license&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;copyright.html&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 给出可能的你的另一种语言的文档位置参考 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://es.example.com/&#34;</span> <span class="na">hreflang</span><span class="o">=</span><span class="s">&#34;es&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 提供了关于作者或其他人的信息 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;me&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://google.com/profiles/thenextweb&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/html&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;me&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;mailto:name@example.com&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;me&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;sms:+15035550125&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 链接到一个描述历史记录、文档或其他具有历史意义的材料的集合的文档 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;archives&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/archives/&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 链接到层次结构中的顶级资源 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;index&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/article/&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 提供了自我引用 - 当文档有多个可能的引用时非常有用 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;self&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/atom+xml&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/atom.xml&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 分别是一系列页面中的第一个，最后一个，上一个和下一个页面 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;first&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/article/&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;last&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/article/?page=42&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;prev&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/article/?page=1&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;next&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/article/?page=3&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 当使用第三方服务来维护博客时使用 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;EditURI&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/xmlrpc.php?rsd&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/rsd+xml&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;RSD&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 当另一个 WordPress 博客链接到你的 WordPress 博客或文章时形成一个自动化的评论 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;pingback&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/xmlrpc.php&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 当你在自己的页面上链接到一个 url 时通知它 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;webmention&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/webmention&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 启用通过 Micropub 客户端发布你的域名 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;micropub&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/micropub&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 打开搜索 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;search&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/open-search.xml&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/opensearchdescription+xml&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Search Title&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Feeds --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://feeds.feedburner.com/example&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/rss+xml&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;RSS&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/feed.atom&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/atom+xml&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Atom 0.3&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 预取，预载，预浏览 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 更多信息：https://css-tricks.com/prefetching-preloading-prebrowsing/ --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;dns-prefetch&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;//example.com/&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;preconnect&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://www.example.com/&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;prefetch&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://www.example.com/&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;prerender&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;preload&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;image.png&#34;</span> <span class="na">as</span><span class="o">=</span><span class="s">&#34;image&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml" rel="noopener">链接关系</a></li>
+</ul>
+<a href="#网站图标"><h2 id="网站图标"><span class="hanchor" ariaLabel="Anchor"># </span>网站图标</h2></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 针对 IE 10 及以下版本 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 如果将 `favicon.ico` 放在根目录下，则无需标签 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 我们目前需要提供的最大的网站图标尺寸 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;icon&#34;</span> <span class="na">sizes</span><span class="o">=</span><span class="s">&#34;192x192&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/path/to/icon.png&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Apple 触摸图标 (尺寸同样是 192x192) --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;apple-touch-icon&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/path/to/apple-touch-icon.png&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Safari 固定选项卡图标 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;mask-icon&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/path/to/icon.svg&#34;</span> <span class="na">color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://bitsofco.de/all-about-favicons-and-touch-icons/" rel="noopener">所有关于网站图标（和触摸图标）的信息</a></li>
+<li>📖 
+<a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html" rel="noopener">创建固定选项卡图标</a></li>
+<li>📖 
+<a href="https://github.com/audreyr/favicon-cheat-sheet" rel="noopener">网站图标对照表</a></li>
+<li>📖 
+<a href="https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/" rel="noopener">网址图标 &amp; 浏览器颜色表</a></li>
+</ul>
+<a href="#社交"><h2 id="社交"><span class="hanchor" ariaLabel="Anchor"># </span>社交</h2></a>
+<a href="#facebook-open-graph"><h3 id="facebook-open-graph"><span class="hanchor" ariaLabel="Anchor"># </span>Facebook Open Graph</h3></a>
+<blockquote>
+<p>大多数内容以 URL 的形式共享到 Facebook，因此使用 Open Graph 标签标记您的网站以控制您的内容在 Facebook 上的显示方式就显得非常重要了。
+<a href="https://developers.facebook.com/docs/sharing/webmasters#markup" rel="noopener">更多关于 Facebook 开放图谱标记的信息</a></p>
+</blockquote>
+<blockquote>
+<p>大多数内容都是作为 URL 分享到 Facebook 的，因此，使用 Open Graph 标签标记网站来控制内容在 Facebook 上的显示方式显得尤为重要。
+<a href="https://developers.facebook.com/docs/sharing/webmasters#markup" rel="noopener">有关 Facebook Open Graph 标签的更多信息</a></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;fb:app_id&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;123456789&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:url&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;https://example.com/page.html&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:type&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;website&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:title&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Content Title&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:image&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;https://example.com/image.jpg&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:image:alt&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;A description of what is in the image (not a caption)&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:description&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Description Here&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:site_name&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Site Name&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:locale&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;en_US&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;article:author&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://ogp.me/" rel="noopener">Open Graph 协议</a></li>
+<li>🛠 
+<a href="https://developers.facebook.com/tools/debug/" rel="noopener">页面验证 - Facebook Sharing Debugger</a></li>
+</ul>
+<a href="#twitter-card"><h3 id="twitter-card"><span class="hanchor" ariaLabel="Anchor"># </span>Twitter Card</h3></a>
+<blockquote>
+<p>借助 Twitter 卡片，您可以将丰富的照片、视频和媒体体验附加到推文中，从而帮助您的网站增加流量。
+<a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards" rel="noopener">更多关于 Twitter 卡片的信息</a></p>
+</blockquote>
+<blockquote>
+<p>使用 Twitter Card，您可以将丰富的照片、视频和媒体资源附加到推文上，以帮助增加网站的访问量。
+<a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards" rel="noopener">有关 Twitter Card 的更多信息</a></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:card&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;summary&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:site&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;@site_account&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:creator&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;@individual_account&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:url&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;https://example.com/page.html&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:title&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Content Title&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:description&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;Content description less than 200 characters&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:image&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;https://example.com/image.jpg&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:image:alt&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;A text description of the image conveying the essential nature of an image to users who are visually impaired. Maximum 420 characters.&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://dev.twitter.com/cards/getting-started" rel="noopener">名片入门指南 - Twitter 开发者</a></li>
+<li>🛠 
+<a href="https://cards-dev.twitter.com/validator" rel="noopener">页面验证 - Twitter Card Validator</a></li>
+</ul>
+<a href="#twitter-privacy"><h3 id="twitter-privacy"><span class="hanchor" ariaLabel="Anchor"># </span>Twitter Privacy</h3></a>
+<p>如果你在自己的网站中嵌入了推文，Twitter 可以使用你网站上的信息为 Twitter 用户定制内容和建议。 
+<a href="https://dev.twitter.com/web/overview/privacy#what-privacy-options-do-website-publishers-have" rel="noopener">更多关于 Twitter 隐私选项的信息</a>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 禁止 Twitter 使用你网站上的信息用于提供个性化的目的 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;twitter:dnt&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;on&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#schemaorg"><h3 id="schemaorg"><span class="hanchor" ariaLabel="Anchor"># </span>Schema.org</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;&#34;</span> <span class="na">itemscope</span> <span class="na">itemtype</span><span class="o">=</span><span class="s">&#34;https://schema.org/Article&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;author&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;publisher&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&#34;name&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;内容标题&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&#34;description&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;内容描述少于 200 个字符&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&#34;image&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;https://example.com/image.jpg&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>注意:</strong> 这些 meta 标签需要在 <code>&lt;html&gt;</code> 中添加 <code>itemscope</code> 和 <code>itemtype</code> 属性。</p>
+<ul>
+<li>📖 
+<a href="https://schema.org/docs/gs.html" rel="noopener">入门 - schema.org</a></li>
+<li>🛠 使用
+<a href="https://search.google.com/test/rich-results" rel="noopener">多结果测试</a>测试您的页面</li>
+</ul>
+<a href="#pinterest"><h3 id="pinterest"><span class="hanchor" ariaLabel="Anchor"># </span>Pinterest</h3></a>
+<p>根据他们的
+<a href="https://help.pinterest.com/en/business/article/prevent-saves-to-pinterest-from-your-site" rel="noopener">帮助中心</a>可知，Pinterest 允许你禁止他人保存你网站里的内容。<code>description</code> 为可选。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;pinterest&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;nopin&#34;</span> <span class="na">description</span><span class="o">=</span><span class="s">&#34;Sorry, you can&#39;t save from my website!&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#facebook-instant-articles"><h3 id="facebook-instant-articles"><span class="hanchor" ariaLabel="Anchor"># </span>Facebook Instant Articles</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;op:markup_version&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;v1.0&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 你的文章的 Web 版网址 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;canonical&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/article.html&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 用于该文章的样式 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;fb:article_style&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;myarticlestyle&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://developers.facebook.com/docs/instant-articles/guides/articlecreate" rel="noopener">创建文章 - Instant Articles</a></li>
+<li>📖 
+<a href="https://developers.facebook.com/docs/instant-articles/reference" rel="noopener">代码示例 - Instant Articles</a></li>
+</ul>
+<a href="#oembed"><h3 id="oembed"><span class="hanchor" ariaLabel="Anchor"># </span>OEmbed</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/json+oembed&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/services/oembed?url=http%3A%2F%2Fexample.com%2Ffoo%2F&amp;amp;format=json&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">title</span><span class="o">=</span><span class="s">&#34;oEmbed Profile: JSON&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/xml+oembed&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://example.com/services/oembed?url=http%3A%2F%2Fexample.com%2Ffoo%2F&amp;amp;format=xml&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">title</span><span class="o">=</span><span class="s">&#34;oEmbed Profile: XML&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://oembed.com/" rel="noopener">oEmbed 格式</a></li>
+</ul>
+<a href="#qq微信"><h3 id="qq微信"><span class="hanchor" ariaLabel="Anchor"># </span>QQ/微信</h3></a>
+<p>用户将网页分享到 QQ 或微信会带有指定信息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&#34;name&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;分享标题&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&#34;image&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;http://imgcache.qq.com/qqshow/ac/v4/global/logo.png&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;description&#34;</span> <span class="na">itemprop</span><span class="o">=</span><span class="s">&#34;description&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;分享描述&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="http://open.mobile.qq.com/api/mqq/index#api:setShareInfo" rel="noopener">分享格式文档</a></li>
+</ul>
+<a href="#浏览器--平台"><h2 id="浏览器--平台"><span class="hanchor" ariaLabel="Anchor"># </span>浏览器 / 平台</h2></a>
+<a href="#apple-ios"><h3 id="apple-ios"><span class="hanchor" ariaLabel="Anchor"># </span>Apple iOS</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 智能应用 Banner --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;apple-itunes-app&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;app-id=APP_ID,affiliate-data=AFFILIATE_ID,app-argument=SOME_TEXT&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 禁用自动检测和格式化可能的电话号码 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;format-detection&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;telephone=no&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 添加到主屏幕 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 启动图标 (大于等于 180x180px) --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;apple-touch-icon&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/path/to/apple-touch-icon.png&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 启动屏幕图片 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;apple-touch-startup-image&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/path/to/launch.png&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 启动图标的标题 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;apple-mobile-web-app-title&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;应用标题&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 启用独立（全屏）模式 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;apple-mobile-web-app-capable&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;yes&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 状态栏外观（除非启用独立模式，否则无效） --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;apple-mobile-web-app-status-bar-style&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- iOS 应用深层链接 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;apple-itunes-app&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;app-id=APP-ID, app-argument=http/url-sample.com&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;ios-app://APP-ID/http/url-sample.com&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" rel="noopener">配置 Web 应用程序</a></li>
+</ul>
+<a href="#google-android"><h3 id="google-android"><span class="hanchor" ariaLabel="Anchor"># </span>Google Android</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;theme-color&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;#E64545&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 添加到主屏幕 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;mobile-web-app-capable&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;yes&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 更多信息：https://developer.chrome.com/multidevice/android/installtohomescreen --&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#google-chrome"><h3 id="google-chrome"><span class="hanchor" ariaLabel="Anchor"># </span>Google Chrome</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;chrome-webstore-item&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://chrome.google.com/webstore/detail/APP_ID&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 禁用翻译提示 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;google&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;notranslate&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#microsoft-internet-explorer"><h3 id="microsoft-internet-explorer"><span class="hanchor" ariaLabel="Anchor"># </span>Microsoft Internet Explorer</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 强制 IE 8/9/10 使用其最新的渲染引擎 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;x-ua-compatible&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;ie=edge&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 通过 Skype Toolbar 浏览器扩展功能禁用自动检测和格式化可能的电话号码 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;skype_toolbar&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;skype_toolbar_parser_compatible&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Windows 磁贴 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;msapplication-config&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;/browserconfig.xml&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最低要求的的 <code>browserconfig.xml</code> 配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;browserconfig&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;msapplication&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;tile&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;square70x70logo</span> <span class="na">src=</span><span class="s">&#34;small.png&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;square150x150logo</span> <span class="na">src=</span><span class="s">&#34;medium.png&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;wide310x150logo</span> <span class="na">src=</span><span class="s">&#34;wide.png&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;square310x310logo</span> <span class="na">src=</span><span class="s">&#34;large.png&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/tile&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/msapplication&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/browserconfig&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://msdn.microsoft.com/en-us/library/dn320426.aspx" rel="noopener">浏览器配置模式参考</a></li>
+</ul>
+<a href="#国内的浏览器"><h2 id="国内的浏览器"><span class="hanchor" ariaLabel="Anchor"># </span>国内的浏览器</h2></a>
+<a href="#360-浏览器"><h3 id="360-浏览器"><span class="hanchor" ariaLabel="Anchor"># </span>360 浏览器</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 选择渲染引擎 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;renderer&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;webkit|ie-comp|ie-stand&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#qq-移动浏览器"><h3 id="qq-移动浏览器"><span class="hanchor" ariaLabel="Anchor"># </span>QQ 移动浏览器</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 在指定方向上锁定屏幕（锁定横/竖屏） --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;x5-orientation&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;landscape/portrait&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 全屏显示此页面 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;x5-fullscreen&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 页面将以“应用模式”显示（全屏等）--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;x5-page-mode&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;app&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#uc-移动浏览器"><h3 id="uc-移动浏览器"><span class="hanchor" ariaLabel="Anchor"># </span>UC 移动浏览器</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 在指定方向上锁定屏幕（锁定横/竖屏） --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;screen-orientation&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;landscape/portrait&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 全屏显示此页面 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;full-screen&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;yes&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 即使在“文本模式”下，UC 浏览器也会显示图片 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;imagemode&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;force&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 页面将以“应用模式”显示（全屏、禁止手势等） --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;browsermode&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;application&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 在此页面禁用 UC 浏览器的“夜间模式” --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;nightmode&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;disable&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 简化页面，减少数据传输 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;layoutmode&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;fitscreen&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 禁用的 UC 浏览器的功能，“当此页面中有较多文本时缩放字体” --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;wap-font-scale&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;no&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://www.uc.cn/download/UCBrowser_U3_API.doc" rel="noopener">UC 浏览器文档</a></li>
+</ul>
+<a href="#应用链接"><h2 id="应用链接"><span class="hanchor" ariaLabel="Anchor"># </span>应用链接</h2></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- iOS --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;al:ios:url&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;applinks://docs&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;al:ios:app_store_id&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;12345&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;al:ios:app_name&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;App Links&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Android --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;al:android:url&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;applinks://docs&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;al:android:app_name&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;App Links&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;al:android:package&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;org.applinks&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 页面回退 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;al:web:url&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;https://applinks.org/documentation&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>📖 
+<a href="https://developers.facebook.com/docs/applinks" rel="noopener">应用链接文档</a></li>
+</ul>
+<a href="#其他资源"><h2 id="其他资源"><span class="hanchor" ariaLabel="Anchor"># </span>其他资源</h2></a>
+<ul>
+<li>📖 
+<a href="https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/html.md" rel="noopener">HTML5 样板文档：HTML 标签</a></li>
+<li>📖 
+<a href="https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/extend.md" rel="noopener">HTML5 样板文档：扩展和定制</a></li>
+</ul>
+<a href="#相关项目"><h2 id="相关项目"><span class="hanchor" ariaLabel="Anchor"># </span>相关项目</h2></a>
+<ul>
+<li>
+<a href="https://github.com/joshbuchea/atom-html-head-snippets" rel="noopener">Atom HTML Head 片段</a> - Atom <code>HEAD</code> 片段包</li>
+<li>
+<a href="https://github.com/marcobiedermann/sublime-head-snippets" rel="noopener">Sublime Text HTML Head 片段</a> - Sublime Text <code>HEAD</code> 片段包</li>
+<li>
+<a href="https://github.com/hemanth/head-it" rel="noopener">head-it</a> - <code>HEAD</code> 片段的 CLI 接口</li>
+<li>
+<a href="https://github.com/ktquez/vue-head" rel="noopener">vue-head</a> - 在 Vue.js 中操作 <code>HEAD</code> 标签的 meta 信息</li>
+</ul>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://github.com/chick26">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Git
+常见 Git Hooks git hooks 大体上分为两类:
+客户端 Hook  pre-commit hook, 在运行 git commit 命令时且在 commit 完成前被触发 commit-msg hook, 在编辑完 commit-msg 时被触发，并且接受一个参数，这个参数是存放当前 commit-msg 的临时文件的路径 pre-push hook, 在运行 git push 命令时且在 push 命令完成前被触发  服务端 Hook  pre-receive 在服务端接受到推送时且在推送过程完成前被触发 post-receive 在服务端接收到推送且推送完成后被触发   [!"
+  />
+  <meta property="og:title" content="Git hooks">
+  <meta property="og:description" content="up:: [ • TOC for Git
+常见 Git Hooks git hooks 大体上分为两类:
+客户端 Hook  pre-commit hook, 在运行 git commit 命令时且在 commit 完成前被触发 commit-msg hook, 在编辑完 commit-msg 时被触发，并且接受一个参数，这个参数是存放当前 commit-msg 的临时文件的路径 pre-push hook, 在运行 git push 命令时且在 push 命令完成前被触发  服务端 Hook  pre-receive 在服务端接受到推送时且在推送过程完成前被触发 post-receive 在服务端接收到推送且推送完成后被触发   [!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/cards/%EF%B8%8F-git-dev/git-hooks/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Git hooks" />
+  <meta name="twitter:description" content="up:: [ • TOC for Git
+常见 Git Hooks git hooks 大体上分为两类:
+客户端 Hook  pre-commit hook, 在运行 git commit 命令时且在 commit 完成前被触发 commit-msg hook, 在编辑完 commit-msg 时被触发，并且接受一个参数，这个参数是存放当前 commit-msg 的临时文件的路径 pre-push hook, 在运行 git push 命令时且在 push 命令完成前被触发  服务端 Hook  pre-receive 在服务端接受到推送时且在推送过程完成前被触发 post-receive 在服务端接收到推送且推送完成后被触发   [!" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+  
+
+  <title>
+    Git hooks
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">Chick&#39;s Second Brain</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>Git hooks</h1>
+      <p class="meta">
+        Last updated 
+Unknown
+
+ 
+          
+<a href="https://github.com/chick26/Cards/%f0%9f%90%bb%e2%80%8d%e2%9d%84%ef%b8%8f%20Git%20Dev/Git%20hooks.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/development/git/hooks/">
+          
+            Development git hooks
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#常见-git-hooks">常见 Git Hooks</a>
+      <ol>
+        <li><a href="#客户端-hook">客户端 Hook</a></li>
+        <li><a href="#服务端-hook">服务端 Hook</a></li>
+        <li><a href="#原生的-git-hooks-的缺陷">原生的 Git Hooks 的缺陷</a></li>
+      </ol>
+    </li>
+    <li><a href="#husky-的使用">Husky 的使用</a>
+      <ol>
+        <li><a href="#husky-install">husky install</a></li>
+        <li><a href="#husky-add">husky add</a></li>
+      </ol>
+    </li>
+    <li><a href="#常用的-git-hooks-相关工具库">常用的 git hooks 相关工具库</a>
+      <ol>
+        <li><a href="#lint-staged">lint-staged</a></li>
+        <li><a href="#commitizen">commitizen</a></li>
+        <li><a href="#commitlint">commitlint</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="%E2%80%A2%20TOC%20for%20Git">• TOC for Git</a></p>
+<a href="#常见-git-hooks"><h2 id="常见-git-hooks"><span class="hanchor" ariaLabel="Anchor"># </span>常见 Git Hooks</h2></a>
+<p>git hooks 大体上分为两类:</p>
+<a href="#客户端-hook"><h3 id="客户端-hook"><span class="hanchor" ariaLabel="Anchor"># </span>客户端 Hook</h3></a>
+<ul>
+<li><code>pre-commit</code> hook, 在运行 <code>git commit</code> 命令时且在 commit 完成前被触发</li>
+<li><code>commit-msg</code> hook, 在编辑完 commit-msg 时被触发，并且接受一个参数，这个参数是存放当前 commit-msg 的临时文件的路径</li>
+<li><code>pre-push</code> hook, 在运行 <code>git push</code> 命令时且在 push 命令完成前被触发</li>
+</ul>
+<a href="#服务端-hook"><h3 id="服务端-hook"><span class="hanchor" ariaLabel="Anchor"># </span>服务端 Hook</h3></a>
+<ul>
+<li><code>pre-receive</code> 在服务端接受到推送时且在推送过程完成前被触发</li>
+<li><code>post-receive</code> 在服务端接收到推送且推送完成后被触发</li>
+</ul>
+<blockquote class="callout-collapsible callout-collapsed warning-callout">
+<p> git hooks 配置</p>
+<ul>
+<li>git hooks 详细信息见 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fgit-scm.com%2Fdocs%2Fgithooks" rel="noopener">git 官方文档</a></li>
+<li>在本地 git 仓库中的 <code>.git/hooks</code> 文件夹中也可以看到常用的 git hooks 示例</li>
+</ul>
+</blockquote>
+<p>默认的 git hooks 都是 shell 脚本，只需要将 git hooks 的示例文件的 . sample 扩展名去掉，那么示例文件即可生效。一般来说，在前端工程中应用 git hooks 都是运行 javaScript 脚本，就像这样</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>node your/path/to/script/xxx.js
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或者是这样</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env node
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>// your javascript code ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#原生的-git-hooks-的缺陷"><h3 id="原生的-git-hooks-的缺陷"><span class="hanchor" ariaLabel="Anchor"># </span>原生的 Git Hooks 的缺陷</h3></a>
+<p>原生的 git hooks 有一个比较大的问题是 <code>.git</code> 文件夹下的内容不会被 Git 追踪。这就表示，无法保证让一个仓库中所有的成员都使用同样的 git hooks，除非仓库的所有成员都手动同步同一份 git hooks.</p>
+<a href="#husky-的使用"><h2 id="husky-的使用"><span class="hanchor" ariaLabel="Anchor"># </span>Husky 的使用</h2></a>
+<ol>
+<li>安装 husky</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm install husky --save-dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>husky 初始化</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx husky install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>设置 <code>package. json</code> 的 <code>prepare script</code> 来保证 husky 可以正常运行</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm set-script prepare <span class="s2">&#34;husky install&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>添加 git hooks</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx husky add .husky/<span class="si">${</span><span class="nv">hook_name</span><span class="si">}</span> <span class="si">${</span><span class="nv">command</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#husky-install"><h3 id="husky-install"><span class="hanchor" ariaLabel="Anchor"># </span>husky install</h3></a>
+<ol>
+<li>husky install 会在项目根目录下创建 <code>. husky</code> 以及 <code>. husky/_</code> 文件夹（文件夹路径也可以自定义），然后在 <code>. husky/_</code> 文件夹下创建 <code>husky. sh</code> 脚本文件。这个文件的作用就是保证通过 husky 创建的脚本能够正常运行，它的实际应用的地方后面会讲到。更多关于这个脚本的讨论可以看这里 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Ftypicode%2Fhusky%2Fissues%2F929" rel="noopener">github issue</a>。</li>
+<li>husky install 会运行 <code>git config core.hooksPath ${path/to/hooks_dir}</code>，这个命令用来指定 git hooks 的路径，此时观察项目下 <code>.git/config</code> 文件， [core] 下面会多出一条配置： <code>hooksPath = xxx</code>。当 git hooks 被某些命令触发时，Git 会运行 <code>core.hooksPath</code> 指定的文件夹下的 git hook。</li>
+</ol>
+<blockquote class="note-callout">
+<p> husky 配置
+更多关于 husky 的配置、命令相关文档，看
+<a href="https://link.juejin.cn?target=https%3A%2F%2Ftypicode.github.io%2Fhusky%2F%23%2F" rel="noopener">这里</a></p>
+</blockquote>
+<p><code>core.hooksPath</code> 是 Git v2.9 推出的新特性，而 Husky 也是在 v6 版本开始使用 <code>core.hooksPath</code> 这个特性。在这之前的版本，Husky 会直接覆盖 <code>.git/hooks</code> 文件夹下所有的 hook，来使通过 Husky 配置的 hooks 生效。另外，在配置了 <code>core.hooksPath</code> 后 Git 会忽略 <code>.git/hooks</code> 文件夹下的 git hooks</p>
+<a href="#husky-add"><h3 id="husky-add"><span class="hanchor" ariaLabel="Anchor"># </span>husky add</h3></a>
+<p>当运行如下命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx husky add .husky/pre-commit npx eslint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>. husky 目录下会新增一个 <code>pre-commit</code> 文件，文件内容为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>. <span class="s2">&#34;</span><span class="k">$(</span>dirname -- <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">/_/husky.sh&#34;</span>
+</span></span><span class="line"><span class="cl">npx eslint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时已经成功添加了一个 <code>pre-commit</code> git hook，这个脚本会在运行 git commit 命令时执行。在脚本的第二行，引用了上面所说的 <code>.husky.sh</code> 文件，也就是说通过 husky 创建的 git hook 在被触发时，都会执行这个脚本。</p>
+<p>梳理一下，husky 是如何解决原生的 git hooks 的问题的</p>
+<ul>
+<li>首先前面已经提到了原生 git hooks 主要的问题是 git 无法跟踪 . git/hooks 下的文件，但是这个问题已经被 git core. hooksPath 解决了</li>
+<li>那么新的问题就是，开发者仍然需要手动设置 git core. hooksPath。 husky 在 install 命令中帮助我们设置了 git core. hooksPath，然后在 package. json 的 scripts 中添加 <code>&quot;prepare&quot;: &quot;husky install&quot;</code>，这样每次安装依赖的时候就会执行 <code>husky install</code>，因此就可以保证设置的 git hooks 可以被触发了。</li>
+</ul>
+<a href="#常用的-git-hooks-相关工具库"><h2 id="常用的-git-hooks-相关工具库"><span class="hanchor" ariaLabel="Anchor"># </span>常用的 git hooks 相关工具库</h2></a>
+<a href="#lint-staged"><h3 id="lint-staged"><span class="hanchor" ariaLabel="Anchor"># </span>lint-staged</h3></a>
+<p>在 pre-commit hook 中，一般来说都是对当前要 commit 的文件进行校验、格式化等，因此在脚本中我们需要知道当前在 Git 暂存区的文件有哪些，而 Git 本身也没有向 pre-commit 脚本传递相关参数，<code>lint-staged</code> 这个包为我们解决了这个问题。</p>
+<a href="#lint-staged-的使用"><h4 id="lint-staged-的使用"><span class="hanchor" ariaLabel="Anchor"># </span>lint-staged 的使用</h4></a>
+<ol>
+<li>安装 lint-staged</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm install lint-staged --save-dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>配置 lint-staged 一般情况下，建议 <code>lint-staged</code> 搭配着 <code>Husky</code> 一起使用，当然这不是必须的，只需要保证 <code>lint-staged</code> 会在 pre-commit hook 中被运行就可以了。在搭配 Husky 使用的情况下，可以运行下面的命令，在 pre-commit hook 中运行 <code>lint-staged</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx husky add .husky/pre-commit <span class="s2">&#34;npx lint-staged&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>关于 lint-staged 的配置，在形式上与常见的工具包的配置方式大同小异，可以通过在 package. json 中添加一个 <code>lint-staged</code> 项、也可以在根目录添加一个 <code>.lintstagedrc.json</code> 文件等，下面以在 package. json 中配置为例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;lint-staged&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;glob pattern&#34;</span><span class="p">:</span> <span class="s2">&#34;your-cmd&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置项中的 key 为 glob 模式匹配语句，值为要运行的命令（可以配置命令），例如想要为暂存区中 src 文件夹下所有的 . ts 和 . tsx 文件运行 eslint 检查以及 ts 类型检查，那么配置如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;lint-staged&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;src/**/*.{ts,tsx}&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;eslint&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;tsc&#34;</span>  
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#暂存区文件"><h4 id="暂存区文件"><span class="hanchor" ariaLabel="Anchor"># </span>暂存区文件</h4></a>
+<p>lint-staged 在内部运行了 <code>git diff --staged --diff-filter=ACMR --name-only -z</code> 命令，这个命令会返回暂存区的文件信息，类似如下所示的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">execSync</span> <span class="p">}</span> <span class="o">=</span> <span class="kr">require</span><span class="p">(</span><span class="s1">&#39;child_process&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">execSync</span><span class="p">(</span><span class="s1">&#39;git diff --staged --diff-filter=ACMR --name-only -z&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">stagedFiles</span> <span class="o">=</span> <span class="nx">lines</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\u0000$/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\u0000&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#commitizen"><h3 id="commitizen"><span class="hanchor" ariaLabel="Anchor"># </span>commitizen</h3></a>
+<p>在使用 Git 过程中，不可避免的需要填写 commit message，这其实是一件相当令人头疼的事情。如果没有良好的 commit message 规范，那么在查看历史 commit 的时候只会一脸懵 。而 <code>commitizen</code> 可以协助开发者填写 commit 信息</p>
+<a href="#commitizen-的使用"><h4 id="commitizen-的使用"><span class="hanchor" ariaLabel="Anchor"># </span>commitizen 的使用</h4></a>
+<ol>
+<li>安装 commitizen</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm install commitizen -D
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>初始化 commitizen</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx commitizen init cz-conventional-changelog --save-dev --save-exact --pnpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#commitizen-init"><h4 id="commitizen-init"><span class="hanchor" ariaLabel="Anchor"># </span>commitizen init</h4></a>
+<ol>
+<li>安装 <code>cz-conventional-changelog</code> 适配器 npm 模块</li>
+<li>将其保存到 <code>package. json</code> 的 devDependencies 中</li>
+<li><code>config. commitizen</code> 配置添加到 <code>package. json</code> 中如下所示：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;config&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;commitizen&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;./node_modules/cz-conventional-changelog&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>commitizen 本身只提供命令行交互框架以及一些 git 命令的执行，实际的规则则需要通过适配器来定义，commitizen 留有对应的适配器接口。而 <code>cz-conventional-changelog</code> 就是一个 commitizen 适配器。</p>
+<p>这个适配器生成的 commit message 模板如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&lt;type&gt;<span class="o">(</span>&lt;scope&gt;<span class="o">)</span>: &lt;subject&gt;
+</span></span><span class="line"><span class="cl">&lt;空行&gt;
+</span></span><span class="line"><span class="cl">&lt;body&gt;
+</span></span><span class="line"><span class="cl">&lt;空行&gt;
+</span></span><span class="line"><span class="cl">&lt;footer&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这也是最常见的提交约定，当然也可以安装其他适配器，或者自定义适配器来定制自己想要的 commit message 模板。当运行 <code>npx cz</code>， commitizen 在通过适配器模板以及用户的输入拿到最终的 commit message 后，会在内部运行 <code>git commit -m &quot;XXX&quot;</code> 命令，到此为止，就完成了一次 git commit 操作</p>
+<blockquote class="note-callout">
+<p> commitizen 详细信息
+更多关于 commitizen 的详细等信息可以看 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fcommitizen%2Fcz-cli" rel="noopener">github</a> 和 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fcz-git.qbenben.com%2Fzh%2Fguide%2Fgetting-started.html" rel="noopener">cz-git</a></p>
+</blockquote>
+<a href="#自定义-commitizen-适配器"><h4 id="自定义-commitizen-适配器"><span class="hanchor" ariaLabel="Anchor"># </span>自定义 commitizen 适配器</h4></a>
+<p>使用 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fcz-customizable" rel="noopener">cz-customizable</a> 工具包可以自定义适配器。在没有这个工具包的情况下，如果想要自定义一个 commitizen 适配器，那么你还需要掌握 <code>inquirer</code> 的 API，commitizen 只会为适配器传递一个 inquirer 对象，适配器的规则需要通过这个 inquirer 对象来创建规则，这是在不太易用，而 <code>cz-customizable</code> 可以让我我们只专注于规则而不用去考虑 inquirer 的 API。</p>
+<ol>
+<li><code>commitizen</code> 配置</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;config&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;commitizen&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;./node_modules/cz-customizable&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li><code>cz-customizable</code> 配置，在根目录新增一个 <code>.cz-config.js</code> 文件，配置示例如下</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">types</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;feat&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;feat: A new feature&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;fix&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;fix: A bug fix&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">],</span>
+</span></span><span class="line"><span class="cl">	 <span class="nx">scopes</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;accounts&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">],</span>
+</span></span><span class="line"><span class="cl">	 <span class="nx">allowTicketNumber</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	 <span class="nx">messages</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		 <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;Select the type of change that you&#39;re committing:&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		 <span class="nx">scope</span><span class="o">:</span> <span class="s1">&#39;\nDenote the SCOPE of this change (optional):&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		 <span class="nx">customScope</span><span class="o">:</span> <span class="s1">&#39;Denote the SCOPE of this change:&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">	 <span class="nx">subjectLimit</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote class="[! note]-callout">
+<p>[! NOTE]  <code>cz-customizable</code> 配置
+关于 <code>cz-customizable</code> 更详细的 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fleoforfree%2Fcz-customizable%2Fblob%2Fmaster%2Fcz-config-EXAMPLE.js" rel="noopener">示例</a> 和 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fleoforfree%2Fcz-customizable" rel="noopener">配置</a></p>
+</blockquote>
+<a href="#使用-git-cz-命令运行-commitizen"><h4 id="使用-git-cz-命令运行-commitizen"><span class="hanchor" ariaLabel="Anchor"># </span>使用 git cz 命令运行 commitizen</h4></a>
+<p>在全局 PATH 配置正确的情况下，也可以直接使用 <code>git cz</code> 命令去运行 commitizen。如果在项目中安装了 commitizen, 那么在项目下的 <code>node_modules/. bin</code> 目录下将会看到两个脚本: <code>cz</code> 和 `
+这两个脚本的内容是一模一样的，官方的文档中会推荐在 package. json 的 scripts 中添加如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">commit: <span class="s2">&#34;cz&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样就可以使用 <code>npm run commit</code> 来运行 commitizen 了。但是如果想要使用 <code>git cz</code> 命令运行 commitizen，那么则要求 <code>git-cz</code> 文件所在的目录在全局的 PATH 下，运行以下命令来查看 PATH</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$PATH</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>PATH 以冒号分隔，检查一下所有的 PATH 中是否有一条能匹配到你的 cz 脚本，一般来说都是有的，如果没有，那么你可以在你的 <code>~/.zshrc</code> 或者 <code>~/.bash_profile</code> 中加上一条：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:./node_modules/.bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后重新加载一下配置文件，运行 <code>source ~/.zshrc</code> 或者 <code>source ~/.bash_profile</code>，这样在你项目根目录下就可以直接使用 <code>git cz</code> 命令了。如果你是用 <strong>npm</strong> 全局安装的 commitizen，那么你大概率不需要担心 PATH 的问题，因为 npm 的依赖安装路径下的 bin 文件夹会被 node 或者 NVM 自动加入到 PATH 中。</p>
+<p>回到刚刚所说的 node_modules/. bin 文件夹下的 <code>git-cz</code> 脚本，实际上它是 <code>git cz</code> 命令可以运行的关键。不知道你是否疑惑，为什么使用 Git 可以去运行一个 npm 库，实际上，这是 git 自定义命令。想要添加一个 git 自定义命令有如下几个要求：</p>
+<ol>
+<li>是一个可执行文件</li>
+<li>文件名必须是 <code>git-XXX</code></li>
+<li>这个文件所在路径必须在你的 PATH 下</li>
+</ol>
+<p>所以前文中，提到想要运行 <code>git cz</code> 命令，需要全局 PATH 配置正确。</p>
+<a href="#commitlint"><h3 id="commitlint"><span class="hanchor" ariaLabel="Anchor"># </span>commitlint</h3></a>
+<p>commitlint 这个工具库，可以通过配置一些规则来校验 commit message 是否规范。那么我们已经有了 commitizen 为什么还需要 commitlint 呢？上文中说到，commitizen 的作用是协助开发者填写 commit message，虽然可以通过选择不同的适配器或者自定义适配器来制定对应的 commit 信息规范以及模板，但是缺少了对 commit message 的校验功能，开发者仍然可能在无意中使用原生的 <code>git commit</code> 命令来提交，而 commitlint 在 <code>commit-msg</code> 这个 git hook 中对 commit message 进行校验，正好解决了这个问题。</p>
+<a href="#commitlint-的使用"><h4 id="commitlint-的使用"><span class="hanchor" ariaLabel="Anchor"># </span>commitlint 的使用</h4></a>
+<ol>
+<li>安装</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm install --save-dev @commitlint/config-conventional @commitlint/cli
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>使用 husky 添加 commit-msg hook</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx husky add .husky/commit-msg <span class="s2">&#34;npx --no -- commitlint --edit </span><span class="nv">$1</span><span class="s2">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>commitlint 配置在项目根目录增加一个 <code>commitlint.config.js</code> 文件, 文件内容如下：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">extends</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;@commitlint/config-conventional&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 自定义部分规则
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">rules</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;scope-case&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;always&#39;</span><span class="p">,</span> <span class="s1">&#39;camel-case&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;scope-empty&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;never&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;scope-enum&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;always&#39;</span><span class="p">,</span> <span class="p">[...]],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>commitlint 与 commitizen 一样，分为两部分，一部分是执行的主程序，另一部分是规则或者说是适配器。 <code>@commitlint/cli</code> 是执行的主程序，<code>@commitlint/config-conventional</code> 则是规则。commitlint 和 commitizen 分别采用了策略模式和适配器模式，因此有非常高的可用性和良好的扩展性。</p>
+<p>在 commitlint 的配置文件中，可以先引用一个 commitlint 规则包，然后在定义部分自己想要的规则，就像 eslint 的配置一样。</p>
+<p>需要注意的是，在将 commitlint 添加到 commit-msg hooks 中时，执行 commitlint 的 shell 命令中 <code>--edit $1</code> 参数是必须的，这个参数的意思是：存储 commit message 的临时文件路径是 <code>$1</code>, 而 <code>$1</code> 则是 Git 传给 commit-msg hook 的参数，它的值是 commit message 的临时存储文件的路径，默认情况下是 <code>.git/COMMIT_EDITMSG</code>。如果不传这个参数，那么 commitlint 将无法得知当前的 commit message 是什么。</p>
+<p>更多 commitlint 的相关详情看
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fcommitlint.js.org%2F%23%2F" rel="noopener">这里</a></p>
+<a href="#commitlint-与-commitizen-的配置共用"><h4 id="commitlint-与-commitizen-的配置共用"><span class="hanchor" ariaLabel="Anchor"># </span>commitlint 与 commitizen 的配置共用</h4></a>
+<p>前文中说到 commitlint 解决了 commitizen 没有对 commit message 做校验的问题，但是使用了 commitlint 后，新的问题出现了，如果 commitlint 的规则集与 commitizen 的适配器中的规则不一致，那么可能会导致使用 commitizen 生成的 commit message 被 commitlint 校验时不通过从而 git commit 失败。解决这个问题的办法有两种：</p>
+<ol>
+<li>将 commitizen 的适配器规则翻译为 commitlint 规则集，已有的对应工具包为 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fcommitlint-config-cz" rel="noopener">commitlint-config-cz</a>，这个包需要你所使用的 commitizen 适配器为 <code>cz-customizable</code>，也就是自定义适配器。</li>
+<li>将 commitlint 规则集转化为 commitizen 的适配器，已有对应的工具包为 
+<a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40commitlint%2Fcz-commitlint" rel="noopener">@commitlint/cz-commitlint</a></li>
+</ol>
+<p>这里以第二种选用 <code>@commitlint/cz-commitlint</code> 为例：</p>
+<ol>
+<li>安装 @commitlint/cz-commitlint</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm install --save-dev @commitlint/cz-commitlint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>修改 packages. json 中 commitizen 的配置</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;config&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;commitizen&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;./node_modules/@commitlint/cz-commitlint&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://github.com/chick26">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

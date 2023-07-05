@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development/AI/NLP/GPT on </title>
+    <link>chick26.github.io/tags/development/ai/nlp/gpt/</link>
+    <description>Recent content in Development/AI/NLP/GPT on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/development/ai/nlp/gpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prompt</title>
+      <link>chick26.github.io/cards/-gpt/prompt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-gpt/prompt/</guid>
+      <description>up:: [ • TOC for GPT
+如何编写清晰简洁的 Prompt  [!Hint] Prompt
+ 定义对话的目的和焦点 明确对话的目的和重点是什么，制作具有吸引力和信息性的提示 使用特定和相关的语言 使用特定、与主题相关的语言, 避免使用含糊不清的语言或行话 避免开放式或过于宽泛的提示 尽可能具体和明确地定义对话的目的和重点 保持对话正常进行 确保对话涵盖主题并提供有用的信息，避免引入不相关的话题 对话式不断深入 逐步提出更具体和深入的问题，以获得更准确和全面的回答   ICIO 模型  Instruction (必须) : 指令, 即我们模型执行的具体任务。 Context (选填) : 背景信息, 或者说是上下文信息, 这可以引导模型做出更好的反应。 Input Data (选填) : 输入数据, 告知模型需要处理的数据。 Output Indicator (选填) : 输出指示器, 告知模型我们要输出的类型或格式。  CRISPE 模型  CR: Capacity and Role (能力与角色) 。我们希望 ChatGPT 扮演怎样的角色。 I: Insight (洞察力) , 背景信息和上下文 (告知 ChatGPT 应该具备什么样的上下文) 。 S: Statement (指令) , 我们希望 ChatGPT 做什么。 P: Personality (个性) , 我们希望 ChatGPT 以什么风格或方式回答你。 E: Experiment (尝试) ，要求 ChatGPT 为我们提供多个答案     Step Example     Capacity And Role Act as a n expert on software development on the topic Of machine Learning frameworks, and an expert blog writer.</description>
+    </item>
+    
+    <item>
+      <title>Prompt</title>
+      <link>chick26.github.io/cards/-gpt/prompt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-gpt/prompt/</guid>
+      <description>up:: [ • TOC for GPT
+如何编写清晰简洁的 Prompt  [!Hint] Prompt
+ 定义对话的目的和焦点 明确对话的目的和重点是什么，制作具有吸引力和信息性的提示 使用特定和相关的语言 使用特定、与主题相关的语言, 避免使用含糊不清的语言或行话 避免开放式或过于宽泛的提示 尽可能具体和明确地定义对话的目的和重点 保持对话正常进行 确保对话涵盖主题并提供有用的信息，避免引入不相关的话题 对话式不断深入 逐步提出更具体和深入的问题，以获得更准确和全面的回答   ICIO 模型  Instruction (必须) : 指令, 即我们模型执行的具体任务。 Context (选填) : 背景信息, 或者说是上下文信息, 这可以引导模型做出更好的反应。 Input Data (选填) : 输入数据, 告知模型需要处理的数据。 Output Indicator (选填) : 输出指示器, 告知模型我们要输出的类型或格式。  CRISPE 模型  CR: Capacity and Role (能力与角色) 。我们希望 ChatGPT 扮演怎样的角色。 I: Insight (洞察力) , 背景信息和上下文 (告知 ChatGPT 应该具备什么样的上下文) 。 S: Statement (指令) , 我们希望 ChatGPT 做什么。 P: Personality (个性) , 我们希望 ChatGPT 以什么风格或方式回答你。 E: Experiment (尝试) ，要求 ChatGPT 为我们提供多个答案     Step Example     Capacity And Role Act as a n expert on software development on the topic Of machine Learning frameworks, and an expert blog writer.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Markdown
+Mermaid Markdown 概述 什么是 Mermaid？  Mermaid 是一种基于 Javascript 的绘图工具，使用类似于 Markdown 的语法，使用户可以方便快捷地通过代码创建图表。 项目地址： https://github.com/mermaid-js/mermaid（需要将梯子设置成全局模式才能访问） 在线渲染器： Online FlowChart &amp; Diagrams Editor（需要梯子）  怎么使用 Mermaid？  使用特定的 Mermaid 渲染器； 使用集成了 Mermaid 渲染功能的 Markdown 编辑器，如 Typora。**使用时，需要将代码块的语言选择为 Mermaid  Mermaid 能绘制哪些图？  饼状图：使用pie关键字，具体用法后文将详细介绍 流程图：使用graph关键字，具体用法后文将详细介绍 序列图：使用sequenceDiagram关键字 类图：使用classDiagram关键字 状态图：使用stateDiagram关键字 用户旅程图：使用journey关键字  实例  朱元璋家谱简图，圆圈代表皇帝。  1 2 3 4 5 6 7 8  graph LR emperor((朱八八))-."
+  />
+  <meta property="og:title" content="Mermaid">
+  <meta property="og:description" content="up:: [ • TOC for Markdown
+Mermaid Markdown 概述 什么是 Mermaid？  Mermaid 是一种基于 Javascript 的绘图工具，使用类似于 Markdown 的语法，使用户可以方便快捷地通过代码创建图表。 项目地址： https://github.com/mermaid-js/mermaid（需要将梯子设置成全局模式才能访问） 在线渲染器： Online FlowChart &amp; Diagrams Editor（需要梯子）  怎么使用 Mermaid？  使用特定的 Mermaid 渲染器； 使用集成了 Mermaid 渲染功能的 Markdown 编辑器，如 Typora。**使用时，需要将代码块的语言选择为 Mermaid  Mermaid 能绘制哪些图？  饼状图：使用pie关键字，具体用法后文将详细介绍 流程图：使用graph关键字，具体用法后文将详细介绍 序列图：使用sequenceDiagram关键字 类图：使用classDiagram关键字 状态图：使用stateDiagram关键字 用户旅程图：使用journey关键字  实例  朱元璋家谱简图，圆圈代表皇帝。  1 2 3 4 5 6 7 8  graph LR emperor((朱八八))-.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/cards/-markdown/mermaid/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mermaid" />
+  <meta name="twitter:description" content="up:: [ • TOC for Markdown
+Mermaid Markdown 概述 什么是 Mermaid？  Mermaid 是一种基于 Javascript 的绘图工具，使用类似于 Markdown 的语法，使用户可以方便快捷地通过代码创建图表。 项目地址： https://github.com/mermaid-js/mermaid（需要将梯子设置成全局模式才能访问） 在线渲染器： Online FlowChart &amp; Diagrams Editor（需要梯子）  怎么使用 Mermaid？  使用特定的 Mermaid 渲染器； 使用集成了 Mermaid 渲染功能的 Markdown 编辑器，如 Typora。**使用时，需要将代码块的语言选择为 Mermaid  Mermaid 能绘制哪些图？  饼状图：使用pie关键字，具体用法后文将详细介绍 流程图：使用graph关键字，具体用法后文将详细介绍 序列图：使用sequenceDiagram关键字 类图：使用classDiagram关键字 状态图：使用stateDiagram关键字 用户旅程图：使用journey关键字  实例  朱元璋家谱简图，圆圈代表皇帝。  1 2 3 4 5 6 7 8  graph LR emperor((朱八八))-." />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+  
+
+  <title>
+    Mermaid
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+    <script type="module">
+      import mermaid from 'https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">Chick&#39;s Second Brain</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>Mermaid</h1>
+      <p class="meta">
+        Last updated 
+Unknown
+
+ 
+          
+<a href="https://github.com/chick26/Cards/%f0%9f%8e%b0%20Markdown/Mermaid.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/development/markdown/mermaid/">
+          
+            Development markdown mermaid
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#概述">概述</a>
+      <ol>
+        <li><a href="#什么是-mermaid">什么是 Mermaid？</a></li>
+        <li><a href="#怎么使用-mermaid">怎么使用 Mermaid？</a></li>
+        <li><a href="#mermaid-能绘制哪些图">Mermaid 能绘制哪些图？</a></li>
+        <li><a href="#实例">实例</a></li>
+      </ol>
+    </li>
+    <li><a href="#饼状图">饼状图</a>
+      <ol>
+        <li><a href="#语法仅供参考建议直接看实例">语法——仅供参考，建议直接看实例</a></li>
+        <li><a href="#实例-1">实例</a></li>
+      </ol>
+    </li>
+    <li><a href="#流程图">流程图</a>
+      <ol>
+        <li><a href="#实例-2">实例</a></li>
+        <li><a href="#方向">方向</a></li>
+        <li><a href="#结点">结点</a></li>
+        <li><a href="#连线样式">连线样式</a></li>
+        <li><a href="#连线形式">连线形式</a></li>
+        <li><a href="#其他">其他</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="%E2%80%A2%20TOC%20for%20Markdown">• TOC for Markdown</a></p>
+<a href="#mermaid-markdown"><h1 id="mermaid-markdown"><span class="hanchor" ariaLabel="Anchor"># </span>Mermaid Markdown</h1></a>
+<a href="#概述"><h2 id="概述"><span class="hanchor" ariaLabel="Anchor"># </span>概述</h2></a>
+<a href="#什么是-mermaid"><h3 id="什么是-mermaid"><span class="hanchor" ariaLabel="Anchor"># </span>什么是 Mermaid？</h3></a>
+<ul>
+<li>Mermaid 是一种基于 Javascript 的绘图工具，使用类似于 Markdown 的语法，使用户可以方便快捷地通过代码创建图表。</li>
+<li>项目地址：
+<a href="https://link.zhihu.com/?target=https%3A//github.com/mermaid-js/mermaid" rel="noopener">https://github.com/mermaid-js/mermaid</a>（需要将梯子设置成全局模式才能访问）</li>
+<li>在线渲染器：
+<a href="https://link.zhihu.com/?target=https%3A//mermaidjs.github.io/mermaid-live-editor/%23/edit/eyJjb2RlIjoicGllXG5cIkRvZ3NcIiA6IDQyLjk2XG5cIkNhdHNcIiA6IDUwLjA1XG5cIlJhdHNcIiA6IDEwLjAxIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifX0" rel="noopener">Online FlowChart &amp; Diagrams Editor</a>（需要梯子）</li>
+</ul>
+<a href="#怎么使用-mermaid"><h3 id="怎么使用-mermaid"><span class="hanchor" ariaLabel="Anchor"># </span>怎么使用 Mermaid？</h3></a>
+<ul>
+<li>使用特定的 Mermaid 渲染器；</li>
+<li>使用集成了 Mermaid 渲染功能的 Markdown 编辑器，如 
+<a href="https://link.zhihu.com/?target=https%3A//www.typora.io/" rel="noopener">Typora</a>。**使用时，需要将代码块的语言选择为 Mermaid</li>
+</ul>
+<a href="#mermaid-能绘制哪些图"><h3 id="mermaid-能绘制哪些图"><span class="hanchor" ariaLabel="Anchor"># </span>Mermaid 能绘制哪些图？</h3></a>
+<ul>
+<li>饼状图：使用<code>pie</code>关键字，具体用法后文将详细介绍</li>
+<li>流程图：使用<code>graph</code>关键字，具体用法后文将详细介绍</li>
+<li>序列图：使用<code>sequenceDiagram</code>关键字</li>
+<li>类图：使用<code>classDiagram</code>关键字</li>
+<li>状态图：使用<code>stateDiagram</code>关键字</li>
+<li>用户旅程图：使用<code>journey</code>关键字</li>
+</ul>
+<a href="#实例"><h3 id="实例"><span class="hanchor" ariaLabel="Anchor"># </span>实例</h3></a>
+<ul>
+<li>朱元璋家谱简图，圆圈代表皇帝。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR  
+</span></span><span class="line"><span class="cl">	emperor((朱八八))-.子.-&gt;朱五四-.子.-&gt;朱四九-.子.-&gt;朱百六  
+</span></span><span class="line"><span class="cl">	朱雄英--长子--&gt;朱标--长子--&gt;emperor  
+</span></span><span class="line"><span class="cl">	emperor2((朱允炆))--次子--&gt;朱标  
+</span></span><span class="line"><span class="cl">	朱樉--次子--&gt;emperor  
+</span></span><span class="line"><span class="cl">	朱棡--三子--&gt;emperor  
+</span></span><span class="line"><span class="cl">	emperor3((朱棣))--四子--&gt;emperor  
+</span></span><span class="line"><span class="cl">	emperor4((朱高炽))--长子--&gt;emperor3 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid"> graph LR  
+	emperor((朱八八))-.子.->朱五四-.子.->朱四九-.子.->朱百六  
+	朱雄英--长子-->朱标--长子-->emperor  
+	emperor2((朱允炆))--次子-->朱标  
+	朱樉--次子-->emperor  
+	朱棡--三子-->emperor  
+	emperor3((朱棣))--四子-->emperor  
+	emperor4((朱高炽))--长子-->emperor3 
+</div>
+
+<a href="#饼状图"><h2 id="饼状图"><span class="hanchor" ariaLabel="Anchor"># </span>饼状图</h2></a>
+<a href="#语法仅供参考建议直接看实例"><h3 id="语法仅供参考建议直接看实例"><span class="hanchor" ariaLabel="Anchor"># </span>语法——仅供参考，建议直接看实例</h3></a>
+<ul>
+<li>从<code>pie</code>关键字开始图表</li>
+<li>然后使用<code>title</code>关键字及其在字符串中的值，为饼图赋予标题。（这是<strong>可选的</strong>）</li>
+<li>数据部分</li>
+<li>在<code>&quot; &quot;</code>内写上分区名。</li>
+<li>分区名后使用<code>:</code>作为分隔符</li>
+<li>分隔符后写上数值，最多支持 2 位小数——数据会以百分比的形式展示</li>
+</ul>
+<a href="#实例-1"><h3 id="实例-1"><span class="hanchor" ariaLabel="Anchor"># </span>实例</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pie
+</span></span><span class="line"><span class="cl">	title 为什么总是宅在家里？
+</span></span><span class="line"><span class="cl">	&#34;喜欢宅&#34;:15
+</span></span><span class="line"><span class="cl">	&#34;天气太热或太冷&#34;:20
+</span></span><span class="line"><span class="cl">	&#34;穷&#34;:50
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">pie
+	title 为什么总是宅在家里？
+	"喜欢宅":15
+	"天气太热或太冷":20
+	"穷":50
+</div>
+
+<a href="#流程图"><h2 id="流程图"><span class="hanchor" ariaLabel="Anchor"># </span>流程图</h2></a>
+<a href="#实例-2"><h3 id="实例-2"><span class="hanchor" ariaLabel="Anchor"># </span>实例</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR  
+</span></span><span class="line"><span class="cl"> A[Start] --&gt; B{Is it?};  
+</span></span><span class="line"><span class="cl"> B -- Yes --&gt; C[OK];  
+</span></span><span class="line"><span class="cl"> C --&gt; D[Rethink];  
+</span></span><span class="line"><span class="cl"> D --&gt; B;  
+</span></span><span class="line"><span class="cl"> B -- No ----&gt; E[End];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph LR  
+ A[Start] --> B{Is it?};  
+ B -- Yes --> C[OK];  
+ C --> D[Rethink];  
+ D --> B;  
+ B -- No ----> E[End];
+</div>
+
+<a href="#方向"><h3 id="方向"><span class="hanchor" ariaLabel="Anchor"># </span>方向</h3></a>
+<p>用于开头，声明流程图的方向。</p>
+<ul>
+<li><code>graph</code>或<code>graph TB</code>或<code>graph TD</code>：从上往下</li>
+<li><code>graph BT</code>：从下往上</li>
+<li><code>graph LR</code>：从左往右</li>
+<li><code>graph RL</code>：从右往左</li>
+</ul>
+<a href="#结点"><h3 id="结点"><span class="hanchor" ariaLabel="Anchor"># </span>结点</h3></a>
+<ul>
+<li>无名字的结点：直接写内容，此时结点边框为方形；节点内容不支持空格</li>
+<li>有名字的结点：节点名后书写内容，内容左右有特定符号，结点边框由符号决定；节点内容可以有空格</li>
+</ul>
+<blockquote>
+<p>下面的实例中，没有为 graph 指定方向，因此默认是从上往下的。但是由于各个结点之前没有箭头，所以他们都处于同一排。id1-id6 是节点名，可随意定义。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph  
+</span></span><span class="line"><span class="cl"> 默认方形
+</span></span><span class="line"><span class="cl"> id1[方形]  
+</span></span><span class="line"><span class="cl"> id2(圆边矩形)  
+</span></span><span class="line"><span class="cl"> id3([体育场形])  
+</span></span><span class="line"><span class="cl"> id4[[子程序形]]  
+</span></span><span class="line"><span class="cl"> id5[(圆柱形)]  
+</span></span><span class="line"><span class="cl"> id6((圆形))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph  
+ 默认方形  
+ id1[方形]  
+ id2(圆边矩形)  
+ id3([体育场形])  
+ id4[[子程序形]]  
+ id5[(圆柱形)]  
+ id6((圆形))  
+</div>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl"> id1{菱形}
+</span></span><span class="line"><span class="cl"> id2{{六角形}}
+</span></span><span class="line"><span class="cl"> id3[/平行四边形/]
+</span></span><span class="line"><span class="cl"> id4[\反向平行四边形\]
+</span></span><span class="line"><span class="cl"> id5[/梯形\]
+</span></span><span class="line"><span class="cl"> id6[\反向梯形/]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph
+ id1{菱形}
+ id2{{六角形}}
+ id3[/平行四边形/]
+ id4[\反向平行四边形\]
+ id5[/梯形\]
+ id6[\反向梯形/]
+</div>
+
+<a href="#连线样式"><h3 id="连线样式"><span class="hanchor" ariaLabel="Anchor"># </span>连线样式</h3></a>
+<a href="#实线箭头"><h4 id="实线箭头"><span class="hanchor" ariaLabel="Anchor"># </span>实线箭头</h4></a>
+<blockquote>
+<p>分为无文本箭头和有文本箭头，有文本箭头有 2 种书写格式</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR  
+</span></span><span class="line"><span class="cl">a--&gt;b--文本1--&gt;c--&gt;|文本2|d  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph LR  
+a-->b--文本1-->c-->|文本2|d  
+</div>
+
+<a href="#粗实线箭头"><h4 id="粗实线箭头"><span class="hanchor" ariaLabel="Anchor"># </span>粗实线箭头</h4></a>
+<blockquote>
+<p>分为无文本箭头和有文本箭头</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">a<mark>&gt;b</mark>文本==&gt;c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph LR  
+a<mark>>b</mark>文本==>c  
+</div>
+
+<a href="#虚线箭头"><h4 id="虚线箭头"><span class="hanchor" ariaLabel="Anchor"># </span>虚线箭头</h4></a>
+<blockquote>
+<p>分为无文本箭头和有文本箭头</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
+</span></span><span class="line"><span class="cl">a-.-&gt;b-.文本.-&gt;c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph LR  
+a-.->b-.文本.->c  
+</div>
+
+<a href="#无箭头线"><h4 id="无箭头线"><span class="hanchor" ariaLabel="Anchor"># </span>无箭头线</h4></a>
+<blockquote>
+<p>即以上三种连线去掉箭头后的形式</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR  
+</span></span><span class="line"><span class="cl">a---b  
+</span></span><span class="line"><span class="cl">b--文本1!---c  
+</span></span><span class="line"><span class="cl">c---|文本2|d  
+</span></span><span class="line"><span class="cl">d===e  
+</span></span><span class="line"><span class="cl">e<mark>文本3</mark>=f  
+</span></span><span class="line"><span class="cl">f-.-g  
+</span></span><span class="line"><span class="cl">g-.文本.-h
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph LR  
+a---b  
+b--文本1!---c  
+c---|文本2|d  
+d===e  
+e<mark>文本3</mark>=f  
+f-.-g  
+g-.文本.-h  
+</div>
+
+<a href="#其他连线"><h4 id="其他连线"><span class="hanchor" ariaLabel="Anchor"># </span>其他连线</h4></a>
+<blockquote>
+<p>需要将 <code>graph</code> 关键字改为 <code>flowchart</code>，除了新增加的连线形式外，上面三种线的渲染效果也会不同</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR  
+</span></span><span class="line"><span class="cl"> A o--o B 
+</span></span><span class="line"><span class="cl"> B &lt;--&gt; C
+</span></span><span class="line"><span class="cl"> C x--x D
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">flowchart LR  
+ A o--o B  
+ B <--> C  
+ C x--x D  
+</div>
+
+<a href="#延长连线"><h4 id="延长连线"><span class="hanchor" ariaLabel="Anchor"># </span>延长连线</h4></a>
+<blockquote>
+<p>增加相应字符即可，如下图中的 B 到 E，连线中增加了一个<code>-</code>。字符可多次添加。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR  
+</span></span><span class="line"><span class="cl"> A[Start] --&gt; B{Is it?};  
+</span></span><span class="line"><span class="cl"> B --&gt;|Yes| C[OK];  
+</span></span><span class="line"><span class="cl"> C --&gt; D[Rethink];  
+</span></span><span class="line"><span class="cl"> D --&gt; B;  
+</span></span><span class="line"><span class="cl"> B ---&gt;|No| E[End]; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph LR  
+ A[Start] --> B{Is it?};  
+ B -->|Yes| C[OK];  
+ C --> D[Rethink];  
+ D --> B;  
+ B --->|No| E[End]; 
+</div>
+
+<a href="#连线形式"><h3 id="连线形式"><span class="hanchor" ariaLabel="Anchor"># </span>连线形式</h3></a>
+<a href="#直链"><h4 id="直链"><span class="hanchor" ariaLabel="Anchor"># </span>直链</h4></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR  
+</span></span><span class="line"><span class="cl">A -- text --&gt; B -- text2 --&gt; C  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph LR  
+A -- text --> B -- text2 --> C  
+</div>
+
+<a href="#多重链"><h4 id="多重链"><span class="hanchor" ariaLabel="Anchor"># </span>多重链</h4></a>
+<blockquote>
+<p>可以使用<code>&amp;</code>字符，或单个描述</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph
+</span></span><span class="line"><span class="cl"> a --&gt; b &amp; c--&gt; d
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl"> A &amp; B--&gt; C &amp; D
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl"> X --&gt; M
+</span></span><span class="line"><span class="cl"> X --&gt; N
+</span></span><span class="line"><span class="cl"> Y --&gt; M
+</span></span><span class="line"><span class="cl"> Y --&gt; N
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph   
+ a --> b & c--> d  
+   
+ A & B--> C & D  
+   
+ X --> M  
+ X --> N  
+ Y --> M  
+ Y --> N  
+</div>
+
+<a href="#其他"><h3 id="其他"><span class="hanchor" ariaLabel="Anchor"># </span>其他</h3></a>
+<a href="#子图"><h4 id="子图"><span class="hanchor" ariaLabel="Anchor"># </span>子图</h4></a>
+<blockquote>
+<p>需要将<code>graph</code>关键字改为<code>flowchart</code>，在代码段的开始加入<code>subgraph</code>，尾部加入<code>end</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart TB  
+</span></span><span class="line"><span class="cl"> c1--&gt;a2  
+</span></span><span class="line"><span class="cl"> subgraph one  
+</span></span><span class="line"><span class="cl"> a1--&gt;a2  
+</span></span><span class="line"><span class="cl"> end  
+</span></span><span class="line"><span class="cl"> subgraph two  
+</span></span><span class="line"><span class="cl"> b1--&gt;b2  
+</span></span><span class="line"><span class="cl"> end  
+</span></span><span class="line"><span class="cl"> subgraph three  
+</span></span><span class="line"><span class="cl"> c1--&gt;c2  
+</span></span><span class="line"><span class="cl"> end  
+</span></span><span class="line"><span class="cl"> one --&gt; two  
+</span></span><span class="line"><span class="cl"> three --&gt; two  
+</span></span><span class="line"><span class="cl"> two --&gt; c2  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">flowchart TB  
+ c1-->a2  
+ subgraph one  
+ a1-->a2  
+ end  
+ subgraph two  
+ b1-->b2  
+ end  
+ subgraph three  
+ c1-->c2  
+ end  
+ one --> two  
+ three --> two  
+ two --> c2  
+</div>
+
+<a href="#注释"><h4 id="注释"><span class="hanchor" ariaLabel="Anchor"># </span>注释</h4></a>
+<blockquote>
+<p>在行首加入<code>%%</code>即可。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR  
+</span></span><span class="line"><span class="cl">%%这是一条注释，在渲染图中不可见  
+</span></span><span class="line"><span class="cl"> A[Hard edge] --&gt;|Link text| B(Round edge)  
+</span></span><span class="line"><span class="cl"> B --&gt; C{Decision}  
+</span></span><span class="line"><span class="cl"> C --&gt;|One| D[Result one]  
+</span></span><span class="line"><span class="cl"> C --&gt;|Two| E[Result two]  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="mermaid">graph LR  
+%%这是一条注释，在渲染图中不可见  
+ A[Hard edge] -->|Link text| B(Round edge)  
+ B --> C{Decision}  
+ C -->|One| D[Result one]  
+ C -->|Two| E[Result two]  
+</div>
+
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://github.com/chick26">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

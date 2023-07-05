@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Frontend
+Apranet 阿帕网  高级研究计划局网络（英语：Advanced Research Projects Agency Network），通称阿帕网（英语：ARPANET）是美国国防高级研究计划局开发的世界上第一个运营的数据包交换网络，是全球互联网的鼻祖。
+ 历史房展 ARPA网无法做到和个别计算机网络交流，这引发了研究者的思考。根据诺顿的看法，他的设计需要太多的控制和太多的网络中机器设备的标准化。因此，1973年春， 文顿·瑟夫和 鲍勃·康（Bob Kahn）开始思考如何将ARPA网和另外两个已有的网络相连接，尤其是连接卫星网络（SAT NET）和基于夏威夷的分组无线业务的ALOHA网（ALOHA NET）瑟夫设想了新的计算机交流协议，最后创造出 [[TCP."
+  />
+  <meta property="og:title" content="ARPANET">
+  <meta property="og:description" content="up:: [ • TOC for Frontend
+Apranet 阿帕网  高级研究计划局网络（英语：Advanced Research Projects Agency Network），通称阿帕网（英语：ARPANET）是美国国防高级研究计划局开发的世界上第一个运营的数据包交换网络，是全球互联网的鼻祖。
+ 历史房展 ARPA网无法做到和个别计算机网络交流，这引发了研究者的思考。根据诺顿的看法，他的设计需要太多的控制和太多的网络中机器设备的标准化。因此，1973年春， 文顿·瑟夫和 鲍勃·康（Bob Kahn）开始思考如何将ARPA网和另外两个已有的网络相连接，尤其是连接卫星网络（SAT NET）和基于夏威夷的分组无线业务的ALOHA网（ALOHA NET）瑟夫设想了新的计算机交流协议，最后创造出 [[TCP.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/cards/-front-dev/internet/arpanet/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ARPANET" />
+  <meta name="twitter:description" content="up:: [ • TOC for Frontend
+Apranet 阿帕网  高级研究计划局网络（英语：Advanced Research Projects Agency Network），通称阿帕网（英语：ARPANET）是美国国防高级研究计划局开发的世界上第一个运营的数据包交换网络，是全球互联网的鼻祖。
+ 历史房展 ARPA网无法做到和个别计算机网络交流，这引发了研究者的思考。根据诺顿的看法，他的设计需要太多的控制和太多的网络中机器设备的标准化。因此，1973年春， 文顿·瑟夫和 鲍勃·康（Bob Kahn）开始思考如何将ARPA网和另外两个已有的网络相连接，尤其是连接卫星网络（SAT NET）和基于夏威夷的分组无线业务的ALOHA网（ALOHA NET）瑟夫设想了新的计算机交流协议，最后创造出 [[TCP." />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+  
+
+  <title>
+    ARPANET
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">Chick&#39;s Second Brain</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>ARPANET</h1>
+      <p class="meta">
+        Last updated 
+Unknown
+
+ 
+          
+<a href="https://github.com/chick26/Cards/%f0%9f%93%b2%20Front%20Dev/Internet/ARPANET.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/network/internet/">
+          
+            Network internet
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/network/internet/apranet/">
+          
+            Network internet apranet
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#历史房展">历史房展</a></li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+  
+  
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<a href="#apranet--阿帕网"><h1 id="apranet--阿帕网"><span class="hanchor" ariaLabel="Anchor"># </span>Apranet  阿帕网</h1></a>
+<blockquote>
+<p>高级研究计划局网络（英语：Advanced Research Projects Agency Network），通称阿帕网（英语：ARPANET）是美国国防高级研究计划局开发的世界上第一个运营的数据包交换网络，是全球互联网的鼻祖。</p>
+</blockquote>
+<a href="#历史房展"><h2 id="历史房展"><span class="hanchor" ariaLabel="Anchor"># </span>历史房展</h2></a>
+<p>ARPA网无法做到和个别计算机网络交流，这引发了研究者的思考。根据诺顿的看法，他的设计需要太多的控制和太多的网络中机器设备的标准化。因此，1973年春，
+<a href="https://zh.wikipedia.org/wiki/%E6%96%87%E9%A1%BF%C2%B7%E7%91%9F%E5%A4%AB" rel="noopener">文顿·瑟夫</a>和
+<a href="https://zh.wikipedia.org/wiki/%E9%B2%8D%E5%8B%83%C2%B7%E5%BA%B7" rel="noopener">鲍勃·康</a>（Bob Kahn）开始思考如何将ARPA网和另外两个已有的网络相连接，尤其是连接卫星网络（SAT NET）和基于夏威夷的分组无线业务的ALOHA网（ALOHA NET）瑟夫设想了新的计算机交流协议，最后创造出 <a href="chick26.github.io/cards/-front-dev/internet/tcp" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/tcp">传送控制协议</a>／<a class="internal-link broken">互联网协议</a></p>
+<p>1975年，ARPA网被转交到美国国防部通信处 (Defense Department Communicationg Agence)。此后ARPA网不再是实验性和独一无二的了。大量新的网络在1970年代开始出现，包括
+<a href="https://zh.wikipedia.org/w/index.php?title=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%BD%91%E7%BB%9C&amp;action=edit&amp;redlink=1" rel="noopener">计算机科学研究网络</a>（CSNET，Computer Science Research Network），
+<a href="https://zh.wikipedia.org/w/index.php?title=%E5%8A%A0%E6%8B%BF%E5%A4%A7%E7%BD%91%E7%BB%9C&amp;action=edit&amp;redlink=1" rel="noopener">加拿大网络</a>（CDnet，Canadian Network），
+<a href="https://zh.wikipedia.org/wiki/%E5%9B%A0%E6%97%B6%E7%BD%91" rel="noopener">因时网</a>（BITNET，Because It&rsquo;s Time Network）和美国国家自然科学基金网络（NSFnet，National Science Foundation Network）。最后一个网络最终将在它自身被商业网络取代前代替ARPA网作为互联网的高速链路。</p>
+<p>1982年中期ARPA网被停用，原先的交流协议
+<a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E6%8E%A7%E5%88%B6%E7%A8%8B%E5%BC%8F" rel="noopener">NCP</a>被禁用，只允许使用Cern的TCP/IP语言的网站交流。1983年1月1日，NCP成为历史，TCP/IP开始成为通用协议。</p>
+<p>1983年ARPA网被分成两部分，用于军事和国防部门的军事网（MILNET）和用于民间的ARPA网版本。</p>
+<p>1985年成为TCP/IP协议突破的一年，当时它成为
+<a href="https://zh.wikipedia.org/wiki/UNIX" rel="noopener">UNIX</a>操作系统的组成部分。最终将它放进了
+<a href="https://zh.wikipedia.org/wiki/Sun%E5%85%AC%E5%8F%B8" rel="noopener">Sun公司</a>的微系统工作站。</p>
+<p>当免费的在线服务和商业的在线服务兴起后，例如Prodigy、FidoNet、Usenet、Gopher等，当NSFNET成为互联网中枢后，ARPA网的重要性被大大减弱了。系统在1989年被关闭，1990年正式退役。</p>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://github.com/chick26">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

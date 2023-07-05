@@ -1,0 +1,3102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Frontend
+HTML 最佳实践 编写易于维护与扩展的 HTML 文档。
+全局 以 DOCTYPE 为开头 激活标准模式需要 DOCTYPE。
+Bad:
+1 2 3  &lt;html&gt; ."
+  />
+  <meta property="og:title" content="HTML-Principel">
+  <meta property="og:description" content="up:: [ • TOC for Frontend
+HTML 最佳实践 编写易于维护与扩展的 HTML 文档。
+全局 以 DOCTYPE 为开头 激活标准模式需要 DOCTYPE。
+Bad:
+1 2 3  &lt;html&gt; .">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/cards/-front-dev/html/html-principel/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="HTML-Principel" />
+  <meta name="twitter:description" content="up:: [ • TOC for Frontend
+HTML 最佳实践 编写易于维护与扩展的 HTML 文档。
+全局 以 DOCTYPE 为开头 激活标准模式需要 DOCTYPE。
+Bad:
+1 2 3  &lt;html&gt; ." />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+  
+
+  <title>
+    HTML-Principel
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">Chick&#39;s Second Brain</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>HTML-Principel</h1>
+      <p class="meta">
+        Last updated 
+Unknown
+
+ 
+          
+<a href="https://github.com/chick26/Cards/%f0%9f%93%b2%20Front%20Dev/HTML/HTML-Principel.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/development/frontend/html/principel/">
+          
+            Development frontend HTML principel
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#全局">全局</a>
+      <ol>
+        <li><a href="#以-doctype-为开头">以 DOCTYPE 为开头</a></li>
+        <li><a href="#不要使用过时的-doctype">不要使用过时的 DOCTYPE</a></li>
+        <li><a href="#不要使用-xml-作为声明">不要使用 XML 作为声明</a></li>
+        <li><a href="#不要什么字符都转义">不要什么字符都转义</a></li>
+        <li><a href="#使用字符实体引用来转义--和-">使用字符实体引用来转义 <code>&amp;</code>、<code>&lt;</code>、<code>&gt;</code>、<code>&quot;</code> 和 <code>'</code></a></li>
+        <li><a href="#使用字符值引用来转义控制或隐藏字符">使用字符值引用来转义控制或隐藏字符</a></li>
+        <li><a href="#在注释内容周围添加空格">在注释内容周围添加空格</a></li>
+        <li><a href="#别忘了关闭标签">别忘了关闭标签</a></li>
+        <li><a href="#不要杂糅空元素的格式">不要杂糅空元素的格式</a></li>
+        <li><a href="#不要在标签和属性值周围添加空格">不要在标签和属性值周围添加空格</a></li>
+        <li><a href="#不要杂糅大小写">不要杂糅大小写</a></li>
+        <li><a href="#不要杂糅单双引号">不要杂糅单双引号</a></li>
+        <li><a href="#不要用多个空格间隔属性">不要用多个空格间隔属性</a></li>
+        <li><a href="#省略布尔型属性值">省略布尔型属性值</a></li>
+        <li><a href="#省略命名空间">省略命名空间</a></li>
+        <li><a href="#不要使用-xml-属性">不要使用 XML 属性</a></li>
+        <li><a href="#别把-data-microdatardfa-lite-属性和普通属性混在一起">别把 <code>data-*</code>、Microdata、RDFa Lite 属性和普通属性混在一起</a></li>
+        <li><a href="#首选默认隐式-aria-语义">首选默认隐式 ARIA 语义</a></li>
+      </ol>
+    </li>
+    <li><a href="#根元素">根元素</a>
+      <ol>
+        <li><a href="#添加-lang-属性">添加 <code>lang</code> 属性</a></li>
+        <li><a href="#保持-lang-属性值尽可能简短">保持 <code>lang</code> 属性值尽可能简短</a></li>
+        <li><a href="#尽可能避开-data-">尽可能避开 <code>data-*</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#文档元数据">文档元数据</a>
+      <ol>
+        <li><a href="#添加-title-元素">添加 <code>title</code> 元素</a></li>
+        <li><a href="#不要使用-base-元素">不要使用 <code>base</code> 元素</a></li>
+        <li><a href="#指定次要链接资源的-mime-类型">指定次要链接资源的 MIME 类型</a></li>
+        <li><a href="#别链接到-faviconico">别链接到 <code>favicon.ico</code></a></li>
+        <li><a href="#添加-apple-touch-icon">添加 <code>apple-touch-icon</code></a></li>
+        <li><a href="#给备用样式表添加-title-属性">给备用样式表添加 <code>title</code> 属性</a></li>
+        <li><a href="#使用-link-元素指向-url">使用 <code>link</code> 元素指向 URL</a></li>
+        <li><a href="#指定文档字符编码格式">指定文档字符编码格式</a></li>
+        <li><a href="#不要使用过时的字符编码格式">不要使用过时的字符编码格式</a></li>
+        <li><a href="#一开始就指定字符编码">一开始就指定字符编码</a></li>
+        <li><a href="#使用-utf-8">使用 UTF-8</a></li>
+        <li><a href="#省略-css-的-type-属性">省略 CSS 的 <code>type</code> 属性</a></li>
+        <li><a href="#不要给-style-元素内容写注释">不要给 <code>style</code> 元素内容写注释</a></li>
+        <li><a href="#不要杂糅-css-和-javascript-的标签">不要杂糅 CSS 和 JavaScript 的标签</a></li>
+      </ol>
+    </li>
+    <li><a href="#区块">区块</a>
+      <ol>
+        <li><a href="#添加-body-元素">添加 <code>body</code> 元素</a></li>
+        <li><a href="#不要使用-hgroup-元素">不要使用 <code>hgroup</code> 元素</a></li>
+        <li><a href="#address-元素仅用于联系方式"><code>address</code> 元素仅用于联系方式</a></li>
+      </ol>
+    </li>
+    <li><a href="#分组内容">分组内容</a>
+      <ol>
+        <li><a href="#不要在-pre-元素里新起一行">不要在 <code>pre</code> 元素里新起一行</a></li>
+        <li><a href="#在-blockquote-元素中使用恰当的元素">在 <code>blockquote</code> 元素中使用恰当的元素</a></li>
+        <li><a href="#不要直接在-blockquote-中注明来源">不要直接在 <code>blockquote</code> 中注明来源</a></li>
+        <li><a href="#一行只写一个列表项一行只写一个列表项"><a href="#%E4%B8%80%E8%A1%8C%E5%8F%AA%E5%86%99%E4%B8%80%E4%B8%AA%E5%88%97%E8%A1%A8%E9%A1%B9"></a>一行只写一个列表项</a></li>
+        <li><a href="#使用-ol-元素的-type-属性">使用 <code>ol</code> 元素的 <code>type</code> 属性</a></li>
+        <li><a href="#不要用-dl-表示对话">不要用 <code>dl</code> 表示对话</a></li>
+        <li><a href="#把-figcaption-作为-figure-的首或尾元素">把 <code>figcaption</code> 作为 <code>figure</code> 的首或尾元素</a></li>
+        <li><a href="#使用-main-元素">使用 <code>main</code> 元素</a></li>
+        <li><a href="#尽可能避免-div-元素">尽可能避免 <code>div</code> 元素</a></li>
+      </ol>
+    </li>
+    <li><a href="#文本语义">文本语义</a>
+      <ol>
+        <li><a href="#不要把一个链接拆成两半">不要把一个链接拆成两半</a></li>
+        <li><a href="#使用-download-属性指向下载资源">使用 <code>download</code> 属性指向下载资源</a></li>
+        <li><a href="#按需使用-relhreflang-和-type-属性">按需使用 <code>rel</code>、<code>hreflang</code> 和 <code>type</code> 属性</a></li>
+        <li><a href="#明确的链接文本">明确的链接文本</a></li>
+        <li><a href="#不要使用-em-元素表示警告">不要使用 <code>em</code> 元素表示警告</a></li>
+        <li><a href="#尽可能避免-sib-和-u-元素">尽可能避免 <code>s</code>、<code>i</code>、<code>b</code> 和 <code>u</code> 元素</a></li>
+        <li><a href="#不要在-q-元素外使用引号">不要在 <code>q</code> 元素外使用引号</a></li>
+        <li><a href="#给-abbr-元素添加-title-属性">给 <code>abbr</code> 元素添加 <code>title</code> 属性</a></li>
+        <li><a href="#详细标记-ruby-元素">详细标记 <code>ruby</code> 元素</a></li>
+        <li><a href="#给电脑无法识别的-time-元素添加-datetime-属性">给电脑无法识别的 <code>time</code> 元素添加 <code>datetime</code> 属性</a></li>
+        <li><a href="#使用-language--前缀的-class-属性指定代码语言">使用 <code>language-</code> 前缀的 <code>class</code> 属性指定代码语言</a></li>
+        <li><a href="#kbd-元素越简单越好"><code>kbd</code> 元素越简单越好</a></li>
+        <li><a href="#尽可能避免-span-元素">尽可能避免 <code>span</code> 元素</a></li>
+        <li><a href="#在-br-元素后换行">在 <code>br</code> 元素后换行</a></li>
+        <li><a href="#不要只为了格式好看就用-br-元素">不要只为了格式好看就用 <code>br</code> 元素</a></li>
+      </ol>
+    </li>
+    <li><a href="#编辑">编辑</a>
+      <ol>
+        <li><a href="#不要跨元素使用-ins-和-del">不要跨元素使用 <code>ins</code> 和 <code>del</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#内嵌内容">内嵌内容</a>
+      <ol>
+        <li><a href="#为-picture-元素提供备用-img-元素">为 <code>picture</code> 元素提供备用 <code>img</code> 元素</a></li>
+        <li><a href="#按需为-img-元素添加-alt-属性">按需为 <code>img</code> 元素添加 <code>alt</code> 属性</a></li>
+        <li><a href="#若有可能则留空-alt-属性">若有可能则留空 <code>alt</code> 属性</a></li>
+        <li><a href="#若有可能则省略-alt-属性">若有可能则省略 <code>alt</code> 属性</a></li>
+        <li><a href="#留空-iframe-内容">留空 <code>iframe</code> 内容</a></li>
+        <li><a href="#标记-map-元素内容">标记 <code>map</code> 元素内容</a></li>
+        <li><a href="#为-audio-和-video-元素提供备用内容">为 <code>audio</code> 和 <code>video</code> 元素提供备用内容</a></li>
+      </ol>
+    </li>
+    <li><a href="#表格数据">表格数据</a>
+      <ol>
+        <li><a href="#一行写一个单元格">一行写一个单元格</a></li>
+        <li><a href="#使用-th-元素表示标题格">使用 <code>th</code> 元素表示标题格</a></li>
+      </ol>
+    </li>
+    <li><a href="#表单">表单</a>
+      <ol>
+        <li><a href="#使用-label-元素包裹表单控制元素">使用 <code>label</code> 元素包裹表单控制元素</a></li>
+        <li><a href="#若有可能则省略-for-属性">若有可能则省略 <code>for</code> 属性</a></li>
+        <li><a href="#为-input-元素选择合适的-type-属性">为 <code>input</code> 元素选择合适的 <code>type</code> 属性</a></li>
+        <li><a href="#给-input-typesubmit-添加-value-属性">给 <code>input type=&quot;submit&quot;</code> 添加 <code>value</code> 属性</a></li>
+        <li><a href="#给有-pattern-属性的-input-元素添加-title-属性">给有 <code>pattern</code> 属性的 <code>input</code> 元素添加 <code>title</code> 属性</a></li>
+        <li><a href="#不要把-placeholder-作为标签">不要把 <code>placeholder</code> 作为标签</a></li>
+        <li><a href="#每行只写一个-option-元素">每行只写一个 <code>option</code> 元素</a></li>
+        <li><a href="#为-progress-元素添加-max-属性">为 <code>progress</code> 元素添加 <code>max</code> 属性</a></li>
+        <li><a href="#为-meter-元素添加-min-和-max-属性">为 <code>meter</code> 元素添加 <code>min</code> 和 <code>max</code> 属性</a></li>
+        <li><a href="#将-legend-作为-fieldset-的第一个子元素">将 <code>legend</code> 作为 <code>fieldset</code> 的第一个子元素</a></li>
+      </ol>
+    </li>
+    <li><a href="#脚本">脚本</a>
+      <ol>
+        <li><a href="#省略-javascript-的-type-属性">省略 JavaScript 的 <code>type</code> 属性</a></li>
+        <li><a href="#不要为-script-元素的内容编写注释">不要为 `script‵ 元素的内容编写注释</a></li>
+        <li><a href="#不要使用注入脚本的-script-元素">不要使用注入脚本的 <code>script</code> 元素</a></li>
+      </ol>
+    </li>
+    <li><a href="#其它">其它</a>
+      <ol>
+        <li><a href="#一致的缩进">一致的缩进</a></li>
+        <li><a href="#使用相对路径引用内部链接">使用相对路径引用内部链接</a></li>
+        <li><a href="#不要使用无协议的-url-引用外部资源">不要使用无协议的 URL 引用外部资源</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<a href="#html-最佳实践"><h1 id="html-最佳实践"><span class="hanchor" ariaLabel="Anchor"># </span>HTML 最佳实践</h1></a>
+<p>编写易于维护与扩展的 HTML 文档。</p>
+<a href="#全局"><h2 id="全局"><span class="hanchor" ariaLabel="Anchor"># </span>全局</h2></a>
+<a href="#以-doctype-为开头"><h3 id="以-doctype-为开头"><span class="hanchor" ariaLabel="Anchor"># </span>以 DOCTYPE 为开头</h3></a>
+<p>激活标准模式需要 DOCTYPE。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!DOCTYPE html&gt;
+</span></span><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用过时的-doctype"><h3 id="不要使用过时的-doctype"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用过时的 DOCTYPE</h3></a>
+<p>DOCTYPE 不需要再引用 DTD 了，简单点就行。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34;
+</span></span><span class="line"><span class="cl">  &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!DOCTYPE html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用-xml-作为声明"><h3 id="不要使用-xml-作为声明"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用 XML 作为声明</h3></a>
+<p>你确定想写 XHTML?</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;yes&#34;?&gt;
+</span></span><span class="line"><span class="cl">&lt;!DOCTYPE html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!DOCTYPE html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要什么字符都转义"><h3 id="不要什么字符都转义"><span class="hanchor" ariaLabel="Anchor"># </span>不要什么字符都转义</h3></a>
+<p>如果你使用 UTF-8 编写 HTML 文档，那么几乎所有字符（包括表情）都可以直接写。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;&lt;small&gt;Copyright © 2014 W3C&lt;sup&gt;®&lt;/sup&gt;&lt;/small&gt;&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;&lt;small&gt;Copyright © 2014 W3C&lt;sup&gt;®&lt;/sup&gt;&lt;/small&gt;&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用字符实体引用来转义--和-"><h3 id="使用字符实体引用来转义--和-"><span class="hanchor" ariaLabel="Anchor"># </span>使用字符实体引用来转义 <code>&amp;</code>、<code>&lt;</code>、<code>&gt;</code>、<code>&quot;</code> 和 <code>'</code></h3></a>
+<p>为了 HTML 文档不出错，这些字符应当始终被转义。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;h1&gt;The &#34;&amp;&#34; character&lt;/h1&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;h1&gt;The &#34;&amp;&#34; character&lt;/h1&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用字符值引用来转义控制或隐藏字符"><h3 id="使用字符值引用来转义控制或隐藏字符"><span class="hanchor" ariaLabel="Anchor"># </span>使用字符值引用来转义控制或隐藏字符</h3></a>
+<p>这些字符很容易被误认为是其它字符，而且规范也不保证这些字符具有人类可读的名称。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;This book can read in 1 hour.&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;This book can read in 1 hour.&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#在注释内容周围添加空格"><h3 id="在注释内容周围添加空格"><span class="hanchor" ariaLabel="Anchor"># </span>在注释内容周围添加空格</h3></a>
+<p>某些字符不能紧接在注释开始或结束的位置上。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!--This section is non-normative--&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!-- This section is non-normative --&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#别忘了关闭标签"><h3 id="别忘了关闭标签"><span class="hanchor" ariaLabel="Anchor"># </span>别忘了关闭标签</h3></a>
+<p>我觉得你不一定知道省略标签关闭的规则。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  &lt;body&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  &lt;body&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要杂糅空元素的格式"><h3 id="不要杂糅空元素的格式"><span class="hanchor" ariaLabel="Anchor"># </span>不要杂糅空元素的格式</h3></a>
+<p>一致性是可读性的关键。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;HTML Best Practices&#34; src=&#34;/img/logo.png&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;hr /&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;HTML Best Practices&#34; src=&#34;/img/logo.png&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;hr&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要在标签和属性值周围添加空格"><h3 id="不要在标签和属性值周围添加空格"><span class="hanchor" ariaLabel="Anchor"># </span>不要在标签和属性值周围添加空格</h3></a>
+<p>不需要理由。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;h1 &gt;HTML Best Practices&lt;/h1&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;h1&gt;HTML Best Practices&lt;/h1&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要杂糅大小写"><h3 id="不要杂糅大小写"><span class="hanchor" ariaLabel="Anchor"># </span>不要杂糅大小写</h3></a>
+<p>也是为了一致性。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;a HREF=&#34;#general&#34;&gt;General&lt;/A&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;a href=&#34;#general&#34;&gt;General&lt;/a&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Also Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;A HREF=&#34;#general&#34;&gt;General&lt;/A&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要杂糅单双引号"><h3 id="不要杂糅单双引号"><span class="hanchor" ariaLabel="Anchor"># </span>不要杂糅单双引号</h3></a>
+<p>同上。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;HTML Best Practices&#34; src=&#39;/img/logo.jpg&#39;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;HTML Best Practices&#34; src=&#34;/img/logo.jpg&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要用多个空格间隔属性"><h3 id="不要用多个空格间隔属性"><span class="hanchor" ariaLabel="Anchor"># </span>不要用多个空格间隔属性</h3></a>
+<p>奇怪的格式会把人搞晕的。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;input   &gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;input &gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#省略布尔型属性值"><h3 id="省略布尔型属性值"><span class="hanchor" ariaLabel="Anchor"># </span>省略布尔型属性值</h3></a>
+<p>这么写更简单，对吧？</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;audio autoplay=&#34;autoplay&#34; src=&#34;/audio/theme.mp3&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;audio autoplay src=&#34;/audio/theme.mp3&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#省略命名空间"><h3 id="省略命名空间"><span class="hanchor" ariaLabel="Anchor"># </span>省略命名空间</h3></a>
+<p>SVG 和 MathML 可以直接在 HTML 文档中使用。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/svg&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;svg&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/svg&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用-xml-属性"><h3 id="不要使用-xml-属性"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用 XML 属性</h3></a>
+<p>我们是在写 HTML 文档。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;span lang=&#34;ja&#34; xml:lang=&#34;ja&#34;&gt;...&lt;/span&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;span lang=&#34;ja&#34;&gt;...&lt;/span&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#别把-data-microdatardfa-lite-属性和普通属性混在一起"><h3 id="别把-data-microdatardfa-lite-属性和普通属性混在一起"><span class="hanchor" ariaLabel="Anchor"># </span>别把 <code>data-*</code>、Microdata、RDFa Lite 属性和普通属性混在一起</h3></a>
+<p>标签串可以变得很复杂。这条简单的规则有助于阅读这样的标签串。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;HTML Best Practices&#34; data-height=&#34;31&#34; data-width=&#34;88&#34; itemprop=&#34;image&#34; src=&#34;/img/logo.png&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;HTML Best Practices&#34; src=&#34;/img/logo.png&#34; data-width=&#34;88&#34; data-height=&#34;31&#34; itemprop=&#34;image&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#首选默认隐式-aria-语义"><h3 id="首选默认隐式-aria-语义"><span class="hanchor" ariaLabel="Anchor"># </span>首选默认隐式 ARIA 语义</h3></a>
+<p>有些元素在 HTML 文档中隐含了某种 ARIA 语义，不要特意把它们指出来。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;nav role=&#34;navigation&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/nav&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;hr role=&#34;separator&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;nav&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/nav&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;hr&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#根元素"><h2 id="根元素"><span class="hanchor" ariaLabel="Anchor"># </span>根元素</h2></a>
+<a href="#添加-lang-属性"><h3 id="添加-lang-属性"><span class="hanchor" ariaLabel="Anchor"># </span>添加 <code>lang</code> 属性</h3></a>
+<p><code>lang</code> 属性有助于翻译 HTML 文档。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html lang=&#34;en-US&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#保持-lang-属性值尽可能简短"><h3 id="保持-lang-属性值尽可能简短"><span class="hanchor" ariaLabel="Anchor"># </span>保持 <code>lang</code> 属性值尽可能简短</h3></a>
+<p>日语只在日本使用，所以国家代码不是必须的。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html lang=&#34;ja-JP&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html lang=&#34;ja&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#尽可能避开-data-"><h3 id="尽可能避开-data-"><span class="hanchor" ariaLabel="Anchor"># </span>尽可能避开 <code>data-*</code></h3></a>
+<p>恰当的属性可以被浏览器正确处理。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;span data-language=&#34;french&#34;&gt;chemises&lt;/span&gt;
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;span title=&#34;French&#34;&gt;&lt;span lang=&#34;fr-FR&#34;&gt;chemises&lt;/span&gt;&lt;/span&gt;
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#文档元数据"><h2 id="文档元数据"><span class="hanchor" ariaLabel="Anchor"># </span>文档元数据</h2></a>
+<a href="#添加-title-元素"><h3 id="添加-title-元素"><span class="hanchor" ariaLabel="Anchor"># </span>添加 <code>title</code> 元素</h3></a>
+<p><code>title</code> 元素的值会被很多应用使用，而不仅仅是浏览器。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  &lt;meta charset=&#34;UTF-8&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  &lt;meta charset=&#34;UTF-8&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;title&gt;HTML Best Practices&lt;/title&gt;
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用-base-元素"><h3 id="不要使用-base-元素"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用 <code>base</code> 元素</h3></a>
+<p>绝对路径或 URL 对开发者和用户来说都更安全。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  &lt;base href=&#34;/blog/&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;link href=&#34;hello-world&#34; rel=&#34;canonical&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  &lt;link href=&#34;/blog/hello-world&#34; rel=&#34;canonical&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#指定次要链接资源的-mime-类型"><h3 id="指定次要链接资源的-mime-类型"><span class="hanchor" ariaLabel="Anchor"># </span>指定次要链接资源的 MIME 类型</h3></a>
+<p>这提示了应用要怎么处理这项资源。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link href=&#34;/pdf&#34; rel=&#34;alternate&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;link href=&#34;/feed&#34; rel=&#34;alternate&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;link href=&#34;/css/screen.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link href=&#34;/pdf&#34; rel=&#34;alternate&#34; type=&#34;application/pdf&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;link href=&#34;/feed&#34; rel=&#34;alternate&#34; type=&#34;application/rss+xml&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;link href=&#34;/css/screen.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#别链接到-faviconico"><h3 id="别链接到-faviconico"><span class="hanchor" ariaLabel="Anchor"># </span>别链接到 <code>favicon.ico</code></h3></a>
+<p>几乎所有浏览器都会自动异步获取 <code>/favicon.ico</code>。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link href=&#34;/favicon.ico&#34; rel=&#34;icon&#34; type=&#34;image/vnd.microsoft.icon&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!-- Place `favicon.ico` in the root directory. --&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#添加-apple-touch-icon"><h3 id="添加-apple-touch-icon"><span class="hanchor" ariaLabel="Anchor"># </span>添加 <code>apple-touch-icon</code></h3></a>
+<p>触摸图标的默认请求路径突然改变了。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!-- Hey Apple! Please download `/apple-touch-icon.png`! --&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link href=&#34;/apple-touch-icon.png&#34; rel=&#34;apple-touch-icon&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#给备用样式表添加-title-属性"><h3 id="给备用样式表添加-title-属性"><span class="hanchor" ariaLabel="Anchor"># </span>给备用样式表添加 <code>title</code> 属性</h3></a>
+<p>易读的标签有助于人们选择合适的样式表。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link href=&#34;/css/screen.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;link href=&#34;/css/high-contrast.css&#34; rel=&#34;alternate stylesheet&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link href=&#34;/css/screen.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;link href=&#34;/css/high-contrast.css&#34; rel=&#34;alternate stylesheet&#34; title=&#34;High contrast&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用-link-元素指向-url"><h3 id="使用-link-元素指向-url"><span class="hanchor" ariaLabel="Anchor"># </span>使用 <code>link</code> 元素指向 URL</h3></a>
+<p><code>href</code> 属性的值可以被解析为 URL。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;section itemscope itemtype=&#34;http://schema.org/BlogPosting&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;meta content=&#34;https://example.com/blog/hello&#34; itemprop=&#34;url&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/section&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;section itemscope itemtype=&#34;http://schema.org/BlogPosting&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;link href=&#34;/blog/hello&#34; itemprop=&#34;url&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/section&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#指定文档字符编码格式"><h3 id="指定文档字符编码格式"><span class="hanchor" ariaLabel="Anchor"># </span>指定文档字符编码格式</h3></a>
+<p>UTF-8 暂时还不是所有浏览器的默认值。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  &lt;title&gt;HTML Best Practices&lt;/title&gt;
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  &lt;meta charset=&#34;UTF-8&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;title&gt;HTML Best Practices&lt;/title&gt;
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用过时的字符编码格式"><h3 id="不要使用过时的字符编码格式"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用过时的字符编码格式</h3></a>
+<p>HTTP 报文头部应该由服务器指定，简单点。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html; charset=UTF-8&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;meta charset=&#34;UTF-8&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#一开始就指定字符编码"><h3 id="一开始就指定字符编码"><span class="hanchor" ariaLabel="Anchor"># </span>一开始就指定字符编码</h3></a>
+<p>规范要求字符编码必须在文档的前 1024 字节中被指定。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  &lt;meta content=&#34;width=device-width&#34; &gt;
+</span></span><span class="line"><span class="cl">  &lt;meta charset=&#34;UTF-8&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  &lt;meta charset=&#34;UTF-8&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;meta content=&#34;width=device-width&#34; &gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用-utf-8"><h3 id="使用-utf-8"><span class="hanchor" ariaLabel="Anchor"># </span>使用 UTF-8</h3></a>
+<p>有了 UTF-8，你可以随心使用表情。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;meta charset=&#34;Shift_JIS&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;meta charset=&#34;UTF-8&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#省略-css-的-type-属性"><h3 id="省略-css-的-type-属性"><span class="hanchor" ariaLabel="Anchor"># </span>省略 CSS 的 <code>type</code> 属性</h3></a>
+<p>在 HTML 中，<code>style</code> 元素的默认 <code>type</code> 属性值就是 <code>text/css</code>。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;style type=&#34;text/css&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/style&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;style&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/style&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要给-style-元素内容写注释"><h3 id="不要给-style-元素内容写注释"><span class="hanchor" ariaLabel="Anchor"># </span>不要给 <code>style</code> 元素内容写注释</h3></a>
+<p>此规则适用于旧版浏览器。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;style&gt;
+</span></span><span class="line"><span class="cl">&lt;!--
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  --&gt;
+</span></span><span class="line"><span class="cl">&lt;/style&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;style&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/style&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要杂糅-css-和-javascript-的标签"><h3 id="不要杂糅-css-和-javascript-的标签"><span class="hanchor" ariaLabel="Anchor"># </span>不要杂糅 CSS 和 JavaScript 的标签</h3></a>
+<p>有时 <code>script</code> 元素会阻塞 DOM 树的构建。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script src=&#34;/js/jquery.min.js&#34;&gt;&lt;/script&gt;
+</span></span><span class="line"><span class="cl">&lt;link href=&#34;/css/screen.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;script src=&#34;/js/main.js&#34;&gt;&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link href=&#34;/css/screen.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;script src=&#34;/js/jquery.min.js&#34;&gt;&lt;/script&gt;
+</span></span><span class="line"><span class="cl">&lt;script src=&#34;/js/main.js&#34;&gt;&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Also good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script src=&#34;/js/jquery.min.js&#34;&gt;&lt;/script&gt;
+</span></span><span class="line"><span class="cl">&lt;script src=&#34;/js/main.js&#34;&gt;&lt;/script&gt;
+</span></span><span class="line"><span class="cl">&lt;link href=&#34;/css/screen.css&#34; rel=&#34;stylesheet&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#区块"><h2 id="区块"><span class="hanchor" ariaLabel="Anchor"># </span>区块</h2></a>
+<a href="#添加-body-元素"><h3 id="添加-body-元素"><span class="hanchor" ariaLabel="Anchor"># </span>添加 <code>body</code> 元素</h3></a>
+<p>有时浏览器会在预料之外的地方补充 <code>body</code> 元素。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  &lt;head&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/head&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  &lt;head&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/head&gt;
+</span></span><span class="line"><span class="cl">  &lt;body&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用-hgroup-元素"><h3 id="不要使用-hgroup-元素"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用 <code>hgroup</code> 元素</h3></a>
+<p>这个元素不怎么用。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;hgroup&gt;
+</span></span><span class="line"><span class="cl">  &lt;h1&gt;HTML Best Practices&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">  &lt;h2&gt;For writing maintainable and scalable HTML documents.&lt;/h2&gt;
+</span></span><span class="line"><span class="cl">&lt;/hgroup&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;h1&gt;HTML Best Practices&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;For writing maintainable and scalable HTML documents.&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#address-元素仅用于联系方式"><h3 id="address-元素仅用于联系方式"><span class="hanchor" ariaLabel="Anchor"># </span><code>address</code> 元素仅用于联系方式</h3></a>
+<p><code>address</code> 元素是给邮箱、社交账户、街道地址、电话号码等联系方式准备的。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;address&gt;No rights reserved.&lt;/address&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;address&gt;Contact: &lt;a href=&#34;https://twitter.com/hail2u_&#34;&gt;Kyo Nagashima&lt;/a&gt;&lt;/address&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#分组内容"><h2 id="分组内容"><span class="hanchor" ariaLabel="Anchor"># </span>分组内容</h2></a>
+<a href="#不要在-pre-元素里新起一行"><h3 id="不要在-pre-元素里新起一行"><span class="hanchor" ariaLabel="Anchor"># </span>不要在 <code>pre</code> 元素里新起一行</h3></a>
+<p>第一行会被浏览器忽略，第二行及之后会被渲染。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;pre&gt;
+</span></span><span class="line"><span class="cl">&lt;!DOCTYPE html&gt;
+</span></span><span class="line"><span class="cl">&lt;/pre&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;pre&gt;&lt;!DOCTYPE html&gt;
+</span></span><span class="line"><span class="cl">&lt;/pre&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#在-blockquote-元素中使用恰当的元素"><h3 id="在-blockquote-元素中使用恰当的元素"><span class="hanchor" ariaLabel="Anchor"># </span>在 <code>blockquote</code> 元素中使用恰当的元素</h3></a>
+<p><code>blockquote</code> 元素的内容是引用，而不仅仅是一堆字符。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;blockquote&gt;For writing maintainable and scalable HTML documents.&lt;/blockquote&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;blockquote&gt;
+</span></span><span class="line"><span class="cl">  &lt;p&gt;For writing maintainable and scalable HTML documents.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;/blockquote&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要直接在-blockquote-中注明来源"><h3 id="不要直接在-blockquote-中注明来源"><span class="hanchor" ariaLabel="Anchor"># </span>不要直接在 <code>blockquote</code> 中注明来源</h3></a>
+<p><code>blockquote</code> 元素的内容是引用的话。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;blockquote&gt;
+</span></span><span class="line"><span class="cl">  &lt;p&gt;For writing maintainable and scalable HTML documents.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  &lt;p&gt;— HTML Best Practices&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;/blockquote&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;blockquote&gt;
+</span></span><span class="line"><span class="cl">  &lt;p&gt;For writing maintainable and scalable HTML documents.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;/blockquote&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;p&gt;— HTML Best Practices&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Also good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;figure&gt;
+</span></span><span class="line"><span class="cl">  &lt;blockquote&gt;
+</span></span><span class="line"><span class="cl">    &lt;p&gt;For writing maintainable and scalable HTML documents.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">  &lt;/blockquote&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  &lt;figcaption&gt;— HTML Best Practices&lt;/figcaption&gt;
+</span></span><span class="line"><span class="cl">&lt;/figure&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="一行只写一个列表项一行只写一个列表项">
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="#%e4%b8%80%e8%a1%8c%e5%8f%aa%e5%86%99%e4%b8%80%e4%b8%aa%e5%88%97%e8%a1%a8%e9%a1%b9"></a>一行只写一个列表项</h3>
+<p>很很很很很很长长长长长长长长长长长长长长长的行很很很很很难难难难难难难难难难难难难难难难难难难难阅读。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;ul&gt;
+</span></span><span class="line"><span class="cl">  &lt;li&gt;General&lt;/li&gt;&lt;li&gt;The root Element&lt;/li&gt;&lt;li&gt;Sections&lt;/li&gt;...
+</span></span><span class="line"><span class="cl">&lt;/ul&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;ul&gt;
+</span></span><span class="line"><span class="cl">  &lt;li&gt;General&lt;/li&gt;
+</span></span><span class="line"><span class="cl">  &lt;li&gt;The root Element&lt;/li&gt;
+</span></span><span class="line"><span class="cl">  &lt;li&gt;Sections&lt;/li&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/ul&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用-ol-元素的-type-属性"><h3 id="使用-ol-元素的-type-属性"><span class="hanchor" ariaLabel="Anchor"># </span>使用 <code>ol</code> 元素的 <code>type</code> 属性</h3></a>
+<p>有时标记会被附近的内容引用。如果使用 <code>type</code> 属性更改标记，就可以安全地引用。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">  &lt;style&gt;
+</span></span><span class="line"><span class="cl">    .toc {
+</span></span><span class="line"><span class="cl">      list-style-type: upper-roman;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  &lt;/style&gt;
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span><span class="line"><span class="cl">&lt;body&gt;
+</span></span><span class="line"><span class="cl">  &lt;ol&gt;
+</span></span><span class="line"><span class="cl">    &lt;li&gt;General&lt;/li&gt;
+</span></span><span class="line"><span class="cl">    &lt;li&gt;The root Element&lt;/li&gt;
+</span></span><span class="line"><span class="cl">    &lt;li&gt;Sections&lt;/li&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/ol&gt;
+</span></span><span class="line"><span class="cl">&lt;/body&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;body&gt;
+</span></span><span class="line"><span class="cl">  &lt;ol type=&#34;I&#34;&gt;
+</span></span><span class="line"><span class="cl">    &lt;li&gt;General&lt;/li&gt;
+</span></span><span class="line"><span class="cl">    &lt;li&gt;The root Element&lt;/li&gt;
+</span></span><span class="line"><span class="cl">    &lt;li&gt;Sections&lt;/li&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/ol&gt;
+</span></span><span class="line"><span class="cl">&lt;/body&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要用-dl-表示对话"><h3 id="不要用-dl-表示对话"><span class="hanchor" ariaLabel="Anchor"># </span>不要用 <code>dl</code> 表示对话</h3></a>
+<p><code>dl</code> 元素仅限于表示 HTML 中的关联列表。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;dl&gt;
+</span></span><span class="line"><span class="cl">  &lt;dt&gt;Costello&lt;/dt&gt;
+</span></span><span class="line"><span class="cl">  &lt;dd&gt;Look, you gotta first baseman?&lt;/dd&gt;
+</span></span><span class="line"><span class="cl">  &lt;dt&gt;Abbott&lt;/dt&gt;
+</span></span><span class="line"><span class="cl">  &lt;dd&gt;Certainly.&lt;/dd&gt;
+</span></span><span class="line"><span class="cl">  &lt;dt&gt;Costello&lt;/dt&gt;
+</span></span><span class="line"><span class="cl">  &lt;dd&gt;Who’s playing first?&lt;/dd&gt;
+</span></span><span class="line"><span class="cl">  &lt;dt&gt;Abbott&lt;/dt&gt;
+</span></span><span class="line"><span class="cl">  &lt;dd&gt;That’s right.&lt;/dd&gt;
+</span></span><span class="line"><span class="cl">  &lt;dt&gt;Costello becomes exasperated.&lt;/dd&gt;
+</span></span><span class="line"><span class="cl">  &lt;dt&gt;Costello&lt;/dt&gt;
+</span></span><span class="line"><span class="cl">  &lt;dd&gt;When you pay off the first baseman every month, who gets the money?&lt;/dd&gt;
+</span></span><span class="line"><span class="cl">  &lt;dt&gt;Abbott&lt;/dt&gt;
+</span></span><span class="line"><span class="cl">  &lt;dd&gt;Every dollar of it.&lt;/dd&gt;
+</span></span><span class="line"><span class="cl">&lt;/dl&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;Costello: Look, you gotta first baseman?&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;Abbott: Certainly.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;Costello: Who’s playing first?&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;Abbott: That’s right.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;Costello becomes exasperated.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;Costello: When you pay off the first baseman every month, who gets the money?&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;Abbott: Every dollar of it.&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#把-figcaption-作为-figure-的首或尾元素"><h3 id="把-figcaption-作为-figure-的首或尾元素"><span class="hanchor" ariaLabel="Anchor"># </span>把 <code>figcaption</code> 作为 <code>figure</code> 的首或尾元素</h3></a>
+<p>规范不允许 <code>figcaption</code> 元素卡在 <code>figure</code> 元素的中间。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;figure&gt;
+</span></span><span class="line"><span class="cl">  &lt;img alt=&#34;Front cover of the “HTML Best Practices” book&#34; src=&#34;/img/front-cover.png&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;figcaption&gt;“HTML Best Practices” Cover Art&lt;/figcaption&gt;
+</span></span><span class="line"><span class="cl">  &lt;img alt=&#34;Back cover of the “HTML Best Practices” book&#34; src=&#34;/img/back-cover.png&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;/figure&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;figure&gt;
+</span></span><span class="line"><span class="cl">  &lt;img alt=&#34;Front cover of the “HTML Best Practices” book&#34; src=&#34;/img/front-cover.png&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;img alt=&#34;Back cover of the “HTML Best Practices” book&#34; src=&#34;/img/back-cover.png&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;figcaption&gt;“HTML Best Practices” Cover Art&lt;/figcaption&gt;
+</span></span><span class="line"><span class="cl">&lt;/figure&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用-main-元素"><h3 id="使用-main-元素"><span class="hanchor" ariaLabel="Anchor"># </span>使用 <code>main</code> 元素</h3></a>
+<p><code>main</code> 元素可以用来包裹内容。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;div&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/div&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;main&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/main&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#尽可能避免-div-元素"><h3 id="尽可能避免-div-元素"><span class="hanchor" ariaLabel="Anchor"># </span>尽可能避免 <code>div</code> 元素</h3></a>
+<p>实在没办法了，才用 <code>div</code> 元素。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;div&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/div&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;section&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/section&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#文本语义"><h2 id="文本语义"><span class="hanchor" ariaLabel="Anchor"># </span>文本语义</h2></a>
+<a href="#不要把一个链接拆成两半"><h3 id="不要把一个链接拆成两半"><span class="hanchor" ariaLabel="Anchor"># </span>不要把一个链接拆成两半</h3></a>
+<p><code>a</code> 元素可以包裹几乎所有元素（除了表单控制等交互性元素和 <code>a</code> 元素自身）。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;h1&gt;&lt;a href=&#34;https://whatwg.org/&#34;&gt;WHATWG&lt;/a&gt;&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;p&gt;&lt;a href=&#34;https://whatwg.org/&#34;&gt;A community maintaining and evolving HTML since 2004.&lt;/a&gt;&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;a href=&#34;https://whatwg.org/&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;h1&gt;WHATWG&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  &lt;p&gt;A community maintaining and evolving HTML since 2004.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;/a&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用-download-属性指向下载资源"><h3 id="使用-download-属性指向下载资源"><span class="hanchor" ariaLabel="Anchor"># </span>使用 <code>download</code> 属性指向下载资源</h3></a>
+<p>这会迫使浏览器下载链接到的资源。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;a href=&#34;/downloads/offline.zip&#34;&gt;offline version&lt;/a&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;a download href=&#34;/downloads/offline.zip&#34;&gt;offline version&lt;/a&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#按需使用-relhreflang-和-type-属性"><h3 id="按需使用-relhreflang-和-type-属性"><span class="hanchor" ariaLabel="Anchor"># </span>按需使用 <code>rel</code>、<code>hreflang</code> 和 <code>type</code> 属性</h3></a>
+<p>它们有助于提示应用怎么处理链接到的资源。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;a href=&#34;/ja/pdf&#34;&gt;Japanese PDF version&lt;/a&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;a href=&#34;/ja/pdf&#34; hreflang=&#34;ja&#34; rel=&#34;alternate&#34; type=&#34;application/pdf&#34;&gt;Japanese PDF version&lt;/a&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#明确的链接文本"><h3 id="明确的链接文本"><span class="hanchor" ariaLabel="Anchor"># </span>明确的链接文本</h3></a>
+<p>链接文本应该是对应资源的名称。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;&lt;a href=&#34;/pdf&#34; rel=&#34;alternate&#34; type=&#34;application/pdf&#34;&gt;Click here&lt;/a&gt; to view PDF version.&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;&lt;a href=&#34;/pdf&#34; rel=&#34;alternate&#34; type=&#34;application/pdf&#34;&gt;PDF version&lt;/a&gt; is also available.&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用-em-元素表示警告"><h3 id="不要使用-em-元素表示警告"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用 <code>em</code> 元素表示警告</h3></a>
+<p>警告是很严肃的事情，所以 <code>strong</code> 元素更合适。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;em&gt;Caution!&lt;/em&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;strong&gt;Caution!&lt;/strong&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#尽可能避免-sib-和-u-元素"><h3 id="尽可能避免-sib-和-u-元素"><span class="hanchor" ariaLabel="Anchor"># </span>尽可能避免 <code>s</code>、<code>i</code>、<code>b</code> 和 <code>u</code> 元素</h3></a>
+<p>这些元素的语义太难解读。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;i&gt;&lt;/i&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;span aria-hidden=&#34;true&#34;&gt;&lt;/span&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要在-q-元素外使用引号"><h3 id="不要在-q-元素外使用引号"><span class="hanchor" ariaLabel="Anchor"># </span>不要在 <code>q</code> 元素外使用引号</h3></a>
+<p>浏览器会自动加上引号。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;q&gt;“For writing maintainable and scalable HTML documents”&lt;/q&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;q&gt;For writing maintainable and scalable HTML documents&lt;/q&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Also good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">“For writing maintainable and scalable HTML documents”
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#给-abbr-元素添加-title-属性"><h3 id="给-abbr-元素添加-title-属性"><span class="hanchor" ariaLabel="Anchor"># </span>给 <code>abbr</code> 元素添加 <code>title</code> 属性</h3></a>
+<p>这是显示全称的唯一方式。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;abbr&gt;HBP&lt;/abbr&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;abbr title=&#34;HTML Best Practices&#34;&gt;HBP&lt;/abbr&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#详细标记-ruby-元素"><h3 id="详细标记-ruby-元素"><span class="hanchor" ariaLabel="Anchor"># </span>详细标记 <code>ruby</code> 元素</h3></a>
+<p>现代浏览器对 <code>ruby</code> 元素的支持还不完整。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;ruby&gt;HTML&lt;rt&gt;えいちてぃーえむえる&lt;/ruby&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;ruby&gt;HTML&lt;rp&gt; (&lt;/rp&gt;&lt;rt&gt;えいちてぃーえむえる&lt;/rt&gt;&lt;rp&gt;) &lt;/rp&gt;&lt;/ruby&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#给电脑无法识别的-time-元素添加-datetime-属性"><h3 id="给电脑无法识别的-time-元素添加-datetime-属性"><span class="hanchor" ariaLabel="Anchor"># </span>给电脑无法识别的 <code>time</code> 元素添加 <code>datetime</code> 属性</h3></a>
+<p>当 <code>datetime</code> 属性不存在，<code>time</code> 元素内容的格式会受限制。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;time&gt;Dec 19, 2014&lt;/time&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;time datetime=&#34;2014-12-19&#34;&gt;Dec 19, 2014&lt;/time&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用-language--前缀的-class-属性指定代码语言"><h3 id="使用-language--前缀的-class-属性指定代码语言"><span class="hanchor" ariaLabel="Anchor"># </span>使用 <code>language-</code> 前缀的 <code>class</code> 属性指定代码语言</h3></a>
+<p>没有统一的实现方式，但规范中有提及。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;code&gt;&lt;!DOCTYPE html&gt;&lt;/code&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;code&gt;&lt;!DOCTYPE html&gt;&lt;/code&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#kbd-元素越简单越好"><h3 id="kbd-元素越简单越好"><span class="hanchor" ariaLabel="Anchor"># </span><code>kbd</code> 元素越简单越好</h3></a>
+<p>嵌套的 <code>kbd</code> 元素很难以阅读。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;kbd&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;F5&lt;/kbd&gt;&lt;/kbd&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;kbd&gt;Ctrl+F5&lt;/kbd&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#尽可能避免-span-元素"><h3 id="尽可能避免-span-元素"><span class="hanchor" ariaLabel="Anchor"># </span>尽可能避免 <code>span</code> 元素</h3></a>
+<p>实在没办法了，才用 <code>span</code>。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HTML &lt;span&gt;Best&lt;/span&gt; Practices
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HTML &lt;em&gt;Best&lt;/em&gt; Practices
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#在-br-元素后换行"><h3 id="在-br-元素后换行"><span class="hanchor" ariaLabel="Anchor"># </span>在 <code>br</code> 元素后换行</h3></a>
+<p>使用 <code>br</code> 元素后应当换行。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;HTML&lt;br&gt;Best&lt;br&gt;Practices&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;HTML&lt;br&gt;
+</span></span><span class="line"><span class="cl">Best&lt;br&gt;
+</span></span><span class="line"><span class="cl">Practices&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要只为了格式好看就用-br-元素"><h3 id="不要只为了格式好看就用-br-元素"><span class="hanchor" ariaLabel="Anchor"># </span>不要只为了格式好看就用 <code>br</code> 元素</h3></a>
+<p><code>br</code> 元素不是用来给所有元素换行的，是用来在文本内容中换行的。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;&lt;label&gt;Rule name: &lt;input &gt;&lt;/label&gt;&lt;br&gt;
+</span></span><span class="line"><span class="cl">&lt;label&gt;Rule description:&lt;br&gt;
+</span></span><span class="line"><span class="cl">&lt;textarea &gt;&lt;/textarea&gt;&lt;/label&gt;&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;&lt;label&gt;Rule name: &lt;input &gt;&lt;/label&gt;&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;p&gt;&lt;label&gt;Rule description:&lt;br&gt;
+</span></span><span class="line"><span class="cl">&lt;textarea &gt;&lt;/textarea&gt;&lt;/label&gt;&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#编辑"><h2 id="编辑"><span class="hanchor" ariaLabel="Anchor"># </span>编辑</h2></a>
+<a href="#不要跨元素使用-ins-和-del"><h3 id="不要跨元素使用-ins-和-del"><span class="hanchor" ariaLabel="Anchor"># </span>不要跨元素使用 <code>ins</code> 和 <code>del</code></h3></a>
+<p>元素不能越界。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;For writing maintainable and scalable HTML documents.&lt;del&gt; And for mental stability.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;p&gt;Don’t trust!&lt;/p&gt;&lt;/del&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;For writing maintainable and scalable HTML documents.&lt;del&gt; And for mental stability.&lt;/del&gt;&lt;/p&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;del&gt;&lt;p&gt;Don’t trust!&lt;/p&gt;&lt;/del&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#内嵌内容"><h2 id="内嵌内容"><span class="hanchor" ariaLabel="Anchor"># </span>内嵌内容</h2></a>
+<a href="#为-picture-元素提供备用-img-元素"><h3 id="为-picture-元素提供备用-img-元素"><span class="hanchor" ariaLabel="Anchor"># </span>为 <code>picture</code> 元素提供备用 <code>img</code> 元素</h3></a>
+<p>对 <code>picture</code> 元素的支持还不是很好。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;picture&gt;
+</span></span><span class="line"><span class="cl">  &lt;source srcset=&#34;/img/logo.webp&#34; type=&#34;image/webp&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;source srcset=&#34;/img/logo.hdp&#34; type=&#34;image/vnd.ms-photo&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;source srcset=&#34;/img/logo.jp2&#34; type=&#34;image/jp2&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;source srcset=&#34;/img/logo.jpg&#34; type=&#34;image/jpg&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;/picture&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;picture&gt;
+</span></span><span class="line"><span class="cl">  &lt;source srcset=&#34;/img/logo.webp&#34; type=&#34;image/webp&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;source srcset=&#34;/img/logo.hdp&#34; type=&#34;image/vnd.ms-photo&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;source srcset=&#34;/img/logo.jp2&#34; type=&#34;image/jp2&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;img src=&#34;/img/logo.jpg&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;/picture&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#按需为-img-元素添加-alt-属性"><h3 id="按需为-img-元素添加-alt-属性"><span class="hanchor" ariaLabel="Anchor"># </span>按需为 <code>img</code> 元素添加 <code>alt</code> 属性</h3></a>
+<p><code>alt</code> 属性对那些无法处理图片或禁用了图片加载的人很有帮助。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img src=&#34;/img/logo.png&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;HTML Best Practices&#34; src=&#34;/img/logo.png&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#若有可能则留空-alt-属性"><h3 id="若有可能则留空-alt-属性"><span class="hanchor" ariaLabel="Anchor"># </span>若有可能则留空 <code>alt</code> 属性</h3></a>
+<p>如果图片是用作补充说明，那么附近应该有与 <code>alt</code> 等价的内容。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;Question mark icon&#34; src=&#34;/img/icon/help.png&#34;&gt; Help
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;&#34; src=&#34;/img/icon/help.png&#34;&gt; Help
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#若有可能则省略-alt-属性"><h3 id="若有可能则省略-alt-属性"><span class="hanchor" ariaLabel="Anchor"># </span>若有可能则省略 <code>alt</code> 属性</h3></a>
+<p>有时你不一定知道 <code>alt</code> 要写什么。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img alt=&#34;CAPTCHA&#34; src=&#34;captcha.cgi?id=82174&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;img src=&#34;captcha.cgi?id=82174&#34; title=&#34;CAPTCHA&#34;&gt;
+</span></span><span class="line"><span class="cl">(If you cannot see the image, you can use an &lt;a href=&#34;?audio&#34;&gt;audio&lt;/a&gt; test instead.)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#留空-iframe-内容"><h3 id="留空-iframe-内容"><span class="hanchor" ariaLabel="Anchor"># </span>留空 <code>iframe</code> 内容</h3></a>
+<p><code>iframe</code> 的内容是受限的，留空比较安全。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;iframe src=&#34;/ads/default.html&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;p&gt;If your browser support inline frame, ads are displayed here.&lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;/iframe&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;iframe src=&#34;/ads/default.html&#34;&gt;&lt;/iframe&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#标记-map-元素内容"><h3 id="标记-map-元素内容"><span class="hanchor" ariaLabel="Anchor"># </span>标记 <code>map</code> 元素内容</h3></a>
+<p>这样屏幕阅读器可以知道 <code>map</code> 的内容。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;map &gt;
+</span></span><span class="line"><span class="cl">  &lt;a href=&#34;#general&#34;&gt;General&lt;/a&gt;
+</span></span><span class="line"><span class="cl">  &lt;area alt=&#34;General&#34; coords=&#34;0, 0, 40, 40&#34; href=&#34;#General&#34;&gt; |
+</span></span><span class="line"><span class="cl">  &lt;a href=&#34;#the_root_element&#34;&gt;The root element&lt;/a&gt;
+</span></span><span class="line"><span class="cl">  &lt;area alt=&#34;The root element&#34; coords=&#34;50, 0, 90, 40&#34; href=&#34;#the_root_element&#34;&gt; |
+</span></span><span class="line"><span class="cl">  &lt;a href=&#34;#sections&#34;&gt;Sections&lt;/a&gt;
+</span></span><span class="line"><span class="cl">  &lt;area alt=&#34;Sections&#34; coords=&#34;100, 0, 140, 40&#34; href=&#34;#sections&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;/map&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;map &gt;
+</span></span><span class="line"><span class="cl">  &lt;p&gt;
+</span></span><span class="line"><span class="cl">    &lt;a href=&#34;#general&#34;&gt;General&lt;/a&gt;
+</span></span><span class="line"><span class="cl">    &lt;area alt=&#34;General&#34; coords=&#34;0, 0, 40, 40&#34; href=&#34;#General&#34;&gt; |
+</span></span><span class="line"><span class="cl">    &lt;a href=&#34;#the_root_element&#34;&gt;The root element&lt;/a&gt;
+</span></span><span class="line"><span class="cl">    &lt;area alt=&#34;The root element&#34; coords=&#34;50, 0, 90, 40&#34; href=&#34;#the_root_element&#34;&gt; |
+</span></span><span class="line"><span class="cl">    &lt;a href=&#34;#sections&#34;&gt;Sections&lt;/a&gt;
+</span></span><span class="line"><span class="cl">    &lt;area alt=&#34;Sections&#34; coords=&#34;100, 0, 140, 40&#34; href=&#34;#sections&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;/p&gt;
+</span></span><span class="line"><span class="cl">&lt;/map&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#为-audio-和-video-元素提供备用内容"><h3 id="为-audio-和-video-元素提供备用内容"><span class="hanchor" ariaLabel="Anchor"># </span>为 <code>audio</code> 和 <code>video</code> 元素提供备用内容</h3></a>
+<p>HTML 新引进的元素需要备用内容，以防旧版浏览器不支持。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;video&gt;
+</span></span><span class="line"><span class="cl">  &lt;source src=&#34;/mov/theme.mp4&#34; type=&#34;video/mp4&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;source src=&#34;/mov/theme.ogv&#34; type=&#34;video/ogg&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/video&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;video&gt;
+</span></span><span class="line"><span class="cl">  &lt;source src=&#34;/mov/theme.mp4&#34; type=&#34;video/mp4&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;source src=&#34;/mov/theme.ogv&#34; type=&#34;video/ogg&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  &lt;iframe src=&#34;//www.youtube.com/embed/...&#34; allowfullscreen&gt;&lt;/iframe&gt;
+</span></span><span class="line"><span class="cl">&lt;/video&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#表格数据"><h2 id="表格数据"><span class="hanchor" ariaLabel="Anchor"># </span>表格数据</h2></a>
+<a href="#一行写一个单元格"><h3 id="一行写一个单元格"><span class="hanchor" ariaLabel="Anchor"># </span>一行写一个单元格</h3></a>
+<p>长行难以浏览。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;tr&gt;
+</span></span><span class="line"><span class="cl">  &lt;td&gt;General&lt;/td&gt;&lt;td&gt;The root Element&lt;/td&gt;&lt;td&gt;Sections&lt;/td&gt;
+</span></span><span class="line"><span class="cl">&lt;/tr&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;tr&gt;
+</span></span><span class="line"><span class="cl">  &lt;td&gt;General&lt;/td&gt;
+</span></span><span class="line"><span class="cl">  &lt;td&gt;The root Element&lt;/td&gt;
+</span></span><span class="line"><span class="cl">  &lt;td&gt;Sections&lt;/td&gt;
+</span></span><span class="line"><span class="cl">&lt;/tr&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用-th-元素表示标题格"><h3 id="使用-th-元素表示标题格"><span class="hanchor" ariaLabel="Anchor"># </span>使用 <code>th</code> 元素表示标题格</h3></a>
+<p>就应该这样。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;table&gt;
+</span></span><span class="line"><span class="cl">  &lt;thead&gt;
+</span></span><span class="line"><span class="cl">    &lt;tr&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;&lt;strong&gt;Element&lt;/strong&gt;&lt;/td&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;&lt;strong&gt;Empty&lt;/strong&gt;&lt;/td&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;&lt;strong&gt;Tag omission&lt;/strong&gt;&lt;/td&gt;
+</span></span><span class="line"><span class="cl">    &lt;/tr&gt;
+</span></span><span class="line"><span class="cl">  &lt;/thead&gt;
+</span></span><span class="line"><span class="cl">  &lt;tbody&gt;
+</span></span><span class="line"><span class="cl">    &lt;tr&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;&lt;strong&gt;&lt;code&gt;pre&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;No&lt;/td&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;Neither tag is omissible&lt;/td&gt;
+</span></span><span class="line"><span class="cl">    &lt;/tr&gt;
+</span></span><span class="line"><span class="cl">    &lt;tr&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;&lt;strong&gt;&lt;code&gt;img&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;Yes&lt;/td&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;No end tag&lt;/td&gt;
+</span></span><span class="line"><span class="cl">    &lt;/tr&gt;
+</span></span><span class="line"><span class="cl">  &lt;/tbody&gt;
+</span></span><span class="line"><span class="cl">&lt;/table&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;table&gt;
+</span></span><span class="line"><span class="cl">  &lt;thead&gt;
+</span></span><span class="line"><span class="cl">    &lt;tr&gt;
+</span></span><span class="line"><span class="cl">      &lt;th&gt;Element&lt;/th&gt;
+</span></span><span class="line"><span class="cl">      &lt;th&gt;Empty&lt;/th&gt;
+</span></span><span class="line"><span class="cl">      &lt;th&gt;Tag omission&lt;/th&gt;
+</span></span><span class="line"><span class="cl">    &lt;/tr&gt;
+</span></span><span class="line"><span class="cl">  &lt;/thead&gt;
+</span></span><span class="line"><span class="cl">  &lt;tbody&gt;
+</span></span><span class="line"><span class="cl">    &lt;tr&gt;
+</span></span><span class="line"><span class="cl">      &lt;th&gt;&lt;code&gt;pre&lt;/code&gt;&lt;/th&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;No&lt;/td&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;Neither tag is omissible&lt;/td&gt;
+</span></span><span class="line"><span class="cl">    &lt;/tr&gt;
+</span></span><span class="line"><span class="cl">    &lt;tr&gt;
+</span></span><span class="line"><span class="cl">      &lt;th&gt;&lt;code&gt;img&lt;/code&gt;&lt;/th&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;Yes&lt;/td&gt;
+</span></span><span class="line"><span class="cl">      &lt;td&gt;No end tag&lt;/td&gt;
+</span></span><span class="line"><span class="cl">    &lt;/tr&gt;
+</span></span><span class="line"><span class="cl">  &lt;/tbody&gt;
+</span></span><span class="line"><span class="cl">&lt;/table&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#表单"><h2 id="表单"><span class="hanchor" ariaLabel="Anchor"># </span>表单</h2></a>
+<a href="#使用-label-元素包裹表单控制元素"><h3 id="使用-label-元素包裹表单控制元素"><span class="hanchor" ariaLabel="Anchor"># </span>使用 <code>label</code> 元素包裹表单控制元素</h3></a>
+<p><code>label</code> 元素有助于表单元素的聚焦。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;Query: &lt;input &gt;&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;p&gt;&lt;label&gt;Query: &lt;input &gt;&lt;/label&gt;&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#若有可能则省略-for-属性"><h3 id="若有可能则省略-for-属性"><span class="hanchor" ariaLabel="Anchor"># </span>若有可能则省略 <code>for</code> 属性</h3></a>
+<p><code>label</code> 元素可以包含表单元素。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;label for=&#34;q&#34;&gt;Query: &lt;/label&gt;&lt;input &gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;label&gt;Query: &lt;input &gt;&lt;/label&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#为-input-元素选择合适的-type-属性"><h3 id="为-input-元素选择合适的-type-属性"><span class="hanchor" ariaLabel="Anchor"># </span>为 <code>input</code> 元素选择合适的 <code>type</code> 属性</h3></a>
+<p>使用 <code>type</code> 属性后，浏览器会赋予 <code>input</code> 元素一些新功能。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;label&gt;Search keyword: &lt;input &gt;&lt;/label&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;label&gt;Search keyword: &lt;input &gt;&lt;/label&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#给-input-typesubmit-添加-value-属性"><h3 id="给-input-typesubmit-添加-value-属性"><span class="hanchor" ariaLabel="Anchor"># </span>给 <code>input type=&quot;submit&quot;</code> 添加 <code>value</code> 属性</h3></a>
+<p>在不同浏览器和不同语言环境下，提交按钮的默认标签是不同的。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;input type=&#34;submit&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;input type=&#34;submit&#34; value=&#34;Search&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#给有-pattern-属性的-input-元素添加-title-属性"><h3 id="给有-pattern-属性的-input-元素添加-title-属性"><span class="hanchor" ariaLabel="Anchor"># </span>给有 <code>pattern</code> 属性的 <code>input</code> 元素添加 <code>title</code> 属性</h3></a>
+<p>如果输入文本与 <code>pattern</code> 属性不匹配，<code>title</code> 属性的值就会被显示为提示。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;input [0-9]{3}&#34; type=&#34;text&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;input [0-9]{3}&#34; title=&#34;A security code is a number in three figures.&#34; type=&#34;text&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要把-placeholder-作为标签"><h3 id="不要把-placeholder-作为标签"><span class="hanchor" ariaLabel="Anchor"># </span>不要把 <code>placeholder</code> 作为标签</h3></a>
+<p><code>label</code> 元素用于提供标签，<code>placeholder</code> 属性用于简短提示。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;input &gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;label&gt;Email: &lt;input john.doe@example.com&#34; type=&#34;text&#34;&gt;&lt;/label&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#每行只写一个-option-元素"><h3 id="每行只写一个-option-元素"><span class="hanchor" ariaLabel="Anchor"># </span>每行只写一个 <code>option</code> 元素</h3></a>
+<p>长行难以浏览。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;datalist&gt;
+</span></span><span class="line"><span class="cl">  &lt;option label=&#34;General&#34;&gt;&lt;option label=&#34;The root element&#34;&gt;&lt;option label=&#34;Sections&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;/datalist&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;datalist&gt;
+</span></span><span class="line"><span class="cl">  &lt;option label=&#34;General&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;option label=&#34;The root element&#34;&gt;
+</span></span><span class="line"><span class="cl">  &lt;option label=&#34;Sections&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;/datalist&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#为-progress-元素添加-max-属性"><h3 id="为-progress-元素添加-max-属性"><span class="hanchor" ariaLabel="Anchor"># </span>为 <code>progress</code> 元素添加 <code>max</code> 属性</h3></a>
+<p>有了 <code>max</code> 属性，<code>value</code> 属性就易于编写。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;progress value=&#34;0.5&#34;&gt; 50%&lt;/progress&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;progress max=&#34;100&#34; value=&#34;50&#34;&gt; 50%&lt;/progress&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#为-meter-元素添加-min-和-max-属性"><h3 id="为-meter-元素添加-min-和-max-属性"><span class="hanchor" ariaLabel="Anchor"># </span>为 <code>meter</code> 元素添加 <code>min</code> 和 <code>max</code> 属性</h3></a>
+<p>有了 <code>min</code> 和 <code>max</code> 属性，<code>value</code> 属性就易于编写。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;meter value=&#34;0.5&#34;&gt; 512GB used (1024GB total)&lt;/meter&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;meter min=&#34;0&#34; max=&#34;1024&#34; value=&#34;512&#34;&gt; 512GB used (1024GB total)&lt;/meter&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#将-legend-作为-fieldset-的第一个子元素"><h3 id="将-legend-作为-fieldset-的第一个子元素"><span class="hanchor" ariaLabel="Anchor"># </span>将 <code>legend</code> 作为 <code>fieldset</code> 的第一个子元素</h3></a>
+<p>这是规范的要求。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;fieldset&gt;
+</span></span><span class="line"><span class="cl">  &lt;p&gt;&lt;label&gt;Is this section is useful?: &lt;input &gt;&lt;/label&gt;&lt;/p&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">  &lt;legend&gt;About &#34;General&#34;&lt;/legend&gt;
+</span></span><span class="line"><span class="cl">&lt;/fieldset&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;fieldset&gt;
+</span></span><span class="line"><span class="cl">  &lt;legend&gt;About &#34;General&#34;&lt;/legend&gt;
+</span></span><span class="line"><span class="cl">  &lt;p&gt;&lt;label&gt;Is this section is useful?: &lt;input &gt;&lt;/label&gt;&lt;/p&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/fieldset&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#脚本"><h2 id="脚本"><span class="hanchor" ariaLabel="Anchor"># </span>脚本</h2></a>
+<a href="#省略-javascript-的-type-属性"><h3 id="省略-javascript-的-type-属性"><span class="hanchor" ariaLabel="Anchor"># </span>省略 JavaScript 的 <code>type</code> 属性</h3></a>
+<p>在 HTML 中，<code>script</code> 元素的默认 <code>type</code> 属性值就是 <code>text/javascript</code>。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script type=&#34;text/javascript&#34;&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要为-script-元素的内容编写注释"><h3 id="不要为-script-元素的内容编写注释"><span class="hanchor" ariaLabel="Anchor"># </span>不要为 `script‵ 元素的内容编写注释</h3></a>
+<p>这条规则适用于旧版浏览器。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script&gt;
+</span></span><span class="line"><span class="cl">/*&lt;![CDATA[*/
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">/*]]&gt;*/
+</span></span><span class="line"><span class="cl">&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Also bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script&gt;
+</span></span><span class="line"><span class="cl">&lt;!--
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">// --&gt;
+</span></span><span class="line"><span class="cl">&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script&gt;
+</span></span><span class="line"><span class="cl">  ...
+</span></span><span class="line"><span class="cl">&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用注入脚本的-script-元素"><h3 id="不要使用注入脚本的-script-元素"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用注入脚本的 <code>script</code> 元素</h3></a>
+<p><code>async</code> 属性既简单又高效。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script&gt;
+</span></span><span class="line"><span class="cl">  var script = document.createElement(&#34;script&#34;);
+</span></span><span class="line"><span class="cl">  script.async = true;
+</span></span><span class="line"><span class="cl">  script.src = &#34;//example.com/widget.js&#34;;
+</span></span><span class="line"><span class="cl">  document.getElementsByTagName(&#34;head&#34;)[0].appendChild(script);
+</span></span><span class="line"><span class="cl">&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script async defer src=&#34;https://example.com/widget.js&#34;&gt;&lt;/script&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#其它"><h2 id="其它"><span class="hanchor" ariaLabel="Anchor"># </span>其它</h2></a>
+<a href="#一致的缩进"><h3 id="一致的缩进"><span class="hanchor" ariaLabel="Anchor"># </span>一致的缩进</h3></a>
+<p>缩进对可读性影响很大。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">	&lt;head&gt;
+</span></span><span class="line"><span class="cl">	  ...
+</span></span><span class="line"><span class="cl">	&lt;/head&gt;
+</span></span><span class="line"><span class="cl">  &lt;body&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;html&gt;
+</span></span><span class="line"><span class="cl">  &lt;head&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/head&gt;
+</span></span><span class="line"><span class="cl">  &lt;body&gt;
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">  &lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#使用相对路径引用内部链接"><h3 id="使用相对路径引用内部链接"><span class="hanchor" ariaLabel="Anchor"># </span>使用相对路径引用内部链接</h3></a>
+<p>无网络链接时，相对链接在本机有更好的表现。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link rel=&#34;apple-touch-icon&#34; href=&#34;http://you.example.com/apple-touch-icon-precomposed.png&#34;&gt;
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">&lt;p&gt;You can find more at &lt;a href=&#34;//you.example.com/contact.html&#34;&gt;contact page&lt;/a&gt;.&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;link rel=&#34;apple-touch-icon&#34; href=&#34;/apple-touch-icon-precomposed.png&#34;&gt;
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">&lt;p&gt;You can find more at &lt;a href=&#34;/contact.html&#34;&gt;contact page&lt;/a&gt;.&lt;/p&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#不要使用无协议的-url-引用外部资源"><h3 id="不要使用无协议的-url-引用外部资源"><span class="hanchor" ariaLabel="Anchor"># </span>不要使用无协议的 URL 引用外部资源</h3></a>
+<p>有了协议，外部资源的加载更可靠、更安全。</p>
+<p>Bad:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script src=&#34;//example.com/js/library.js&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Good:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;script src=&#34;https://example.com/js/library.js&#34;&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://github.com/chick26">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

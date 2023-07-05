@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development/ComputerBasic/DataStructure/Stack on </title>
+    <link>chick26.github.io/tags/development/computerbasic/datastructure/stack/</link>
+    <description>Recent content in Development/ComputerBasic/DataStructure/Stack on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/development/computerbasic/datastructure/stack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bracket Matching Using Stack</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/bracket-matching-using-stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/bracket-matching-using-stack/</guid>
+      <description>问题 假设表达式中只包含三种括号，圆括号 ()、方括号 [] 和花括号 {}，并且它们可以任意嵌套。
+ {[{}]} 或 [{()}([])] 等都为合法格式 {[}()] 或 [({)] 为不合法的格式 对于一个包含三种括号的表达式字符串，检查是否合法 ( 跟 ) 匹配，[ 跟 ] 匹配，{ 跟 } 匹配  思路 使用一个 [[Stack.</description>
+    </item>
+    
+    <item>
+      <title>Browser forward and backward Using Stack</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/browser-forward-and-backward-using-stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/browser-forward-and-backward-using-stack/</guid>
+      <description>问题 依次访问完一串页面 a-b-c 之后，点击浏览器的后退按钮，就可以查看之前浏览过的页面 b 和 a。后退到页面 a，点击前进按钮，就可以重新查看页面 b 和 c。但是，如果后退到页面 b 后，点击了新的页面 d，那就无法再通过前进、后退功能查看页面 c 了。
+思路 使用两个 [[Stack.md|栈]] X 和 Y , 栈 X 中的栈顶数据表示当前访问的页面</description>
+    </item>
+    
+    <item>
+      <title>Expression evaluation Using Stack</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/expression-evaluation-using-stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/expression-evaluation-using-stack/</guid>
+      <description>问题 使用 [[Stack.md|栈]] 实现表达式求解
+思路 需要两个 [[Stack.md|栈]] 来实现：一个栈保存操作数，另一个栈保存运算符。
+ 从左向右遍历表达式，遇到数字就压入操作数栈； 遇到运算符，就与运算符栈的栈顶元素进行比较。  如果比运算符栈顶元素的优先级高，就将当前运算符压入栈； 如果比运算符栈顶元素的优先级低或者相同，从运算符栈中取栈顶运算符，从操作数栈的栈顶取 2 个操作数，然后进行计算，再把计算完的结果压入操作数栈，继续比较。    </description>
+    </item>
+    
+    <item>
+      <title>Stack</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/stack/</guid>
+      <description>up:: [ • TOC for Algorithm Course
+1 基本结构  [!Example]- 操作受限, 后进先出, 先进后出
+从功能上来说，数组或链表可以替代栈，但特定的数据结构是对特定场景的抽象，数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。
+当某个数据集合只涉及在一端插入和删除数据，并且满足后进先出、先进后出的特性，就应该首选“栈”这种数据结构。
+ 2 代码实现 栈主要包含两个操作，入栈和出栈，也就是在栈顶插入一个数据和从栈顶删除一个数据。栈既可以用数组来实现，也可以用链表来实现。用数组实现的栈，我们叫作顺序栈，用链表实现的栈，我们叫作链式栈。</description>
+    </item>
+    
+  </channel>
+</rss>

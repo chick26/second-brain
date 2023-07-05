@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development/Docker/Docker-compose on </title>
+    <link>chick26.github.io/tags/development/docker/docker-compose/</link>
+    <description>Recent content in Development/Docker/Docker-compose on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/development/docker/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PHPIPAM Docker Install</title>
+      <link>chick26.github.io/cards/-docker/phpipam-docker-install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-docker/phpipam-docker-install/</guid>
+      <description>up:: [ • TOC for Docker
+Install Docker Engine and Docker-compose  To install the latest version, run  1 2 3 4  sudo yum install -y yum-utils sudo yum-config-manager --add-repo https://download.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network/Internet/Apranet on </title>
+    <link>chick26.github.io/tags/network/internet/apranet/</link>
+    <description>Recent content in Network/Internet/Apranet on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/network/internet/apranet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARPANET</title>
+      <link>chick26.github.io/cards/-front-dev/internet/arpanet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-front-dev/internet/arpanet/</guid>
+      <description>up:: [ • TOC for Frontend
+Apranet 阿帕网  高级研究计划局网络（英语：Advanced Research Projects Agency Network），通称阿帕网（英语：ARPANET）是美国国防高级研究计划局开发的世界上第一个运营的数据包交换网络，是全球互联网的鼻祖。
+ 历史房展 ARPA网无法做到和个别计算机网络交流，这引发了研究者的思考。根据诺顿的看法，他的设计需要太多的控制和太多的网络中机器设备的标准化。因此，1973年春， 文顿·瑟夫和 鲍勃·康（Bob Kahn）开始思考如何将ARPA网和另外两个已有的网络相连接，尤其是连接卫星网络（SAT NET）和基于夏威夷的分组无线业务的ALOHA网（ALOHA NET）瑟夫设想了新的计算机交流协议，最后创造出 [[TCP.</description>
+    </item>
+    
+  </channel>
+</rss>

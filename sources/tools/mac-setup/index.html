@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="System Preferences Dock  Remove most applications from Dock Smaller Dock Automatic Hide  Track pad  Tap to Click Point &amp; Click -&gt; Look up &amp; data detectors off  System Preferences (Terminal) Override more system preferences from the terminal &hellip;"
+  />
+  <meta property="og:title" content="Mac Setup">
+  <meta property="og:description" content="System Preferences Dock  Remove most applications from Dock Smaller Dock Automatic Hide  Track pad  Tap to Click Point &amp; Click -&gt; Look up &amp; data detectors off  System Preferences (Terminal) Override more system preferences from the terminal &hellip;">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/sources/tools/mac-setup/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mac Setup" />
+  <meta name="twitter:description" content="System Preferences Dock  Remove most applications from Dock Smaller Dock Automatic Hide  Track pad  Tap to Click Point &amp; Click -&gt; Look up &amp; data detectors off  System Preferences (Terminal) Override more system preferences from the terminal &hellip;" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+  
+
+  <title>
+    Mac Setup
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">Chick&#39;s Second Brain</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>Mac Setup</h1>
+      <p class="meta">
+        Last updated 
+Jul 4, 2023
+
+ 
+          
+<a href="https://github.com/chick26/Sources/Tools/Mac%20Setup.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#system-preferences">System Preferences</a>
+      <ol>
+        <li><a href="#dock">Dock</a></li>
+        <li><a href="#track-pad">Track pad</a></li>
+        <li><a href="#system-preferences-terminal">System Preferences (Terminal)</a></li>
+      </ol>
+    </li>
+    <li><a href="#install-clashx">Install ClashX</a></li>
+    <li><a href="#install-app-and-cli-tool">Install App and Cli Tool</a>
+      <ol>
+        <li><a href="#homebrew">Homebrew</a></li>
+        <li><a href="#mac-app-store">Mac App Store</a></li>
+        <li><a href="#other">Other</a></li>
+        <li><a href="#built-in-macos-applications">Built-in MacOS Applications</a></li>
+      </ol>
+    </li>
+    <li><a href="#personal-document-path">Personal Document Path</a></li>
+    <li><a href="#app-configuration">App Configuration</a>
+      <ol>
+        <li><a href="#alfred">Alfred</a></li>
+        <li><a href="#iterm2">iTerm2</a></li>
+        <li><a href="#oh-my-zsh">Oh my Zsh</a></li>
+        <li><a href="#ssh">SSH</a></li>
+        <li><a href="#espanso">Espanso</a></li>
+        <li><a href="#vscode">VSCode</a></li>
+        <li><a href="#git">Git</a></li>
+        <li><a href="#nvm-和-node">NVM 和 Node</a></li>
+        <li><a href="#others">Others</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+<a href="#system-preferences"><h2 id="system-preferences"><span class="hanchor" ariaLabel="Anchor"># </span>System Preferences</h2></a>
+<a href="#dock"><h3 id="dock"><span class="hanchor" ariaLabel="Anchor"># </span>Dock</h3></a>
+<ul>
+<li>Remove most applications from Dock</li>
+<li>Smaller Dock</li>
+<li>Automatic Hide</li>
+</ul>
+<a href="#track-pad"><h3 id="track-pad"><span class="hanchor" ariaLabel="Anchor"># </span>Track pad</h3></a>
+<ul>
+<li>Tap to Click</li>
+<li>Point &amp; Click -&gt; Look up &amp; data detectors off</li>
+</ul>
+<a href="#system-preferences-terminal"><h3 id="system-preferences-terminal"><span class="hanchor" ariaLabel="Anchor"># </span>System Preferences (Terminal)</h3></a>
+<p>Override more system preferences from the terminal &hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># take screenshots as jpg (usually smaller size) and not png</span>
+</span></span><span class="line"><span class="cl">defaults write com.apple.screencapture <span class="nb">type</span> jpg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># do not open previous previewed files (e.g. PDFs) when opening a new one</span>
+</span></span><span class="line"><span class="cl">defaults write com.apple.Preview ApplePersistenceIgnoreState YES
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># show Library folder</span>
+</span></span><span class="line"><span class="cl">chflags nohidden ~/Library
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># show hidden files</span>
+</span></span><span class="line"><span class="cl">defaults write com.apple.finder AppleShowAllFiles YES
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># show path bar</span>
+</span></span><span class="line"><span class="cl">defaults write com.apple.finder ShowPathbar -bool <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># show status bar</span>
+</span></span><span class="line"><span class="cl">defaults write com.apple.finder ShowStatusBar -bool <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">killall Finder<span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#install-clashx"><h2 id="install-clashx"><span class="hanchor" ariaLabel="Anchor"># </span>Install ClashX</h2></a>
+<p>Turn on proxy</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span> http://127.0.0.1:7890 <span class="nv">http_proxy</span><span class="o">=</span> http://127.0.0.1:7890 <span class="nv">all_proxy</span><span class="o">=</span>socks5://127.0.0.1:7890
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#install-app-and-cli-tool"><h2 id="install-app-and-cli-tool"><span class="hanchor" ariaLabel="Anchor"># </span>Install App and Cli Tool</h2></a>
+<a href="#homebrew"><h3 id="homebrew"><span class="hanchor" ariaLabel="Anchor"># </span>Homebrew</h3></a>
+<p>Install 
+<a href="https://brew.sh/" rel="noopener">Homebrew</a> as package manager for macOS:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Update everything in Homebrew to recent version:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew update
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Install GUI applications (read more about these in GUI Applications), <code>homebrew-cask — Homebrew Formulae</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install --cask <span class="se">\\ </span>
+</span></span><span class="line"><span class="cl">  1password <span class="se">\\ </span></span></span><span class="line"><span class="cl"><span class="se"></span>  alfred <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  battery-buddy <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  coteditor <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  docker <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  eagle <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  espanso <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  figma <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  google-chrome  <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  gas-mask <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  handbrake <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  iina <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  iterm2 <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  karabiner-elements <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  keepingyouawake <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  keycastr <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  licecap <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  microsoft-remote-desktop <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  obs <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  obsidian <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  setapp <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  shottr <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  sogouinput <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  sourcetree <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  telegram <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  thor <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  usr-sse2-rdm <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  videofusion <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  visual-studio-code <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  webstorm <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  zerotier-one
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Install terminal applications (read more about these in Terminal Applications), <code>homebrew-core — Homebrew Formulae</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install <span class="se">\\ </span>
+</span></span><span class="line"><span class="cl">  autojump <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  bat <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  cmatrix <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  commitzen <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  deno <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  diff-so-fancy <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  fd <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  ffmpeg <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  fzf <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  gh <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  git <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  httpie <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  hub <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  hyperfine <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  imagemagick <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  jq <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  lazygit <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  mkcert <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  nvm <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  pnpm <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  the_silver_searcher <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  tig <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  tldr <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  tree <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  ugit <span class="se">\\ </span> 
+</span></span><span class="line"><span class="cl">  wget
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#mac-app-store"><h3 id="mac-app-store"><span class="hanchor" ariaLabel="Anchor"># </span>Mac App Store</h3></a>
+<ul>
+<li>Bob</li>
+<li>Tot</li>
+<li>Enpass</li>
+</ul>
+<a href="#other"><h3 id="other"><span class="hanchor" ariaLabel="Anchor"># </span>Other</h3></a>
+<ul>
+<li>Flomo x Pake</li>
+<li>Reeder（国区没有）</li>
+<li>PDF Expert</li>
+<li>uPic</li>
+</ul>
+<a href="#built-in-macos-applications"><h3 id="built-in-macos-applications"><span class="hanchor" ariaLabel="Anchor"># </span>Built-in MacOS Applications</h3></a>
+<ul>
+<li>iMessage
+<ul>
+<li>sync iCloud for iMessages just for the sake of syncing, then disable iCloud again</li>
+<li>sync contacts on iCloud</li>
+<li>iPhone: activate message forwarding to new Mac</li>
+</ul>
+</li>
+<li>Pages
+<ul>
+<li>show word count</li>
+</ul>
+</li>
+<li>Apple Mail
+<ul>
+<li>set up all email accounts</li>
+<li>show most recent message at top</li>
+</ul>
+</li>
+<li>Notes
+<ul>
+<li>New notes start with: Body</li>
+</ul>
+</li>
+<li>Quick Time Player
+<ul>
+<li>save to Desktop</li>
+</ul>
+</li>
+</ul>
+<a href="#personal-document-path"><h2 id="personal-document-path"><span class="hanchor" ariaLabel="Anchor"># </span>Personal Document Path</h2></a>
+<ul>
+<li><code>~/Documents/Code</code> Save Code</li>
+<li>`~/Documents/SoftwareConfiguration Save configuration</li>
+</ul>
+<a href="#app-configuration"><h2 id="app-configuration"><span class="hanchor" ariaLabel="Anchor"># </span>App Configuration</h2></a>
+<a href="#alfred"><h3 id="alfred"><span class="hanchor" ariaLabel="Anchor"># </span>Alfred</h3></a>
+<ul>
+<li>开启 Powerpack</li>
+<li>同步配置，将老电脑的 Alfred 配置复制到 <code>~/Documents/SoftwareConfiguration/Alfred</code> 下，然后在 <code>Advanced</code> 里修改配置目录指向他</li>
+<li><code>Features &gt; Web Bookmarks</code>  选择 <code>Google Chrome Bookmarks</code></li>
+</ul>
+<a href="#iterm2"><h3 id="iterm2"><span class="hanchor" ariaLabel="Anchor"># </span>iTerm2</h3></a>
+<ul>
+<li>Make iterm 2 Default Term</li>
+<li>Preferences -&gt;
+<ul>
+<li>General -&gt; Window
+<ul>
+<li>unselect &ldquo;Native full screen windows&rdquo;</li>
+</ul>
+</li>
+<li>Appearance -&gt;
+<ul>
+<li>Windows
+<ul>
+<li>select &ldquo;Hide scrollbars&rdquo;</li>
+</ul>
+</li>
+<li>Tabs
+<ul>
+<li>unselect &ldquo;Show tab bar in fullscreen&rdquo;</li>
+</ul>
+</li>
+<li>Dimming
+<ul>
+<li>Unselect all dimming</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Profiles -&gt; Window
+<ul>
+<li>Transparency: 30</li>
+<li>Style: Full Screen</li>
+<li>Screen: Main Screen</li>
+</ul>
+</li>
+<li>Profiles -&gt; Advanced
+<ul>
+<li>Semantic History -&gt; Open with editor &hellip; -&gt; VS Code</li>
+</ul>
+</li>
+<li>
+<a href="https://apple.stackexchange.com/a/337386" rel="noopener">Open new split pane with current directory</a></li>
+<li>
+<a href="https://apple.stackexchange.com/a/293988" rel="noopener">Natural Text Editing</a></li>
+</ul>
+</li>
+<li>Bring it to fullscreen Command + Enters</li>
+</ul>
+<a href="#oh-my-zsh"><h3 id="oh-my-zsh"><span class="hanchor" ariaLabel="Anchor"># </span>Oh my Zsh</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Update everything (e.g. plugins) in Oh My Zsh to recent version:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">omz update
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Important: If you change something in your Zsh configuration (<em>. Zshrc</em>), force a reload:</p>
+<p><strong>Oh My Zsh Theme + Fonts:</strong></p>
+<p>Install 
+<a href="https://starship.rs/" rel="noopener">Starship</a> as your new terminal theme. We will use Homebrew, but you can use an alternative from the website too:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install starship
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Make it the default theme for Oh My ZSH from the terminal:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;eval &#34;$(starship init zsh)&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As font we will be using Hack Nerd Font in iTerm 2, VS Code, and Sublime Text. Install it via:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew tap homebrew/cask-fonts
+</span></span><span class="line"><span class="cl">brew install --cask font-hack-nerd-font
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Use the new font in iTerm 2: Preferences -&gt; Profile -&gt; Text -&gt; Font: font-hack-nerd-font.</p>
+<p>If the theme and font changes do not apply, reload your zsh configuration (<em>. Zshrc</em>) or close/open iTerm 2.</p>
+<a href="#oh-my-zsh-plugins"><h4 id="oh-my-zsh-plugins"><span class="hanchor" ariaLabel="Anchor"># </span>Oh My Zsh Plugins</h4></a>
+<ul>
+<li>
+<a href="https://github.com/zsh-users/zsh-completions" rel="noopener">zsh-completions</a></li>
+<li>
+<a href="https://github.com/zsh-users/zsh-autosuggestions" rel="noopener">zsh-autosuggestions</a></li>
+<li>
+<a href="https://github.com/zsh-users/zsh-syntax-highlighting" rel="noopener">zsh-syntax-highlighting</a></li>
+</ul>
+<a href="#zsh-configuration-file-_-zshrc_"><h4 id="zsh-configuration-file-_-zshrc_"><span class="hanchor" ariaLabel="Anchor"># </span>ZSH Configuration File (<em>. Zshrc</em>):</h4></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Disable brew auto update</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HOMEBREW_NO_AUTO_UPDATE</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.oh-my-zsh&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">plugins</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 不会 git 插件，因为和我的 alias 设置冲突</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># git</span>
+</span></span><span class="line"><span class="cl">  zsh-completions
+</span></span><span class="line"><span class="cl">  zsh-autosuggestions
+</span></span><span class="line"><span class="cl">  fast-syntax-highlighting
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Alias</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ,ms<span class="o">=</span><span class="s2">&#34;%PATH/TO/MY/SCRIPT%&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ,ip<span class="o">=</span><span class="s2">&#34;ipconfig getifaddr en0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ,sshconfig<span class="o">=</span><span class="s2">&#34;vim ~/.ssh/config&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ,gitconfig<span class="o">=</span><span class="s2">&#34;vim ~/.gitconfig&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">b</span><span class="o">=</span><span class="s2">&#34;,ms branch&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">umi</span><span class="o">=</span><span class="s2">&#34;/Users/%MY_USERNAME%/Documents/Code/github.com/umijs/umi/packages/umi/bin/umi.js&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># chore</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">br</span><span class="o">=</span><span class="s2">&#34;bun run&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">c</span><span class="o">=</span><span class="s1">&#39;code .&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">i</span><span class="o">=</span><span class="s1">&#39;webstorm .&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">cdtmp</span><span class="o">=</span><span class="s1">&#39;cd `mktemp -d /tmp/sorrycc-XXXXXX`&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">pi</span><span class="o">=</span><span class="s2">&#34;echo &#39;Pinging Baidu&#39; &amp;&amp; ping www.baidu.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ip</span><span class="o">=</span><span class="s2">&#34;ipconfig getifaddr en0 &amp;&amp; ipconfig getifaddr en1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">cip</span><span class="o">=</span><span class="s2">&#34;curl cip.cc&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">qr</span><span class="o">=</span><span class="s1">&#39;qrcode-terminal&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ee</span><span class="o">=</span><span class="s2">&#34;stree&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">hosts</span><span class="o">=</span><span class="s2">&#34;vi /etc/hosts&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## system</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">showFiles</span><span class="o">=</span><span class="s2">&#34;defaults write com.apple.finder AppleShowAllFiles YES &amp;&amp; killall Finder&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">hideFiles</span><span class="o">=</span><span class="s2">&#34;defaults write com.apple.finder AppleShowAllFiles NO &amp;&amp; killall Finder&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># cd</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ..<span class="o">=</span><span class="s1">&#39;cd ../&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ...<span class="o">=</span><span class="s1">&#39;cd ../../&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ..l.<span class="o">=</span><span class="s1">&#39;cd ../../ &amp;&amp; ll&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ....<span class="o">=</span><span class="s1">&#39;cd ../../../&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> ~<span class="o">=</span><span class="s2">&#34;cd ~&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> -- -<span class="o">=</span><span class="s2">&#34;cd -&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -alhG&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls -G&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># git</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">git</span><span class="o">=</span>hub
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">gp</span><span class="o">=</span><span class="s2">&#34;git push&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">gt</span><span class="o">=</span><span class="s2">&#34;git status -sb&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ga</span><span class="o">=</span><span class="s2">&#34;git add .&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">gc</span><span class="o">=</span><span class="s2">&#34;git commit -av&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">gcr</span><span class="o">=</span><span class="s2">&#34;git checkout master &amp;&amp; git fetch &amp;&amp; git rebase&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">gclean</span><span class="o">=</span><span class="s2">&#34;git reset --hard &amp;&amp; git clean -df&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">grebase</span><span class="o">=</span><span class="s2">&#34;git fetch &amp;&amp; git rebase -i&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## timelapse</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## ref: https://www.reddit.com/r/mac/comments/wshn4/another_way_to_timelapse_record_your_mac_screen/</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> record<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">cd</span> ~/screencapture/jpg<span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">RES_WIDTH</span><span class="o">=</span><span class="k">$(</span>/usr/sbin/system_profiler SPDisplaysDataType <span class="p">|</span> grep Resolution<span class="k">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">RES_WIDTH</span><span class="o">=(</span><span class="si">${</span><span class="nv">RES_WIDTH</span><span class="p">:</span><span class="nv">22</span><span class="p">:</span><span class="nv">4</span><span class="si">}</span><span class="o">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">RES_WIDTH</span><span class="o">=</span><span class="k">$((</span>RES_WIDTH/2<span class="k">))</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> :
+</span></span><span class="line"><span class="cl">  <span class="nv">NOW</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%y%m%d%H%M%S&#34;</span><span class="k">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">do</span> screencapture -C -t jpg -x ~/screencapture/jpg/<span class="nv">$NOW</span>.jpg<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    sleep <span class="m">7</span> <span class="p">&amp;</span> <span class="nv">pid</span><span class="o">=</span><span class="nv">$!</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">NOW</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%y%m%d%H%M%S&#34;</span><span class="k">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">wait</span> <span class="nv">$pid</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> movie<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">NOW</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%y%m%d%H%M%S&#34;</span><span class="k">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">cd</span> ~/screencapture/jpg<span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">cnt</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">  rm -rf .DS_Store<span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> file in *
+</span></span><span class="line"><span class="cl">    <span class="k">do</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">ext</span><span class="o">=</span><span class="si">${</span><span class="nv">file</span><span class="p">##*.</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">printf</span> -v pad <span class="s2">&#34;%05d&#34;</span> <span class="s2">&#34;</span><span class="nv">$cnt</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      mv <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">pad</span><span class="si">}</span><span class="s2">.</span><span class="si">${</span><span class="nv">ext</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">cnt</span><span class="o">=</span><span class="k">$((</span> <span class="nv">$cnt</span> <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  rm -rf 00000.jpg<span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> pic in *.jpg<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">do</span> convert <span class="nv">$pic</span> -resize 50% <span class="nv">$pic</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  ffmpeg -r <span class="m">24</span> -i %05d.jpg -b 20000k ~/screencapture/mov/<span class="nv">$USER</span>-<span class="nv">$NOW</span>.mov<span class="p">;</span>
+</span></span><span class="line"><span class="cl">  rm -rf ./*.jpg<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span> pfd<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  osascript 2&gt; /dev/null <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">  tell application &#34;Finder&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">    return POSIX path of (target of window 1 as alias)
+</span></span></span><span class="line"><span class="cl"><span class="s">  end tell
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> mcd <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  mkdir <span class="nv">$1</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> cdf<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">cd</span> <span class="s2">&#34;</span><span class="k">$(</span>pfd<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> ,touch <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  mkdir -p <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> touch <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> ,take<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  mkdir -p <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> touch <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> take <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># load zsh-completions</span>
+</span></span><span class="line"><span class="cl">autoload -U compinit <span class="o">&amp;&amp;</span> compinit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># use nvm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /opt/homebrew/opt/nvm/nvm.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># autojump</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /opt/homebrew/etc/profile.d/autojump.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># use starship theme (needs to be at the end)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>starship init zsh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 必须在 plugins 之后</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/oh-my-zsh.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># bun completions</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -s <span class="s2">&#34;/Users/chencheng/.bun/_bun&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> <span class="s2">&#34;/Users/chencheng/.bun/_bun&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># bun</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">BUN_INSTALL</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.bun&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$BUN_INSTALL</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;/Users/chencheng/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#ssh"><h3 id="ssh"><span class="hanchor" ariaLabel="Anchor"># </span>SSH</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir ~/.ssh
+</span></span><span class="line"><span class="cl"><span class="c1"># file name 用 github，passphrase 随意</span>
+</span></span><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;github&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 编辑配置，内容如下</span>
+</span></span><span class="line"><span class="cl">touch ~/.ssh/config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Host *
+</span></span><span class="line"><span class="cl">  AddKeysToAgent yes
+</span></span><span class="line"><span class="cl">  UseKeychain yes
+</span></span><span class="line"><span class="cl">  IdentityFile ~/.ssh/github
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加到系统 keychain</span>
+</span></span><span class="line"><span class="cl">ssh-add --apple-use-keychain ~/.ssh/github
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Add the public key to your GitHub settings via the website or via the GitHub CLI (via <code>brew install gh</code>):</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub <span class="p">|</span> pbcopy
+</span></span><span class="line"><span class="cl"> <span class="c1"># or use GitHub&#39;s CLI</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加 public key 到 github</span>
+</span></span><span class="line"><span class="cl">gh auth login
+</span></span><span class="line"><span class="cl">gh ssh-key add ~/.ssh/github.pub -t github
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#espanso"><h3 id="espanso"><span class="hanchor" ariaLabel="Anchor"># </span>Espanso</h3></a>
+<ul>
+<li><code>~/Documents/SoftwareConfiguration/Espanso</code> 下新建 <code>base. yml</code>，内容如下并软链到 Espanso 原来的配置文件夹里。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">matches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># misc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;&gt;&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">➡</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;vv&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">⬇</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;^^&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">⬆</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;&lt;&lt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">⬅</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># life</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;mobi&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">我的手机号</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;mail&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">我的邮箱</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;addr&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">我的家庭住址</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;officeAddr&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">公司地址</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># faq</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;chongt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">冲突了，merge 下 master。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;log&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">console.log($|$)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;;delay&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l">const delay = (ms) =&gt; new Promise((res) =&gt; setTimeout(res, ms));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># mac symbols</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:cmd&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⌘&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:shift&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⇧&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:ctrl&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⌃&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:alt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⌥&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:opt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⌥&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:left&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;←&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:right&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;→&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:up&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;↑&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:down&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;↓&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:caps_lock&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⇪&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:esc&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⎋&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:eject&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⏏&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:return&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;↵&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:enter&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⌅&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:tab&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⇥&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:backtab&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⇤&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:pgup&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⇞&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:pgdown&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⇟&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:home&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;↖&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:end&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;↘&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:space&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;␣&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:del&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⌫&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:fdel&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⌦&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#vscode"><h3 id="vscode"><span class="hanchor" ariaLabel="Anchor"># </span>VSCode</h3></a>
+<p>使用账号同步配置</p>
+<a href="#git"><h3 id="git"><span class="hanchor" ariaLabel="Anchor"># </span>Git</h3></a>
+<ul>
+<li>From terminal, set global name and email:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;Your Name&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;you@your-domain.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Set the default branch to main instead of master:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global init.defaultBranch main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Print global git configuration:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --list
+</span></span><span class="line"><span class="cl"><span class="c1"># or alias</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># gitconfig</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Update git configuration</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global --add push.default current
+</span></span><span class="line"><span class="cl">git config --global --add push.autoSetupRemote <span class="nb">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Edit <code>~/.gitignore_global</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">*~
+</span></span><span class="line"><span class="cl">.DS_Store
+</span></span><span class="line"><span class="cl">.idea
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#nvm-和-node"><h3 id="nvm-和-node"><span class="hanchor" ariaLabel="Anchor"># </span>NVM 和 Node</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nvm install <span class="m">18</span>
+</span></span><span class="line"><span class="cl">node -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#others"><h3 id="others"><span class="hanchor" ariaLabel="Anchor"># </span>Others</h3></a>
+<ul>
+<li>Bob</li>
+<li>Reeder</li>
+<li>Chrome</li>
+<li>Telegram</li>
+<li>Obsidian</li>
+</ul>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://github.com/chick26">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

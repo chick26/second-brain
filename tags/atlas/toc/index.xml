@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Atlas/TOC on </title>
+    <link>chick26.github.io/tags/atlas/toc/</link>
+    <description>Recent content in Atlas/TOC on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/atlas/toc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>chick26.github.io/cards/%EF%B8%8F-python/-toc-for-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/%EF%B8%8F-python/-toc-for-python/</guid>
+      <description>🌏 [ Cards MOC | Python TOC 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/cards/-markdown/-toc-for-markdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-markdown/-toc-for-markdown/</guid>
+      <description>🌏 [ Cards MOC | Markdown TOC 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/cards/%EF%B8%8F-git-dev/-toc-for-git/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/%EF%B8%8F-git-dev/-toc-for-git/</guid>
+      <description>🌏 [ Cards MOC | Git TOC 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/cards/-docker/-toc-for-docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-docker/-toc-for-docker/</guid>
+      <description>🌏 [ Cards MOC | Docker MOC 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/cards/-data-structure/-toc-for-data-structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-data-structure/-toc-for-data-structure/</guid>
+      <description>🌏 [ Cards MOC | Data Structure TOC 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  for (let group of dv.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/cards/-network/-toc-for-network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-network/-toc-for-network/</guid>
+      <description>🌏 [ Cards MOC | Network TOC 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/cards/-front-dev/-toc-for-frontend/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-front-dev/-toc-for-frontend/</guid>
+      <description>🌏 [ Cards MOC | Frontend TOC 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  for (let group of dv.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/cards/-gpt/-toc-for-gpt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/cards/-gpt/-toc-for-gpt/</guid>
+      <description>🌏 [ Cards MOC | GPT TOC 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/extras/flashcards/communicate-int-tech/-toc-for-communicate-int-tech-flashcards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/extras/flashcards/communicate-int-tech/-toc-for-communicate-int-tech-flashcards/</guid>
+      <description>🌏 [ Flashcards MOC | Untitled 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.name + &amp;#34;]]&amp;#34;) as TITLE, string(map(file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/extras/flashcards/flashcards-moc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/extras/flashcards/flashcards-moc/</guid>
+      <description>🌏 [ Atlases MOC|Atlases | Flashcards MOC Card Package 1 2 3 4  TABLE file.folder as PATH, dateformat(file.mtime, &amp;#34;yyyy-MM-dd&amp;#34;) as MODIFIED FROM &amp;#34;Extras/FlashCards&amp;#34;   Card Classification 1 2 3 4  TABLE dateformat(file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/extras/flashcards/frontend/-toc-for-frontend-flashcards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/extras/flashcards/frontend/-toc-for-frontend-flashcards/</guid>
+      <description>🌏 [ Flashcards MOC | Frontend Flashcards 1 2 3 4  TABLE dates FROM &amp;#34;Cards/Frontend&amp;#34; SORT file.name ASC   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/sources/courses/-toc-for-courses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/-toc-for-courses/</guid>
+      <description>🌏 [ Sources MOC|Sources | [ Courses MOC|MOC | TOC 1 2 3 4 5 6 7 8 9 10 11 12 13 14  for (let group of dv.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/sources/courses/-frontend-interview/-toc-for-frontend-interview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/-frontend-interview/-toc-for-frontend-interview/</guid>
+      <description>🌏 [ Courses MOC | Frontend Interview TOC 1 2 3 4 5  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.name + &amp;#34;]]&amp;#34;) as TITLE,dateformat(file.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>chick26.github.io/sources/talks/-toc-for-talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/talks/-toc-for-talks/</guid>
+      <description>🌏 [ Sources MOC | Untitled 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.name + &amp;#34;]]&amp;#34;) as TITLE, string(map(file.</description>
+    </item>
+    
+    <item>
+      <title>• TOC for Algorithm Course</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/-toc-for-algorithm-course/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/-toc-for-algorithm-course/</guid>
+      <description>🌏 [ • TOC for Courses | Algorithm Data structure  01- [[Array.md|数组]] 02- [[List.md|链表]] 03- [[Stack.md|栈]] 04- [[Queue.md|队列]] 05- [[Recursion.</description>
+    </item>
+    
+    <item>
+      <title>• TOC for MySQL Course</title>
+      <link>chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/-toc-for-mysql-course/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/-toc-for-mysql-course/</guid>
+      <description>🌏 [ Sources/Courses/• TOC for Courses|Courses | MySQL  1 - [ Sources/Courses/⚙️ Database/MySQL/MySQL数据库基础|MySQL数据库基础 2 - [ Sources/Courses/⚙️ Database/MySQL/InnoDB存储引擎|InnoDB存储引擎 3 - [ Sources/Courses/⚙️ Database/MySQL/用户管理与访问控制|用户管理与访问控制 4 - [ Sources/Courses/⚙️ Database/MySQL/数据库对象|数据库对象 5 - [ Sources/Courses/⚙️ Database/MySQL/应用程序开发|应用程序开发 6 - [ Sources/Courses/⚙️ Database/MySQL/事务与锁|事务与锁 7 - [ Sources/Courses/⚙️ Database/MySQL/备份与恢复|备份与恢复 8 - [ Sources/Courses/⚙️ Database/MySQL/主从复制和主主复制|主从复制和主主复制 9 - [ Sources/Courses/⚙️ Database/MySQL/高可用架构|高可用架构 10- [ Sources/Courses/⚙️ Database/MySQL/性能优化与运维管理|性能优化与运维管理 11- [ Sources/Courses/⚙️ Database/MySQL/数据库的监控|数据库的监控 12- [ Sources/Courses/⚙️ Database/MySQL/数据库的中间件|数据库的中间件  </description>
+    </item>
+    
+  </channel>
+</rss>

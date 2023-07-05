@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Frontend
+解析 一旦 CSS 被浏览器下载，CSS 解析器就会被打开来处理它遇到的任何 CSS。这可以是单个文档内的 CSS、&lt;style&gt;标记内的 CSS，也可以是 DOM 元素的style属性内嵌的 CSS。所 有 CSS 都根据语法规范进行解析和标记。解析完成后，就会生成有一个包含所有选择器、属性和属性各自值的数据结构。"
+  />
+  <meta property="og:title" content="浏览器解析 CSS 样式的过程">
+  <meta property="og:description" content="up:: [ • TOC for Frontend
+解析 一旦 CSS 被浏览器下载，CSS 解析器就会被打开来处理它遇到的任何 CSS。这可以是单个文档内的 CSS、&lt;style&gt;标记内的 CSS，也可以是 DOM 元素的style属性内嵌的 CSS。所 有 CSS 都根据语法规范进行解析和标记。解析完成后，就会生成有一个包含所有选择器、属性和属性各自值的数据结构。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/cards/-front-dev/css/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90-css-%E6%A0%B7%E5%BC%8F%E7%9A%84%E8%BF%87%E7%A8%8B/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="浏览器解析 CSS 样式的过程" />
+  <meta name="twitter:description" content="up:: [ • TOC for Frontend
+解析 一旦 CSS 被浏览器下载，CSS 解析器就会被打开来处理它遇到的任何 CSS。这可以是单个文档内的 CSS、&lt;style&gt;标记内的 CSS，也可以是 DOM 元素的style属性内嵌的 CSS。所 有 CSS 都根据语法规范进行解析和标记。解析完成后，就会生成有一个包含所有选择器、属性和属性各自值的数据结构。" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+  
+
+  <title>
+    浏览器解析 CSS 样式的过程
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">Chick&#39;s Second Brain</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>浏览器解析 CSS 样式的过程</h1>
+      <p class="meta">
+        Last updated 
+Unknown
+
+ 
+          
+<a href="https://github.com/chick26/Cards/%f0%9f%93%b2%20Front%20Dev/CSS/%e6%b5%8f%e8%a7%88%e5%99%a8%e8%a7%a3%e6%9e%90%20CSS%20%e6%a0%b7%e5%bc%8f%e7%9a%84%e8%bf%87%e7%a8%8b.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/development/frontend/css/">
+          
+            Development frontend css
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#解析">解析</a></li>
+    <li><a href="#计算">计算</a></li>
+    <li><a href="#级联">级联</a>
+      <ol>
+        <li><a href="#specificity-计算公式">Specificity 计算公式</a></li>
+        <li><a href="#specificity-计算范例">Specificity 计算范例</a></li>
+        <li><a href="#初始范例-specificity-数值表">初始范例 Specificity 数值表</a></li>
+      </ol>
+    </li>
+    <li><a href="#来源">来源</a>
+      <ol>
+        <li><a href="#user-用户样式">User 用户样式</a></li>
+        <li><a href="#author-作者样式">Author 作者样式</a></li>
+        <li><a href="#user-agent-用户代理--浏览器样式">User Agent 用户代理 / 浏览器样式</a></li>
+      </ol>
+    </li>
+    <li><a href="#做级联">做级联</a></li>
+    <li><a href="#css-对象模型">CSS 对象模型</a></li>
+    <li><a href="#布局">布局</a></li>
+    <li><a href="#解析-auto">解析 Auto</a></li>
+    <li><a href="#处理浮动-float">处理浮动 float</a></li>
+    <li><a href="#了解片段-understanding-fragmentation">了解片段 (UNDERSTANDING FRAGMENTATION)</a></li>
+    <li><a href="#绘画-painting">绘画 (Painting)</a></li>
+    <li><a href="#组成-composition">组成 (COMPOSITION)</a></li>
+    <li><a href="#创造互动的视觉">创造互动的视觉</a></li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<a href="#解析"><h2 id="解析"><span class="hanchor" ariaLabel="Anchor"># </span>解析</h2></a>
+<p>一旦 CSS 被浏览器下载，CSS 解析器就会被打开来处理它遇到的任何 CSS。这可以是单个文档内的 CSS、<code>&lt;style&gt;</code>标记内的 CSS，也可以是 DOM 元素的<code>style</code>属性内嵌的 CSS。所 有 CSS 都根据语法规范进行解析和标记。解析完成后，就会生成有一个包含所有选择器、属性和属性各自值的数据结构。</p>
+<p>例如，考虑以下 CSS:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.fancy-button {
+</span></span><span class="line"><span class="cl">    background: green;
+</span></span><span class="line"><span class="cl">    border: 3px solid red;
+</span></span><span class="line"><span class="cl">    font-size: 1em;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上 CSS 片段将生成如下数据结构，以便在后续的过程中方便使用：</p>
+<table>
+<thead>
+<tr>
+<th>选择</th>
+<th>属性</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>background-color</code></td>
+<td><code>rbg(0,255,0)</code></td>
+</tr>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>border-width</code></td>
+<td><code>3px</code></td>
+</tr>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>border-style</code></td>
+<td><code>solid</code></td>
+</tr>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>border-color</code></td>
+<td><code>rgb(255,0,0)</code></td>
+</tr>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>font-size</code></td>
+<td><code>1em</code></td>
+</tr>
+</tbody>
+</table>
+<p>完解析成之后，浏览器引擎继续构建 DOM 树。</p>
+<a href="#计算"><h2 id="计算"><span class="hanchor" ariaLabel="Anchor"># </span>计算</h2></a>
+<p>既然我们已经解析了现有内容中的所有样式，接着就是对它们进行样式计算了。我们尝试尽量对所有值减少到一个标准化的计算值。当离开计算阶段时，任何维度值都被缩减为三个可能的输出之一:<code>auto</code>、百分比或像素值。为了清晰起见，让我们看几个例子，看 web 开发人员写了什么，以及计算后的结果:</p>
+<table>
+<thead>
+<tr>
+<th>Web开发人员</th>
+<th>计算值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>font-size: 1em</code></td>
+<td><code>font-size: 16px</code></td>
+</tr>
+<tr>
+<td><code>width: 50%</code></td>
+<td><code>width: 50%</code></td>
+</tr>
+<tr>
+<td><code>height: auto</code></td>
+<td><code>height: auto</code></td>
+</tr>
+<tr>
+<td><code>width: 506.456456px</code></td>
+<td><code>width: 506.46px</code></td>
+</tr>
+<tr>
+<td><code>line-height: calc(10px+2em)</code></td>
+<td><code>line-height: 42px</code></td>
+</tr>
+<tr>
+<td><code>border-color: currentColor</code></td>
+<td><code>border-color: rgb(0,0,0)</code></td>
+</tr>
+<tr>
+<td><code>height: 50vh</code></td>
+<td><code>height: 540px</code></td>
+</tr>
+<tr>
+<td><code>display: grid</code></td>
+<td><code>display: grid</code></td>
+</tr>
+</tbody>
+</table>
+<p>现在我们已经计算了数据存储中的所有值，是时候处理级联了。</p>
+<a href="#级联"><h2 id="级联"><span class="hanchor" ariaLabel="Anchor"># </span>级联</h2></a>
+<p>由于 CSS 来源有多种，所以浏览器需要一种方法来确定哪些样式应该应用于给定的元素。为此，浏览器使用一个名为 <strong>特殊性 (specificity)</strong> 的公式，它计算选择器中使用的标记、类、id 和属性选择器的数值，以及 <code>!important</code> 声明的数值。</p>
+<p>通过内联 <code>style</code> 属性在元素上定义的样式被赋予一个等级，该等级优先于 <code>&lt;style&gt;</code> 块或外部样式表中的任何样式。如果 Web 开发人员使用 <code>!important</code> 某个值，则该值将胜过任何 CSS，无论其位置如何，除非还有 <code>!important</code> 内联。</p>
+<p>同一级别的个数，数量多的优先级高，假设同样即比较下一级别的个数。至于各级别的优先级例如以下：</p>
+<blockquote class="note-callout">
+<p> 优先级
+!important &gt; 内联 &gt; id &gt; class &gt; 标签 | 伪类 | 属性选择 &gt; 伪对象 &gt; 通配符 &gt; 继承</p>
+</blockquote>
+<p>选择器的特殊性由选择器本身的组件确定，特殊性值表述为 5 个部分，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0，0，1，0，1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#specificity-计算公式"><h3 id="specificity-计算公式"><span class="hanchor" ariaLabel="Anchor"># </span>Specificity 计算公式</h3></a>
+<ul>
+<li>对于选择器中给定的各个 <code>!important</code> 属性值，加 1，0，0，0，0 。</li>
+<li>对于选择器中给定的各个 ID 属性值，加 0，0，1，0，0 。</li>
+<li>对于选择器中给定的各个类属性值、属性选择器或伪类，加 0，0，0，1，0 。</li>
+<li>对于选择器中给定的各个元素和伪元素，加 0，0，0，0，1 。</li>
+<li>结合符 (+ &gt; [] ^= $= 等等特殊符号) 和通配符 (*) 对特殊性没有任何贡献，此外通配符的特殊性为 0，0，0，0，0。全是 0 有什么意义呢？当然有意义！子元素继承祖先元素的样式根本没有特殊性，因此当出现这种情况后，通配符选择器定义的样式声明也要优先于子元素继承来的样式声明。因为就算特殊性是 0，也比没有特殊性可言要强。</li>
+</ul>
+<a href="#specificity-计算范例"><h3 id="specificity-计算范例"><span class="hanchor" ariaLabel="Anchor"># </span>Specificity 计算范例</h3></a>
+<table>
+<thead>
+<tr>
+<th>Selector</th>
+<th>Specificity Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>li</code></td>
+<td>0 0 0 0 1</td>
+</tr>
+<tr>
+<td><code>li.foo</code></td>
+<td>0 0 0 1 1</td>
+</tr>
+<tr>
+<td><code>#comment li.foo.bar</code></td>
+<td>0 0 1 2 1</td>
+</tr>
+<tr>
+<td><code>&lt;li style='color: red'&gt;</code></td>
+<td>0 1 0 0 0</td>
+</tr>
+<tr>
+<td><code>color: red !important</code></td>
+<td>1 0 0 0 0</td>
+</tr>
+</tbody>
+</table>
+<p>而当优先级与多个 CSS 声明中任意一个声明的优先级相等的时候，CSS 中最后的那个声明将会被应用到元素上。</p>
+<p>在下面的示例中，<code>div</code> 将具有蓝色背景。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">div {
+</span></span><span class="line"><span class="cl">  background: red;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">div {
+</span></span><span class="line"><span class="cl">  background: blue;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#初始范例-specificity-数值表"><h3 id="初始范例-specificity-数值表"><span class="hanchor" ariaLabel="Anchor"># </span>初始范例 Specificity 数值表</h3></a>
+<table>
+<thead>
+<tr>
+<th>Selector</th>
+<th>Property</th>
+<th>Value</th>
+<th>Specificity Score</th>
+<th>Document Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>background-color</code></td>
+<td><code>rgb(0,255,0)</code></td>
+<td>0 0 0 1 0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>border-width</code></td>
+<td><code>3px</code></td>
+<td>0 0 0 1 0</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>border-style</code></td>
+<td><code>solid</code></td>
+<td>0 0 0 1 0</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>border-color</code></td>
+<td><code>rgb(255,0,0)</code></td>
+<td>0 0 0 1 0</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>fancy-button</code></td>
+<td><code>font-size</code></td>
+<td><code>16px</code></td>
+<td>0 0 0 1 0</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>div .fancy-button</code></td>
+<td><code>background-color</code></td>
+<td><code>rgb(255,255,0)</code></td>
+<td>0 0 0 1 1</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<a href="#来源"><h2 id="来源"><span class="hanchor" ariaLabel="Anchor"># </span>来源</h2></a>
+<a href="#user-用户样式"><h3 id="user-用户样式"><span class="hanchor" ariaLabel="Anchor"># </span>User 用户样式</h3></a>
+<p>浏览器还允许用户设置网页的样式，如用 IE 浏览网站的时候，可以通过浏览器查看菜单下的样式或者文字大小子菜单来设置网页实际的显示效果。</p>
+<a href="#author-作者样式"><h3 id="author-作者样式"><span class="hanchor" ariaLabel="Anchor"># </span>Author 作者样式</h3></a>
+<p>网页创建者建立的样式表，一般会 css 文件出现或者是在页面头部里定义的 style，也就是网站源代码的一部分。</p>
+<a href="#user-agent-用户代理--浏览器样式"><h3 id="user-agent-用户代理--浏览器样式"><span class="hanchor" ariaLabel="Anchor"># </span>User Agent 用户代理 / 浏览器样式</h3></a>
+<p>浏览器自身设置用来显示网站的样式，不同的浏览器可能有不同的样式表，通常情况下，作者样式具有最高的重要性，其次是用户样式，最后才是浏览器样式，但是如果出现了 <code>!important</code> 标记的话，那么规则会被改变，通过 <code>!important</code> 可以提高某种样式的重要性，让它的优先级高于其他没有加该声明的所有样式。</p>
+<a href="#做级联"><h2 id="做级联"><span class="hanchor" ariaLabel="Anchor"># </span>做级联</h2></a>
+<p>当浏览器拥有一个完整的数据结构，包含来自所有源的所有声明时，它将按照规范对它们进行排序。首先，它将按来源排序，然后按特性 (specificity) 排序，最后按文档顺序排序。</p>
+<table>
+<thead>
+<tr>
+<th>Origin</th>
+<th>Selector</th>
+<th>Property</th>
+<th>Value</th>
+<th>Specificity Score</th>
+<th>Document Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>*</td>
+<td><code>font-size</code></td>
+<td><code>32px</code></td>
+<td>0 0 0 0 1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Author</td>
+<td><code>div .fancy-button</code></td>
+<td><code>background-color</code></td>
+<td><code>rgb(255,255,0)</code></td>
+<td>0 0 0 1 1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Author</td>
+<td><code>.fancy-button</code></td>
+<td><code>background-color</code></td>
+<td><code>rgb(0,255,0)</code></td>
+<td>0 0 0 1 0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Author</td>
+<td><code>.fancy-button</code></td>
+<td><code>border-width</code></td>
+<td><code>3px</code></td>
+<td>0 0 0 1 0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Author</td>
+<td><code>.fancy-button</code></td>
+<td><code>border-style</code></td>
+<td><code>solid</code></td>
+<td>0 0 0 1 0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Author</td>
+<td><code>.fancy-button</code></td>
+<td><code>border-color</code></td>
+<td><code>rgb(255,0,0)</code></td>
+<td>0 0 0 1 0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Author</td>
+<td><code>.fancy-button</code></td>
+<td><code>font-size</code></td>
+<td><code>16px</code></td>
+<td>0 0 0 1 0</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>从上图可知，类名为 <code>.fancy-button</code>优先级最高（表中越上面优先级越高）。例如，从上表中，人会注意到用户的浏览器首选项设置优先 于 Web 开发人员的设置样式。现在，浏览器找到与选择器匹配的所有 DOM 元素，并将得到的计算样式挂载到匹配的元素，在本例中 <code>div</code> 为类名为 <code>.fancy-button</code>：</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>font-size</code></td>
+<td><code>32px</code></td>
+</tr>
+<tr>
+<td><code>background-color</code></td>
+<td><code>rgb(255,255,0)</code></td>
+</tr>
+<tr>
+<td><code>border-width</code></td>
+<td><code>3px</code></td>
+</tr>
+<tr>
+<td><code>border-color</code></td>
+<td><code>rgb(255,0,0)</code></td>
+</tr>
+<tr>
+<td><code>border-style</code></td>
+<td><code>solid</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="note-callout">
+<p> 官方文档
+
+<a href="https://link.segmentfault.com/?enc=eHT3W23Xu0ePFqtMdYlInQ%3D%3D.L1m1ciQDRwlJQY90G2neYhGHc2l%2BSvFCEjX25hQRHkmhZ4zRkiC%2BhTMpC6wL2Twy" rel="noopener">官方规范</a>。</p>
+</blockquote>
+<a href="#css-对象模型"><h2 id="css-对象模型"><span class="hanchor" ariaLabel="Anchor"># </span>CSS 对象模型</h2></a>
+<p>更新 
+<a href="https://link.segmentfault.com/?enc=girEZMenn2I80L5PSLjqYw%3D%3D.UZjjQrPMwTAkge%2FQQFe3ELdCerA%2FMFgBcT9QBhekENTkcXK7EOQFgO7jBvotLNA5bjaBgrhwhSmRZ2C9tvQKRz8jY0BSRmiiCsD%2FAmjNORk%3D" rel="noopener">CSS 对象模型 (CSSOM)</a>。 CSSOM 位于 
+<a href="https://link.segmentfault.com/?enc=7KcpXhibDIaxK20H%2BHwhZQ%3D%3D.7HoqCEWbvsEvxp1iUicYAbLwNJKaVcUwlGYShXf%2FKnnUrKnKCHoUiFUz6A6X3hxxWmPfzXrZNrNtxrtNzZXZzNREICPgGwgiqrusIFG%2FEJE%3D" rel="noopener"><code>document.stylesheets</code></a> 中，需要对其进行更新，以便它知道目前为止已经解析和计算的所有内容。Web 开发人员可能在没有意识到的情况下使用这些信息。例如，当调用 
+<a href="https://link.segmentfault.com/?enc=y8RWyBF%2BGcpkxL2EMzaXGw%3D%3D.hcb7IaLUPHAOXmaNUJhZpyWITJjiV8g416y9v19DdAn5TvDzoVCHxv0vNIv%2FKGbWZE%2Bj1oc8eVSXWIMK8edmoM0mDHmytC5QN79kY0xTESU%3D" rel="noopener">getComputedStyle()</a> 时，如果需要，运行上面指出的相同过程</p>
+<a href="#布局"><h2 id="布局"><span class="hanchor" ariaLabel="Anchor"># </span>布局</h2></a>
+<p>现在已经应用了一个具有样式的 DOM 树，然后开始构建一个用于可视化目的的树了。这棵树出现在所有现代引擎中，被称为盒子树 (box tree)。为构造这棵树，需要遍历 DOM 树并创建零个或多个 CSS 盒子，每个盒子都有一个 <code>margin</code>、<code>border</code>、<code>padding</code> 和 <code>content</code> 。</p>
+<ul>
+<li>格式化上下文（FC）：有许多类型的格式化上下文，其中大多数 Web 开发人员通过更改 <code>display</code> 元素的值来调用。一些最常见的格式化上下文是块（块格式化上下文或 <strong>BFC</strong>），flex，grid，table-cells 和 inline。其他一些 CSS 也可以强制使用新的格式化上下文，例如 <code>position: absolute</code>，<code>float</code> 或使用 <code>multi-colum</code>。</li>
+<li>包含块: 这是用于解析样式的祖先块。</li>
+<li>内联方向：这是文本布局的方向，由元素的书写模式决定。 在拉丁语言中，这是水平轴，在 CJK 语言中，这是垂直轴。</li>
+<li>块方向：此行为与内联方向完全相同，但与内联轴垂直。因此，对于基于拉丁语的语言，这是垂直轴，而在 CJK 语言中，这是水平轴。</li>
+</ul>
+<a href="#解析-auto"><h2 id="解析-auto"><span class="hanchor" ariaLabel="Anchor"># </span>解析 Auto</h2></a>
+<p>在计算阶段，维度值可以是三个值之一: auto、百分数或像素。布局的目的是在 <strong>Box Tree</strong> 中调整所有盒子的大小和位置，使它们为绘制做好准备。</p>
+<p>下面示例可以更容易地理解 <strong>Box Tree</strong> 是如何构建的。为了便于理解，这里不显示单独的 CSS 框，只显示主盒 (principal box)。让我们看看一个基本的 “Hello world” 布局使用以下代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hello world<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">		<span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">width</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>浏览器从 body 元素开始，生成它的主盒 (principal box)，它的宽度为<code>50px</code>，默认高度为<code>auto</code>。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqfwk.png" width="auto" alt=""  /></p>
+<p>现在移动到 <code>p</code> 标签并生成其主盒 (principal box)，并且由于 <code>p</code> 标签默认有边距（margin），这将影响正文的高度，如下所示：</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqglj.png" width="auto" alt=""  /></p>
+<p>现在浏览器移动到 <strong>“Hello world”</strong> 文本，这是 DOM 中的文本节点。因此，我们在布局中生成一个 <strong>行内盒 (line box)</strong> 。请注意，文本溢出了正文，我们将在下一步处理这个问题。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqgli.png" width="auto" alt=""  /></p>
+<p>因为加上 “world” 长度后实际长度比较设置大并且我们没有设置 <code>overflow</code> 属性，所以引擎会向其父级报告它在布局文本时停止的位置。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqgmv.png" width="auto" alt=""  /></p>
+<p>由于父级已收到其子级无法完成所有内容布局的指令，因此它会克隆包含所有样式的 <strong>行内盒 (line box)</strong>，并传递该框的信息以完成布局。</p>
+<p>布局完成后，浏览器会返回 <code>box tree</code>，解析尚未解决的所有基于 <code>auto</code> 或基于百分比的值。 在图中，可以看到正文和段落现在包含所有 “Hello world”，因为它的 <strong>height</strong> 设置为 <code>auto</code>。</p>
+<a href="#处理浮动-float"><h2 id="处理浮动-float"><span class="hanchor" ariaLabel="Anchor"># </span>处理浮动 float</h2></a>
+<p>下面的例子，使用一个普通布局，其中有一个按钮，内容为 <strong>“Share It”</strong>，并将其浮动到一段文本的左侧。浮动本身被认为是 <strong>“shrink-to-fit”</strong> 上下文。之所以将其称为 “shrink-to-fit”，是因为如果尺寸是自动的，则该框将围绕其内容进行收缩。</p>
+<p>浮动盒子是与这种布局类型匹配的盒子的一种类型，但是还有许多其他的盒子，例如绝对定位盒子 (包括 <code>position: fixed</code>) 和基于自动调整大小的表格单元格，如下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>SHARE IT<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pellentesq<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">	<span class="nt">article</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">min-width</span><span class="p">:</span> <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">max-width</span><span class="p">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">191</span><span class="p">,</span> <span class="mi">191</span><span class="p">,</span> <span class="mi">191</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">float</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">210</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">79</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">black</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg2d.png" width="auto" alt=""  /></p>
+<p>该过程开始时遵循与 “Hello world” 示例相同的模式，直接开始处理浮动按钮的位置。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg2i.png" width="auto" alt=""  /></p>
+<p>由于浮动创建了一个新的块格式化上下文 (BFC)，并且是一个 <code>shrink-to-fit</code> 上下文，因此浏览器执行一种称为内容度量的特定布局类型。</p>
+<p>在这种模式下，它看起来与其他布局相同，但有一个重要的区别，即它是在无限空间中完成的。在此阶段，浏览器所做的就是以 BFC 的最大和最小宽度布局 BFC 树。</p>
+<p>在本例中，它使用文本布局一个按钮，因此其最窄的大小 (包括所有其他 CSS 框) 将是最长单词的大小。在最宽的地方，它将是一行的所有文本，加上 CSS Box。注意: 这里按钮的颜色不是文字的颜色。这只是为了说明问题。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg3q.png" width="auto" alt=""  /></p>
+<p>现在我们知道最小宽度是 86px，最大宽度是 115px，我们将此信息传递回父类的 box，让它决定宽度并适当地放置按钮。在这个场景中，有足够的空间来适应浮动的最大大小，这就是按钮的布局方式。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg3u.png" width="auto" alt=""  /></p>
+<p>为了确保浏览器遵循标准，并且内容围绕浮动，浏览器更改了 <strong>article</strong> 的 BFC 的几何形状。这个几何图形被传递给段落，以便在段落布局期间使用。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg3b.png" width="auto" alt=""  /></p>
+<p>从这里开始，浏览器遵循与第一个示例相同的布局过程——但是它确保任何内联内容的内联和块的起始位置都位于浮动所占用的约束空间之外。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg3i.png" width="auto" alt=""  /></p>
+<p>当浏览器继续沿着树向下移动并克隆节点时，它将越过约束空间的块位置。这允许最后一行文本 (以及它之前的一行) 以内联方向开始于 content box 的开头。然后浏览器返回到树中，根据需要解析 <strong>auto</strong> 和百分数。</p>
+<a href="#了解片段-understanding-fragmentation"><h2 id="了解片段-understanding-fragmentation"><span class="hanchor" ariaLabel="Anchor"># </span>了解片段 (UNDERSTANDING FRAGMENTATION)</h2></a>
+<p>关于布局如何工作的最后一个方面是碎片化。 如果你曾经打印过网页或使用过 CSS 多列，那么你已经利用了碎片。 碎片化是将内容分开以使其适合不同几何形状的逻辑。 让我们来看看同一个例子，利用 CSS 多列情况:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nibh orci, tincidunt eget enim et, pellentesque condimentum risus. Aenean sollicitudin risus velit, quis tempor leo malesuada vel. Donec consequat aliquet mauris. Vestibulum ante ipsum primis in faucibus
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">	<span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">columns</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">column-fill</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">height</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg4h.png" width="auto" alt=""  /></p>
+<p>一旦浏览器到达 <code>multicol</code> 格式化上下文盒子，它就会看到它有一组设定的列。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg4l.png" width="auto" alt=""  /></p>
+<p>它遵循以前类似的克隆模型，并创建了一个具有正确维度的碎片处理程序，以满足作者对其列的要求。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqg4n.png" width="auto" alt=""  /></p>
+<p>然后浏览器按照与之前相同的模式尽可能多地布局行，然后浏览器创建另一个碎片管理器，并继续完成布局。</p>
+<a href="#绘画-painting"><h2 id="绘画-painting"><span class="hanchor" ariaLabel="Anchor"># </span>绘画 (Painting)</h2></a>
+<p>对布图应用颜色、边框、阴影和类似的设计处理——处理这些过程被称为<strong>绘画</strong>。绘画基本上是由 CSS 标准化的，可以按照以下顺序绘画:</p>
+<ul>
+<li>background;</li>
+<li>border;</li>
+<li>and content.</li>
+</ul>
+<p>更多绘画的顺序可查看 
+<a href="https://link.segmentfault.com/?enc=1bsymY25xxfOh%2FCWTGj2SA%3D%3D.aPkFPhuNFc7BhUDqZKrOKQtE6gTmo2Ge3njXRtMGzKRybZ%2Fe1Pbf88ZFtCmRM%2B1Bw4zEDrOJf8OhyfkPCcEGaw%3D%3D" rel="noopener">CSS 2.2 Appendix E</a>。</p>
+<ul>
+<li><code>SHARE IT</code> 按钮:</li>
+</ul>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqhdu.png" width="auto" alt=""  /></p>
+<p>完成后，它将转换为位图，最终每个布局元素（甚至文本）都成为引擎中的图像。</p>
+<a href="#组成-composition"><h2 id="组成-composition"><span class="hanchor" ariaLabel="Anchor"># </span>组成 (COMPOSITION)</h2></a>
+<p>合成程序的工作是创建一个或多个层，并将位图呈现到屏幕上供最终用户查看。</p>
+<p>此时一个合理的问题是，“为什么任何站点都需要不止一个位图或合成层?”，根据我们目前看到的例子，我们真的不会这么做。我们来看一个稍微复杂一点的例子。假设在一个假设的世界中，Office 团队想让 Clippy 重新上线，他们想通过 CSS 转换让 Clippy 跳动来吸引人们对他的注意。</p>
+<p>动画 Clippy 的代码可以是这样的:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;clippy&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">clippy</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">animation</span><span class="p">:</span> <span class="n">pulse</span> <span class="mi">1</span><span class="kt">s</span> <span class="kc">infinite</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">clippy.svg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">keyframes</span> <span class="nt">pulse</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">from</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">transform</span><span class="p">:</span> <span class="nb">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">to</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">transform</span><span class="p">:</span> <span class="nb">scale</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当浏览器读取 web 开发人员希望在无限循环中为 Clippy 添加动画时，它有两个选项:</p>
+<ul>
+<li>它可以返回到动画的每一帧的重绘阶段，并生成一个新的位图以返回合成器。</li>
+<li>或者它可以生成两个不同的位图，并允许合成程序仅在应用了该动画的层上执行动画本身。</li>
+</ul>
+<p>在大多数情况下，浏览器将选择选项 2 并生成以下内容:</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqhif.png" width="auto" alt=""  /></p>
+<p>然后，它将重新组合剪辑位图在正确的位置，并处理脉动动画。这对于性能来说是一个很好的优势，因为在许多引擎中，合成程序是在它自己的线程上的，这样就可以解除主线程的阻塞。如果浏览器选择上面的选项 1，它将不得不阻塞每一帧以完成相同的结果，这将对最终用户的性能和响应能力产生负面影响。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqhin.png" width="auto" alt=""  /></p>
+<a href="#创造互动的视觉"><h2 id="创造互动的视觉"><span class="hanchor" ariaLabel="Anchor"># </span>创造互动的视觉</h2></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">button {
+</span></span><span class="line"><span class="cl">    float: left;
+</span></span><span class="line"><span class="cl">    background: rgb(210, 32, 79);
+</span></span><span class="line"><span class="cl">    padding: 3px 10px;
+</span></span><span class="line"><span class="cl">    border: 2px solid black;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">button:hover {
+</span></span><span class="line"><span class="cl">    background: teal;
+</span></span><span class="line"><span class="cl">    color: black;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>浏览器不断跟踪各种输入，当这些输入正在移动时，它会经历称为<strong>命中测试</strong>的过程。 对于此示例，该过程如下所示：</p>
+<p>
+
+
+<img src="chick26.github.io/../../../extras/media/images/bvbqhke.png" width="auto" alt=""  /></p>
+<ol>
+<li>用户将鼠标移到按钮上。</li>
+<li>浏览器触发鼠标已移动的事件，并进入命中测试算法，该算法本质上是问 “鼠标正在触摸哪个 box”</li>
+<li>该算法返回链接到我们的 “SHARE IT” 按钮。</li>
+<li>浏览器会问这个问题:“既然有鼠标在你上方盘旋，我应该做什么?”。</li>
+<li>它快速运行此框及其子框的样式 / 级联，并确定<code>:hover</code> 在声明块内部有一个仅使用绘制样式调整的伪类。</li>
+<li>它将这些样式挂起 DOM 元素（正如我们在级联阶段所学到的），在这种情况下是按钮。</li>
+<li>它跳过布局，直接绘制一个新的位图。</li>
+<li>新的位图被传递给合成程序，然后传递给用户。</li>
+</ol>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://github.com/chick26">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>
