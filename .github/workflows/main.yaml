@@ -18,10 +18,10 @@ jobs:
           git fetch                         # fetch branches
           git checkout $TARGET_BRANCH       # checkout to your branch
           git checkout writing -- Atlas Cards Extras Sources
-          git rm content/Atlas
-          git rm content/Cards
-          git rm content/Extras
-          git rm content/Sources
+          git rm content/Atlas -r
+          git rm content/Cards -r
+          git rm content/Extras -r
+          git rm content/Sources -r
           git mv Atlas content/Atlas
           git mv Cards content/Cards
           git mv Extras content/Extras
