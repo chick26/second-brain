@@ -14,7 +14,7 @@ tags:
 ## 实现
 
 - 假设 n=30，m=9，r=15
-- [[Array.md|数组]] 实现
+- [[Sources/Courses/✍️ Algorithms/Array|数组]] 实现
 
 ```python
 # -*- coding: utf-8 -*-
@@ -32,7 +32,7 @@ while len(circle) > r:
 print("报到%d的人的出列顺序：" % m, result)
 ```
 
-- [[List.md|链表]] 实现
+- [[Sources/Courses/✍️ Algorithms/List|链表]] 实现
 
 ```python
 class ListNode(object):

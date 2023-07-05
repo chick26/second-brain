@@ -5,14 +5,13 @@ tags:
 - Atlas/MOC
 ---
 
-# 🌏 [[Atlases MOC|Atlases](../Atlas/Atlases%20MOC.md) | Sources MOC
+# 🌏 [[Atlas/Atlases MOC|Atlases]] | Sources MOC
 
 
-## [[../Atlas/Scopes/Bookshelf.md|📚Bookshelf]]
+## [[Atlas/Scopes/Bookshelf|📚Bookshelf]]
 
 >[!example]+  List your reading note
 >
 
-## [[Courses MOC|🙋‍♀️ Courses](../Atlas/MOCs/Courses%20MOC.md)
-
+## [[Atlas/MOCs/Courses MOC|🙋‍♀️ Courses]]
 

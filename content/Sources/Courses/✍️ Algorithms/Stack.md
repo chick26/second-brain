@@ -6,7 +6,7 @@ tags:
 - Development/ComputerBasic/DataStructure/Stack
 - Sources/Courses/Algorithms
 ---
-up:: [[• TOC for Algorithm Course](%E2%80%A2%20TOC%20for%20Algorithm%20Course.md)
+up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
 
 ## 1 基本结构
 
@@ -121,9 +121,9 @@ class LinkedStack:
 
 ## 3 工程应用
 
-- [[Expression Evaluation Using Stack|表达式求值](Expression%20Evaluation%20Using%20Stack.md)
-- [[Bracket Matching Using Stack|栈实现括号匹配](Bracket%20Matching%20Using%20Stack.md)
-- [[Browser forward and backward Using Stack|浏览器的前进和后退功能](Browser%20forward%20and%20backward%20Using%20Stack.md)
+- [[Sources/Courses/✍️ Algorithms/Expression Evaluation Using Stack|表达式求值]]
+- [[Sources/Courses/✍️ Algorithms/Bracket Matching Using Stack|栈实现括号匹配]]
+- [[Sources/Courses/✍️ Algorithms/Browser forward and backward Using Stack|浏览器的前进和后退功能]]
 
 ## 4 两个问题
 

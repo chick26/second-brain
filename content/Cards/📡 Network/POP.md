@@ -5,7 +5,7 @@ status: todo
 tags: 
 - Network/POP
 ---
-up:: [[• TOC for Network](%E2%80%A2%20TOC%20for%20Network.md)
+up:: [[Cards/📡 Network/• TOC for Network|• TOC for Network]]
 
 ## POP 是什么
 

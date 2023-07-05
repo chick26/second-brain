@@ -9,7 +9,7 @@ tags:
 ---
 <div class="title" style="color:#fff">New Discoveries</div>
 
-# < [[Journal MOC|🌏](../../../Calendar/Journal%20MOC.md) |  [[Ship Hub|🛳️](Ship%20Hub.md) | [[Media Hub|📚](Media%20Hub.md) >
+# < [[Calendar/Journal MOC|🌏]] |  [[Atlas/Scopes/Calendar/Ship Hub|🛳️]] | [[Atlas/Scopes/Calendar/Media Hub|📚]] >
 
 A log containing the interesting discoveries from the Daily Notes.
 

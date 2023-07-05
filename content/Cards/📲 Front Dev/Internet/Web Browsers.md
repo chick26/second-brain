@@ -6,7 +6,7 @@ tags:
 - Network/Internet
 - Development/Frontend/WebBrowser
 ---
-up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
+up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 
 # 1. 浏览器高层结构
 
@@ -33,7 +33,7 @@ graph LR
 	A[Parsing HTML<br>to construst<br>the DOM tree]-->B[Render tree<br>construction]-->C[Layout of the<br>render tree]-->D[Painting the<br>render trree]
 ```
 
-呈现引擎开始解析 HTML 文档，并将各标记逐个转化成“内容树”上的 DOM 节点。同时也会解析外部 CSS 文件以及样式元素中的样式数据。HTML 中这些带有视觉指令的样式信息将用于创建另一个树结构：[[Web Browsers#^edd771|呈现树]](Render Tree)。
+呈现引擎开始解析 HTML 文档，并将各标记逐个转化成“内容树”上的 DOM 节点。同时也会解析外部 CSS 文件以及样式元素中的样式数据。HTML 中这些带有视觉指令的样式信息将用于创建另一个树结构：[[Cards/📲 Front Dev/Internet/Web Browsers#^edd771|呈现树]](Render Tree)。
 
 呈现树包含多个带有视觉属性（如颜色和尺寸）的矩形。这些矩形的排列顺序就是它们将在屏幕上显示的顺序。
 
