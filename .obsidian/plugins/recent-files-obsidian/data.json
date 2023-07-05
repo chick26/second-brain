@@ -5,6 +5,18 @@
       "path": "Home.md"
     },
     {
+      "basename": "Cooling pad",
+      "path": "Atlas/Scopes/Cooling pad.md"
+    },
+    {
+      "basename": "Bookshelf",
+      "path": "Atlas/Scopes/Bookshelf.md"
+    },
+    {
+      "basename": "Cards MOC",
+      "path": "Cards/Cards MOC.md"
+    },
+    {
       "basename": "高可用架构",
       "path": "Sources/Courses/⚙️ Database/MySQL/高可用架构.md"
     },
@@ -51,10 +63,6 @@
     {
       "basename": "租房计划",
       "path": "Spaces/Life/Areas/Financial/租房计划.md"
-    },
-    {
-      "basename": "Cooling pad",
-      "path": "Atlas/Scopes/Cooling pad.md"
     },
     {
       "basename": "Script.CreateLearningNote",
@@ -145,10 +153,6 @@
       "path": "Cards/🅿️ Python/• TOC for Python.md"
     },
     {
-      "basename": "Cards MOC",
-      "path": "Cards/Cards MOC.md"
-    },
-    {
       "basename": "Outbox",
       "path": "Atlas/Scopes/Outbox.md"
     },
@@ -191,10 +195,6 @@
     {
       "basename": "数据库的监控",
       "path": "Sources/Courses/⚙️ Database/MySQL/数据库的监控.md"
-    },
-    {
-      "basename": "主从复制和主主复制",
-      "path": "Sources/Courses/⚙️ Database/MySQL/主从复制和主主复制.md"
     }
   ],
   "omittedPaths": [],

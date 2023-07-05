@@ -6,7 +6,7 @@ tags:
 - Sources/Courses/MySQL
 - Development/Backend/Database/MySQL
 ---
-up:: [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course]]
+up:: [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course](%E2%80%A2%20TOC%20for%20MySQL%20Course.md)
 
 ## 虚拟机使用说明
 

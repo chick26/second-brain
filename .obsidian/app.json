@@ -15,5 +15,6 @@
     "en"
   ],
   "defaultViewMode": "preview",
-  "newLinkFormat": "absolute"
+  "newLinkFormat": "absolute",
+  "useMarkdownLinks": true
 }
