@@ -1,6 +1,5 @@
 ---
-title: Learning Note OverView
-enableToc: false
+title: 'Learning Note OverView'
 ---
 
 # 🗺 [ATLAS](Atlas/Atlases%20MOC.md)
@@ -8,16 +7,16 @@ enableToc: false
 >[!INFO]- Start With Your Cooling Pad for today
 
 - Sense Making
-	-  📬 [Cooling pad](Atlas/Scopes/Cooling%20pad.md)
-	-  💾 [Making Cards](Cards/Cards%20MOC.m)
-	-  📤 [Outbox](Atlas/Scopes/Outbox.md)
-	-  📆 [Daily Note](Calendar/Journal%20MOC.md)
+	-  📬 [[Atlas/Scopes/Cooling pad|Cooling pad]]
+	-  💾 [[Cards/Cards MOC|Making Cards]]
+	-  📤 [[Atlas/Scopes/Outbox|Outbox]]
+	-  📆 [[Calendar/Journal MOC|Daily Note]]
 
--  [Things](Sources/Sources%20MOC.md)
-	-  📚 [Library](Atlas/Scopes/Bookshelf.md)
-	-  🧑‍🏫 [Talks](Sources/Talks/%E2%80%A2%20TOC%20for%20Talks.md)
-	-  😶‍🌫️ [Concepts](Atlas/MOCs/Concepts%20MOC.md)
-	-  🔬 [Courses](Atlas/MOCs/Courses%20MOC.md)
+-  [[Sources/Sources MOC|Things]]
+	-  📚 [[Atlas/Scopes/Bookshelf|Bookshelf|Library]]
+	-  🧑‍🏫 [[Sources/Talks/• TOC for Talks|Talks]]
+	-  😶‍🌫️ [[Atlas/MOCs/Concepts MOC|Concepts]]
+	-  🔬 [[Atlas/MOCs/Courses MOC|Courses]]
 
 - Action
 	- ✅ [Tasks](Calendar/Tasks.md)
