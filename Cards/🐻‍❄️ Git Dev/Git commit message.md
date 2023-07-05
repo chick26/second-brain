@@ -6,7 +6,7 @@ tags:
 - Development/Git
 - Development/Git/commit
 ---
-up:: [[• TOC for Git](%E2%80%A2%20TOC%20for%20Git.md)
+up:: [[Cards/🐻‍❄️ Git Dev/• TOC for Git|• TOC for Git]]
 
 > A typical git commit message will look like  
 
