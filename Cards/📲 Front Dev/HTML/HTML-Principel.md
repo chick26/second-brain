@@ -5,7 +5,7 @@ status: done
 tags:
 - Development/Frontend/HTML/Principel
 ---
-up:: [[• TOC for Frontend]]
+up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 # HTML 最佳实践
 

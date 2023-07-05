@@ -5,7 +5,7 @@ status: done
 tags:
 - Development/Git/hooks
 ---
-up:: [[• TOC for Git]]
+up:: [[• TOC for Git](%E2%80%A2%20TOC%20for%20Git.md)
 
 ## 常见 Git Hooks
 

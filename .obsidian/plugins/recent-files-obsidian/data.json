@@ -5,6 +5,54 @@
       "path": "Home.md"
     },
     {
+      "basename": "高可用架构",
+      "path": "Sources/Courses/⚙️ Database/MySQL/高可用架构.md"
+    },
+    {
+      "basename": "备份与恢复",
+      "path": "Sources/Courses/⚙️ Database/MySQL/备份与恢复.md"
+    },
+    {
+      "basename": "• TOC for MySQL Course",
+      "path": "Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course.md"
+    },
+    {
+      "basename": "计算机网络",
+      "path": "Sources/Courses/☎️ Communicate Tech/计算机网络.md"
+    },
+    {
+      "basename": "ACA-云计算基础",
+      "path": "Sources/Courses/☁️ Cloud Tech/ACA-云计算基础.md"
+    },
+    {
+      "basename": "云计算架构",
+      "path": "Sources/Courses/☁️ Cloud Tech/云计算架构.md"
+    },
+    {
+      "basename": "Superset 培训",
+      "path": "Spaces/Work/Support notes/Superset 培训.md"
+    },
+    {
+      "basename": "需求分析面试",
+      "path": "Spaces/Work/Areas/China Unicom Global/需求分析面试.md"
+    },
+    {
+      "basename": "联通国际自我介绍",
+      "path": "Spaces/Work/Areas/China Unicom Global/联通国际自我介绍.md"
+    },
+    {
+      "basename": "Index for Life Spaces",
+      "path": "Spaces/Life/Support notes/Index for Life Spaces.md"
+    },
+    {
+      "basename": "饮食计划",
+      "path": "Spaces/Life/Areas/Medical/饮食计划.md"
+    },
+    {
+      "basename": "租房计划",
+      "path": "Spaces/Life/Areas/Financial/租房计划.md"
+    },
+    {
       "basename": "Cooling pad",
       "path": "Atlas/Scopes/Cooling pad.md"
     },
@@ -81,10 +129,6 @@
       "path": "Extras/Excalidraw/算法之美/Blocking queue.excalidraw.md"
     },
     {
-      "basename": "ACA-云计算基础",
-      "path": "Sources/Courses/☁️ Cloud Tech/ACA-云计算基础.md"
-    },
-    {
       "basename": "Mac Setup",
       "path": "Sources/Tools/Mac Setup.md"
     },
@@ -151,54 +195,6 @@
     {
       "basename": "主从复制和主主复制",
       "path": "Sources/Courses/⚙️ Database/MySQL/主从复制和主主复制.md"
-    },
-    {
-      "basename": "数据库对象",
-      "path": "Sources/Courses/⚙️ Database/MySQL/数据库对象.md"
-    },
-    {
-      "basename": "性能优化与运维管理",
-      "path": "Sources/Courses/⚙️ Database/MySQL/性能优化与运维管理.md"
-    },
-    {
-      "basename": "InnoDB存储引擎",
-      "path": "Sources/Courses/⚙️ Database/MySQL/InnoDB存储引擎.md"
-    },
-    {
-      "basename": "Git commit message",
-      "path": "Cards/🐻‍❄️ Git Dev/Git commit message.md"
-    },
-    {
-      "basename": "Git hooks",
-      "path": "Cards/🐻‍❄️ Git Dev/Git hooks.md"
-    },
-    {
-      "basename": "Git Craft",
-      "path": "Cards/🐻‍❄️ Git Dev/Git Craft.md"
-    },
-    {
-      "basename": "PHPIPAM Docker Install",
-      "path": "Cards/📀 Docker/PHPIPAM Docker Install.md"
-    },
-    {
-      "basename": "Docker Container Problem List",
-      "path": "Cards/📀 Docker/Docker Container Problem List.md"
-    },
-    {
-      "basename": "Superset Local Develop",
-      "path": "Cards/🅿️ Python/Superset Local Develop.md"
-    },
-    {
-      "basename": "• TOC for GPT",
-      "path": "Cards/🪀 GPT/• TOC for GPT.md"
-    },
-    {
-      "basename": "备份与恢复",
-      "path": "Sources/Courses/⚙️ Database/MySQL/备份与恢复.md"
-    },
-    {
-      "basename": "高可用架构",
-      "path": "Sources/Courses/⚙️ Database/MySQL/高可用架构.md"
     }
   ],
   "omittedPaths": [],

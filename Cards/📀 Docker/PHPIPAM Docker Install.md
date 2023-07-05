@@ -6,7 +6,7 @@ tags:
 - Development/Docker
 - Development/Docker/Docker-compose
 ---
-up:: [[• TOC for Docker]]
+up:: [[• TOC for Docker](%E2%80%A2%20TOC%20for%20Docker.md)
 
 ## Install Docker Engine and Docker-compose
 

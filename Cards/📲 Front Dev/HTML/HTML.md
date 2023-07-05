@@ -5,11 +5,11 @@ status: done
 tags:
 - Development/Frontend/HTML
 ---
-up:: [[• TOC for Frontend]]
+up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 # Head
 
-> **注意:**  [[HTML-HEAD|HEAD列表]]中 找到HTML文档`<head>`标签内所有可配置的属性。
+> **注意:**  [[HTML-HEAD.md|HEAD列表]]中 找到HTML文档`<head>`标签内所有可配置的属性。
 
 # Meta 标签
 

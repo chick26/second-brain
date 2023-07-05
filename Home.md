@@ -15,10 +15,10 @@ obsidianUIMode: preview
 
 >[!INFO]+ Update Your Database
 > 🧠  **TOTAL**: `$=dv.pages().length` 
->  📥  **[[Cooling pad|INBOX]]**: `$=dv. pages ('"• Encounters"'). length` 
-> ✒️  **[[Notebox 🗃|LEARN NOTE]]**: `$=dv.pages('"Cards" and -#Atlas').length`
+>  📥  **[[Atlas/Scopes/Cooling pad|INBOX]]**: `$=dv. pages ('"• Encounters"'). length` 
+> ✒️  **[[Cards/Cards MOC|LEARN NOTE]]**: `$=dv.pages('"Cards" and -#Atlas').length`
 > 📝  **[[Books I've Read MOC|READ NOTE]]**: `$=dv. pages ('"Scources/Books"'). length`
-> 📇  **[[Journal MOC|DAILY]]**: `$=dv.pages('#Logs/Journal').length`
+> 📇  **[[Calendar/Journal MOC|DAILY]]**: `$=dv.pages('#Logs/Journal').length`
 
 
 # 🗺 [[Atlases MOC|ATLAS]]
@@ -26,19 +26,19 @@ obsidianUIMode: preview
 >[!INFO]- Start With Your Cooling Pad for today
 
 - Sense Making
-	-  📬 [[Cooling pad]]
-	-  💾 [[Cards MOC|Making Cards]]
-	-  📤 [[Outbox]]
+	-  📬 [[Atlas/Scopes/Cooling pad|Cooling pad]]
+	-  💾 [[Cards/Cards MOC|Making Cards]]
+	-  📤 [[Atlas/Scopes/Outbox.md|Outbox]]
 	-  📆 [[Journal MOC|Daily Notes]]
 
 -  [[Sources MOC|Things]]
-	-  📚 [[Bookshelf|Library]]
+	-  📚 [[Atlas/Scopes/Bookshelf.md|Library]]
 	-  🧑‍🏫 [[• TOC for Talks|Talks]]
 	-  😶‍🌫️ [[Concepts MOC|Concepts]]
 	-  🔬 [[Courses MOC|Courses]]
 
 - Action
-	- ✅ [[Tasks]]
+	- ✅ [[Calendar/Tasks.md|Task]]
 
 - Personal
 	- [[Health MOC]] 

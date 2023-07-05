@@ -6,7 +6,7 @@ tags:
 - Development/Frontend/HTML
 - Development/Frontend/HTML/TAG
 ---
-up:: [[• TOC for Frontend]]
+up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 # 🤯 HEAD
 

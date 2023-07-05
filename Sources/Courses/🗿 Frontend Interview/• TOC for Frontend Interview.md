@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Courses MOC]] | Frontend Interview TOC
+# 🌏 [[Courses MOC](../../../Atlas/MOCs/Courses%20MOC.md) | Frontend Interview TOC
 
 ```dataview
 table WITHOUT ID
