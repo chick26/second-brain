@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Sources MOC]] | Untitled
+# 🌏 [[Sources MOC](../Sources%20MOC.md) | Untitled
 
 ```dataview
 table WITHOUT ID

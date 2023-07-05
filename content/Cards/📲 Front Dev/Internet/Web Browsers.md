@@ -6,7 +6,7 @@ tags:
 - Network/Internet
 - Development/Frontend/WebBrowser
 ---
-up:: [[• TOC for Frontend]]
+up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 # 1. 浏览器高层结构
 
@@ -18,7 +18,7 @@ up:: [[• TOC for Frontend]]
 6.  **JavaScript 解释器**。用于解析和执行 JavaScript 代码。
 7.  **数据存储**。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库
 
-![](202201261438296.png)
+![](../../../Extras/Media/Images/202201261438296.png)
 
 # 2. Rendering Engine 呈现引擎 
 
@@ -44,10 +44,10 @@ graph LR
 ## Main Flow Examples
 
 ### WebKit Main Flow
-![](202201261500863.png)
+![](../../../Extras/Media/Images/202201261500863.png)
 
 ### Mozilla's Gecko rendering engine main flow
-![](202201261501778.png)
+![](../../../Extras/Media/Images/202201261501778.png)
 
 # 3. Parsing and DOM tree construction 解析和DOM树构建
 
@@ -119,7 +119,7 @@ WebKit 使用了两种非常有名的解析器生成器：用于创建词法分�
 </html>
 ```
 
-![](202201271732813.png)
+![](../../../Extras/Media/Images/202201271732813.png)
 
 初始状态是数据状态。遇到字符 `<` 时，状态更改为 **“标记打开状态”**。接收一个 `a-z` 字符会创建 **“起始标记”**，状态更改为 **“标记名称状态”**。这个状态会一直保持到接收 `>` 字符。在此期间接收的每个字符都会附加到新的标记名称上。在本例中，我们创建的标记是 `html` 标记。
 
@@ -138,7 +138,7 @@ WebKit 使用了两种非常有名的解析器生成器：用于创建词法分�
 </html>
 ```
 
-![](202201281045591.png)
+![](../../../Extras/Media/Images/202201281045591.png)
 
 树构建阶段的输入是一个来自标记化阶段的标记序列。第一个模式是 **“initial mode”**。接收 HTML 标记后转为 **“before html”** 模式，并在这个模式下重新处理此标记。这样会创建一个 HTMLHtmlElement 元素，并将其附加到 Document 根对象上。
 
@@ -185,7 +185,7 @@ HTML5 规范定义了一部分这样的要求。WebKit 在 HTML 解析器类的�
 
 WebKit 使用 **Flex** 和 **Bison** 解析器生成器，通过 CSS 语法文件自动创建解析器。正如我们之前在解析器简介中所说，Bison 会创建自下而上的移位归约解析器。Firefox 使用的是人工编写的自上而下的解析器。这两种解析器都会将 CSS 文件解析成 StyleSheet 对象，且每个对象都包含 CSS 规则。CSS 规则对象则包含选择器和声明对象，以及其他与 CSS 语法对应的对象。
 
-![](202201281106738.png)
+![](../../../Extras/Media/Images/202201281106738.png)
 
 ## The order of processing scripts and style sheets
 
@@ -247,7 +247,7 @@ RenderObject* RenderObject::createObject(Node* node, RenderStyle* style) {
 - 格式无效的 HTML 也会对应多个可视化对象。根据 CSS 规范，inline 元素只能包含 block 元素或 inline 元素中的一种。如果出现了混合内容，则应创建匿名的 block 呈现器，以包裹 inline 元素。
 - 有一些呈现对象对应于 DOM 节点，但在树中所在的位置与 DOM 节点不同。浮动定位和绝对定位的元素就是这样，它们处于正常的流程之外，放置在树中的其他地方，并映射到真正的框架，而放在原位的是占位框架。
 
-![](202201281500208.png)
+![](../../../Extras/Media/Images/202201281500208.png)
 
 ## The flow of constructing the tree
 

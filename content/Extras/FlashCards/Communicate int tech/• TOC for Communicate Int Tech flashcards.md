@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Flashcards MOC]] | Untitled
+# 🌏 [[Flashcards MOC](../Flashcards%20MOC.md) | Untitled
 
 ```dataview
 table WITHOUT ID

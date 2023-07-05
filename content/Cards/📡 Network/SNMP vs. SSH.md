@@ -8,4 +8,4 @@ tags:
 - Network/mib
 - Network/oid
 ---
-up:: [[• TOC for Network]]
+up:: [[• TOC for Network](%E2%80%A2%20TOC%20for%20Network.md)

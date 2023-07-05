@@ -6,13 +6,13 @@ tags:
 title: • TOC for Algorithm Course
 ---
 
-## 🌏 [[• TOC for Courses]] | Algorithm
+## 🌏 [[• TOC for Courses](../%E2%80%A2%20TOC%20for%20Courses.md) | Algorithm
 
 ### Data structure
 
-- 01- [[Array|数组]]
-- 02- [[List|链表]]
-- 03- [[Stack|栈]]
-- 04- [[Queue|队列]]
-- 05- [[Recursion|递归]]
+- 01- [[Array.md|数组]]
+- 02- [[List.md|链表]]
+- 03- [[Stack.md|栈]]
+- 04- [[Queue.md|队列]]
+- 05- [[Recursion.md|递归]]
 

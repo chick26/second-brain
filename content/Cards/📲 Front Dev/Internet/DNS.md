@@ -6,7 +6,7 @@ tags:
 - Network/Internet
 - Network/Internet/DNS
 ---
-up:: [[• TOC for Frontend]]
+up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 
 >域名系统 (DNS) 是互联网的电话簿。人们通过例如 nytimes.com 或 espn.com 等域名在线访问信息。Web 浏览器通过 [[IP|互联网协议]]（IP） 地址进行交互。DNS 将域名转换为 IP 地址，以便浏览器能够加载互联网资源。
@@ -97,7 +97,7 @@ Cloudflare 维护 Internet 功能不可或缺的基础设施级域名服务器�
 9.  浏览器向该 IP 地址发出 [HTTP](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) 请求。
 10.  位于该 IP 的服务器返回将在浏览器中呈现的网页（第 10 步）。
 
-![](202202081650807.png)
+![](../../../Extras/Media/Images/202202081650807.png)
 
 
 ## DNS 解析器

@@ -5,7 +5,7 @@ tags:
 - Atlas/Scope
 ---
 
-# 🌏[[Sources MOC]] | Bookshelf 📚 
+# 🌏[[Sources MOC](../../Sources/Sources%20MOC.md) | Bookshelf 📚 
 
 | [[Books I've Read MOC]] | [[Books Purgatory List]]
 

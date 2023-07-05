@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Cards MOC]] | Network TOC
+# 🌏 [[Cards MOC](../Cards%20MOC.md) | Network TOC
 
 ```dataview
 table WITHOUT ID

@@ -5,7 +5,7 @@ tags:
 - Atlas/Scope 
 ---
 
-# 🌏 [[Home]]  | Essays 🖌
+# 🌏 [[../../Home.md]]  | Essays 🖌
 
 ## 2022
 ```dataview

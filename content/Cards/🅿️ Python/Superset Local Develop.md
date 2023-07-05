@@ -6,7 +6,7 @@ tags:
 - Development/Linux
 - Development/Frontend/Python/Superset
 ---
-up:: [[• TOC for Python]]
+up:: [[• TOC for Python](%E2%80%A2%20TOC%20for%20Python.md)
 
 ## Local Development
 

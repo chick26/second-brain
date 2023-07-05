@@ -5,7 +5,7 @@ status: done
 tags:
 - Development/Markdown/Mermaid
 ---
-up:: [[• TOC for Markdown]]
+up:: [[• TOC for Markdown](%E2%80%A2%20TOC%20for%20Markdown.md)
 
 # Mermaid Markdown
 

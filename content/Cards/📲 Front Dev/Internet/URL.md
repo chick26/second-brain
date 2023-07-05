@@ -6,7 +6,7 @@ tags:
 - Network/Internet
 - Network/Internet/URL
 ---
-up:: [[• TOC for Frontend]]
+up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 >**URL 代表着是统一资源定位符（**_Uniform Resource Locator_**）**。URL 无非就是一个给定的独特资源在 Web 上的地址。理论上说，每个有效的 URL 都指向一个唯一的资源。这个资源可以是一个 HTML 页面，一个 CSS 文档，一幅图像，等等。而在实际中，也有一些例外，最常见的情况就是一个 URL 指向了不存在的或是被移动过的资源。由于通过 URL 呈现的资源和 URL 本身由 Web 服务器处理，因此 web 服务器的拥有者需要认真地维护资源以及与它关联的URL。
 
@@ -19,7 +19,7 @@ up:: [[• TOC for Frontend]]
 
 `http` 是协议。它表明了浏览器必须使用何种协议。它通常都是HTTP协议或是HTTP协议的安全版，即HTTPS。Web需要它们二者之一，但浏览器也知道如何处理其他协议，比如`mailto:（打开邮件客户端）或者` `ftp:（处理文件传输）`
 
-## [[Domain Name]]
+## [[Domain Name](Domain%20Name.md)
 
 `www.example.com` 是域名。 它表明正在请求哪个Web服务器。或者，可以直接使用[IP address](https://developer.mozilla.org/zh-CN/docs/Glossary/IP_Address), 但是因为它不太方便，所以它不经常在网络上使用。
 
@@ -43,7 +43,7 @@ up:: [[• TOC for Frontend]]
 
 可以直接在浏览器的地址栏里输入任何URL，来获得后台的资源。但是这仅仅是冰山一角。
 
- [[HTML]]语言对URLs有大量的使用:
+ [[../HTML/HTML.md]]语言对URLs有大量的使用:
 
 -   为在其他文档中新建链接，用 `<a>` ;
 -   为将文档与它的相关资源关联，用各种标签如 `<link>` 或 `<script>` ;

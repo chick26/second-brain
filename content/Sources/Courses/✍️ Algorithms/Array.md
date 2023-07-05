@@ -6,7 +6,7 @@ tags:
 - Development/ComputerBasic/DataStructure/Array
 - Sources/Courses/Algorithms
 ---
-up:: [[• TOC for Algorithm Course]]
+up:: [[• TOC for Algorithm Course](%E2%80%A2%20TOC%20for%20Algorithm%20Course.md)
 
 >数组是一种最基础的数据结构，在大部分编程语言中，数组都是从 0 开始编号的。
 

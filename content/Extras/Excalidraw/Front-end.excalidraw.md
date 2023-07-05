@@ -11,29 +11,29 @@ Front-end ^zg8J6EGh
 
 Internet ^PTtyYUVi
 
-[[DNS|DNS and How it works]] ^CEIpnN1E
+[[../../Cards/📲%20Front%20Dev/Internet/DNS.md|DNS and How it works]] ^CEIpnN1E
 
-[[INTERNET|How does the Internet works?]] ^8F2pqe5B
+[[../../Cards/📲%20Front%20Dev/Internet/INTERNET.md|How does the Internet works?]] ^8F2pqe5B
 
-[[HTTP|What is Http?]] ^IJE5QvgR
+[[../../Cards/📲%20Front%20Dev/Internet/HTTP.md|What is Http?]] ^IJE5QvgR
 
-[[Web Browsers|Browsers and How they work?]] ^wgWPJMn4
+[[Web Browsers|Browsers and How they work?](../../Cards/%F0%9F%93%B2%20Front%20Dev/Internet/Web%20Browsers.md) ^wgWPJMn4
 
-[[Domain Name|What is Domain Name]] ^ekfCepKg
+[[Domain Name|What is Domain Name](../../Cards/%F0%9F%93%B2%20Front%20Dev/Internet/Domain%20Name.md) ^ekfCepKg
 
-[[Web Hosting|What is Hosing]] ^lRziEnsg
+[[Web Hosting|What is Hosing](../../Cards/%F0%9F%93%B2%20Front%20Dev/Internet/Web%20Hosting.md) ^lRziEnsg
 
-[[HTML]] ^050RVjVu
+[[../../Cards/📲%20Front%20Dev/HTML/HTML.md]] ^050RVjVu
 
 [[CSS]] ^pdIJzgkG
 
-[[HTML|Learn the Basics]] ^X10GDBWE
+[[../../Cards/📲%20Front%20Dev/HTML/HTML.md|Learn the Basics]] ^X10GDBWE
 
-[[HTML-Validation|Forms and Validations]] ^u7jG1c2E
+[[../../Cards/📲%20Front%20Dev/HTML/HTML-Validation.md|Forms and Validations]] ^u7jG1c2E
 
 [[HTML_Semantic|Writing the Semantic HTML]] ^Bcdb6d9S
 
-[[HTML-Principel|Conventions and Best Practices]] ^jNDfg4cr
+[[../../Cards/📲%20Front%20Dev/HTML/HTML-Principel.md|Conventions and Best Practices]] ^jNDfg4cr
 
 Accessibility ^yrAcvuzq
 

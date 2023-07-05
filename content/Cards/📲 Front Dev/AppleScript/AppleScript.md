@@ -5,7 +5,7 @@ status: done
 tags:
 - Development/AppleScript
 ---
-up:: [[• TOC for Frontend]]
+up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 # 键位代码
 [代码说明](https://eastmanreference.com/complete-list-of-applescript-key-codes)
