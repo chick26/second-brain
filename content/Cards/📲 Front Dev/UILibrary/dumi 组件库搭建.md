@@ -6,7 +6,7 @@ tags:
 - Development/Frontend/JavaScript/uiLibrary
 - Development/Frontend/Deploy/Dumi
 ---
-up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
+up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 
 # 配置相关
 

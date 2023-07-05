@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Atlases MOC|Atlases](../../Atlas/Atlases%20MOC.md) | Flashcards MOC
+# 🌏 [[Atlas/Atlases MOC|Atlases]] | Flashcards MOC
 
 ## Card Package
 

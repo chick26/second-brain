@@ -6,7 +6,7 @@ tags:
 - Network/Internet
 - Network/Internet/DomainName
 ---
-up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
+up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 
 >域名（Domain names）是互联网基础架构的关键部分。它们为互联网上任何可用的网页服务器提供了方便人类理解的地址。
 ----
