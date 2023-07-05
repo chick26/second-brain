@@ -136,13 +136,13 @@ Text Elements 需求评审 ^Ot5HS7AA
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.c09564b5e0a21778837edacdeeeca9a6.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.585233df3e5ecd6e4b22cb506fd80d4d.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
