@@ -6,7 +6,7 @@ tags:
 - Network/Agent
 - Network/Probe
 ---
-up:: [[• TOC for Network](%E2%80%A2%20TOC%20for%20Network.md)
+up:: [[Cards/📡 Network/• TOC for Network|• TOC for Network]]
 
 ## Introduction
 
