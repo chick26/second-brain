@@ -1,0 +1,261 @@
+{
+  "main": {
+    "id": "ca670581c84ff848",
+    "type": "split",
+    "children": [
+      {
+        "id": "98c6cb444dd6d3f2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d45d61a967690b9e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Home.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "42f69421c2d5d3f9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cards/📉 Data Structure/MySQL/02-InnoDB存储引擎.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8219e1c6783b40b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cards/Cards MOC.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "94a4e064c12fab24",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cards/📉 Data Structure/MySQL/01-MySQL数据库基础.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "260137b7322474b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "0533f3c5f01b3454",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a0cee944834d6de8",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          },
+          {
+            "id": "ec24a93d481464e3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fac6c1ee046277f1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "Structrue",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "afd20646771c0e97",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 271.5
+  },
+  "right": {
+    "id": "d53f41279f91a353",
+    "type": "split",
+    "children": [
+      {
+        "id": "f65d37b146c02292",
+        "type": "tabs",
+        "dimension": 38.75545851528384,
+        "children": [
+          {
+            "id": "a59922e0d55c2993",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "d6f8323a46d9760a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Cards/📉 Data Structure/MySQL/02-InnoDB存储引擎.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f0ed9b62cfad1dab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Cards/📉 Data Structure/MySQL/02-InnoDB存储引擎.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bfdca9e916e9c51b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "924288f3a5aa15d1",
+        "type": "tabs",
+        "dimension": 61.24454148471616,
+        "children": [
+          {
+            "id": "d158de1a959e5c8c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Cards/📉 Data Structure/MySQL/02-InnoDB存储引擎.md"
+              }
+            }
+          },
+          {
+            "id": "a957636129d9ae99",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 387.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-advanced-slides:Show Slide Preview": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false
+    }
+  },
+  "active": "42f69421c2d5d3f9",
+  "lastOpenFiles": [
+    "Cards/📉 Data Structure/_TOC for Data Structure.md",
+    "Cards/📉 Data Structure/数据库概述/数据库对比.md",
+    "Sources/Courses/☁️ Cloud Tech/云计算架构.md",
+    "Sources/Courses/☁️ Cloud Tech/云计算基础.md",
+    "Sources/Courses/💵 CFA/The Time Value of Money.md",
+    "Sources/Courses/✍️ Algorithms/数组.md",
+    "Sources/Courses/✍️ Algorithms/哈希表.md",
+    "Sources/Courses/☎️ Communicate Tech/计算机网络.md",
+    "Sources/Courses/✍️ Algorithms",
+    "Cards/📉 Data Structure/DevOps.md",
+    "Cards/📉 Data Structure/DevOps",
+    "Atlas/MOCs/Sources MOC.md",
+    "Atlas/Atlases MOC.md",
+    "Cards/📀 Docker/_TOC for Docker.md",
+    "Cards/🐻‍❄️ Git Dev/_TOC for Git.md",
+    "Cards/🐻‍❄️  Git Dev/_TOC for Git.md",
+    "Cards/🐻‍❄️ Git Dev/Git hooks.md",
+    "Cards/🐻‍❄️ Git Dev/Git Craft.md",
+    "Cards/🐻‍❄️ Git Dev/Git commit message.md",
+    "Cards/🐻‍❄️ Git Dev",
+    "Cards/🎰 Markdown/_TOC for Markdown.md",
+    "Cards/🐻‍❄️  Git Dev/Git hooks.md",
+    "Cards/🐻‍❄️  Git Dev/Git Craft.md",
+    "Cards/🐻‍❄️  Git Dev/Git commit message.md",
+    "Extras/MindMap/Second Brain.canvas",
+    "Extras/Media/Images/641.png",
+    "Extras/Media/Images/640.png",
+    "Extras/FlashCards/Communicate int tech/_TOC for Communicate Int Tech flashcards.md",
+    "Extras/FlashCards/Communicate int tech/Index for Communicate Int Tech.md",
+    "Extras/FlashCards/Frontend/_TOC for Frontend flashcards.md",
+    "Extras/Templates/Template, MOC-Note.md",
+    "Extras/Templates/Template, TOC-Note.md"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "baseFontSize": 15,
+  "theme": "obsidian",
+  "cssTheme": "Minimal",
+  "translucency": false,
+  "enabledCssSnippets": [
+    "home_page_readingline",
+    "img",
+    "Kanban Redesign",
+    "title",
+    "mermaid",
+    "home_page",
+    "scope_page"
+  ],
+  "accentColor": "",
+  "nativeMenus": true,
+  "showViewHeader": true
+}

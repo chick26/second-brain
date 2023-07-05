@@ -1,0 +1,207 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Home",
+      "path": "Home.md"
+    },
+    {
+      "basename": "Cooling pad",
+      "path": "Atlas/Scopes/Cooling pad.md"
+    },
+    {
+      "basename": "Script.CreateLearningNote",
+      "path": "Extras/Templates/Script.CreateLearningNote.md"
+    },
+    {
+      "basename": "• TOC for Algorithm Course",
+      "path": "Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course.md"
+    },
+    {
+      "basename": "Stack",
+      "path": "Sources/Courses/✍️ Algorithms/Stack.md"
+    },
+    {
+      "basename": "Browser forward and backward Using Stack",
+      "path": "Sources/Courses/✍️ Algorithms/Browser forward and backward Using Stack.md"
+    },
+    {
+      "basename": "Bracket Matching Using Stack",
+      "path": "Sources/Courses/✍️ Algorithms/Bracket Matching Using Stack.md"
+    },
+    {
+      "basename": "Expression Evaluation Using Stack",
+      "path": "Sources/Courses/✍️ Algorithms/Expression Evaluation Using Stack.md"
+    },
+    {
+      "basename": "Queue",
+      "path": "Sources/Courses/✍️ Algorithms/Queue.md"
+    },
+    {
+      "basename": "Josephus Problem Using List",
+      "path": "Sources/Courses/✍️ Algorithms/Josephus Problem Using List.md"
+    },
+    {
+      "basename": "List",
+      "path": "Sources/Courses/✍️ Algorithms/List.md"
+    },
+    {
+      "basename": "LRU Using List",
+      "path": "Sources/Courses/✍️ Algorithms/LRU Using List.md"
+    },
+    {
+      "basename": "Array",
+      "path": "Sources/Courses/✍️ Algorithms/Array.md"
+    },
+    {
+      "basename": "Recursion",
+      "path": "Sources/Courses/✍️ Algorithms/Recursion.md"
+    },
+    {
+      "basename": "Palindromic string",
+      "path": "Sources/Courses/✍️ Algorithms/Palindromic string.md"
+    },
+    {
+      "basename": "Finite resource pool",
+      "path": "Sources/Courses/✍️ Algorithms/Finite resource pool.md"
+    },
+    {
+      "basename": "Concurrent queue",
+      "path": "Sources/Courses/✍️ Algorithms/Concurrent queue.md"
+    },
+    {
+      "basename": "Blocking queue",
+      "path": "Sources/Courses/✍️ Algorithms/Blocking queue.md"
+    },
+    {
+      "basename": "Hash",
+      "path": "Sources/Courses/✍️ Algorithms/Hash.md"
+    },
+    {
+      "basename": "Blocking queue.excalidraw",
+      "path": "Extras/Excalidraw/算法之美/Blocking queue.excalidraw.md"
+    },
+    {
+      "basename": "ACA-云计算基础",
+      "path": "Sources/Courses/☁️ Cloud Tech/ACA-云计算基础.md"
+    },
+    {
+      "basename": "Mac Setup",
+      "path": "Sources/Tools/Mac Setup.md"
+    },
+    {
+      "basename": "Image Enhance Tools",
+      "path": "Sources/Tools/Image Enhance Tools.md"
+    },
+    {
+      "basename": "Second Brain",
+      "path": "Extras/MindMap/Second Brain.canvas"
+    },
+    {
+      "basename": "• TOC for Python",
+      "path": "Cards/🅿️ Python/• TOC for Python.md"
+    },
+    {
+      "basename": "Cards MOC",
+      "path": "Cards/Cards MOC.md"
+    },
+    {
+      "basename": "Outbox",
+      "path": "Atlas/Scopes/Outbox.md"
+    },
+    {
+      "basename": "Q0001-图片懒加载",
+      "path": "Sources/Courses/🗿 Frontend Interview/问答汇总/Q0001-图片懒加载.md"
+    },
+    {
+      "basename": "前端技术应用方向",
+      "path": "Sources/Talks/【阿里】前端练习生/前端技术应用方向.md"
+    },
+    {
+      "basename": "BGP 路由协议技术详解",
+      "path": "• Encounters/• Cooling Pad/BGP 路由协议技术详解.md"
+    },
+    {
+      "basename": "成熟度模型：企业规模化推广敏捷和 DevOps 利器",
+      "path": "• Encounters/• Cooling Pad/成熟度模型：企业规模化推广敏捷和 DevOps 利器.md"
+    },
+    {
+      "basename": "Mermaid",
+      "path": "Cards/🎰 Markdown/Mermaid.md"
+    },
+    {
+      "basename": "• TOC for Markdown",
+      "path": "Cards/🎰 Markdown/• TOC for Markdown.md"
+    },
+    {
+      "basename": "Prompt",
+      "path": "Cards/🪀 GPT/Prompt.md"
+    },
+    {
+      "basename": "Superset Off-line Installation",
+      "path": "Cards/🅿️ Python/Superset Off-line Installation.md"
+    },
+    {
+      "basename": "Playwright Off-line Development",
+      "path": "Cards/🅿️ Python/Playwright Off-line Development.md"
+    },
+    {
+      "basename": "数据库的监控",
+      "path": "Sources/Courses/⚙️ Database/MySQL/数据库的监控.md"
+    },
+    {
+      "basename": "主从复制和主主复制",
+      "path": "Sources/Courses/⚙️ Database/MySQL/主从复制和主主复制.md"
+    },
+    {
+      "basename": "数据库对象",
+      "path": "Sources/Courses/⚙️ Database/MySQL/数据库对象.md"
+    },
+    {
+      "basename": "性能优化与运维管理",
+      "path": "Sources/Courses/⚙️ Database/MySQL/性能优化与运维管理.md"
+    },
+    {
+      "basename": "InnoDB存储引擎",
+      "path": "Sources/Courses/⚙️ Database/MySQL/InnoDB存储引擎.md"
+    },
+    {
+      "basename": "Git commit message",
+      "path": "Cards/🐻‍❄️ Git Dev/Git commit message.md"
+    },
+    {
+      "basename": "Git hooks",
+      "path": "Cards/🐻‍❄️ Git Dev/Git hooks.md"
+    },
+    {
+      "basename": "Git Craft",
+      "path": "Cards/🐻‍❄️ Git Dev/Git Craft.md"
+    },
+    {
+      "basename": "PHPIPAM Docker Install",
+      "path": "Cards/📀 Docker/PHPIPAM Docker Install.md"
+    },
+    {
+      "basename": "Docker Container Problem List",
+      "path": "Cards/📀 Docker/Docker Container Problem List.md"
+    },
+    {
+      "basename": "Superset Local Develop",
+      "path": "Cards/🅿️ Python/Superset Local Develop.md"
+    },
+    {
+      "basename": "• TOC for GPT",
+      "path": "Cards/🪀 GPT/• TOC for GPT.md"
+    },
+    {
+      "basename": "备份与恢复",
+      "path": "Sources/Courses/⚙️ Database/MySQL/备份与恢复.md"
+    },
+    {
+      "basename": "高可用架构",
+      "path": "Sources/Courses/⚙️ Database/MySQL/高可用架构.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}
