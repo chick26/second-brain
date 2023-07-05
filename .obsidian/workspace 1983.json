@@ -1,0 +1,231 @@
+{
+  "main": {
+    "id": "ca670581c84ff848",
+    "type": "split",
+    "children": [
+      {
+        "id": "f652f8cc0dd1ce99",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d45d61a967690b9e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Home.md",
+                "mode": "preview",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "df75a9905ef21d2d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sources/Courses/✍️ Algorithms/List.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "260137b7322474b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "0533f3c5f01b3454",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a0cee944834d6de8",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          },
+          {
+            "id": "ec24a93d481464e3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fac6c1ee046277f1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "产品经理成长阶段",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "12cec05a92502e6a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 271.5
+  },
+  "right": {
+    "id": "d53f41279f91a353",
+    "type": "split",
+    "children": [
+      {
+        "id": "f65d37b146c02292",
+        "type": "tabs",
+        "dimension": 38.75545851528384,
+        "children": [
+          {
+            "id": "a59922e0d55c2993",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "d6f8323a46d9760a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Sources/Courses/✍️ Algorithms/List.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f0ed9b62cfad1dab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Sources/Courses/✍️ Algorithms/List.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bfdca9e916e9c51b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "924288f3a5aa15d1",
+        "type": "tabs",
+        "dimension": 61.24454148471616,
+        "children": [
+          {
+            "id": "d158de1a959e5c8c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Sources/Courses/✍️ Algorithms/List.md"
+              }
+            }
+          },
+          {
+            "id": "a957636129d9ae99",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 387.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "homepage:Open homepage": false,
+      "obsidian-advanced-slides:Show Slide Preview": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false
+    }
+  },
+  "active": "df75a9905ef21d2d",
+  "lastOpenFiles": [
+    "Sources/Courses/✍️ Algorithms/Array.md",
+    "Sources/Courses/✍️ Algorithms/Palindromic string.md",
+    "Sources/Courses/✍️ Algorithms/List.md",
+    "Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course.md",
+    "Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course.md",
+    "Sources/Courses/• TOC for Courses.md",
+    "Sources/Courses/⚙️ Database/MySQL/高可用架构.md",
+    "Sources/Courses/⚙️ Database/MySQL/备份与恢复.md",
+    "Sources/Courses/⚙️ Database/Redis/02-Redis 高级特性.md",
+    "Sources/Courses/⚙️ Database/Redis/01-Redis 基础.md",
+    "Sources/Courses/💵 CFA/The Time Value of Money.md",
+    "Sources/Courses/✍️ Algorithms/Hash.md",
+    "Home.md",
+    "Extras/Excalidraw/算法之美/list-construct.excalidraw.md",
+    "Extras/Excalidraw/前端部署/Nginx 层动态转发.excalidraw.md",
+    "Extras/Excalidraw/算法之美",
+    "Extras/Excalidraw/未命名.md",
+    "Extras/Excalidraw/前端部署/前端服务发布设计.excalidraw.md",
+    "Extras/Excalidraw/前端部署/依赖配置 服务端转发.excalidraw.md",
+    "Extras/Excalidraw/前端部署/后端直出 HTML.excalidraw.md",
+    "Extras/Excalidraw/前端开发/Lazyload Img.excalidraw.md",
+    "Extras/Excalidraw/前端练习生/研发流程.excalidraw.md",
+    "Extras/Excalidraw/DevOps/微服务架构+DEVOPS.md",
+    "Extras/Excalidraw/DevOps/分布式架构+敏捷开发模式.md",
+    "Extras/Excalidraw/DevOps/端到端Devops.md",
+    "Extras/Excalidraw/Http/http 协商缓存.excalidraw.md",
+    "Extras/Excalidraw/Http/http 强制缓存.excalidraw.md"
+  ]
+}

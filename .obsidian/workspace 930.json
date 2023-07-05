@@ -1,0 +1,233 @@
+{
+  "main": {
+    "id": "ca670581c84ff848",
+    "type": "split",
+    "children": [
+      {
+        "id": "039ed765bd7a8c7e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d45d61a967690b9e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Home.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "4b1d09088648527f",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Extras/MindMap/Second Brain.canvas",
+                "viewState": {
+                  "x": -75.43497900764056,
+                  "y": -76.44858061655091,
+                  "zoom": -0.8333333333333333
+                }
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "260137b7322474b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "0533f3c5f01b3454",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a0cee944834d6de8",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          },
+          {
+            "id": "ec24a93d481464e3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fac6c1ee046277f1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "idea",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1a73e6cec07b4852",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 271.5
+  },
+  "right": {
+    "id": "d53f41279f91a353",
+    "type": "split",
+    "children": [
+      {
+        "id": "f65d37b146c02292",
+        "type": "tabs",
+        "dimension": 38.75545851528384,
+        "children": [
+          {
+            "id": "a59922e0d55c2993",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "d6f8323a46d9760a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Extras/MindMap/Second Brain.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f0ed9b62cfad1dab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Extras/MindMap/Second Brain.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bfdca9e916e9c51b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "alphabetical",
+                "useHierarchy": true
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "924288f3a5aa15d1",
+        "type": "tabs",
+        "dimension": 61.24454148471616,
+        "children": [
+          {
+            "id": "d158de1a959e5c8c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Extras/MindMap/Second Brain.canvas"
+              }
+            }
+          },
+          {
+            "id": "a957636129d9ae99",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 358.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-advanced-slides:Show Slide Preview": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false
+    }
+  },
+  "active": "4b1d09088648527f",
+  "lastOpenFiles": [
+    "未命名.md",
+    "Extras/MindMap/Second Brain.canvas",
+    "Atlas/MOCs/Concepts MOC.md",
+    "Home.md",
+    "Atlas/Scopes/Ideas ✨.md",
+    "Sources/Knowledges/🐻‍❄️  Git Dev/git hooks.md",
+    "Sources/Knowledges/🐻‍❄️  Git Dev/Git Craft.md",
+    "Sources/Knowledges/🐻‍❄️  Git Dev/Git commit message.md",
+    "Atlas/Scopes/Notebox 🗃.md",
+    "Atlas/Scopes/ReadLater 📝.md",
+    "Atlas/Scopes/Cooling pad 🧊.md",
+    "Atlas/Index for Atlases.md",
+    "Cards/Index for Cards.md",
+    "Atlas/Logs/Essays 🖌.md",
+    "Cards/Fronten/Index for Fronten.md",
+    "Cards/Fronten/HandWriting.md",
+    "Atlas/MOCs/Index MOC.md",
+    "Sources/Courses/🗿 Front Interview/Index for Interview.md",
+    "Sources/Courses/🗿 Front Interview/问答汇总/Q0002-剪切板复制内容的功能.md",
+    "Sources/Courses/🗿 Front Interview/问答汇总/Q0001-图片懒加载.md",
+    "Sources/Index for Sources.md",
+    "Cards/Communicate int tech/Index for Communicate Int Tech.md",
+    "Spaces/Life/Support notes/Index for Life Spaces.md",
+    "Sources/Knowledges/📉 Data Structrue/算法之美课程/数组.md",
+    "Sources/Knowledges/📲 Front Dev/CSS/CSS解决方案.md",
+    "Sources/Knowledges/📲 Front Dev/Tool/File Preview In Javascript.md"
+  ]
+}

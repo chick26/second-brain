@@ -1,0 +1,9 @@
+.excalidraw-svg {
+  /* max-width: unset !important; */
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

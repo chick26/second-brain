@@ -1,0 +1,242 @@
+{
+  "main": {
+    "id": "ca670581c84ff848",
+    "type": "split",
+    "children": [
+      {
+        "id": "98ca6f3d5bb4df2c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d45d61a967690b9e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Home.md",
+                "mode": "preview",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "8b41c333b5ad7bfd",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "Calendar/Tasks.md"
+              }
+            }
+          },
+          {
+            "id": "5254f3f03c1c95b5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cards/🎰 Markdown/Mermaid.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "260137b7322474b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "0533f3c5f01b3454",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a0cee944834d6de8",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          },
+          {
+            "id": "ec24a93d481464e3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fac6c1ee046277f1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "devops",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "54757acf011af6b1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 271.5
+  },
+  "right": {
+    "id": "d53f41279f91a353",
+    "type": "split",
+    "children": [
+      {
+        "id": "f65d37b146c02292",
+        "type": "tabs",
+        "dimension": 38.75545851528384,
+        "children": [
+          {
+            "id": "a59922e0d55c2993",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "d6f8323a46d9760a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Home.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f0ed9b62cfad1dab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Home.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "bfdca9e916e9c51b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "924288f3a5aa15d1",
+        "type": "tabs",
+        "dimension": 61.24454148471616,
+        "children": [
+          {
+            "id": "d158de1a959e5c8c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Home.md"
+              }
+            }
+          },
+          {
+            "id": "a957636129d9ae99",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 357.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "homepage:Open homepage": false,
+      "obsidian-advanced-slides:Show Slide Preview": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false
+    }
+  },
+  "active": "d45d61a967690b9e",
+  "lastOpenFiles": [
+    "Calendar/Tasks.md",
+    "Cards/🎰 Markdown/Mermaid.md",
+    "Home.md",
+    "Sources/Talks/【阿里】前端练习生/Web开发中后台方向.md",
+    "Extras/MindMap/Second Brain.canvas",
+    "Spaces/Life/Support notes/Index for Life Spaces.md",
+    "• Encounters/• Unsorted/BGP 路由协议技术详解.md",
+    "• Encounters/• Unsorted/微服务是什么？.md",
+    "• Encounters/• Unsorted/如何从 0 开始配置 Mac.md",
+    "• Encounters/• Unsorted/宏基站&微基站&皮基站&飞基站.md",
+    "• Encounters/• Unsorted/成熟度模型：企业规模化推广敏捷和 DevOps 利器.md",
+    "Atlas/Scopes/Cooling pad.md",
+    "Extras/Templates/Template, Weekily-Note.md",
+    "Extras/Templates/Template, TOC-Note.md",
+    "Extras/Templates/Template, Working-Record.md",
+    "Extras/Templates/Template, Meeting in Daily Note 👥 (Kit).md",
+    "Extras/Templates/Template, Learning-Note.md",
+    "Extras/Templates/Template, Daily-Note.md",
+    "Atlas/MOCs/Development MOC.md",
+    "Atlas/MOCs/Tags MOC.md",
+    "Atlas/MOCs/Network MOC.md",
+    "Atlas/MOCs/Courses MOC.md",
+    "Atlas/MOCs/Concepts MOC.md",
+    "Atlas/Logs/Essays.md",
+    "Extras/Excalidraw/DevOps/端到端Devops.md",
+    "Extras/Excalidraw/DevOps/分布式架构+敏捷开发模式.md",
+    "Extras/Excalidraw/DevOps/微服务架构+DEVOPS.md"
+  ]
+}

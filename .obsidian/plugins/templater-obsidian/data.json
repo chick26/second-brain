@@ -1,0 +1,56 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "Extras/Templates",
+  "templates_pairs": [
+    [
+      "weather",
+      "curl -H \"Accept-Language: zh-CN\" \"wttr.in/hongkong?format=%l+%c+%t\""
+    ]
+  ],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": true,
+  "shell_path": "",
+  "user_scripts_folder": "Extras/Templates",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "Extras/MindMap",
+      "template": "Extras/Templates/Template, Mind-Note.md"
+    },
+    {
+      "folder": "Calendar/Journal",
+      "template": "Extras/Templates/Template, Daily-Note.md"
+    },
+    {
+      "folder": "Sources/Books",
+      "template": "Extras/Templates/Template, Book-Note.md"
+    },
+    {
+      "folder": "Cards",
+      "template": "Extras/Templates/Template, Learning-Note.md"
+    },
+    {
+      "folder": "/",
+      "template": "Extras/Templates/Template, Learning-Note.md"
+    },
+    {
+      "folder": "• Encounters/• Cooling Pad",
+      "template": "Extras/Templates/Template, Learning-Note.md"
+    },
+    {
+      "folder": "Atlas/MOCs",
+      "template": "Extras/Templates/Template, MOC-Note.md"
+    },
+    {
+      "folder": "Calendar/Meeting",
+      "template": "Extras/Templates/Template, Meeting-Note.md"
+    }
+  ],
+  "syntax_highlighting": true,
+  "enabled_templates_hotkeys": [
+    ""
+  ],
+  "startup_templates": [],
+  "enable_ribbon_icon": true
+}
