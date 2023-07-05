@@ -1,0 +1,471 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [[• TOC for Algorithm Course]]
+1 基本结构  [!Example]- 操作受限，先进先出 循环队列、阻塞队列、并发队列等具有某些额外特性的队列，它们在很多偏底层系统、框架、中间件的开发中，起着关键性的作用。比如高性能队列 Disruptor、Linux 环形缓存，都用到了循环并发队列； Java concurrent 并发包利用 ArrayBlockingQueue 来实现公平锁等。
+ 2 队列的实现 用数组实现的队列叫作顺序队列，用链表实现的队列叫作链式队列。"><meta property="og:title" content="Queue"><meta property="og:description" content="up:: [[• TOC for Algorithm Course]]
+1 基本结构  [!Example]- 操作受限，先进先出 循环队列、阻塞队列、并发队列等具有某些额外特性的队列，它们在很多偏底层系统、框架、中间件的开发中，起着关键性的作用。比如高性能队列 Disruptor、Linux 环形缓存，都用到了循环并发队列； Java concurrent 并发包利用 ArrayBlockingQueue 来实现公平锁等。
+ 2 队列的实现 用数组实现的队列叫作顺序队列，用链表实现的队列叫作链式队列。"><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Queue/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="Queue"><meta name=twitter:description content="up:: [[• TOC for Algorithm Course]]
+1 基本结构  [!Example]- 操作受限，先进先出 循环队列、阻塞队列、并发队列等具有某些额外特性的队列，它们在很多偏底层系统、框架、中间件的开发中，起着关键性的作用。比如高性能队列 Disruptor、Linux 环形缓存，都用到了循环并发队列； Java concurrent 并发包利用 ArrayBlockingQueue 来实现公平锁等。
+ 2 队列的实现 用数组实现的队列叫作顺序队列，用链表实现的队列叫作链式队列。"><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>Queue</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
+<script src=/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
+<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
+<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
+<script defer src=/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
+<script defer src=/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
+<script defer src=/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
+<script defer src=/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
+<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.e2ed3c02aa67c3b0f4251b90197929cd.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.c2a167580f9d2c62bd3477a0b7251c69.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
+<script defer src=/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
+<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>Queue</h1><p class=meta>Last updated
+Unknown
+<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Sources/Courses/%e2%9c%8d%ef%b8%8f%20Algorithms/Queue.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Development/ComputerBasic/DataStructure/Queue/>Development computer basic data structure queue</a></li><li><a href=chick26.github.io/tags/Sources/Courses/Algorithms/>Sources courses algorithms</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#1-基本结构>1 基本结构</a></li><li><a href=#2-队列的实现>2 队列的实现</a><ol><li><a href=#21-顺序队列>2.1 顺序队列</a></li><li><a href=#22-链式队列>2.2 链式队列</a></li><li><a href=#23-循环数组队列>2.3 循环数组队列</a></li></ol></li><li><a href=#3-工程应用>3 工程应用</a></li><li><a href=#4-思考题>4 思考题</a></li></ol></nav></details></aside><p>up:: <a href=chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/-TOC-for-Algorithm-Course rel=noopener class=internal-link data-src=chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/-TOC-for-Algorithm-Course>• TOC for Algorithm Course</a></p><a href=#1-基本结构><h2 id=1-基本结构><span class=hanchor arialabel=Anchor># </span>1 基本结构</h2></a><blockquote class="callout-collapsible callout-collapsed example-callout"><p>操作受限，先进先出
+循环队列、阻塞队列、并发队列等具有某些额外特性的队列，它们在很多偏底层系统、框架、中间件的开发中，起着关键性的作用。比如高性能队列 Disruptor、Linux 环形缓存，都用到了循环并发队列； Java concurrent 并发包利用 ArrayBlockingQueue 来实现公平锁等。</p></blockquote><a href=#2-队列的实现><h2 id=2-队列的实现><span class=hanchor arialabel=Anchor># </span>2 队列的实现</h2></a><p>用数组实现的队列叫作<strong>顺序队列</strong>，用链表实现的队列叫作<strong>链式队列</strong>。</p><a href=#21-顺序队列><h3 id=21-顺序队列><span class=hanchor arialabel=Anchor># </span>2.1 顺序队列</h3></a><a href=#211-java-数组实现><h4 id=211-java-数组实现><span class=hanchor arialabel=Anchor># </span>2.1.1 Java 数组实现</h4></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=c1>// 用数组实现的队列  
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>public</span> <span class=kd>class</span> <span class=nc>ArrayQueue</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 数组：items，数组大小：n  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>private</span> <span class=n>String</span><span class=o>[]</span> <span class=n>items</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// head 表示队头下标，tail 表示队尾下标  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>private</span> <span class=kt>int</span> <span class=n>head</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kt>int</span> <span class=n>tail</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 申请一个大小为 capacity 的数组  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=nf>ArrayQueue</span><span class=o>(</span><span class=kt>int</span> <span class=n>capacity</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=n>items</span> <span class=o>=</span> <span class=k>new</span> <span class=n>String</span><span class=o>[</span><span class=n>capacity</span><span class=o>];</span>  
+</span></span><span class=line><span class=cl>    <span class=n>n</span> <span class=o>=</span> <span class=n>capacity</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 入队  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=kt>boolean</span> <span class=nf>enqueue</span><span class=o>(</span><span class=n>String</span> <span class=n>item</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=c1>// 如果 tail == n 表示队列已经满了  
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=o>(</span><span class=n>tail</span> <span class=o>==</span> <span class=n>n</span><span class=o>)</span> <span class=k>return</span> <span class=kc>false</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=n>items</span><span class=o>[</span><span class=n>tail</span><span class=o>]</span> <span class=o>=</span> <span class=n>item</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>++</span><span class=n>tail</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>true</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 出队  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=n>String</span> <span class=nf>dequeue</span><span class=o>()</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=c1>// 如果 head == tail 表示队列为空  
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=o>(</span><span class=n>head</span> <span class=o>==</span> <span class=n>tail</span><span class=o>)</span> <span class=k>return</span> <span class=kc>null</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=c1>// 为了让其他语言的同学看的更加明确，把 -- 操作放到单独一行来写了  
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>String</span> <span class=n>ret</span> <span class=o>=</span> <span class=n>items</span><span class=o>[</span><span class=n>head</span><span class=o>];</span>  
+</span></span><span class=line><span class=cl>    <span class=o>++</span><span class=n>head</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>ret</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#212-python-数组实现><h4 id=212-python-数组实现><span class=hanchor arialabel=Anchor># </span>2.1.2 Python 数组实现</h4></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Optional</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>ArrayQueue</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;用数组实现的队列&#34;&#34;&#34;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>capacity</span><span class=p>:</span> <span class=nb>int</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>:</span> <span class=nb>list</span> <span class=o>=</span> <span class=p>[</span><span class=kc>None</span><span class=p>]</span> <span class=o>*</span> <span class=n>capacity</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>_capacity</span> <span class=o>=</span> <span class=n>capacity</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># 队头下标  </span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># 队尾下标  </span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>enqueue</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>item</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>bool</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;入队&#34;&#34;&#34;</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>==</span> <span class=bp>self</span><span class=o>.</span><span class=n>_capacity</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>False</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>]</span> <span class=o>=</span> <span class=n>item</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>+=</span> <span class=mi>1</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>True</span>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>dequeue</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]:</span>  
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;出队&#34;&#34;&#34;</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>==</span> <span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>None</span>  
+</span></span><span class=line><span class=cl>        <span class=n>item</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>+=</span> <span class=mi>1</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>item</span>  
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>str</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nb>str</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>:</span><span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>])</span>
+</span></span></code></pre></td></tr></table></div></div><p>队列需要两个指针：一个是 head 指针，指向队头；一个是 tail 指针，指向队尾。</p><ul><li>当 a、b、c、d 依次入队之后，队列中的 head 指针指向下标为 0 的位置，tail 指针指向下标为 4 的位置。</li><li>调用两次出队操作之后，队列中 head 指针指向下标为 2 的位置，tail 指针仍然指向下标为 4 的位置。</li><li>随着不停地进行入队、出队操作，head 和 tail 都会持续往后移动。当 tail 移动到最右边，即使数组中还有空闲空间，也无法继续往队列中添加数据了。这时需要触发一次数据的搬移操作</li></ul><p><a class="internal-link broken">300</a></p><a href=#213-java-数据搬移><h4 id=213-java-数据搬移><span class=hanchor arialabel=Anchor># </span>2.1.3 Java 数据搬移</h4></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=c1>// 入队操作，将 item 放入队尾  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=kt>boolean</span> <span class=nf>enqueue</span><span class=o>(</span><span class=n>String</span> <span class=n>item</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=c1>// tail == n 表示队列末尾没有空间了  
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=o>(</span><span class=n>tail</span> <span class=o>==</span> <span class=n>n</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>      <span class=c1>// tail <mark>n &amp;&amp; head</mark>0，表示整个队列都占满了  
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=k>if</span> <span class=o>(</span><span class=n>head</span> <span class=o>==</span> <span class=n>0</span><span class=o>)</span> <span class=k>return</span> <span class=kc>false</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>      <span class=c1>// 数据搬移  
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=k>for</span> <span class=o>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>head</span><span class=o>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>tail</span><span class=o>;</span> <span class=o>++</span><span class=n>i</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>        <span class=n>items</span><span class=o>[</span><span class=n>i</span><span class=o>-</span><span class=n>head</span><span class=o>]</span> <span class=o>=</span> <span class=n>items</span><span class=o>[</span><span class=n>i</span><span class=o>];</span>  
+</span></span><span class=line><span class=cl>      <span class=o>}</span>  
+</span></span><span class=line><span class=cl>      <span class=c1>// 搬移完之后重新更新 head 和 tail  
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=n>tail</span> <span class=o>-=</span> <span class=n>head</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>      <span class=n>head</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>}</span>  
+</span></span><span class=line><span class=cl>    <span class=n>items</span><span class=o>[</span><span class=n>tail</span><span class=o>]</span> <span class=o>=</span> <span class=n>item</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>++</span><span class=n>tail</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>true</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#214-python-数据搬移><h4 id=214-python-数据搬移><span class=hanchor arialabel=Anchor># </span>2.1.4 Python 数据搬移</h4></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>enqueue</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>item</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>bool</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;入队&#34;&#34;&#34;</span>  
+</span></span><span class=line><span class=cl>    <span class=c1># 表示队列末尾没有空间了  </span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>==</span> <span class=bp>self</span><span class=o>.</span><span class=n>capacity</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span> <span class=k>return</span> <span class=kc>False</span>  
+</span></span><span class=line><span class=cl>        <span class=c1># 数据搬移  </span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=n>i</span> <span class=o>-</span> <span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>]</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>        <span class=c1># 搬移完之后重新更新 head 和 tail  </span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>-=</span> <span class=bp>self</span><span class=o>.</span><span class=n>head</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>=</span> <span class=mi>0</span>  
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>]</span> <span class=o>=</span> <span class=n>item</span>  
+</span></span><span class=line><span class=cl>    <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>+=</span> <span class=mi>1</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>True</span>
+</span></span></code></pre></td></tr></table></div></div><p>上面的代码中，当队列的 tail 指针移动到数组的最右边后，如果有新的数据入队，就将 head 到 tail 之间的数据，整体搬移到数组中 0 到 tail-head 的位置。 这种实现思路中，出队入队操作的时间复杂度是 <strong>O(1)</strong></p><a href=#22-链式队列><h3 id=22-链式队列><span class=hanchor arialabel=Anchor># </span>2.2 链式队列</h3></a><ul><li>head 和 tail 两个指针，分别指向链表的第一个和最后一个结点</li><li>入队时，tail->next= new_node, tail = tail->next</li><li>出队时，head = head->next</li></ul><a href=#221-java-链表实现><h4 id=221-java-链表实现><span class=hanchor arialabel=Anchor># </span>2.2.1 Java 链表实现</h4></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>QueueBasedOnLinkedList</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 队列的队首和队尾  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>private</span> <span class=n>Node</span> <span class=n>head</span> <span class=o>=</span> <span class=kc>null</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=n>Node</span> <span class=n>tail</span> <span class=o>=</span> <span class=kc>null</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 入队  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=kt>void</span> <span class=nf>enqueue</span><span class=o>(</span><span class=n>String</span> <span class=n>value</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>(</span><span class=n>tail</span> <span class=o>==</span> <span class=kc>null</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>      <span class=n>Node</span> <span class=n>newNode</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Node</span><span class=o>(</span><span class=n>value</span><span class=o>,</span> <span class=kc>null</span><span class=o>);</span>  
+</span></span><span class=line><span class=cl>      <span class=n>head</span> <span class=o>=</span> <span class=n>newNode</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>      <span class=n>tail</span> <span class=o>=</span> <span class=n>newNode</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>}</span> <span class=k>else</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>      <span class=n>tail</span><span class=o>.</span><span class=na>next</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Node</span><span class=o>(</span><span class=n>value</span><span class=o>,</span> <span class=kc>null</span><span class=o>);</span>  
+</span></span><span class=line><span class=cl>      <span class=n>tail</span> <span class=o>=</span> <span class=n>tail</span><span class=o>.</span><span class=na>next</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 出队  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=n>String</span> <span class=nf>dequeue</span><span class=o>()</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>(</span><span class=n>head</span> <span class=o>==</span> <span class=kc>null</span><span class=o>)</span> <span class=k>return</span> <span class=kc>null</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=n>String</span> <span class=n>value</span> <span class=o>=</span> <span class=n>head</span><span class=o>.</span><span class=na>data</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=n>head</span> <span class=o>=</span> <span class=n>head</span><span class=o>.</span><span class=na>next</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>(</span><span class=n>head</span> <span class=o>==</span> <span class=kc>null</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>      <span class=n>tail</span> <span class=o>=</span> <span class=kc>null</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>}</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>value</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=kd>public</span> <span class=kt>void</span> <span class=nf>printAll</span><span class=o>()</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=n>Node</span> <span class=n>p</span> <span class=o>=</span> <span class=n>head</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=o>(</span><span class=n>p</span> <span class=o>!=</span> <span class=kc>null</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>      <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>print</span><span class=o>(</span><span class=n>p</span><span class=o>.</span><span class=na>data</span> <span class=o>+</span> <span class=s>&#34; &#34;</span><span class=o>);</span>  
+</span></span><span class=line><span class=cl>      <span class=n>p</span> <span class=o>=</span> <span class=n>p</span><span class=o>.</span><span class=na>next</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>}</span>  
+</span></span><span class=line><span class=cl>    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>();</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kd>static</span> <span class=kd>class</span> <span class=nc>Node</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>String</span> <span class=n>data</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=n>Node</span> <span class=n>next</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=nf>Node</span><span class=o>(</span><span class=n>String</span> <span class=n>data</span><span class=o>,</span> <span class=n>Node</span> <span class=n>next</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>      <span class=k>this</span><span class=o>.</span><span class=na>data</span> <span class=o>=</span> <span class=n>data</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>      <span class=k>this</span><span class=o>.</span><span class=na>next</span> <span class=o>=</span> <span class=n>next</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>}</span>  
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=n>String</span> <span class=nf>getData</span><span class=o>()</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=n>data</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#222-python-链表实现><h4 id=222-python-链表实现><span class=hanchor arialabel=Anchor># </span>2.2.2 Python 链表实现</h4></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Optional</span>  
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>ListNode</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>data</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=nb>next</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>data</span> <span class=o>=</span> <span class=n>data</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>_next</span> <span class=o>=</span> <span class=nb>next</span>  
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>LinkedQueue</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>_head</span><span class=p>:</span> <span class=n>Optional</span><span class=p>[</span><span class=n>ListNode</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>_tail</span><span class=p>:</span> <span class=n>Optional</span><span class=p>[</span><span class=n>ListNode</span><span class=p>]</span> <span class=o>=</span> <span class=kc>None</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>enqueue</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>        <span class=c1># 入队  </span>
+</span></span><span class=line><span class=cl>        <span class=n>new_node</span> <span class=o>=</span> <span class=n>ListNode</span><span class=p>(</span><span class=n>value</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>_tail</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>_tail</span><span class=o>.</span><span class=n>_next</span> <span class=o>=</span> <span class=n>new_node</span>  
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>_head</span> <span class=o>=</span> <span class=n>new_node</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>_tail</span> <span class=o>=</span> <span class=n>new_node</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>dequeue</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]:</span>  
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;出队&#34;&#34;&#34;</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>_head</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=n>value</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_head</span><span class=o>.</span><span class=n>data</span>  
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>_head</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_head</span><span class=o>.</span><span class=n>_next</span>  
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=ow>not</span> <span class=bp>self</span><span class=o>.</span><span class=n>_head</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>_tail</span> <span class=o>=</span> <span class=kc>None</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>value</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>str</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=n>values</span> <span class=o>=</span> <span class=p>[]</span>  
+</span></span><span class=line><span class=cl>        <span class=n>p</span><span class=p>:</span> <span class=n>ListNode</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_head</span>  
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=n>p</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=n>values</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>p</span><span class=o>.</span><span class=n>data</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl>            <span class=n>p</span> <span class=o>=</span> <span class=n>p</span><span class=o>.</span><span class=n>_next</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=s2>&#34;-&gt;&#34;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>values</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#23-循环数组队列><h3 id=23-循环数组队列><span class=hanchor arialabel=Anchor># </span>2.3 循环数组队列</h3></a><p>上面用数组来实现队列的时候，在 tail == n 时，会有数据搬移操作，采用循环数组则不需要数据搬移操作。</p><ul><li>原本数组是有头有尾的是一条直线，把它首尾相连扳成一个环</li><li><strong>图一</strong>队列的大小为 8，当前 head=4，tail=7。当有一个新的元素 a 入队时，放入下标为 7 的位置， tail 并不更新为 8，而是到下标为 0 的位置</li><li>当再有一个元素 b 入队时，将 b 放入下标为 0 的位置，然后 tail 加 1 更新为 1。在 a，b 依次入队之后，见<strong>图二</strong></li><li><strong>队列为空</strong>的判断条件是 <code>head == tail</code></li><li><strong>队列满</strong>的判断条件是 <code>(tail+1)%n=head</code>，为了避免和队空的判断条件混淆，则必须牺牲一个数组的存储空间</li></ul><p><a class="internal-link broken">800</a></p><a href=#231-java-循环数组实现><h4 id=231-java-循环数组实现><span class=hanchor arialabel=Anchor># </span>2.3.1 Java 循环数组实现</h4></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kd>class</span> <span class=nc>CircularQueue</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 数组：items，数组大小：n  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>private</span> <span class=n>String</span><span class=o>[]</span> <span class=n>items</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// head 表示队头下标，tail 表示队尾下标  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>private</span> <span class=kt>int</span> <span class=n>head</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kt>int</span> <span class=n>tail</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 申请一个大小为 capacity 的数组  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=nf>CircularQueue</span><span class=o>(</span><span class=kt>int</span> <span class=n>capacity</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=n>items</span> <span class=o>=</span> <span class=k>new</span> <span class=n>String</span><span class=o>[</span><span class=n>capacity</span><span class=o>];</span>  
+</span></span><span class=line><span class=cl>    <span class=n>n</span> <span class=o>=</span> <span class=n>capacity</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 入队  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=kt>boolean</span> <span class=nf>enqueue</span><span class=o>(</span><span class=n>String</span> <span class=n>item</span><span class=o>)</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=c1>// 队列满了  
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=o>((</span><span class=n>tail</span> <span class=o>+</span> <span class=n>1</span><span class=o>)</span> <span class=o>%</span> <span class=n>n</span> <span class=o>==</span> <span class=n>head</span><span class=o>)</span> <span class=k>return</span> <span class=kc>false</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=n>items</span><span class=o>[</span><span class=n>tail</span><span class=o>]</span> <span class=o>=</span> <span class=n>item</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=n>tail</span> <span class=o>=</span> <span class=o>(</span><span class=n>tail</span> <span class=o>+</span> <span class=n>1</span><span class=o>)</span> <span class=o>%</span> <span class=n>n</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>true</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl>  <span class=c1>// 出队  
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>public</span> <span class=n>String</span> <span class=nf>dequeue</span><span class=o>()</span> <span class=o>{</span>  
+</span></span><span class=line><span class=cl>    <span class=c1>// 如果 head == tail 表示队列为空  
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=o>(</span><span class=n>head</span> <span class=o>==</span> <span class=n>tail</span><span class=o>)</span> <span class=k>return</span> <span class=kc>null</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=n>String</span> <span class=n>ret</span> <span class=o>=</span> <span class=n>items</span><span class=o>[</span><span class=n>head</span><span class=o>];</span>  
+</span></span><span class=line><span class=cl>    <span class=n>head</span> <span class=o>=</span> <span class=o>(</span><span class=n>head</span> <span class=o>+</span> <span class=n>1</span><span class=o>)</span> <span class=o>%</span> <span class=n>n</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>ret</span><span class=o>;</span>  
+</span></span><span class=line><span class=cl>  <span class=o>}</span>  
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#232-python-循环数组实现><h4 id=232-python-循环数组实现><span class=hanchor arialabel=Anchor># </span>2.3.2 Python 循环数组实现</h4></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Optional</span>  
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>CircularQueue</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>capacity</span><span class=p>):</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>capacity</span> <span class=o>=</span> <span class=n>capacity</span> <span class=o>+</span> <span class=mi>1</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>items</span> <span class=o>=</span> <span class=p>[</span><span class=kc>None</span><span class=p>]</span> <span class=o>*</span> <span class=bp>self</span><span class=o>.</span><span class=n>capacity</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># head表示队头下标  </span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># tail表示队尾下标  </span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>enqueue</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>item</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>bool</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;入队&#34;&#34;&#34;</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=bp>self</span><span class=o>.</span><span class=n>capacity</span> <span class=o>==</span> <span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>False</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>]</span> <span class=o>=</span> <span class=n>item</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=bp>self</span><span class=o>.</span><span class=n>capacity</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>True</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>dequeue</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Optional</span><span class=p>[</span><span class=nb>str</span><span class=p>]:</span>  
+</span></span><span class=line><span class=cl>        <span class=c1># 如果head == tail 表示队列为空  </span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>==</span> <span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>:</span> <span class=k>return</span> <span class=kc>None</span>  
+</span></span><span class=line><span class=cl>        <span class=n>item</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>]</span>  
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>head</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=bp>self</span><span class=o>.</span><span class=n>capacity</span>  
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>item</span>  
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>str</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>tail</span> <span class=o>&gt;=</span> <span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nb>str</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>])</span>  
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>  
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nb>str</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=bp>self</span><span class=o>.</span><span class=n>head</span><span class=p>:]</span> <span class=o>+</span> <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[:</span><span class=bp>self</span><span class=o>.</span><span class=n>tail</span><span class=p>])</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#3-工程应用><h2 id=3-工程应用><span class=hanchor arialabel=Anchor># </span>3 工程应用</h2></a><ul><li><a href=chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Blocking-queue rel=noopener class=internal-link data-src=chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Blocking-queue>阻塞队列</a></li><li><a href=chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Concurrent-queue rel=noopener class=internal-link data-src=chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Concurrent-queue>并发队列</a></li><li><a href=chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Finite-resource-pool rel=noopener class=internal-link data-src=chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Finite-resource-pool>有限资源池</a></li></ul><a href=#4-思考题><h2 id=4-思考题><span class=hanchor arialabel=Anchor># </span>4 思考题</h2></a><blockquote class="callout-collapsible callout-collapsed question-callout"><p>有哪些场景中会用到队列的排队请求呢？</p><p>各种消息队列，例如 Active MQ ,Rabbit MQ ,Rocket MQ ,Zero MQ 以及分布式消息队列 Kafka 等。</p></blockquote><blockquote class="callout-collapsible callout-collapsed question-callout"><p>如何实现无锁并发队列？</p><p>使用 CAS 原子操作 + 循环数组的方式可以实现。 对于 java 语言，jdk 提供了 <code>java.util.concurrent.atomic</code> 包实现 CAS 原子操作 对于 python 语言可以使用协程，这样就不会存在并发访问问题。</p></blockquote></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>

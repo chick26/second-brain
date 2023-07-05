@@ -1,0 +1,540 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [[• TOC for Frontend]]
+Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。
+1. 概述 Promise.all<T>(promises: Iterable<Promise<T>>): Promise<Array<T>>"><meta property="og:title" content="Promise 常用方法"><meta property="og:description" content="up:: [[• TOC for Frontend]]
+Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。
+1. 概述 Promise.all<T>(promises: Iterable<Promise<T>>): Promise<Array<T>>"><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/JavaScript/Promise-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="Promise 常用方法"><meta name=twitter:description content="up:: [[• TOC for Frontend]]
+Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。
+1. 概述 Promise.all<T>(promises: Iterable<Promise<T>>): Promise<Array<T>>"><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>Promise 常用方法</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=/chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=/chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=/chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
+<script src=/chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
+<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
+<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
+<script defer src=/chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
+<script defer src=/chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
+<script defer src=/chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
+<script defer src=/chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
+<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.e2ed3c02aa67c3b0f4251b90197929cd.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.c2a167580f9d2c62bd3477a0b7251c69.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+    import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
+    attachSPARouting(init, render)
+  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
+<script defer src=/chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
+<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>Promise 常用方法</h1><p class=meta>Last updated
+Unknown
+<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/JavaScript/Promise%20%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Development/Frontend/JavaScript/>Development frontend java script</a></li><li><a href=chick26.github.io/tags/Development/Frontend/JavaScript/Promise/>Development frontend java script promise</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#1-概述>1. 概述</a></li><li><a href=#2-回顾-promise-状态>2. 回顾: Promise 状态</a></li><li><a href=#3-什么是组合>3. 什么是组合</a></li><li><a href=#4--promiseall>4. Promise.all()</a><ol><li><a href=#异步-map-与-promiseall>异步 .map() 与 Promise.all()</a></li><li><a href=#更实际工作上关于-map示例>更实际工作上关于 .map()示例</a></li><li><a href=#promiseall的一个简版实现>Promise.all()的一个简版实现</a></li></ol></li><li><a href=#5-promiserace>5. Promise.race()</a><ol><li><a href=#example-1>Example 1</a></li><li><a href=#example-2>Example 2</a></li><li><a href=#expample-3>Expample 3</a></li><li><a href=#promiserace-的一个简版实现>Promise.race() 的一个简版实现</a></li></ol></li><li><a href=#6promiseallsettled>6.Promise.allSettled()</a><ol><li><a href=#promiseallsettled-例子>Promise.allSettled() 例子</a></li><li><a href=#promiseallsettled-较复杂点的例子>Promise.allSettled() 较复杂点的例子</a></li><li><a href=#promiseallsettled-的简化实现>Promise.allSettled() 的简化实现</a></li></ol></li><li><a href=#7--短路特性>7. 短路特性</a></li><li><a href=#8-并发性和-promiseall>8. 并发性和 Promise.all()</a><ol><li><a href=#顺序执行与并发执行>顺序执行与并发执行</a></li><li><a href=#并发技巧关注操作何时开始>并发技巧：关注操作何时开始</a></li><li><a href=#promiseall-与-fork-join-分治编程>Promise.all() 与 Fork-Join 分治编程</a></li></ol></li></ol></nav></details></aside><p>up:: <a class="internal-link broken">• TOC for Frontend</a></p><a href=#promise-中的三兄弟-all-race-allsettled><h1 id=promise-中的三兄弟-all-race-allsettled><span class=hanchor arialabel=Anchor># </span>Promise 中的三兄弟 .all(), .race(), .allSettled()</h1></a><p>从 ES6 开始，我们大都使用的是 <code>Promise.all()</code>和<code>Promise.race()</code>，<code>Promise.allSettled()</code> 提案已经到第4阶段，因此将会成为<code>ECMAScript 2020</code>的一部分。</p><a href=#1-概述><h2 id=1-概述><span class=hanchor arialabel=Anchor># </span>1. 概述</h2></a><p><code>Promise.all&lt;T>(promises: Iterable&lt;Promise&lt;T>>): Promise&lt;Array&lt;T>></code></p><ul><li><strong>Promise.all(iterable)</strong> 方法返回一个 <code>Promise</code> 实例，此实例在 <code>iterable</code> 参数内所有的 <code>promise</code> 都“完成（resolved）”或参数中不包含 <code>promise</code> 时回调完成（resolve）；如果参数中 <code>promise</code> 有一个失败（rejected），此实例回调失败（reject），失败原因的是第一个失败 <code>promise</code> 的结果</li></ul><p><code>Promise.race&lt;T>(promises: Iterable&lt;Promise&lt;T>>): Promise&lt;T></code></p><ul><li><strong>Promise.race(iterable)</strong> 方法返回一个 <code>promise</code>，一旦迭代器中的某个<code>promise</code>解决或拒绝，返回的 <code>promise</code>就会解决或拒绝。</li></ul><p><code>Promise.allSettled&lt;T>(promises: Iterable&lt;Promise&lt;T>>):Promise&lt;Array&lt;SettlementObject&lt;T>>></code></p><ul><li><strong>Promise.allSettled()</strong> 方法返回一个<code>promise</code>，该<code>promise</code>在所有给定的<code>promise</code>已被解析或被拒绝后解析，并且每个对象都描述每个<code>promise</code>的结果。</li></ul><a href=#2-回顾-promise-状态><h2 id=2-回顾-promise-状态><span class=hanchor arialabel=Anchor># </span>2. 回顾: Promise 状态</h2></a><p>给定一个返回<code>Promise</code>的异步操作，以下这些是<code>Promise</code>的可能状态：</p><ul><li>pending: 初始状态，既不是成功，也不是失败状态。</li><li>fulfilled: 意味着操作成功完成。</li><li>rejected: 意味着操作失败。</li><li>Settled： <code>Promise</code> 要么被完成，要么被拒绝。<code>Promise</code>一旦达成，它的状态就不再改变。</li></ul><a href=#3-什么是组合><h2 id=3-什么是组合><span class=hanchor arialabel=Anchor># </span>3. 什么是组合</h2></a><p>又称部分-整体模式，将对象整合成树形结构以表示“部分整体”的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性，它基于两种函数：</p><ul><li>基元函数(简短:基元)创建原子块。</li><li>组合函数（简称：组合）将原子和/或复合件组合在一起以形成复合件。</li></ul><p>对于 JS 的 Promises 来说</p><ul><li>基元函数包括:<code>Promise.resolve()</code>、<code>Promise.reject()</code></li><li>组合函数：<code>Promise.all()</code>, <code>Promise.race()</code>, <code>Promise.allSettled()</code></li></ul><a href=#4--promiseall><h2 id=4--promiseall><span class=hanchor arialabel=Anchor># </span>4. Promise.all()</h2></a><p><code>Promise.all()</code></p><blockquote><p><code>Promise.all &lt;T>(promises: Iterable&lt;Promise&lt;T>>): Promise&lt;Array&lt;T>></code></p></blockquote><ul><li><p><strong>完成（Fulfillment）：</strong></p><ul><li>如果传入的可迭代对象为空，<code>Promise.all</code> 会同步地返回一个已完成（<code>resolved</code>）状态的<code>promise</code>。</li><li>如果所有传入的 <code>promise</code> 都变为完成状态，或者传入的可迭代对象内没有 <code>promise</code>，<code>Promise.all</code> 返回的 <code>promise</code> 异步地变为完成。</li><li>在任何情况下，<code>Promise.all</code> 返回的 <code>promise</code> 的完成状态的结果都是一个数组，它包含所有的传入迭代参数对象的值（也包括非 promise 值）。</li></ul></li><li><p><strong>失败/拒绝（Rejection）：</strong></p><ul><li>如果传入的 <code>promise</code> 中有一个失败（<code>rejected</code>），<code>Promise.all</code> 异步地将失败的那个结果给失败状态的回调函数，而不管其它 <code>promise</code> 是否完成。</li></ul></li><li><p>来个例子：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>promises</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;a&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;b&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;c&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>(</span><span class=nx>promises</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nx>then</span><span class=p>((</span><span class=nx>arr</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>deepEqual</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nx>arr</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><p>如果其中的一个 promise 被拒绝，那么又是什么情况：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>promises</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;a&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;b&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>reject</span><span class=p>(</span><span class=s1>&#39;ERROR&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>(</span><span class=nx>promises</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=k>catch</span><span class=p>((</span><span class=nx>err</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>equal</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nx>err</span><span class=p>,</span> <span class=s1>&#39;ERROR&#39;</span>
+</span></span><span class=line><span class=cl>  <span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#异步-map-与-promiseall><h3 id=异步-map-与-promiseall><span class=hanchor arialabel=Anchor># </span>异步 .map() 与 Promise.all()</h3></a><p>数组转换方法，如<code>.map()</code>、<code>.filter()</code>等，用于同步计算。例如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>timesTwoSync</span><span class=p>(</span><span class=nx>x</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=mi>2</span> <span class=o>*</span> <span class=nx>x</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>arr</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>timesTwoSync</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>assert</span><span class=p>.</span><span class=nx>deepEqual</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span> <span class=p>[</span><span class=mi>2</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>6</span><span class=p>]);</span>
+</span></span></code></pre></td></tr></table></div></div><p>如果<code>.map()</code>的回调是基于<code>Promise</code>的函数会发生什么？ 使用这种方式 <code>.map()</code>返回的的结果是一个<code>Promises</code>数组。</p><p><code>Promises</code>数组不是普通代码可以使用的数据，但我们可以通过<code>Promise.all()</code>来解决这个问题：它将Promises数组转换为<code>Promise</code>，并使用一组普通值数组来实现。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>timesTwoAsync</span><span class=p>(</span><span class=nx>x</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>(</span><span class=nx>resolve</span> <span class=p>=&gt;</span> <span class=nx>resolve</span><span class=p>(</span><span class=nx>x</span> <span class=o>*</span> <span class=mi>2</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>arr</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>promiseArr</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>timesTwoAsync</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>(</span><span class=nx>promiseArr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>result</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>assert</span><span class=p>.</span><span class=nx>deepEqual</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span> <span class=p>[</span><span class=mi>2</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>6</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#更实际工作上关于-map示例><h3 id=更实际工作上关于-map示例><span class=hanchor arialabel=Anchor># </span>更实际工作上关于 .map()示例</h3></a><p>接下来，咱们使用<code>.map()</code>和<code>Promise.all()</code>从<code>Web</code>下载文件。 首先，咱们需要以下帮助函数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>downloadText</span><span class=p>(</span><span class=nx>url</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>fetch</span><span class=p>(</span><span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>then</span><span class=p>((</span><span class=nx>response</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span> <span class=c1>// (A)
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>response</span><span class=p>.</span><span class=nx>ok</span><span class=p>)</span> <span class=p>{</span> <span class=c1>// (B)
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>throw</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=nx>response</span><span class=p>.</span><span class=nx>statusText</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=nx>response</span><span class=p>.</span><span class=nx>text</span><span class=p>();</span> <span class=c1>// (C)
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p><code>downloadText()</code>使用基于<code>Promise</code>的fetch API 以字符串流的方式下载文件：</p><ul><li>首先，它异步检索响应（第A行）。</li><li>response.ok（B行）检查是否存在“找不到文件”等错误。</li><li>如果没有错误，使用<code>.text()</code>(第C行)以字符串的形式取回文件的内容。</li></ul><p>在下面的示例中，咱们 下载了两个文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>const urls = [
+</span></span><span class=line><span class=cl>  &#39;http://example.com/first.txt&#39;,
+</span></span><span class=line><span class=cl>  &#39;http://example.com/second.txt&#39;,
+</span></span><span class=line><span class=cl>];
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>const promises = urls.map(
+</span></span><span class=line><span class=cl>  url =&gt; downloadText(url));
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Promise.all(promises)
+</span></span><span class=line><span class=cl>  .then(
+</span></span><span class=line><span class=cl>    (arr) =&gt; assert.deepEqual(
+</span></span><span class=line><span class=cl>      arr, [&#39;First!&#39;, &#39;Second!&#39;]
+</span></span><span class=line><span class=cl>    ));
+</span></span></code></pre></td></tr></table></div></div><a href=#promiseall的一个简版实现><h3 id=promiseall的一个简版实现><span class=hanchor arialabel=Anchor># </span>Promise.all()的一个简版实现</h3></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>all</span><span class=p>(</span><span class=nx>iterable</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>index</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kr>const</span> <span class=nx>promise</span> <span class=k>of</span> <span class=nx>iterable</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=c1>// Capture the current value of `index`
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=kr>const</span> <span class=nx>currentIndex</span> <span class=o>=</span> <span class=nx>index</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=nx>promise</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nx>value</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span> <span class=p>(</span><span class=nx>anErrorOccurred</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=nx>result</span><span class=p>[</span><span class=nx>currentIndex</span><span class=p>]</span> <span class=o>=</span> <span class=nx>value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=nx>elementCount</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span> <span class=p>(</span><span class=nx>elementCount</span> <span class=o>===</span> <span class=nx>result</span><span class=p>.</span><span class=nx>length</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>resolve</span><span class=p>(</span><span class=nx>result</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nx>err</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span> <span class=p>(</span><span class=nx>anErrorOccurred</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=nx>anErrorOccurred</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=nx>reject</span><span class=p>(</span><span class=nx>err</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>});</span>
+</span></span><span class=line><span class=cl>      <span class=nx>index</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>index</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>resolve</span><span class=p>([]);</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>elementCount</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>anErrorOccurred</span> <span class=o>=</span> <span class=kc>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=k>new</span> <span class=nb>Array</span><span class=p>(</span><span class=nx>index</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#5-promiserace><h2 id=5-promiserace><span class=hanchor arialabel=Anchor># </span>5. Promise.race()</h2></a><p><code>Promise.race()</code></p><blockquote><p><code>Promise.race&lt;T>(promises: Iterable&lt;Promise&lt;T>>): Promise&lt;T></code></p></blockquote><p><strong>Promise.race(iterable)</strong> 方法返回一个 <code>promise</code>，一旦迭代器中的某个<code>promise</code>解决或拒绝，返回的 <code>promise</code>就会解决或拒绝。来几个例子，瞧瞧：</p><a href=#example-1><h3 id=example-1><span class=hanchor arialabel=Anchor># </span>Example 1</h3></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>promises</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;result&#39;</span><span class=p>),</span> <span class=mi>100</span><span class=p>)),</span> <span class=c1>// (A)
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=nx>reject</span><span class=p>(</span><span class=s1>&#39;ERROR&#39;</span><span class=p>),</span> <span class=mi>200</span><span class=p>)),</span> <span class=c1>// (B)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>race</span><span class=p>(</span><span class=nx>promises</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nx>then</span><span class=p>((</span><span class=nx>result</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>equal</span><span class=p>(</span> <span class=c1>// (C)
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>result</span><span class=p>,</span> <span class=s1>&#39;result&#39;</span><span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><p>在第 <code>A</code> 行，<code>Promise</code> 是完成状态 ，所以 第 <code>C</code> 行会执行（尽管第 <code>B</code> 行被拒绝）。</p><a href=#example-2><h3 id=example-2><span class=hanchor arialabel=Anchor># </span>Example 2</h3></a><p>如果 Promise 被拒绝首先执行，在来看看情况是嘛样的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-coffeescript data-lang=coffeescript><span class=line><span class=cl><span class=nx>const</span> <span class=nv>promises = </span><span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=k>new</span> <span class=nx>Promise</span><span class=p>(</span><span class=nf>(resolve, reject) =&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setTimeout</span><span class=p>(</span><span class=nf>() =&gt;</span> <span class=nx>resolve</span><span class=p>(</span><span class=s>&#39;result&#39;</span><span class=p>),</span> <span class=mi>200</span><span class=p>)),</span>
+</span></span><span class=line><span class=cl>  <span class=k>new</span> <span class=nx>Promise</span><span class=p>(</span><span class=nf>(resolve, reject) =&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setTimeout</span><span class=p>(</span><span class=nf>() =&gt;</span> <span class=nx>reject</span><span class=p>(</span><span class=s>&#39;ERROR&#39;</span><span class=p>),</span> <span class=mi>100</span><span class=p>)),</span>
+</span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=nx>Promise</span><span class=p>.</span><span class=nx>race</span><span class=p>(</span><span class=nx>promises</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nf>(result) =&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>fail</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>    <span class=nf>(err) =&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>equal</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nx>err</span><span class=p>,</span> <span class=s>&#39;ERROR&#39;</span><span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><p>注意，由于 <code>Promse</code> 先被拒绝，所以 <code>Promise.race()</code> 返回的是一个被拒绝的 <code>Promise</code>。 这意味着<code>Promise.race（[]）</code>的结果永远不会完成。</p><a href=#expample-3><h3 id=expample-3><span class=hanchor arialabel=Anchor># </span>Expample 3</h3></a><p>Promise.race() 在 Promise 超时下的情况</p><p>在本节中，我们将使用<code>Promise.race()</code>来处理超时的 <code>Promise</code>。 以下辅助函数:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>resolveAfter</span><span class=p>(</span><span class=nx>ms</span><span class=p>,</span> <span class=nx>value</span><span class=o>=</span><span class=kc>undefined</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=nx>resolve</span><span class=p>(</span><span class=nx>value</span><span class=p>),</span> <span class=nx>ms</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p><code>resolveAfter()</code> 主要做的是在指定的时间内，返回一个状态为 <code>resolve</code> 的 <code>Promise</code>，值为为传入的 <code>value</code></p><p>调用上面方法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>timeout</span><span class=p>(</span><span class=nx>timeoutInMs</span><span class=p>,</span> <span class=nx>promise</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Promise</span><span class=p>.</span><span class=nx>race</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>    <span class=nx>promise</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>resolveAfter</span><span class=p>(</span><span class=nx>timeoutInMs</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nb>Promise</span><span class=p>.</span><span class=nx>reject</span><span class=p>(</span><span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;Operation timed out&#39;</span><span class=p>))),</span>
+</span></span><span class=line><span class=cl>  <span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p><code>timeout()</code> 返回一个<code>Promise</code>，该 <code>Promise</code> 的状态取决于传入 <code>promise</code> 状态 。</p><p>其中 <code>timeout</code> 函数中的 <code>resolveAfter(timeoutInMs, Promise.reject(new Error('Operation timed out'))</code> ，通过 <code>resolveAfter</code> 定义可知，该结果返回的是一个被拒绝状态的 <code>Promise</code>。</p><p>再来看看<code>timeout(timeoutInMs, promise)</code>的运行情况。如果传入<code>promise</code>在指定的时间之前状态为完成时，<code>timeout</code> 返回结果就是一个完成状态的 <code>Promise</code>,可以通过<code>.then</code>的第一个回调参数处理返回的结果。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>timeout</span><span class=p>(</span><span class=mi>200</span><span class=p>,</span> <span class=nx>resolveAfter</span><span class=p>(</span><span class=mi>100</span><span class=p>,</span> <span class=s1>&#39;Result!&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>result</span> <span class=p>=&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>equal</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span> <span class=s1>&#39;Result!&#39;</span><span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><p>相反，如果是在指定的时间之后完成，刚 <code>timeout</code> 返回结果就是一个拒绝状态的 <code>Promise</code>,从而触发<code>catch</code>方法指定的回调函数。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>timeout</span><span class=p>(</span><span class=mi>100</span><span class=p>,</span> <span class=nx>resolveAfter</span><span class=p>(</span><span class=mi>2000</span><span class=p>,</span> <span class=s1>&#39;Result!&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=k>catch</span><span class=p>(</span><span class=nx>err</span> <span class=p>=&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>deepEqual</span><span class=p>(</span><span class=nx>err</span><span class=p>,</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;Operation timed out&#39;</span><span class=p>)));</span>
+</span></span></code></pre></td></tr></table></div></div><p>重要的是要了解“Promise 超时”的真正含义：</p><ol><li>如果传入入<code>Promise</code> 较到的得到解决，其结果就会给返回的 <code>Promise</code>。</li><li>如果没有足够快得到解决，输出的 <code>Promise</code> 的状态为拒绝。</li></ol><p>也就是说，超时只会阻止传入的Promise，影响输出 Promise（因为Promise只能解决一次）， 但它并没有阻止传入<code>Promise</code>的异步操作。</p><a href=#promiserace-的一个简版实现><h3 id=promiserace-的一个简版实现><span class=hanchor arialabel=Anchor># </span>Promise.race() 的一个简版实现</h3></a><p>以下是 <code>Promise.race()</code>的一个简化实现(它不执行安全检查)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>race</span><span class=p>(</span><span class=nx>iterable</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kr>const</span> <span class=nx>promise</span> <span class=k>of</span> <span class=nx>iterable</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>promise</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nx>value</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span> <span class=p>(</span><span class=nx>settlementOccurred</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=nx>settlementOccurred</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=nx>resolve</span><span class=p>(</span><span class=nx>value</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nx>err</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span> <span class=p>(</span><span class=nx>settlementOccurred</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=nx>settlementOccurred</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=nx>reject</span><span class=p>(</span><span class=nx>err</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>});</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>settlementOccurred</span> <span class=o>=</span> <span class=kc>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#6promiseallsettled><h2 id=6promiseallsettled><span class=hanchor arialabel=Anchor># </span>6.Promise.allSettled()</h2></a><p><code>promise.allsettle()</code></p><blockquote><p><code>Promise.allSettled&lt;T>(promises: Iterable&lt;**Promise**&lt;T>>): Promise&lt;Array&lt;SettlementObject&lt;T>>></code></p></blockquote><p>它返回一个<code>Array</code>的<code>Promise</code>，其元素具有以下类型特征：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=kr>type</span> <span class=nx>SettlementObject</span><span class=p>&lt;</span><span class=nt>T</span><span class=p>&gt;</span> <span class=o>=</span> <span class=nx>FulfillmentObject</span><span class=p>&lt;</span><span class=nt>T</span><span class=p>&gt;</span> <span class=o>|</span> <span class=nx>RejectionObject</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>interface</span> <span class=nx>FulfillmentObject</span><span class=p>&lt;</span><span class=nt>T</span><span class=p>&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>status</span><span class=o>:</span> <span class=s1>&#39;fulfilled&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>value</span>: <span class=kt>T</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>interface</span> <span class=nx>RejectionObject</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>status</span><span class=o>:</span> <span class=s1>&#39;rejected&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>reason</span>: <span class=kt>unknown</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p><code>Promise.allSettled()</code>方法返回一个promise，该promise在所有给定的promise已被解析或被拒绝后解析，并且每个对象都描述每个promise的结果。</p><p>举例说明, 比如各位用户在页面上面同时填了3个独立的表单, 这三个表单分三个接口提交到后端, 三个接口独立, 没有顺序依赖, 这个时候我们需要等到请求全部完成后给与用户提示表单提交的情况</p><p>在多个<code>promise</code>同时进行时咱们很快会想到使用<code>Promise.all</code>来进行包装, 但是由于<code>Promise.all</code>的短路特性, 三个提交中若前面任意一个提交失败, 则后面的表单也不会进行提交了, 这就与咱们需求不符合.</p><p><code>Promise.allSettled</code>跟<code>Promise.all</code>类似, 其参数接受一个<code>Promise</code>的数组, 返回一个新的<code>Promise</code>, 唯一的不同在于, 其不会进行短路, 也就是说当<code>Promise</code>全部处理完成后我们可以拿到每个<code>Promise</code>的状态, 而不管其是否处理成功.</p><a href=#promiseallsettled-例子><h3 id=promiseallsettled-例子><span class=hanchor arialabel=Anchor># </span>Promise.allSettled() 例子</h3></a><p>这是<code>Promise.allSettled()</code> 使用方式快速演示示例</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>allSettled</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;a&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>  <span class=nb>Promise</span><span class=p>.</span><span class=nx>reject</span><span class=p>(</span><span class=s1>&#39;b&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>arr</span> <span class=p>=&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>deepEqual</span><span class=p>(</span><span class=nx>arr</span><span class=p>,</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>status</span><span class=o>:</span> <span class=s1>&#39;fulfilled&#39;</span><span class=p>,</span> <span class=nx>value</span><span class=o>:</span>  <span class=s1>&#39;a&#39;</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nx>status</span><span class=o>:</span> <span class=s1>&#39;rejected&#39;</span><span class=p>,</span>  <span class=nx>reason</span><span class=o>:</span> <span class=s1>&#39;b&#39;</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl><span class=p>]));</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#promiseallsettled-较复杂点的例子><h3 id=promiseallsettled-较复杂点的例子><span class=hanchor arialabel=Anchor># </span>Promise.allSettled() 较复杂点的例子</h3></a><p>这个示例类似于<code>.map()</code>和<code>Promise.all()</code>示例(我们从其中借用了<code>downloadText()</code>函数):我们下载多个文本文件，这些文件的<code>url</code>存储在一个数组中。但是，这一次，咱们不希望在出现错误时停止，而是希望继续执行。<code>Promise.allSettled()</code>允许咱们这样做：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>urls</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;http://example.com/exists.txt&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s1>&#39;http://example.com/missing.txt&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=nb>Promise</span><span class=p>.</span><span class=nx>allSettled</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>  <span class=nx>urls</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>u</span> <span class=p>=&gt;</span> <span class=nx>downloadText</span><span class=p>(</span><span class=nx>u</span><span class=p>)));</span>
+</span></span><span class=line><span class=cl><span class=nx>result</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>  <span class=nx>arr</span> <span class=p>=&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>deepEqual</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nx>arr</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>status</span><span class=o>:</span> <span class=s1>&#39;fulfilled&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>value</span><span class=o>:</span> <span class=s1>&#39;Hello!&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>status</span><span class=o>:</span> <span class=s1>&#39;rejected&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>reason</span><span class=o>:</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;Not Found&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#promiseallsettled-的简化实现><h3 id=promiseallsettled-的简化实现><span class=hanchor arialabel=Anchor># </span>Promise.allSettled() 的简化实现</h3></a><p>这是<code>promise.allsettle()</code>的简化实现(不执行安全检查)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>function</span> <span class=nx>allSettled</span><span class=p>(</span><span class=nx>iterable</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>function</span> <span class=nx>addElementToResult</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span> <span class=nx>elem</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>result</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=nx>elementCount</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>elementCount</span> <span class=o>===</span> <span class=nx>result</span><span class=p>.</span><span class=nx>length</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>resolve</span><span class=p>(</span><span class=nx>result</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>index</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kr>const</span> <span class=nx>promise</span> <span class=k>of</span> <span class=nx>iterable</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=c1>// Capture the current value of `index`
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=kr>const</span> <span class=nx>currentIndex</span> <span class=o>=</span> <span class=nx>index</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=nx>promise</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nx>value</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>addElementToResult</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>          <span class=nx>currentIndex</span><span class=p>,</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>status</span><span class=o>:</span> <span class=s1>&#39;fulfilled&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>value</span>
+</span></span><span class=line><span class=cl>          <span class=p>}),</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nx>reason</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>addElementToResult</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>          <span class=nx>currentIndex</span><span class=p>,</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>status</span><span class=o>:</span> <span class=s1>&#39;rejected&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>reason</span>
+</span></span><span class=line><span class=cl>          <span class=p>}));</span>
+</span></span><span class=line><span class=cl>      <span class=nx>index</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>index</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>resolve</span><span class=p>([]);</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>elementCount</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=k>new</span> <span class=nb>Array</span><span class=p>(</span><span class=nx>index</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#7--短路特性><h2 id=7--短路特性><span class=hanchor arialabel=Anchor># </span>7. 短路特性</h2></a><p><code>Promise.all()</code> 和 <code>romise.race()</code> 都具有 短路特性</p><ul><li><strong>Promise.all()</strong>： 如果参数中 <code>promise</code> 有一个失败（rejected），此实例回调失败（reject）</li></ul><ul><li><strong>Promise.race()</strong>：如果参数中某个<code>promise</code>解决或拒绝，返回的 promise就会解决或拒绝。</li></ul><a href=#8-并发性和-promiseall><h2 id=8-并发性和-promiseall><span class=hanchor arialabel=Anchor># </span>8. 并发性和 Promise.all()</h2></a><a href=#顺序执行与并发执行><h3 id=顺序执行与并发执行><span class=hanchor arialabel=Anchor># </span>顺序执行与并发执行</h3></a><p>考虑下面的代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>asyncFunc1</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>result1</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>assert</span><span class=p>.</span><span class=nx>equal</span><span class=p>(</span><span class=nx>result1</span><span class=p>,</span> <span class=s1>&#39;one&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>asyncFunc2</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=p>})</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>result2</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>assert</span><span class=p>.</span><span class=nx>equal</span><span class=p>(</span><span class=nx>result2</span><span class=p>,</span> <span class=s1>&#39;two&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><p>使用<code>.then()</code>顺序执行基于<code>Promise</code>的函数：只有在 <code>asyncFunc1()</code>的结果被解决后才会执行<code>asyncFunc2()</code> 。</p><p>而 <code>Promise.all()</code> 是并发执行的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>([</span><span class=nx>asyncFunc1</span><span class=p>(),</span> <span class=nx>asyncFunc2</span><span class=p>()])</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>arr</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>assert</span><span class=p>.</span><span class=nx>deepEqual</span><span class=p>(</span><span class=nx>arr</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;one&#39;</span><span class=p>,</span> <span class=s1>&#39;two&#39;</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#并发技巧关注操作何时开始><h3 id=并发技巧关注操作何时开始><span class=hanchor arialabel=Anchor># </span>并发技巧：关注操作何时开始</h3></a><p>确定并发异步代码的技巧:关注异步操作何时启动，而不是如何处理它们的<strong>Promises</strong>。</p><p>例如，下面的每个函数都同时执行<code>asyncFunc1()</code>和<code>asyncFunc2()</code>，因为它们几乎同时启动。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>concurrentAll</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>([</span><span class=nx>asyncFunc1</span><span class=p>(),</span> <span class=nx>asyncFunc2</span><span class=p>()]);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>concurrentThen</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>p1</span> <span class=o>=</span> <span class=nx>asyncFunc1</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>p2</span> <span class=o>=</span> <span class=nx>asyncFunc2</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>p1</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>r1</span> <span class=p>=&gt;</span> <span class=nx>p2</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>r2</span> <span class=p>=&gt;</span> <span class=p>[</span><span class=nx>r1</span><span class=p>,</span> <span class=nx>r2</span><span class=p>]));</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>另一方面，以下两个函数依次执行<code>asyncFunc1()</code>和<code>asyncFunc2()</code>: <code>asyncFunc2()</code>仅在<code>asyncFunc1()</code>的解决之后才调用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>sequentialThen</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>asyncFunc1</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>r1</span> <span class=p>=&gt;</span> <span class=nx>asyncFunc2</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>      <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>r2</span> <span class=p>=&gt;</span> <span class=p>[</span><span class=nx>r1</span><span class=p>,</span> <span class=nx>r2</span><span class=p>]));</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>sequentialAll</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>p1</span> <span class=o>=</span> <span class=nx>asyncFunc1</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>p2</span> <span class=o>=</span> <span class=nx>p1</span><span class=p>.</span><span class=nx>then</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=nx>asyncFunc2</span><span class=p>());</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>([</span><span class=nx>p1</span><span class=p>,</span> <span class=nx>p2</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><a href=#promiseall-与-fork-join-分治编程><h3 id=promiseall-与-fork-join-分治编程><span class=hanchor arialabel=Anchor># </span>Promise.all() 与 Fork-Join 分治编程</h3></a><p><code>Promise.all()</code> 与并发模式“fork join”松散相关。重温一下咱们前面的一个例子：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>all</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// (A) fork
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>downloadText</span><span class=p>(</span><span class=s1>&#39;http://example.com/first.txt&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nx>downloadText</span><span class=p>(</span><span class=s1>&#39;http://example.com/second.txt&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>  <span class=p>])</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// (B) join
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=p>.</span><span class=nx>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=nx>assert</span><span class=p>.</span><span class=nx>deepEqual</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nx>arr</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;First!&#39;</span><span class=p>,</span> <span class=s1>&#39;Second!&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>));</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>Fork：在<code>A</code>行中，分割两个异步任务并同时执行它们。</li><li>Join：在<code>B</code>行中，对每个小任务得到的结果进行汇总。</li></ul></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=/chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>

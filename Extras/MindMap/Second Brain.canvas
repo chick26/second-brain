@@ -1,0 +1,32 @@
+{
+	"nodes":[
+		{"type":"text","text":"# Atlas\n\n## [[Template, MOC-Note|MOC (Map of Content)]]\n- 地图, 仅分布在 Atlas 及主文件夹\n- 更好的组织思维结构\n\n## [[Template, TOC-Note|TOC (Table of Content)]]\n- 目录, 位于每个子文件夹\n- 更好的组织文件结构\n\n## Scopes\n- 独立的自定义空间\n- 常用作知识的交叉关联\n","id":"4175b8a400199a3a","x":-272,"y":-20,"width":311,"height":460},
+		{"type":"text","text":"# Calendar\n日志类文件，包括日志、会议纪要、关键事线 (暂时使用事线代替)\n## Event\n## Journal\n- [[Template, Daily-Note|日志模板]]\n- [[Journal MOC|日志看板]]\n\n## Meeting\n- [[Template, Meeting-Note|会议模板]]\n\n## Event\n- Eventline app","id":"431c6696fbe9676b","x":91,"y":-20,"width":311,"height":460},
+		{"type":"text","text":"# [[Sources MOC|Sources]]\n\n资源型文件\n\n## Articles | Music | Research Paper\n\n## [[Bookshelf|Books]]\n\n- [[Template, Book-Note|读书笔记模板]]\n\n## Courses\n\n此处设置了 [[• TOC for Courses|TOC]] 和 [[Courses MOC|MOC]]，TOC 作为目录使用，使用 dataview 捕获目录；MOC 作为自定义的地图，更多的容纳对该主题的思考 ( 让内容真正关联起来 )\n\n## [[• TOC for Talks|Talks]]\n\n一些演讲\n\n## Tools\n\n一些好用的工具汇总\n\n","id":"325bee7f1b833814","x":-272,"y":520,"width":654,"height":520},
+		{"type":"text","text":"# [[Cards MOC|Card]] \n\n日常专业知识的记录文件夹，利用专业划分，存放总结性的知识点。**非观点输出型文件**。\n","id":"debcd438a499fe1f","x":454,"y":520,"width":311,"height":210},
+		{"type":"text","text":"# Extras\n\n日常专业知识的记录文件夹，利用专业划分，存放总结性的知识点\n","id":"97670a01fb0a9572","x":454,"y":830,"width":311,"height":210},
+		{"type":"text","text":"# Space\n个人空间，更多的输出，表达\n\n## 区域划分\n\n- Work\n- Life\n\n## 功能划分\n\n- Areas\n- MOCs\n- Projects\n- Supports notes\n\n","id":"20ccd5a7b83d58d2","x":454,"y":-20,"width":311,"height":460},
+		{"type":"text","text":"# How brain construct","id":"842cfe32b78eccaa","x":-720,"y":-200,"width":320,"height":80,"color":"6"},
+		{"type":"text","text":"# How idea Develop","id":"5ee3e9a83b1e15ce","x":-720,"y":-781,"width":320,"height":80,"color":"6"},
+		{"type":"text","text":"Collecting Information\n- [Kill the Newsletter!](https://kill-the-newsletter.com/) 收集邮箱订阅转 RSS \n- [Vercel](https://vercel.com/dashboard) 一键免费部署 rsshub\n- Reddit List\n- Twitter List 【暂时使用 rsshub 官方服务】\n- Hacker news\n- 公众号待完善","id":"fce07ad3d367cd70","x":-272,"y":-1160,"width":418,"height":240,"color":"3"},
+		{"type":"text","text":"Reading and Filter Information\n- 使用 feedly 免费版同步 RSS 阅读记录 \n- Mac, iPhone 使用 reeder 阅读\n- Windows 使用免费版 feedly 阅读","id":"165d4fe7aae2d89c","x":248,"y":-1160,"width":420,"height":240,"color":"1"},
+		{"type":"text","text":"Data Acquisition\n- 设置标签进行信息粗分类\n- 使用 New bing / Chatgpt with Link Reader 创建阅读笔记，提高阅读效率","id":"21e5cf89d89f094d","x":828,"y":-1160,"width":400,"height":240},
+		{"type":"text","text":"Unsorted To [[Cooling pad]]\n- 作为信息输入的大窗口\n- 信息冷却待分类","id":"3a534dc5be21cb2c","x":210,"y":-580,"width":400,"height":121},
+		{"type":"text","text":"## Flomo\n\n- 记录小想法","id":"bfe864582a8ea183","x":840,"y":-580,"width":377,"height":121},
+		{"type":"text","text":"# Eventline\n\n- 日志 log 记录","id":"a823feea1ff2f817","x":840,"y":-320,"width":377,"height":120},
+		{"type":"text","text":"[[Tags MOC| 标签系统]]\n- 当前标签比较混乱\n- 考虑是否建立统一的标签系统\n- 暂时通过专业 +  属性划分","id":"f6f14b1ee77fd855","x":-640,"y":-20,"width":311,"height":147}
+	],
+	"edges":[
+		{"id":"4da4905d6f0bac4c","fromNode":"fce07ad3d367cd70","fromSide":"right","toNode":"165d4fe7aae2d89c","toSide":"left","color":"#ff0000","label":"RSS"},
+		{"id":"7bfc76d65c871ed9","fromNode":"165d4fe7aae2d89c","fromSide":"right","toNode":"21e5cf89d89f094d","toSide":"left","label":"Cubox"},
+		{"id":"cc279ce8de781875","fromNode":"21e5cf89d89f094d","fromSide":"bottom","toNode":"3a534dc5be21cb2c","toSide":"top","label":"SimpRead"},
+		{"id":"010f9ba3c0eeea9c","fromNode":"431c6696fbe9676b","fromSide":"top","toNode":"a823feea1ff2f817","toSide":"left"},
+		{"id":"fe98cbfd074d6c77","fromNode":"325bee7f1b833814","fromSide":"right","toNode":"debcd438a499fe1f","toSide":"left"},
+		{"id":"c475c6174054a970","fromNode":"97670a01fb0a9572","fromSide":"top","toNode":"debcd438a499fe1f","toSide":"bottom"},
+		{"id":"693d4c5e4bd790d0","fromNode":"debcd438a499fe1f","fromSide":"top","toNode":"20ccd5a7b83d58d2","toSide":"bottom"},
+		{"id":"f10be3e1c7f3b084","fromNode":"431c6696fbe9676b","fromSide":"right","toNode":"20ccd5a7b83d58d2","toSide":"left"},
+		{"id":"2765f95957223e8a","fromNode":"5ee3e9a83b1e15ce","fromSide":"bottom","toNode":"3a534dc5be21cb2c","toSide":"top"},
+		{"id":"98a9bbdeb42235a1","fromNode":"3a534dc5be21cb2c","fromSide":"bottom","toNode":"842cfe32b78eccaa","toSide":"top"},
+		{"id":"45614fc3a350fe53","fromNode":"bfe864582a8ea183","fromSide":"left","toNode":"3a534dc5be21cb2c","toSide":"right"}
+	]
+}
