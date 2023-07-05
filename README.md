@@ -1,21 +1,21 @@
-# 🗺 [[Atlases MOC|ATLAS]]
+# 🗺 [ATLAS](Atlas/Atlases%20MOC.md)
 
 >[!INFO]- Start With Your Cooling Pad for today
 
 - Sense Making
-	-  📬 [[Atlas/Scopes/Cooling pad|Cooling pad]]
-	-  💾 [[Cards/Cards MOC|Making Cards]]
-	-  📤 [[Atlas/Scopes/Outbox.md|Outbox]]
-	-  📆 [[Journal MOC|Daily Notes]]
+	-  📬 [Cooling pad](Atlas/Scopes/Cooling%20pad.md)
+	-  💾 [Making Cards](Cards/Cards%20MOC.m)
+	-  📤 [Outbox](Atlas/Scopes/Outbox.md)
+	-  📆 [Daily Note](Calendar/Journal%20MOC.md)
 
--  [[Sources MOC|Things]]
-	-  📚 [[Atlas/Scopes/Bookshelf.md|Library]]
-	-  🧑‍🏫 [[• TOC for Talks|Talks]]
-	-  😶‍🌫️ [[Concepts MOC|Concepts]]
-	-  🔬 [[Courses MOC|Courses]]
+-  [Things](Sources/Sources%20MOC.md)
+	-  📚 [Library](Atlas/Scopes/Bookshelf.md)
+	-  🧑‍🏫 [Talks](Sources/Talks/%E2%80%A2%20TOC%20for%20Talks.md)
+	-  😶‍🌫️ [Concepts](Atlas/MOCs/Concepts%20MOC.md)
+	-  🔬 [Courses](Atlas/MOCs/Courses%20MOC.md)
 
 - Action
-	- ✅ [[Calendar/Tasks.md|Task]]
+	- ✅ [Tasks](Calendar/Tasks.md)
 
 - Personal
 	- [[Health MOC]] 
