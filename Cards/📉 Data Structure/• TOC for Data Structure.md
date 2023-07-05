@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Cards MOC](../Cards%20MOC.md) | Data Structure TOC
+# 🌏 [[Cards/Cards MOC|Cards MOC]] | Data Structure TOC
 
 ```dataviewjs
 for (let group of 
