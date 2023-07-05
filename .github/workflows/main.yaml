@@ -22,7 +22,7 @@ jobs:
           git rm content/Cards -r
           git rm content/Extras -r
           git rm content/Sources -r
-          # git rm content/.obsidian -r
+          git rm content/.obsidian -r
           git mv Atlas content/Atlas
           git mv Cards content/Cards
           git mv Extras content/Extras
