@@ -5,7 +5,7 @@ status: done
 tags:
 - Network/Internet
 ---
-up:: [[• TOC for Frontend]]
+up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 ## 1. 传输层协议
 
@@ -28,7 +28,7 @@ up:: [[• TOC for Frontend]]
 
 **控制位**与三次握手和四次挥手息息相关，要牢记。
 
-![](640.png)
+![](../../../Extras/Media/Images/640.png)
 
 首部固定部分各字段意义如下：
 
@@ -93,7 +93,7 @@ SYN = 1 表示这是一个连接请求或连接接受报文。
 
 三次握手过程如下图：
 
-![](641.png)
+![](../../../Extras/Media/Images/641.png)
 
 图中字符的含义：
 
@@ -177,7 +177,7 @@ SYN 攻击就是 **Client 在短时间内伪造大量不存在的 IP 地址，�
 
 TCP 连接的释放需要发送四个包（执行四个步骤），因此称为四次挥手 (`Four-way handshake`)，**客户端或服务端均可主动发起挥手动作**。
 
-![](642.png)
+![](../../../Extras/Media/Images/642.png)
 
 回顾一下上图中符号的意思：
 

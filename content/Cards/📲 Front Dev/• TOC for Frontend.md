@@ -5,7 +5,7 @@ Tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Cards MOC]] | Frontend TOC
+# 🌏 [[Cards MOC](../Cards%20MOC.md) | Frontend TOC
 
 ```dataviewjs
 for (let group of 

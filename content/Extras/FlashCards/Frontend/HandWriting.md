@@ -3,7 +3,7 @@ cards-deck: Fronten Hand Writing
 ---
 # Fronten Hand Writing
 
-## [[Q0001-图片懒加载|图片懒加载]] #flashcard
+## [[../../../Sources/Courses/🗿%20Frontend%20Interview/问答汇总/Q0001-图片懒加载.md|图片懒加载]] #flashcard
 - 位置计算 + 滚动事件 (Scroll) + DataSet API
 ```
 const isInView = (

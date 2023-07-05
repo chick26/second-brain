@@ -30,5 +30,6 @@
   "obsidian-minimal-settings",
   "obsidian-style-settings",
   "obsidian-linter",
-  "obsidian-git"
+  "obsidian-git",
+  "update-relative-links"
 ]

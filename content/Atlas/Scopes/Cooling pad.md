@@ -5,7 +5,7 @@ tags:
 - Atlas/Scope 
 ---
 
-# 🌏[[Home]] | Cooling pad 🧊
+# 🌏[[../../Home.md]] | Cooling pad 🧊
 
 ``` dataview
 TABLE WITHOUT ID

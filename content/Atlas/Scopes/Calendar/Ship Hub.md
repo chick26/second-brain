@@ -10,7 +10,7 @@ tags:
 ---
 <div class="title" style="color: #fff ">Set Out</div>
 
-# < [[Journal MOC|🌏]] | [[New Discoveries Hub |💡]] | [[Media Hub|📚]] > 
+# < [[Journal MOC|🌏](../../../Calendar/Journal%20MOC.md) | [[New Discoveries Hub |💡](New%20Discoveries%20Hub.md) | [[Media Hub|📚](Media%20Hub.md) > 
 
 # ⛽️ Life Happenings
 

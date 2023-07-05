@@ -6,7 +6,7 @@ tags:
 - Development/ComputerBasic/DataStructure/Recursion
 - Sources/Courses/Algorithms
 ---
-up:: [[• TOC for Algorithm Course]]
+up:: [[• TOC for Algorithm Course](%E2%80%A2%20TOC%20for%20Algorithm%20Course.md)
 
 > [! Question]+ 如何理解“递归”？
 > 

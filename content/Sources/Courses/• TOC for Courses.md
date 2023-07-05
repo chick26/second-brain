@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Sources MOC|Sources]] | [[Courses MOC|MOC]] | TOC
+# 🌏 [[Sources MOC|Sources](../Sources%20MOC.md) | [[Courses MOC|MOC](../../Atlas/MOCs/Courses%20MOC.md) | TOC
 
 ```dataviewjs
 for (let group of 

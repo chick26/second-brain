@@ -7,7 +7,7 @@ tags:
 - Development/Backend/Database/MySQL/InnoDB
 - Development/Backend/Database/MySQL
 ---
-up:: [[• TOC for Data Structure]]
+up:: [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course]]
 
 # InnoDB 存储引擎
 
@@ -173,7 +173,7 @@ InnoDB 存储引擎是面向行的（row-oriented），也就是说数据的存�
 > System Global Area 系统的全局区，一个实例只有一个
 > Process Global Area 进程的全局区，对应的是客户端的连接
 
-![[SGA & PGA.excalidraw]]
+![[SGA & PGA.excalidraw](../../../../Extras/Excalidraw/%E6%95%B0%E6%8D%AE%E5%BA%93/SGA%20&%20PGA.excalidraw.md)
 
 ### Buffer 缓冲区
 

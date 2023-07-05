@@ -5,5 +5,5 @@ tags:
 - Atlas/MOC
 ---
 
-# 🌏[[Home]] | Concepts MOC
+# 🌏[[../../Home.md]] | Concepts MOC
 
