@@ -5,11 +5,11 @@ tags:
 - Atlas/MOC
 ---
 
-# 🌏 [[../Home.md]] | Atlases MOC
+# 🌏 [[Home]] | Atlases MOC
 
 ## MOCs
 
-> [!Example]- [[Concepts MOC| 😵‍💫 CONCEPT](MOCs/Concepts%20MOC.md)
+> [!Example]- [[Atlas/MOCs/Concepts MOC|😵‍💫 CONCEPT]]
 > 
 > - It creates new knowledge: by creating concept notes we allow our ideas to connect together across classes and semesters. This creates new knowledge. And it allows us to grow our note-taking system over years to become more than the sum of its parts.
 > - It makes you more engaged in your learning. You add your own unique personality, background, flare, spunk, whatever you want to call it into your notes. Your knowledge is unique compared to other students. You add your own unique sauce to your burger.
