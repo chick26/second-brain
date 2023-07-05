@@ -1,167 +1,1591 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [ • TOC for Frontend
-1. 浏览器高层结构  用户界面 - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面。 浏览器引擎 - 在用户界面和呈现引擎之间传送指令。 呈现引擎 - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 网络 - 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。 用户界面后端 - 用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。 JavaScript 解释器。用于解析和执行 JavaScript 代码。 数据存储。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库   2."><meta property="og:title" content="Web Browsers"><meta property="og:description" content="up:: [ • TOC for Frontend
-1. 浏览器高层结构  用户界面 - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面。 浏览器引擎 - 在用户界面和呈现引擎之间传送指令。 呈现引擎 - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 网络 - 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。 用户界面后端 - 用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。 JavaScript 解释器。用于解析和执行 JavaScript 代码。 数据存储。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库   2."><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/Internet/Web-Browsers/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="Web Browsers"><meta name=twitter:description content="up:: [ • TOC for Frontend
-1. 浏览器高层结构  用户界面 - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面。 浏览器引擎 - 在用户界面和呈现引擎之间传送指令。 呈现引擎 - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 网络 - 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。 用户界面后端 - 用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。 JavaScript 解释器。用于解析和执行 JavaScript 代码。 数据存储。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库   2."><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>Web Browsers</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
-<script src=../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
-<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
-<script type=module>
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Frontend
+1. 浏览器高层结构  用户界面 - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面。 浏览器引擎 - 在用户界面和呈现引擎之间传送指令。 呈现引擎 - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 网络 - 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。 用户界面后端 - 用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。 JavaScript 解释器。用于解析和执行 JavaScript 代码。 数据存储。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库   2."
+  />
+  <meta property="og:title" content="Web Browsers">
+  <meta property="og:description" content="up:: [ • TOC for Frontend
+1. 浏览器高层结构  用户界面 - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面。 浏览器引擎 - 在用户界面和呈现引擎之间传送指令。 呈现引擎 - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 网络 - 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。 用户界面后端 - 用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。 JavaScript 解释器。用于解析和执行 JavaScript 代码。 数据存储。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库   2.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/Internet/Web-Browsers/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Web Browsers" />
+  <meta name="twitter:description" content="up:: [ • TOC for Frontend
+1. 浏览器高层结构  用户界面 - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面。 浏览器引擎 - 在用户界面和呈现引擎之间传送指令。 呈现引擎 - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。 网络 - 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。 用户界面后端 - 用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。 JavaScript 解释器。用于解析和执行 JavaScript 代码。 数据存储。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库   2." />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+      
+      <meta name="twitter:site" content="_jzhao" />
+    
+  
+    
+  
+
+  <title>
+    Web Browsers
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+    <script type="module">
       import mermaid from 'https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
-    </script><script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
-<script defer src=../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
-<script defer src=../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
-<script defer src=../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
-<script defer src=../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
-<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.d413193f7ae19d461b59d12d61b54d86.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+    </script>
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.ab44743a5d67084ed2332ae5677b2ec3.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
     import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
     attachSPARouting(init, render)
-  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
-<script defer src=../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
-<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>Web Browsers</h1><p class=meta>Last updated
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">🪴 Quartz 3.3</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>Web Browsers</h1>
+      <p class="meta">
+        Last updated 
 Unknown
-<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/Internet/Web%20Browsers.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Network/Internet/>Network internet</a></li><li><a href=chick26.github.io/tags/Development/Frontend/WebBrowser/>Development frontend web browser</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#main-flow>Main Flow</a></li><li><a href=#main-flow-examples>Main Flow Examples</a><ol><li><a href=#webkit-main-flow>WebKit Main Flow</a></li><li><a href=#mozillas-gecko-rendering-engine-main-flow>Mozilla&rsquo;s Gecko rendering engine main flow</a></li></ol></li></ol><ol><li><a href=#parsing>Parsing</a><ol><li><a href=#parserlexer-combination>Parser–Lexer combination</a></li><li><a href=#formal-definitions-for-vocabulary-and-syntax>Formal definitions for vocabulary and syntax</a></li><li><a href=#types-of-parsers>Types of parsers</a></li><li><a href=#generating-parsers-automatically>Generating parsers automatically</a></li></ol></li><li><a href=#html-parser>HTML Parser</a><ol><li><a href=#dom>DOM</a></li><li><a href=#the-parsing-algorithm>The parsing algorithm</a></li></ol></li><li><a href=#css-parser>CSS Parser</a><ol><li><a href=#webkit-css-解析器>WebKit CSS 解析器</a></li></ol></li><li><a href=#the-order-of-processing-scripts-and-style-sheets>The order of processing scripts and style sheets</a><ol><li><a href=#scripts>Scripts</a></li><li><a href=#speculative-parsing>Speculative parsing</a></li><li><a href=#style-sheets>Style sheets</a></li></ol></li></ol><ol><li><a href=#the-render-tree-relation-to-the-dom-tree>The render tree relation to the DOM tree</a></li><li><a href=#the-flow-of-constructing-the-tree>The flow of constructing the tree</a></li><li><a href=#style-computation>Style Computation</a><ol><li><a href=#sharing-style-data>Sharing style data</a></li><li><a href=#manipulating-the-rules-for-an-easy-match>Manipulating the rules for an easy match</a></li><li><a href=#applying-the-rules-in-the-correct-cascade-order>Applying the rules in the correct cascade order</a></li></ol></li><li><a href=#gradual-process>Gradual process</a></li></ol><ol><li><a href=#dirty-bit-system>Dirty bit system</a></li><li><a href=#global-and-incremental-layout>Global and incremental layout</a></li><li><a href=#asynchronous-and-synchronous-layout>Asynchronous and Synchronous layout</a></li><li><a href=#optimizations>Optimizations</a></li><li><a href=#the-layout-process>The layout process</a></li><li><a href=#width-calculation>Width calculation</a></li><li><a href=#line-breaking>Line Breaking</a></li></ol><ol><li><a href=#global-and-incremental>Global and Incremental</a></li><li><a href=#the-painting-order>The painting order</a></li><li><a href=#webkit-rectangle-storage>WebKit rectangle storage</a></li></ol></nav></details></aside><p>up:: [
-<a rel=noopener class="internal-link broken" data-src=../%E2%80%A2%20TOC%20for%20Frontend>• TOC for Frontend</a></p><a href=#1-浏览器高层结构><h1 id=1-浏览器高层结构><span class=hanchor arialabel=Anchor># </span>1. 浏览器高层结构</h1></a><ol><li><strong>用户界面</strong> - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面。</li><li><strong>浏览器引擎</strong> - 在用户界面和呈现引擎之间传送指令。</li><li><strong>呈现引擎</strong> - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。</li><li><strong>网络</strong> - 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。</li><li><strong>用户界面后端</strong> - 用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。</li><li><strong>JavaScript 解释器</strong>。用于解析和执行 JavaScript 代码。</li><li><strong>数据存储</strong>。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库</li></ol><p><img src=chick26.github.io/../../../Extras/Media/Images/202201261438296.png width=auto alt></p><a href=#2-rendering-engine-呈现引擎><h1 id=2-rendering-engine-呈现引擎><span class=hanchor arialabel=Anchor># </span>2. Rendering Engine 呈现引擎</h1></a><blockquote><p>默认情况下，呈现引擎可显示 HTML 和 XML 文档与图片。通过插件（或浏览器扩展程序），还可以显示其他类型的内容；例如，使用 PDF 查看器插件就能显示 PDF 文档。但是在本章中，我们将集中介绍其主要用途：显示使用 CSS 格式化的 HTML 内容和图片。</p></blockquote><p>Firefox、Chrome 浏览器和 Safari是基于两种呈现引擎构建的。Firefox 使用的是 Gecko，这是 Mozilla 公司“自制”的呈现引擎。而 Safari 和 Chrome 浏览器使用的都是 WebKit。WebKit 是一种开放源代码呈现引擎，起初用于 Linux 平台，随后由 Apple 公司进行修改，从而支持苹果机和 Windows。</p><a href=#main-flow><h2 id=main-flow><span class=hanchor arialabel=Anchor># </span>Main Flow</h2></a><div class=mermaid>graph LR
-A[Parsing HTML<br>to construst<br>the DOM tree]-->B[Render tree<br>construction]-->C[Layout of the<br>render tree]-->D[Painting the<br>render trree]</div><p>呈现引擎开始解析 HTML 文档，并将各标记逐个转化成“内容树”上的 DOM 节点。同时也会解析外部 CSS 文件以及样式元素中的样式数据。HTML 中这些带有视觉指令的样式信息将用于创建另一个树结构：<a href=chick26.github.io/Cards/-Front-Dev/Internet/Web-Browsers#edd771 rel=noopener class=internal-link data-src=chick26.github.io/Cards/-Front-Dev/Internet/Web-Browsers>呈现树</a>(Render Tree)。</p><p>呈现树包含多个带有视觉属性（如颜色和尺寸）的矩形。这些矩形的排列顺序就是它们将在屏幕上显示的顺序。</p><p>呈现树构建完毕之后，进入布局(Layout) 处理阶段，也就是为每个节点分配一个应出现在屏幕上的确切坐标。下一个阶段是 绘制(Painting) - 呈现引擎会遍历呈现树，由用户界面后端层将每个节点绘制出来。</p><p><strong>PS</strong> 这是一个渐进的过程。为达到更好的用户体验，呈现引擎会力求尽快将内容显示在屏幕上。它不必等到整个 HTML 文档解析完毕之后，就会开始构建呈现树和设置布局。在不断接收和处理来自网络的其余内容的同时，呈现引擎会将部分内容解析并显示出来。</p><a href=#main-flow-examples><h2 id=main-flow-examples><span class=hanchor arialabel=Anchor># </span>Main Flow Examples</h2></a><a href=#webkit-main-flow><h3 id=webkit-main-flow><span class=hanchor arialabel=Anchor># </span>WebKit Main Flow</h3></a><p><img src=chick26.github.io/../../../Extras/Media/Images/202201261500863.png width=auto alt></p><a href=#mozillas-gecko-rendering-engine-main-flow><h3 id=mozillas-gecko-rendering-engine-main-flow><span class=hanchor arialabel=Anchor># </span>Mozilla&rsquo;s Gecko rendering engine main flow</h3></a><p><img src=chick26.github.io/../../../Extras/Media/Images/202201261501778.png width=auto alt></p><a href=#3-parsing-and-dom-tree-construction-解析和dom树构建><h1 id=3-parsing-and-dom-tree-construction-解析和dom树构建><span class=hanchor arialabel=Anchor># </span>3. Parsing and DOM tree construction 解析和DOM树构建</h1></a><p>解析文档是指将文档转化成为有意义的结构，也就是可让代码理解和使用的结构。解析得到的结果通常是代表了文档结构的节点树，它称作解析树或者语法树。</p><p>解析是以文档所遵循的语法规则（编写文档所用的语言或格式）为基础的。所有可以解析的格式都必须对应确定的语法（由词汇和语法规则构成）。这称为 <a class="internal-link broken">与上下文无关的语法</a>。人类语言并不属于这样的语言，因此无法用常规的解析技术进行解析。</p><a href=#parsing><h2 id=parsing><span class=hanchor arialabel=Anchor># </span>Parsing</h2></a><a href=#parserlexer-combination><h3 id=parserlexer-combination><span class=hanchor arialabel=Anchor># </span>Parser–Lexer combination</h3></a><blockquote><p>解析器负责根据语言的语法规则分析文档的结构，从而构建解析树。词法分析器知道如何将无关的字符（比如空格和换行符）分离出来。其过程可以分成两个子过程：词法分析和语法分析</p></blockquote><p>解析器通常将解析工作分给以下两个组件来处理：</p><ul><li><strong>词法分析器</strong>（有时也称为标记生成器），负责将输入内容分解成一个个有效标记，词法分析是将输入内容分割成大量标记的过程。标记是语言中的词汇，即构成内容的单位。在人类语言中，它相当于语言字典中的单词；</li><li><strong>语法分析</strong>，是应用语言的语法规则的过程。</li></ul><a href=#formal-definitions-for-vocabulary-and-syntax><h3 id=formal-definitions-for-vocabulary-and-syntax><span class=hanchor arialabel=Anchor># </span>Formal definitions for vocabulary and syntax</h3></a><p>词汇通常用 <a class="internal-link broken">正则表达式</a> 表示。例如，我们的加减计算语言可以定义如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>INTEGER :0|[1-9][0-9]* 
-</span></span><span class=line><span class=cl>PLUS : + 
-</span></span><span class=line><span class=cl>MINUS: -
-</span></span></code></pre></td></tr></table></div></div><p>语法通常使用一种称为 <strong>BNF</strong> 的格式来定义。我们的示例语言可以定义如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>expression := term  operation  term
-</span></span><span class=line><span class=cl>operation := PLUS | MINUS
-</span></span><span class=line><span class=cl>term := INTEGER | expression
-</span></span></code></pre></td></tr></table></div></div><a href=#types-of-parsers><h3 id=types-of-parsers><span class=hanchor arialabel=Anchor># </span>Types of parsers</h3></a><p>有两种基本类型的解析器：自上而下解析器和自下而上解析器。直观地来说，自上而下的解析器从语法的高层结构出发，尝试从中找到匹配的结构。而自下而上的解析器从低层规则出发，将输入内容逐步转化为语法规则，直至满足高层规则:</p><ul><li><p>自上而下的解析器会从高层的规则开始：首先将 <code>2 + 3</code> 标识为一个表达式，然后将 <code>2 + 3 - 1</code> 标识为一个表达式（标识表达式的过程涉及到匹配其他规则，但是起点是最高级别的规则）。</p></li><li><p>自下而上的解析器将扫描输入内容，找到匹配的规则后，将匹配的输入内容替换成规则。如此继续替换，直到输入内容的结尾。部分匹配的表达式保存在解析器的堆栈中。</p></li></ul><a href=#generating-parsers-automatically><h3 id=generating-parsers-automatically><span class=hanchor arialabel=Anchor># </span>Generating parsers automatically</h3></a><blockquote><p><strong>解析器生成器</strong>。只要向其提供所用语言的语法（词汇和语法规则），它就会生成相应的解析器。创建解析器需要对解析有深刻理解，而人工创建并优化解析器并不是一件容易的事情，所以解析器生成器是非常实用的。</p></blockquote><p>WebKit 使用了两种非常有名的解析器生成器：用于创建词法分析器的 <strong>Flex</strong> 以及用于创建解析器的 <strong>Bison</strong>（Lex / Yacc ）。Flex 的输入是包含标记的正则表达式定义的文件。Bison 的输入是采用 BNF 格式的语言语法规则。</p><a href=#html-parser><h2 id=html-parser><span class=hanchor arialabel=Anchor># </span>HTML Parser</h2></a><blockquote><p>HTML 解析器的任务是将 HTML 标记解析成解析树。</p></blockquote><ul><li>DTD（Document Type Definition，文档类型定义）格式，非与上下文无关语法，属于 <strong>标准通用标记语言</strong>（Standard Generalized Markup Language，<strong>SGML</strong>），是现时常用的超文本格式的最高层次标准，是可以定义标记语言的元语言，甚至可以定义不必采用&lt; >的常规方式。由于它的复杂，因而难以普及。</li><li>区别于 XML ，HTML 的处理更为“宽容”，它允许您省略某些隐式添加的标记，有时还能省略一些起始或者结束标记等等。和 XML 严格的语法不同，HTML 整体来看是一种“软性”的语法。</li><li>HTML 无法很容易地通过常规解析器解析（因为它的语法不是与上下文无关的语法），也无法通过 XML 解析器来解析。</li></ul><a href=#dom><h3 id=dom><span class=hanchor arialabel=Anchor># </span>DOM</h3></a><p>解析器的输出“解析树”是由 DOM 元素和属性节点构成的树结构。DOM 是文档对象模型 (Document Object Model) 的缩写。它是 HTML 文档的对象表示，同时也是外部内容（例如 JavaScript）与 HTML 元素之间的接口。</p><a href=#the-parsing-algorithm><h3 id=the-parsing-algorithm><span class=hanchor arialabel=Anchor># </span>The parsing algorithm</h3></a><p>解析算法算法由两个阶段组成：标记化和树构建。标记化是词法分析过程，将输入内容解析成多个标记。HTML 标记包括起始标记、结束标记、属性名称和属性值。标记生成器识别标记，传递给树构造器，然后接受下一个字符以识别下一个标记；如此反复直到输入的结束。</p><a href=#the-tokenization-algorithm-标记化算法><h4 id=the-tokenization-algorithm-标记化算法><span class=hanchor arialabel=Anchor># </span>The tokenization algorithm 标记化算法</h4></a><p>基本示例 - 将下面的 HTML 代码标记化：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
-</span></span><span class=line><span class=cl>	<span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl>		Hello world 
-</span></span><span class=line><span class=cl>	<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
-</span></span></code></pre></td></tr></table></div></div><p><img src=chick26.github.io/../../../Extras/Media/Images/202201271732813.png width=auto alt></p><p>初始状态是数据状态。遇到字符 <code>&lt;</code> 时，状态更改为 <strong>“标记打开状态”</strong>。接收一个 <code>a-z</code> 字符会创建 <strong>“起始标记”</strong>，状态更改为 <strong>“标记名称状态”</strong>。这个状态会一直保持到接收 <code>></code> 字符。在此期间接收的每个字符都会附加到新的标记名称上。在本例中，我们创建的标记是 <code>html</code> 标记。</p><p>遇到 <code>></code> 标记时，会发送当前的标记，状态改回 <strong>“数据状态”</strong>。<code>&lt;body></code> 标记也会进行同样的处理。目前 <code>html</code> 和 <code>body</code> 标记均已发出。现在我们回到 <strong>“数据状态”</strong>。接收到 <code>Hello world</code> 中的 <code>H</code> 字符时，将创建并发送字符标记，直到接收 <code>&lt;/body></code> 中的 <code>&lt;</code>。我们将为 <code>Hello world</code> 中的每个字符都发送一个字符标记。</p><p>现在我们回到 <strong>“标记打开状态”</strong>。接收下一个输入字符 <code>/</code> 时，会创建 <code>end tag token</code> 并改为 <strong>“标记名称状态”</strong>。我们会再次保持这个状态，直到接收 <code>></code>。然后将发送新的标记，并回到 <strong>“数据状态”</strong>。<code>&lt;/html></code> 输入也会进行同样的处理。</p><a href=#tree-construction-algorithm-树构建算法><h4 id=tree-construction-algorithm-树构建算法><span class=hanchor arialabel=Anchor># </span>Tree construction algorithm 树构建算法</h4></a><p>示例输入的树构建过程：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
-</span></span><span class=line><span class=cl>	<span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl>		Hello world 
-</span></span><span class=line><span class=cl>	<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
-</span></span></code></pre></td></tr></table></div></div><p><img src=chick26.github.io/../../../Extras/Media/Images/202201281045591.png width=auto alt></p><p>树构建阶段的输入是一个来自标记化阶段的标记序列。第一个模式是 <strong>“initial mode”</strong>。接收 HTML 标记后转为 <strong>“before html”</strong> 模式，并在这个模式下重新处理此标记。这样会创建一个 HTMLHtmlElement 元素，并将其附加到 Document 根对象上。</p><p>然后状态将改为 <strong>“before head”</strong>。此时我们接收“body”标记。即使我们的示例中没有“head”标记，系统也会隐式创建一个 HTMLHeadElement，并将其添加到树中。</p><p>现在我们进入了 <strong>“in head”</strong> 模式，然后转入 <strong>“after head”</strong> 模式。系统对 body 标记进行重新处理，创建并插入 HTMLBodyElement，同时模式转变为**“in body”**。</p><p>现在，接收由“Hello world”字符串生成的一系列字符标记。接收第一个字符时会创建并插入“Text”节点，而其他字符也将附加到该节点。</p><p>接收 body 结束标记会触发 <strong>“after body”</strong> 模式。现在我们将接收 HTML 结束标记，然后进入 <strong>“after after body”</strong> 模式。接收到文件结束标记后，解析过程就此结束。</p><a href=#browsers-error-tolerance-浏览器的容错机制><h4 id=browsers-error-tolerance-浏览器的容错机制><span class=hanchor arialabel=Anchor># </span>Browsers&rsquo; error tolerance 浏览器的容错机制</h4></a><p>您在浏览 HTML 网页时从来不会看到“语法无效”的错误。这是因为浏览器会纠正任何无效内容，然后继续工作。</p><p>以下面的 HTML 代码为例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl>	<span class=p>&lt;</span><span class=nt>mytag</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl>	<span class=p>&lt;/</span><span class=nt>mytag</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl>	<span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl>	<span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl>	<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span> Really lousy HTML 
-</span></span><span class=line><span class=cl>	<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span> 
-</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
-</span></span></code></pre></td></tr></table></div></div><p>在这里，已经违反了很多语法规则（“mytag”不是标准的标记，“p”和“div”元素之间的嵌套有误等等），但是浏览器仍然会正确地显示这些内容，并且毫无怨言。因为有大量的解析器代码会纠正 HTML 网页作者的错误。</p><p>不同浏览器的错误处理机制相当一致，但令人称奇的是，这种机制并不是 HTML 当前规范的一部分。和书签管理以及前进/后退按钮一样，它也是浏览器在多年发展中的产物。很多网站都普遍存在着一些已知的无效 HTML 结构，每一种浏览器都会尝试通过和其他浏览器一样的方式来修复这些无效结构。</p><p>HTML5 规范定义了一部分这样的要求。WebKit 在 HTML 解析器类的开头注释中对此做了很好的概括。</p><blockquote><p>我们至少要能够处理以下错误情况：</p><ol><li>明显不能在某些外部标记中添加的元素。在此情况下，我们应该关闭所有标记，直到出现禁止添加的元素，然后再加入该元素。</li><li>我们不能直接添加的元素。这很可能是网页作者忘记添加了其中的一些标记（或者其中的标记是可选的）。这些标签可能包括：HTML HEAD BODY TBODY TR TD LI（还有遗漏的吗？）。</li><li>向 inline 元素内添加 block 元素。关闭所有 inline 元素，直到出现下一个较高级的 block 元素。</li><li>如果这样仍然无效，可关闭所有元素，直到可以添加元素为止，或者忽略该标记。</li></ol></blockquote><a href=#css-parser><h2 id=css-parser><span class=hanchor arialabel=Anchor># </span>CSS Parser</h2></a><a href=#webkit-css-解析器><h3 id=webkit-css-解析器><span class=hanchor arialabel=Anchor># </span>WebKit CSS 解析器</h3></a><p>WebKit 使用 <strong>Flex</strong> 和 <strong>Bison</strong> 解析器生成器，通过 CSS 语法文件自动创建解析器。正如我们之前在解析器简介中所说，Bison 会创建自下而上的移位归约解析器。Firefox 使用的是人工编写的自上而下的解析器。这两种解析器都会将 CSS 文件解析成 StyleSheet 对象，且每个对象都包含 CSS 规则。CSS 规则对象则包含选择器和声明对象，以及其他与 CSS 语法对应的对象。</p><p><img src=chick26.github.io/../../../Extras/Media/Images/202201281106738.png width=auto alt></p><a href=#the-order-of-processing-scripts-and-style-sheets><h2 id=the-order-of-processing-scripts-and-style-sheets><span class=hanchor arialabel=Anchor># </span>The order of processing scripts and style sheets</h2></a><a href=#scripts><h3 id=scripts><span class=hanchor arialabel=Anchor># </span>Scripts</h3></a><p>网络的模型是同步的。网页作者希望解析器遇到 <code>&lt;script></code> 标记时立即解析并执行脚本。文档的解析将停止，直到脚本执行完毕。如果脚本是外部的，那么解析过程会停止，直到从网络同步抓取资源完成后再继续。此模型已经使用了多年，也在 HTML4 和 HTML5 规范中进行了指定。作者也可以将脚本标注为“defer”，这样它就不会停止文档解析，而是等到解析结束才执行。HTML5 增加了一个选项，可将脚本标记为异步，以便由其他线程解析和执行。</p><a href=#speculative-parsing><h3 id=speculative-parsing><span class=hanchor arialabel=Anchor># </span>Speculative parsing</h3></a><p>WebKit 和 Firefox 都进行了这项优化。在执行脚本时，其他线程会解析文档的其余部分，找出并加载需要通过网络加载的其他资源。通过这种方式，资源可以在并行连接上加载，从而提高总体速度。请注意，预解析器不会修改 DOM 树，而是将这项工作交由主解析器处理；预解析器只会解析外部资源（例如外部脚本、样式表和图片）的引用。</p><a href=#style-sheets><h3 id=style-sheets><span class=hanchor arialabel=Anchor># </span>Style sheets</h3></a><p>另一方面，样式表有着不同的模型。理论上来说，应用样式表不会更改 DOM 树，因此似乎没有必要等待样式表并停止文档解析。但这涉及到一个问题，就是脚本在文档解析阶段会请求样式信息。如果当时还没有加载和解析样式，脚本就会获得错误的回复，这样显然会产生很多问题。这看上去是一个非典型案例，但事实上非常普遍。Firefox 在样式表加载和解析的过程中，会禁止所有脚本。而对于 WebKit 而言，仅当脚本尝试访问的样式属性可能受尚未加载的样式表影响时，它才会禁止该脚本。</p><a href=#4-render-tree-construction-呈现树构建><h1 id=4-render-tree-construction-呈现树构建><span class=hanchor arialabel=Anchor># </span>4. Render tree construction 呈现树构建</h1></a><p>^edd771</p><blockquote><p>在 DOM 树构建的同时，浏览器还会构建另一个树结构：呈现树。这是由可视化元素按照其显示顺序而组成的树，也是文档的可视化表示。它的作用是让您按照正确的顺序绘制内容。</p></blockquote><p>Firefox 将呈现树中的元素称为“框架”。WebKit 使用的术语是呈现器或呈现对象。<br>呈现器知道如何布局并将自身及其子元素绘制出来。<br>WebKits RenderObject 类是所有呈现器的基类，其定义如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>class</span> <span class=nx>RenderObject</span><span class=p>{</span> 
-</span></span><span class=line><span class=cl>	<span class=nx>virtual</span> <span class=k>void</span> <span class=nx>layout</span><span class=p>();</span> 
-</span></span><span class=line><span class=cl>	<span class=nx>virtual</span> <span class=k>void</span> <span class=nx>paint</span><span class=p>(</span><span class=nx>PaintInfo</span><span class=p>);</span> 
-</span></span><span class=line><span class=cl>	<span class=nx>virtual</span> <span class=k>void</span> <span class=nx>rect</span> <span class=nx>repaintRect</span><span class=p>();</span> 
-</span></span><span class=line><span class=cl>	<span class=nx>Node</span><span class=o>*</span> <span class=nx>node</span><span class=p>;</span> <span class=c1>//the DOM node 
-</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>RenderStyle</span><span class=o>*</span> <span class=nx>style</span><span class=p>;</span> <span class=c1>// the computed style 
-</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>RenderLayer</span><span class=o>*</span> <span class=nx>containgLayer</span><span class=p>;</span> <span class=c1>//the containing z-index layer 
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><p>每一个呈现器都代表了一个矩形的区域，通常对应于相关节点的 CSS 框，这一点在 CSS2 规范中有所描述。它包含诸如宽度、高度和位置等几何信息。
-下面这段 WebKit 代码描述了根据 display 属性的不同，针对同一个 DOM 节点应创建什么类型的呈现器。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>RenderObject</span><span class=o>*</span> <span class=nx>RenderObject</span><span class=o>::</span><span class=nx>createObject</span><span class=p>(</span><span class=nx>Node</span><span class=o>*</span> <span class=nx>node</span><span class=p>,</span> <span class=nx>RenderStyle</span><span class=o>*</span> <span class=nx>style</span><span class=p>)</span> <span class=p>{</span> 
-</span></span><span class=line><span class=cl>	<span class=nx>Document</span><span class=o>*</span> <span class=nx>doc</span> <span class=o>=</span> <span class=nx>node</span><span class=o>-&gt;</span><span class=nb>document</span><span class=p>();</span> 
-</span></span><span class=line><span class=cl>	<span class=nx>RenderArena</span><span class=o>*</span> <span class=nx>arena</span> <span class=o>=</span> <span class=nx>doc</span><span class=o>-&gt;</span><span class=nx>renderArena</span><span class=p>();</span> 
-</span></span><span class=line><span class=cl>	<span class=p>...</span> 
-</span></span><span class=line><span class=cl>	<span class=nx>RenderObject</span><span class=o>*</span> <span class=nx>o</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> 
-</span></span><span class=line><span class=cl>	<span class=k>switch</span> <span class=p>(</span><span class=nx>style</span><span class=o>-&gt;</span><span class=nx>display</span><span class=p>())</span> <span class=p>{</span> 
-</span></span><span class=line><span class=cl>		<span class=k>case</span> <span class=nx>NONE</span><span class=o>:</span> <span class=k>break</span><span class=p>;</span> 
-</span></span><span class=line><span class=cl>		<span class=k>case</span> <span class=nx>INLINE</span><span class=o>:</span> <span class=nx>o</span> <span class=o>=</span> <span class=k>new</span> <span class=p>(</span><span class=nx>arena</span><span class=p>)</span> <span class=nx>RenderInline</span><span class=p>(</span><span class=nx>node</span><span class=p>);</span> <span class=k>break</span><span class=p>;</span> 
-</span></span><span class=line><span class=cl>		<span class=k>case</span> <span class=nx>BLOCK</span><span class=o>:</span> <span class=nx>o</span> <span class=o>=</span> <span class=k>new</span> <span class=p>(</span><span class=nx>arena</span><span class=p>)</span> <span class=nx>RenderBlock</span><span class=p>(</span><span class=nx>node</span><span class=p>);</span> <span class=k>break</span><span class=p>;</span> 
-</span></span><span class=line><span class=cl>		<span class=k>case</span> <span class=nx>INLINE_BLOCK</span><span class=o>:</span> <span class=nx>o</span> <span class=o>=</span> <span class=k>new</span> <span class=p>(</span><span class=nx>arena</span><span class=p>)</span> <span class=nx>RenderBlock</span><span class=p>(</span><span class=nx>node</span><span class=p>);</span> <span class=k>break</span><span class=p>;</span> 
-</span></span><span class=line><span class=cl>		<span class=k>case</span> <span class=nx>LIST_ITEM</span><span class=o>:</span> <span class=nx>o</span> <span class=o>=</span> <span class=k>new</span> <span class=p>(</span><span class=nx>arena</span><span class=p>)</span> <span class=nx>RenderListItem</span><span class=p>(</span><span class=nx>node</span><span class=p>);</span> <span class=k>break</span><span class=p>;</span> 
-</span></span><span class=line><span class=cl>		<span class=p>...</span> 
-</span></span><span class=line><span class=cl>	<span class=p>}</span> 
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>o</span><span class=p>;</span> 
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><p>元素类型也是考虑因素之一，例如表单控件和表格都对应特殊的框架。<br>在 WebKit 中，如果一个元素需要创建特殊的呈现器，就会替换 <code>createRenderer</code> 方法。呈现器所指向的样式对象中包含了一些和几何无关的信息。</p><a href=#the-render-tree-relation-to-the-dom-tree><h2 id=the-render-tree-relation-to-the-dom-tree><span class=hanchor arialabel=Anchor># </span>The render tree relation to the DOM tree</h2></a><ul><li>呈现器是和 DOM 元素相对应的，但并非一一对应。非可视化的 DOM 元素不会插入呈现树中，例如“head”元素。如果元素的 display 属性值为“none”，那么也不会显示在呈现树中（但是 visibility 属性值为“hidden”的元素仍会显示）。</li><li>一些 DOM 元素对应多个可视化对象。它们往往是具有复杂结构的元素，无法用单一的矩形来描述。例如，“select”元素有 3 个呈现器：一个用于显示区域，一个用于下拉列表框，还有一个用于按钮。如果由于宽度不够，文本无法在一行中显示而分为多行，那么新的行也会作为新的呈现器而添加。</li><li>格式无效的 HTML 也会对应多个可视化对象。根据 CSS 规范，inline 元素只能包含 block 元素或 inline 元素中的一种。如果出现了混合内容，则应创建匿名的 block 呈现器，以包裹 inline 元素。</li><li>有一些呈现对象对应于 DOM 节点，但在树中所在的位置与 DOM 节点不同。浮动定位和绝对定位的元素就是这样，它们处于正常的流程之外，放置在树中的其他地方，并映射到真正的框架，而放在原位的是占位框架。</li></ul><p><img src=chick26.github.io/../../../Extras/Media/Images/202201281500208.png width=auto alt></p><a href=#the-flow-of-constructing-the-tree><h2 id=the-flow-of-constructing-the-tree><span class=hanchor arialabel=Anchor># </span>The flow of constructing the tree</h2></a><p>在 Firefox 中，系统会针对 DOM 更新注册展示层，作为侦听器。展示层将框架创建工作委托给 <code>FrameConstructor</code>，由该构造器解析样式并创建框架。</p><p>在 WebKit 中，解析样式和创建呈现器的过程称为“附加”。每个 DOM 节点都有一个“attach”方法。附加是同步进行的，将节点插入 DOM 树需要调用新的节点“attach”方法。</p><p>处理 html 和 body 标记就会构建呈现树根节点。这个根节点呈现对象对应于 CSS 规范中所说的容器 block，这是最上层的 block，包含了其他所有 block。它的尺寸就是视口，即浏览器窗口显示区域的尺寸。Firefox 称之为 <code>ViewPortFrame</code>，而 WebKit 称之为 <code>RenderView</code>。这就是文档所指向的呈现对象。呈现树的其余部分以 DOM 树节点插入的形式来构建。</p><a href=#style-computation><h2 id=style-computation><span class=hanchor arialabel=Anchor># </span>Style Computation</h2></a><ul><li>构建呈现树时，需要计算每一个呈现对象的可视化属性。这是通过计算每个元素的样式属性来完成的。</li><li>样式包括来自各种来源的样式表、inline 样式元素和 HTML 中的可视化属性（例如“bgcolor”属性）。其中后者将经过转化以匹配 CSS 样式属性。</li><li>样式表的来源包括浏览器的默认样式表、由网页作者提供的样式表以及由浏览器用户提供的用户样式表</li></ul><a href=#sharing-style-data><h3 id=sharing-style-data><span class=hanchor arialabel=Anchor># </span>Sharing style data</h3></a><p>WebKit 节点会引用样式对象 (RenderStyle)。这些对象在某些情况下可以由不同节点共享。这些节点是同级关系，并且：</p><ol><li>这些元素必须处于相同的鼠标状态（例如，不允许其中一个是“:hover”状态，而另一个不是）</li><li>任何元素都没有 ID</li><li>标记名称应匹配</li><li>类属性应匹配</li><li>映射属性的集合必须是完全相同的</li><li>链接状态必须匹配</li><li>焦点状态必须匹配</li><li>任何元素都不应受属性选择器的影响，这里所说的“影响”是指在选择器中的任何位置有任何使用了属性选择器的选择器匹配</li><li>元素中不能有任何 inline 样式属性</li><li>不能使用任何同级选择器。WebCore 在遇到任何同级选择器时，只会引发一个全局开关，并停用整个文档的样式共享（如果存在）。这包括 + 选择器以及 :first-child 和 :last-child 等选择器。</li></ol><a href=#manipulating-the-rules-for-an-easy-match><h3 id=manipulating-the-rules-for-an-easy-match><span class=hanchor arialabel=Anchor># </span>Manipulating the rules for an easy match</h3></a><p>样式规则有一些来源：</p><ul><li>外部样式表或样式元素中的 CSS 规则</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=nt>p</span> <span class=p>{</span><span class=k>color</span><span class=p>:</span><span class=kc>blue</span><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><ul><li>inline 样式属性及类似内容</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=o>&lt;</span><span class=nt>p</span> <span class=nt>style</span><span class=o>=</span><span class=s2>&#34;color:blue&#34;</span> <span class=o>/&gt;</span>	
-</span></span></code></pre></td></tr></table></div></div><ul><li>HTML 可视化属性（映射到相关的样式规则）</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=o>&lt;</span><span class=nt>p</span> <span class=nt>bgcolor</span><span class=o>=</span><span class=s2>&#34;blue&#34;</span> <span class=o>/&gt;</span>	
-</span></span></code></pre></td></tr></table></div></div><p>后两种很容易和元素进行匹配，因为元素拥有样式属性，而且 HTML 属性可以使用元素作为键值进行映射。</p><p>样式表解析完毕后，系统会根据选择器将 CSS 规则添加到某个哈希表中。这些哈希表的选择器各不相同，包括 ID、类名称、标记名称等，还有一种通用哈希表，适合不属于上述类别的规则。如果选择器是 ID，规则就会添加到 ID 表中；如果选择器是类，规则就会添加到类表中，依此类推。</p><p>这种处理可以大大简化规则匹配。我们无需查看每一条声明，只要从哈希表中提取元素的相关规则即可。这种优化方法可排除掉 95% 以上规则，因此在匹配过程中根本就不用考虑这些规则了。</p><a href=#applying-the-rules-in-the-correct-cascade-order><h3 id=applying-the-rules-in-the-correct-cascade-order><span class=hanchor arialabel=Anchor># </span>Applying the rules in the correct cascade order</h3></a><p>样式对象具有与每个可视化属性一一对应的属性（均为 CSS 属性但更为通用）。如果某个属性未由任何匹配规则所定义，那么部分属性就可由父代元素样式对象继承。其他属性具有默认值。</p><p>如果定义不止一个，就会出现问题，需要通过层叠顺序来解决。</p><a href=#style-sheet-cascade-order><h4 id=style-sheet-cascade-order><span class=hanchor arialabel=Anchor># </span>Style sheet cascade order</h4></a><p>某个样式属性的声明可能会出现在多个样式表中，也可能在同一个样式表中出现多次。这意味着应用规则的顺序极为重要。这称为“层叠”顺序。根据 CSS2 规范，层叠的顺序为（优先级从低到高）：</p><ol><li>浏览器声明</li><li>用户普通声明</li><li>作者普通声明</li><li>作者重要声明</li><li>用户重要声明</li></ol><p>浏览器声明是重要程度最低的，而用户只有将该声明标记为“重要”才可以替换网页作者的声明。同样顺序的声明会根据 <a href=chick26.github.io#specificity rel=noopener class=internal-link data-src=chick26.github.io>特异性</a> 进行排序，然后再是其指定顺序。HTML 可视化属性会转换成匹配的 CSS 声明。它们被视为低优先级的网页作者规则。</p><a href=#specificity><h4 id=specificity><span class=hanchor arialabel=Anchor># </span>Specificity</h4></a><p>选择器的特异性由
-<a href=http://www.w3.org/TR/CSS2/cascade.html#specificity rel=noopener>CSS2 规范</a>定义如下：</p><ul><li>如果声明来自于“style”属性，而不是带有选择器的规则，则记为 1，否则记为 0 (= a)</li><li>记为选择器中 ID 属性的个数 (= b)</li><li>记为选择器中其他属性和伪类的个数 (= c)</li><li>记为选择器中元素名称和伪元素的个数 (= d)</li></ul><p>将四个数字按 a-b-c-d 这样连接起来（位于大数进制的数字系统中），构成特异性。</p><p>您使用的进制取决于上述类别中的最高计数。<br>例如，如果 a=14，您可以使用十六进制。如果 a=17，那么您需要使用十七进制；当然不太可能出现这种情况，除非是存在如下的选择器：html body div div p &mldr;（在选择器中出现了 17 个标记，这样的可能性极低）。</p><p>一些示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>*</span>              <span class=p>{}</span> <span class=cm>/* a=0 b=0 c=0 d=0 -&gt; specificity = 0,0,0,0 */</span> 
-</span></span><span class=line><span class=cl><span class=nx>li</span>             <span class=p>{}</span> <span class=cm>/* a=0 b=0 c=0 d=1 -&gt; specificity = 0,0,0,1 */</span> 
-</span></span><span class=line><span class=cl><span class=nx>li</span><span class=o>:</span><span class=nx>first</span><span class=o>-</span><span class=nx>line</span>  <span class=p>{}</span> <span class=cm>/* a=0 b=0 c=0 d=2 -&gt; specificity = 0,0,0,2 */</span> 
-</span></span><span class=line><span class=cl><span class=nx>ul</span> <span class=nx>li</span>          <span class=p>{}</span> <span class=cm>/* a=0 b=0 c=0 d=2 -&gt; specificity = 0,0,0,2 */</span> 
-</span></span><span class=line><span class=cl><span class=nx>ul</span> <span class=nx>ol</span><span class=o>+</span><span class=nx>li</span>       <span class=p>{}</span> <span class=cm>/* a=0 b=0 c=0 d=3 -&gt; specificity = 0,0,0,3 */</span> 
-</span></span><span class=line><span class=cl><span class=nx>h1</span> <span class=o>+</span> <span class=o>*</span><span class=p>[</span><span class=nx>rel</span><span class=o>=</span><span class=nx>up</span><span class=p>]</span> <span class=p>{}</span> <span class=cm>/* a=0 b=0 c=1 d=1 -&gt; specificity = 0,0,1,1 */</span> 
-</span></span><span class=line><span class=cl><span class=nx>ul</span> <span class=nx>ol</span> <span class=nx>li</span><span class=p>.</span><span class=nx>red</span>   <span class=p>{}</span> <span class=cm>/* a=0 b=0 c=1 d=3 -&gt; specificity = 0,0,1,3 */</span> 
-</span></span><span class=line><span class=cl><span class=nx>li</span><span class=p>.</span><span class=nx>red</span><span class=p>.</span><span class=nx>level</span>   <span class=p>{}</span> <span class=cm>/* a=0 b=0 c=2 d=1 -&gt; specificity = 0,0,2,1 */</span> 
-</span></span><span class=line><span class=cl><span class=err>#</span><span class=nx>x34y</span>          <span class=p>{}</span> <span class=cm>/* a=0 b=1 c=0 d=0 -&gt; specificity = 0,1,0,0 */</span> 
-</span></span><span class=line><span class=cl><span class=nx>style</span><span class=o>=</span><span class=s2>&#34;&#34;</span>          <span class=cm>/* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */</span>
-</span></span></code></pre></td></tr></table></div></div><a href=#sorting-the-rules><h4 id=sorting-the-rules><span class=hanchor arialabel=Anchor># </span>Sorting the rules</h4></a><p>找到匹配的规则之后，应根据级联顺序将其排序。WebKit 对于较小的列表会使用冒泡排序，而对较大的列表则使用归并排序。对于以下规则，WebKit 通过替换“>”运算符来实现排序：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>static</span> <span class=n>bool</span> <span class=n>operator</span> <span class=o>&gt;(</span><span class=n>CSSRuleData</span><span class=o>&amp;</span> <span class=n>r1</span><span class=o>,</span> <span class=n>CSSRuleData</span><span class=o>&amp;</span> <span class=n>r2</span><span class=o>)</span> 
-</span></span><span class=line><span class=cl><span class=o>{</span> 
-</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>spec1</span> <span class=o>=</span> <span class=n>r1</span><span class=o>.</span><span class=na>selector</span><span class=o>()-&gt;</span><span class=n>specificity</span><span class=o>();</span> 
-</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>spec2</span> <span class=o>=</span> <span class=n>r2</span><span class=o>.</span><span class=na>selector</span><span class=o>()-&gt;</span><span class=n>specificity</span><span class=o>();</span> 
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=o>(</span><span class=n>spec1</span> <span class=o>==</span> <span class=n>spec2</span><span class=o>)</span> <span class=o>:</span> <span class=n>r1</span><span class=o>.</span><span class=na>position</span><span class=o>()</span> <span class=o>&gt;</span> <span class=n>r2</span><span class=o>.</span><span class=na>position</span><span class=o>()</span> <span class=o>:</span> <span class=n>spec1</span> <span class=o>&gt;</span> <span class=n>spec2</span><span class=o>;</span> 
-</span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span></code></pre></td></tr></table></div></div><a href=#gradual-process><h2 id=gradual-process><span class=hanchor arialabel=Anchor># </span>Gradual process</h2></a><p>WebKit 使用一个标记来表示是否所有的顶级样式表（包括 @imports）均已加载完毕。如果在附加过程中尚未完全加载样式，则使用占位符，并在文档中进行标注，等样式表加载完毕后再重新计算。</p><a href=#5layout-布局><h1 id=5layout-布局><span class=hanchor arialabel=Anchor># </span>5.Layout 布局</h1></a><p>呈现器在创建完成并添加到呈现树时，并不包含位置和大小信息。计算这些值的过程称为布局或重排。</p><p>HTML 采用基于流的布局模型，这意味着大多数情况下只要一次遍历就能计算出几何信息。处于流中靠后位置元素通常不会影响靠前位置元素的几何特征，因此布局可以按从左至右、从上至下的顺序遍历文档。但是也有例外情况，比如 HTML 表格的计算就需要不止一次的遍历。</p><p>坐标系是相对于根框架而建立的，使用的是上坐标和左坐标。</p><p>布局是一个递归的过程。它从根呈现器（对应于 HTML 文档的 <code>&lt;html></code> 元素）开始，然后递归遍历部分或所有的框架层次结构，为每一个需要计算的呈现器计算几何信息。</p><p>根呈现器的位置左边是 0,0，其尺寸为视口（也就是浏览器窗口的可见区域）。</p><p>所有的呈现器都有一个“layout”或者“reflow”方法，每一个呈现器都会调用其需要进行布局的子代的 layout 方法。</p><a href=#dirty-bit-system><h2 id=dirty-bit-system><span class=hanchor arialabel=Anchor># </span>Dirty bit system</h2></a><p>为避免对所有细小更改都进行整体布局，浏览器采用了一种“dirty 位”系统。如果某个呈现器发生了更改，或者将自身及其子代标注为“dirty”，则需要进行布局。</p><p>有两种标记：“dirty”和“children are dirty”。“children are dirty”表示尽管呈现器自身没有变化，但它至少有一个子代需要布局。</p><a href=#global-and-incremental-layout><h2 id=global-and-incremental-layout><span class=hanchor arialabel=Anchor># </span>Global and incremental layout</h2></a><p>全局布局是指触发了整个呈现树范围的布局，触发原因可能包括：</p><ol><li>影响所有呈现器的全局样式更改，例如字体大小更改。</li><li>屏幕大小调整。</li></ol><p>布局可以采用增量方式，也就是只对 dirty 呈现器进行布局（这样可能存在需要进行额外布局的弊端）。<br>当呈现器为 dirty 时，会异步触发增量布局。例如，当来自网络的额外内容添加到 DOM 树之后，新的呈现器附加到了呈现树中。</p><a href=#asynchronous-and-synchronous-layout><h2 id=asynchronous-and-synchronous-layout><span class=hanchor arialabel=Anchor># </span>Asynchronous and Synchronous layout</h2></a><p>增量布局是异步执行的。Firefox 将增量布局的“reflow 命令”加入队列，而调度程序会触发这些命令的批量执行。WebKit 也有用于执行增量布局的计时器：对呈现树进行遍历，并对 dirty 呈现器进行布局。</p><ul><li>请求样式信息（例如“offsetHeight”）的脚本可同步触发增量布局。</li><li>全局布局往往是同步触发的。</li><li>有时，当初始布局完成之后，如果一些属性（如滚动位置）发生变化，布局就会作为回调而触发。</li></ul><a href=#optimizations><h2 id=optimizations><span class=hanchor arialabel=Anchor># </span>Optimizations</h2></a><p>如果布局是由“大小调整”或呈现器的位置（而非大小）改变而触发的，那么可以从缓存中获取呈现器的大小，而无需重新计算。<br>在某些情况下，只有一个子树进行了修改，因此无需从根节点开始布局。这适用于在本地进行更改而不影响周围元素的情况，例如在文本字段中插入文本（否则每次键盘输入都将触发从根节点开始的布局）。</p><a href=#the-layout-process><h2 id=the-layout-process><span class=hanchor arialabel=Anchor># </span>The layout process</h2></a><p>布局通常具有以下模式：</p><ol><li>父呈现器确定自己的宽度。</li><li>父呈现器依次处理子呈现器，并且：<ol><li>放置子呈现器（设置 x,y 坐标）。</li><li>如果有必要，调用子呈现器的布局（如果子呈现器是 dirty 的，或者这是全局布局，或出于其他某些原因），这会计算子呈现器的高度。</li></ol></li><li>父呈现器根据子呈现器的累加高度以及边距和补白的高度来设置自身高度，此值也可供父呈现器的父呈现器使用。</li><li>将其 dirty 位设置为 false。</li></ol><a href=#width-calculation><h2 id=width-calculation><span class=hanchor arialabel=Anchor># </span>Width calculation</h2></a><p>呈现器宽度是根据容器块的宽度、呈现器样式中的“width”属性以及边距和边框计算得出的。<br>例如以下 div 的宽度：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;width:30%&#34;</span><span class=p>/&gt;</span>
-</span></span></code></pre></td></tr></table></div></div><p>将由 WebKit 计算如下（BenderBox 类，calcWidth 方法）：</p><ul><li>容器的宽度取容器的 availableWidth 和 0 中的较大值。availableWidth 在本例中相当于 contentWidth，clientWidth 和 clientHeight 表示一个对象的内部（除去边框和滚动条）。计算公式如下：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-latex data-lang=latex><span class=line><span class=cl>clientWidth() - paddingLeft() - paddingRight()
-</span></span></code></pre></td></tr></table></div></div><ul><li>元素的宽度是“width”样式属性。它会根据容器宽度的百分比计算得出一个绝对值。</li><li>然后加上水平方向的边框和补白。</li></ul><p>现在计算得出的是“preferred width”。然后需要计算最小宽度和最大宽度。<br>如果首选宽度大于最大宽度，那么应使用最大宽度。如果首选宽度小于最小宽度（最小的不可破开单位），那么应使用最小宽度。</p><p>这些值会缓存起来，以用于需要布局而宽度不变的情况。</p><a href=#line-breaking><h2 id=line-breaking><span class=hanchor arialabel=Anchor># </span>Line Breaking</h2></a><p>如果呈现器在布局过程中需要换行，会立即停止布局，并告知其父代需要换行。父代会创建额外的呈现器，并对其调用布局。</p><a href=#6painting-绘制><h1 id=6painting-绘制><span class=hanchor arialabel=Anchor># </span>6.Painting 绘制</h1></a><blockquote><p>在绘制阶段，系统会遍历呈现树，并调用呈现器的“paint”方法，将呈现器的内容显示在屏幕上。绘制工作是使用用户界面基础组件完成的。</p></blockquote><a href=#global-and-incremental><h2 id=global-and-incremental><span class=hanchor arialabel=Anchor># </span>Global and Incremental</h2></a><p>和布局一样，绘制也分为全局（绘制整个呈现树）和增量两种。在增量绘制中，部分呈现器发生了更改，但是不会影响整个树。更改后的呈现器将其在屏幕上对应的矩形区域设为无效，这导致 OS 将其视为一块“dirty 区域”，并生成“paint”事件。OS 会很巧妙地将多个区域合并成一个。在 Chrome 浏览器中，情况要更复杂一些，因为 Chrome 浏览器的呈现器不在主进程上。Chrome 浏览器会在某种程度上模拟 OS 的行为。展示层会侦听这些事件，并将消息委托给呈现根节点。然后遍历呈现树，直到找到相关的呈现器，该呈现器会重新绘制自己（通常也包括其子代）。</p><a href=#the-painting-order><h2 id=the-painting-order><span class=hanchor arialabel=Anchor># </span>The painting order</h2></a><p><a href=http://www.w3.org/TR/CSS21/zindex.html rel=noopener>CSS2 规范定义了绘制流程的顺序</a>。绘制的顺序其实就是元素进入
-<a href=https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#stackingcontext rel=noopener>堆栈样式上下文</a>的顺序。这些堆栈会从后往前绘制，因此这样的顺序会影响绘制。块呈现器的堆栈顺序如下：</p><ol><li>背景颜色</li><li>背景图片</li><li>边框</li><li>子代</li><li>轮廓</li></ol><a href=#webkit-rectangle-storage><h2 id=webkit-rectangle-storage><span class=hanchor arialabel=Anchor># </span>WebKit rectangle storage</h2></a><p>在重新绘制之前，WebKit 会将原来的矩形另存为一张位图，然后只绘制新旧矩形之间的差异部分。</p><a href=#7dynamic-changes><h1 id=7dynamic-changes><span class=hanchor arialabel=Anchor># </span>7.Dynamic changes</h1></a><blockquote><p>在发生变化时，浏览器会尽可能做出最小的响应。因此，元素的颜色改变后，只会对该元素进行重绘。元素的位置改变后，只会对该元素及其子元素（可能还有同级元素）进行布局和重绘。添加 DOM 节点后，会对该节点进行布局和重绘。一些重大变化（例如增大“html”元素的字体）会导致缓存无效，使得整个呈现树都会进行重新布局和绘制。</p></blockquote><a href=#8the-rendering-engines-threads><h1 id=8the-rendering-engines-threads><span class=hanchor arialabel=Anchor># </span>8.The rendering engine&rsquo;s threads</h1></a><blockquote><p>呈现引擎采用了单线程。几乎所有操作（除了网络操作）都是在单线程中进行的。在 Firefox 和 Safari 中，该线程就是浏览器的主线程。而在 Chrome 浏览器中，该线程是标签进程的主线程。 网络操作可由多个并行线程执行。并行连接数是有限的（通常为 2 至 6 个，以 Firefox 3 为例是 6 个）。</p></blockquote></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>
+
+ 
+          
+<a href="https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/Internet/Web%20Browsers.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/Network/Internet/">
+          
+            Network internet
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Development/Frontend/WebBrowser/">
+          
+            Development frontend web browser
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#main-flow">Main Flow</a></li>
+    <li><a href="#main-flow-examples">Main Flow Examples</a>
+      <ol>
+        <li><a href="#webkit-main-flow">WebKit Main Flow</a></li>
+        <li><a href="#mozillas-gecko-rendering-engine-main-flow">Mozilla&rsquo;s Gecko rendering engine main flow</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#parsing">Parsing</a>
+      <ol>
+        <li><a href="#parserlexer-combination">Parser–Lexer combination</a></li>
+        <li><a href="#formal-definitions-for-vocabulary-and-syntax">Formal definitions for vocabulary and syntax</a></li>
+        <li><a href="#types-of-parsers">Types of parsers</a></li>
+        <li><a href="#generating-parsers-automatically">Generating parsers automatically</a></li>
+      </ol>
+    </li>
+    <li><a href="#html-parser">HTML Parser</a>
+      <ol>
+        <li><a href="#dom">DOM</a></li>
+        <li><a href="#the-parsing-algorithm">The parsing algorithm</a></li>
+      </ol>
+    </li>
+    <li><a href="#css-parser">CSS Parser</a>
+      <ol>
+        <li><a href="#webkit-css-解析器">WebKit CSS 解析器</a></li>
+      </ol>
+    </li>
+    <li><a href="#the-order-of-processing-scripts-and-style-sheets">The order of processing scripts and style sheets</a>
+      <ol>
+        <li><a href="#scripts">Scripts</a></li>
+        <li><a href="#speculative-parsing">Speculative parsing</a></li>
+        <li><a href="#style-sheets">Style sheets</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#the-render-tree-relation-to-the-dom-tree">The render tree relation to the DOM tree</a></li>
+    <li><a href="#the-flow-of-constructing-the-tree">The flow of constructing the tree</a></li>
+    <li><a href="#style-computation">Style Computation</a>
+      <ol>
+        <li><a href="#sharing-style-data">Sharing style data</a></li>
+        <li><a href="#manipulating-the-rules-for-an-easy-match">Manipulating the rules for an easy match</a></li>
+        <li><a href="#applying-the-rules-in-the-correct-cascade-order">Applying the rules in the correct cascade order</a></li>
+      </ol>
+    </li>
+    <li><a href="#gradual-process">Gradual process</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#dirty-bit-system">Dirty bit system</a></li>
+    <li><a href="#global-and-incremental-layout">Global and incremental layout</a></li>
+    <li><a href="#asynchronous-and-synchronous-layout">Asynchronous and Synchronous layout</a></li>
+    <li><a href="#optimizations">Optimizations</a></li>
+    <li><a href="#the-layout-process">The layout process</a></li>
+    <li><a href="#width-calculation">Width calculation</a></li>
+    <li><a href="#line-breaking">Line Breaking</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#global-and-incremental">Global and Incremental</a></li>
+    <li><a href="#the-painting-order">The painting order</a></li>
+    <li><a href="#webkit-rectangle-storage">WebKit rectangle storage</a></li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<a href="#1-浏览器高层结构"><h1 id="1-浏览器高层结构"><span class="hanchor" ariaLabel="Anchor"># </span>1. 浏览器高层结构</h1></a>
+<ol>
+<li><strong>用户界面</strong> - 包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面。</li>
+<li><strong>浏览器引擎</strong> - 在用户界面和呈现引擎之间传送指令。</li>
+<li><strong>呈现引擎</strong> - 负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上。</li>
+<li><strong>网络</strong> - 用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。</li>
+<li><strong>用户界面后端</strong> - 用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。</li>
+<li><strong>JavaScript 解释器</strong>。用于解析和执行 JavaScript 代码。</li>
+<li><strong>数据存储</strong>。这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库</li>
+</ol>
+<p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/202201261438296.png" width="auto" alt=""  /></p>
+<a href="#2-rendering-engine-呈现引擎"><h1 id="2-rendering-engine-呈现引擎"><span class="hanchor" ariaLabel="Anchor"># </span>2. Rendering Engine 呈现引擎</h1></a>
+<blockquote>
+<p>默认情况下，呈现引擎可显示 HTML 和 XML 文档与图片。通过插件（或浏览器扩展程序），还可以显示其他类型的内容；例如，使用 PDF 查看器插件就能显示 PDF 文档。但是在本章中，我们将集中介绍其主要用途：显示使用 CSS 格式化的 HTML 内容和图片。</p>
+</blockquote>
+<p>Firefox、Chrome 浏览器和 Safari是基于两种呈现引擎构建的。Firefox 使用的是 Gecko，这是 Mozilla 公司“自制”的呈现引擎。而 Safari 和 Chrome 浏览器使用的都是 WebKit。WebKit 是一种开放源代码呈现引擎，起初用于 Linux 平台，随后由 Apple 公司进行修改，从而支持苹果机和 Windows。</p>
+<a href="#main-flow"><h2 id="main-flow"><span class="hanchor" ariaLabel="Anchor"># </span>Main Flow</h2></a>
+<div class="mermaid">graph LR  
+	A[Parsing HTML<br>to construst<br>the DOM tree]-->B[Render tree<br>construction]-->C[Layout of the<br>render tree]-->D[Painting the<br>render trree]
+</div>
+
+<p>呈现引擎开始解析 HTML 文档，并将各标记逐个转化成“内容树”上的 DOM 节点。同时也会解析外部 CSS 文件以及样式元素中的样式数据。HTML 中这些带有视觉指令的样式信息将用于创建另一个树结构：<a href="chick26.github.io/Cards/-Front-Dev/Internet/Web-Browsers#edd771" rel="noopener" class="internal-link" data-src="chick26.github.io/Cards/-Front-Dev/Internet/Web-Browsers">呈现树</a>(Render Tree)。</p>
+<p>呈现树包含多个带有视觉属性（如颜色和尺寸）的矩形。这些矩形的排列顺序就是它们将在屏幕上显示的顺序。</p>
+<p>呈现树构建完毕之后，进入布局(Layout) 处理阶段，也就是为每个节点分配一个应出现在屏幕上的确切坐标。下一个阶段是 绘制(Painting) - 呈现引擎会遍历呈现树，由用户界面后端层将每个节点绘制出来。</p>
+<p><strong>PS</strong> 这是一个渐进的过程。为达到更好的用户体验，呈现引擎会力求尽快将内容显示在屏幕上。它不必等到整个 HTML 文档解析完毕之后，就会开始构建呈现树和设置布局。在不断接收和处理来自网络的其余内容的同时，呈现引擎会将部分内容解析并显示出来。</p>
+<a href="#main-flow-examples"><h2 id="main-flow-examples"><span class="hanchor" ariaLabel="Anchor"># </span>Main Flow Examples</h2></a>
+<a href="#webkit-main-flow"><h3 id="webkit-main-flow"><span class="hanchor" ariaLabel="Anchor"># </span>WebKit Main Flow</h3></a>
+<p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/202201261500863.png" width="auto" alt=""  /></p>
+<a href="#mozillas-gecko-rendering-engine-main-flow"><h3 id="mozillas-gecko-rendering-engine-main-flow"><span class="hanchor" ariaLabel="Anchor"># </span>Mozilla&rsquo;s Gecko rendering engine main flow</h3></a>
+<p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/202201261501778.png" width="auto" alt=""  /></p>
+<a href="#3-parsing-and-dom-tree-construction-解析和dom树构建"><h1 id="3-parsing-and-dom-tree-construction-解析和dom树构建"><span class="hanchor" ariaLabel="Anchor"># </span>3. Parsing and DOM tree construction 解析和DOM树构建</h1></a>
+<p>解析文档是指将文档转化成为有意义的结构，也就是可让代码理解和使用的结构。解析得到的结果通常是代表了文档结构的节点树，它称作解析树或者语法树。</p>
+<p>解析是以文档所遵循的语法规则（编写文档所用的语言或格式）为基础的。所有可以解析的格式都必须对应确定的语法（由词汇和语法规则构成）。这称为 <a class="internal-link broken">与上下文无关的语法</a>。人类语言并不属于这样的语言，因此无法用常规的解析技术进行解析。</p>
+<a href="#parsing"><h2 id="parsing"><span class="hanchor" ariaLabel="Anchor"># </span>Parsing</h2></a>
+<a href="#parserlexer-combination"><h3 id="parserlexer-combination"><span class="hanchor" ariaLabel="Anchor"># </span>Parser–Lexer combination</h3></a>
+<blockquote>
+<p>解析器负责根据语言的语法规则分析文档的结构，从而构建解析树。词法分析器知道如何将无关的字符（比如空格和换行符）分离出来。其过程可以分成两个子过程：词法分析和语法分析</p>
+</blockquote>
+<p>解析器通常将解析工作分给以下两个组件来处理：</p>
+<ul>
+<li><strong>词法分析器</strong>（有时也称为标记生成器），负责将输入内容分解成一个个有效标记，词法分析是将输入内容分割成大量标记的过程。标记是语言中的词汇，即构成内容的单位。在人类语言中，它相当于语言字典中的单词；</li>
+<li><strong>语法分析</strong>，是应用语言的语法规则的过程。</li>
+</ul>
+<a href="#formal-definitions-for-vocabulary-and-syntax"><h3 id="formal-definitions-for-vocabulary-and-syntax"><span class="hanchor" ariaLabel="Anchor"># </span>Formal definitions for vocabulary and syntax</h3></a>
+<p>词汇通常用 <a class="internal-link broken">正则表达式</a> 表示。例如，我们的加减计算语言可以定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">INTEGER :0|[1-9][0-9]* 
+</span></span><span class="line"><span class="cl">PLUS : + 
+</span></span><span class="line"><span class="cl">MINUS: -
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>语法通常使用一种称为 <strong>BNF</strong> 的格式来定义。我们的示例语言可以定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">expression := term  operation  term
+</span></span><span class="line"><span class="cl">operation := PLUS | MINUS
+</span></span><span class="line"><span class="cl">term := INTEGER | expression
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#types-of-parsers"><h3 id="types-of-parsers"><span class="hanchor" ariaLabel="Anchor"># </span>Types of parsers</h3></a>
+<p>有两种基本类型的解析器：自上而下解析器和自下而上解析器。直观地来说，自上而下的解析器从语法的高层结构出发，尝试从中找到匹配的结构。而自下而上的解析器从低层规则出发，将输入内容逐步转化为语法规则，直至满足高层规则:</p>
+<ul>
+<li>
+<p>自上而下的解析器会从高层的规则开始：首先将 <code>2 + 3</code> 标识为一个表达式，然后将 <code>2 + 3 - 1</code> 标识为一个表达式（标识表达式的过程涉及到匹配其他规则，但是起点是最高级别的规则）。</p>
+</li>
+<li>
+<p>自下而上的解析器将扫描输入内容，找到匹配的规则后，将匹配的输入内容替换成规则。如此继续替换，直到输入内容的结尾。部分匹配的表达式保存在解析器的堆栈中。</p>
+</li>
+</ul>
+<a href="#generating-parsers-automatically"><h3 id="generating-parsers-automatically"><span class="hanchor" ariaLabel="Anchor"># </span>Generating parsers automatically</h3></a>
+<blockquote>
+<p><strong>解析器生成器</strong>。只要向其提供所用语言的语法（词汇和语法规则），它就会生成相应的解析器。创建解析器需要对解析有深刻理解，而人工创建并优化解析器并不是一件容易的事情，所以解析器生成器是非常实用的。</p>
+</blockquote>
+<p>WebKit 使用了两种非常有名的解析器生成器：用于创建词法分析器的 <strong>Flex</strong> 以及用于创建解析器的 <strong>Bison</strong>（Lex / Yacc ）。Flex 的输入是包含标记的正则表达式定义的文件。Bison 的输入是采用 BNF 格式的语言语法规则。</p>
+<a href="#html-parser"><h2 id="html-parser"><span class="hanchor" ariaLabel="Anchor"># </span>HTML Parser</h2></a>
+<blockquote>
+<p>HTML 解析器的任务是将 HTML 标记解析成解析树。</p>
+</blockquote>
+<ul>
+<li>DTD（Document Type Definition，文档类型定义）格式，非与上下文无关语法，属于 <strong>标准通用标记语言</strong>（Standard Generalized Markup Language，<strong>SGML</strong>），是现时常用的超文本格式的最高层次标准，是可以定义标记语言的元语言，甚至可以定义不必采用&lt; &gt;的常规方式。由于它的复杂，因而难以普及。</li>
+<li>区别于 XML ，HTML 的处理更为“宽容”，它允许您省略某些隐式添加的标记，有时还能省略一些起始或者结束标记等等。和 XML 严格的语法不同，HTML 整体来看是一种“软性”的语法。</li>
+<li>HTML 无法很容易地通过常规解析器解析（因为它的语法不是与上下文无关的语法），也无法通过 XML 解析器来解析。</li>
+</ul>
+<a href="#dom"><h3 id="dom"><span class="hanchor" ariaLabel="Anchor"># </span>DOM</h3></a>
+<p>解析器的输出“解析树”是由 DOM 元素和属性节点构成的树结构。DOM 是文档对象模型 (Document Object Model) 的缩写。它是 HTML 文档的对象表示，同时也是外部内容（例如 JavaScript）与 HTML 元素之间的接口。</p>
+<a href="#the-parsing-algorithm"><h3 id="the-parsing-algorithm"><span class="hanchor" ariaLabel="Anchor"># </span>The parsing algorithm</h3></a>
+<p>解析算法算法由两个阶段组成：标记化和树构建。标记化是词法分析过程，将输入内容解析成多个标记。HTML 标记包括起始标记、结束标记、属性名称和属性值。标记生成器识别标记，传递给树构造器，然后接受下一个字符以识别下一个标记；如此反复直到输入的结束。</p>
+<a href="#the-tokenization-algorithm-标记化算法"><h4 id="the-tokenization-algorithm-标记化算法"><span class="hanchor" ariaLabel="Anchor"># </span>The tokenization algorithm 标记化算法</h4></a>
+<p>基本示例 - 将下面的 HTML 代码标记化：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">		Hello world 
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/202201271732813.png" width="auto" alt=""  /></p>
+<p>初始状态是数据状态。遇到字符 <code>&lt;</code> 时，状态更改为 <strong>“标记打开状态”</strong>。接收一个 <code>a-z</code> 字符会创建 <strong>“起始标记”</strong>，状态更改为 <strong>“标记名称状态”</strong>。这个状态会一直保持到接收 <code>&gt;</code> 字符。在此期间接收的每个字符都会附加到新的标记名称上。在本例中，我们创建的标记是 <code>html</code> 标记。</p>
+<p>遇到 <code>&gt;</code> 标记时，会发送当前的标记，状态改回 <strong>“数据状态”</strong>。<code>&lt;body&gt;</code> 标记也会进行同样的处理。目前 <code>html</code> 和 <code>body</code> 标记均已发出。现在我们回到 <strong>“数据状态”</strong>。接收到 <code>Hello world</code> 中的 <code>H</code> 字符时，将创建并发送字符标记，直到接收 <code>&lt;/body&gt;</code> 中的 <code>&lt;</code>。我们将为 <code>Hello world</code> 中的每个字符都发送一个字符标记。</p>
+<p>现在我们回到 <strong>“标记打开状态”</strong>。接收下一个输入字符 <code>/</code> 时，会创建 <code>end tag token</code> 并改为 <strong>“标记名称状态”</strong>。我们会再次保持这个状态，直到接收 <code>&gt;</code>。然后将发送新的标记，并回到 <strong>“数据状态”</strong>。<code>&lt;/html&gt;</code> 输入也会进行同样的处理。</p>
+<a href="#tree-construction-algorithm-树构建算法"><h4 id="tree-construction-algorithm-树构建算法"><span class="hanchor" ariaLabel="Anchor"># </span>Tree construction algorithm 树构建算法</h4></a>
+<p>示例输入的树构建过程：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">		Hello world 
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/202201281045591.png" width="auto" alt=""  /></p>
+<p>树构建阶段的输入是一个来自标记化阶段的标记序列。第一个模式是 <strong>“initial mode”</strong>。接收 HTML 标记后转为 <strong>“before html”</strong> 模式，并在这个模式下重新处理此标记。这样会创建一个 HTMLHtmlElement 元素，并将其附加到 Document 根对象上。</p>
+<p>然后状态将改为 <strong>“before head”</strong>。此时我们接收“body”标记。即使我们的示例中没有“head”标记，系统也会隐式创建一个 HTMLHeadElement，并将其添加到树中。</p>
+<p>现在我们进入了 <strong>“in head”</strong> 模式，然后转入 <strong>“after head”</strong> 模式。系统对 body 标记进行重新处理，创建并插入 HTMLBodyElement，同时模式转变为**“in body”**。</p>
+<p>现在，接收由“Hello world”字符串生成的一系列字符标记。接收第一个字符时会创建并插入“Text”节点，而其他字符也将附加到该节点。</p>
+<p>接收 body 结束标记会触发 <strong>“after body”</strong> 模式。现在我们将接收 HTML 结束标记，然后进入 <strong>“after after body”</strong> 模式。接收到文件结束标记后，解析过程就此结束。</p>
+<a href="#browsers-error-tolerance-浏览器的容错机制"><h4 id="browsers-error-tolerance-浏览器的容错机制"><span class="hanchor" ariaLabel="Anchor"># </span>Browsers&rsquo; error tolerance 浏览器的容错机制</h4></a>
+<p>您在浏览 HTML 网页时从来不会看到“语法无效”的错误。这是因为浏览器会纠正任何无效内容，然后继续工作。</p>
+<p>以下面的 HTML 代码为例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">mytag</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">mytag</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> Really lousy HTML 
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这里，已经违反了很多语法规则（“mytag”不是标准的标记，“p”和“div”元素之间的嵌套有误等等），但是浏览器仍然会正确地显示这些内容，并且毫无怨言。因为有大量的解析器代码会纠正 HTML 网页作者的错误。</p>
+<p>不同浏览器的错误处理机制相当一致，但令人称奇的是，这种机制并不是 HTML 当前规范的一部分。和书签管理以及前进/后退按钮一样，它也是浏览器在多年发展中的产物。很多网站都普遍存在着一些已知的无效 HTML 结构，每一种浏览器都会尝试通过和其他浏览器一样的方式来修复这些无效结构。</p>
+<p>HTML5 规范定义了一部分这样的要求。WebKit 在 HTML 解析器类的开头注释中对此做了很好的概括。</p>
+<blockquote>
+<p>我们至少要能够处理以下错误情况：</p>
+<ol>
+<li>明显不能在某些外部标记中添加的元素。在此情况下，我们应该关闭所有标记，直到出现禁止添加的元素，然后再加入该元素。</li>
+<li>我们不能直接添加的元素。这很可能是网页作者忘记添加了其中的一些标记（或者其中的标记是可选的）。这些标签可能包括：HTML HEAD BODY TBODY TR TD LI（还有遗漏的吗？）。</li>
+<li>向 inline 元素内添加 block 元素。关闭所有 inline 元素，直到出现下一个较高级的 block 元素。</li>
+<li>如果这样仍然无效，可关闭所有元素，直到可以添加元素为止，或者忽略该标记。</li>
+</ol>
+</blockquote>
+<a href="#css-parser"><h2 id="css-parser"><span class="hanchor" ariaLabel="Anchor"># </span>CSS Parser</h2></a>
+<a href="#webkit-css-解析器"><h3 id="webkit-css-解析器"><span class="hanchor" ariaLabel="Anchor"># </span>WebKit CSS 解析器</h3></a>
+<p>WebKit 使用 <strong>Flex</strong> 和 <strong>Bison</strong> 解析器生成器，通过 CSS 语法文件自动创建解析器。正如我们之前在解析器简介中所说，Bison 会创建自下而上的移位归约解析器。Firefox 使用的是人工编写的自上而下的解析器。这两种解析器都会将 CSS 文件解析成 StyleSheet 对象，且每个对象都包含 CSS 规则。CSS 规则对象则包含选择器和声明对象，以及其他与 CSS 语法对应的对象。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/202201281106738.png" width="auto" alt=""  /></p>
+<a href="#the-order-of-processing-scripts-and-style-sheets"><h2 id="the-order-of-processing-scripts-and-style-sheets"><span class="hanchor" ariaLabel="Anchor"># </span>The order of processing scripts and style sheets</h2></a>
+<a href="#scripts"><h3 id="scripts"><span class="hanchor" ariaLabel="Anchor"># </span>Scripts</h3></a>
+<p>网络的模型是同步的。网页作者希望解析器遇到 <code>&lt;script&gt;</code> 标记时立即解析并执行脚本。文档的解析将停止，直到脚本执行完毕。如果脚本是外部的，那么解析过程会停止，直到从网络同步抓取资源完成后再继续。此模型已经使用了多年，也在 HTML4 和 HTML5 规范中进行了指定。作者也可以将脚本标注为“defer”，这样它就不会停止文档解析，而是等到解析结束才执行。HTML5 增加了一个选项，可将脚本标记为异步，以便由其他线程解析和执行。</p>
+<a href="#speculative-parsing"><h3 id="speculative-parsing"><span class="hanchor" ariaLabel="Anchor"># </span>Speculative parsing</h3></a>
+<p>WebKit 和 Firefox 都进行了这项优化。在执行脚本时，其他线程会解析文档的其余部分，找出并加载需要通过网络加载的其他资源。通过这种方式，资源可以在并行连接上加载，从而提高总体速度。请注意，预解析器不会修改 DOM 树，而是将这项工作交由主解析器处理；预解析器只会解析外部资源（例如外部脚本、样式表和图片）的引用。</p>
+<a href="#style-sheets"><h3 id="style-sheets"><span class="hanchor" ariaLabel="Anchor"># </span>Style sheets</h3></a>
+<p>另一方面，样式表有着不同的模型。理论上来说，应用样式表不会更改 DOM 树，因此似乎没有必要等待样式表并停止文档解析。但这涉及到一个问题，就是脚本在文档解析阶段会请求样式信息。如果当时还没有加载和解析样式，脚本就会获得错误的回复，这样显然会产生很多问题。这看上去是一个非典型案例，但事实上非常普遍。Firefox 在样式表加载和解析的过程中，会禁止所有脚本。而对于 WebKit 而言，仅当脚本尝试访问的样式属性可能受尚未加载的样式表影响时，它才会禁止该脚本。</p>
+<a href="#4-render-tree-construction-呈现树构建"><h1 id="4-render-tree-construction-呈现树构建"><span class="hanchor" ariaLabel="Anchor"># </span>4. Render tree construction 呈现树构建</h1></a>
+<p>^edd771</p>
+<blockquote>
+<p>在 DOM 树构建的同时，浏览器还会构建另一个树结构：呈现树。这是由可视化元素按照其显示顺序而组成的树，也是文档的可视化表示。它的作用是让您按照正确的顺序绘制内容。</p>
+</blockquote>
+<p>Firefox 将呈现树中的元素称为“框架”。WebKit 使用的术语是呈现器或呈现对象。<br>
+呈现器知道如何布局并将自身及其子元素绘制出来。<br>
+WebKits RenderObject 类是所有呈现器的基类，其定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">RenderObject</span><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">	<span class="nx">virtual</span> <span class="k">void</span> <span class="nx">layout</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">	<span class="nx">virtual</span> <span class="k">void</span> <span class="nx">paint</span><span class="p">(</span><span class="nx">PaintInfo</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">	<span class="nx">virtual</span> <span class="k">void</span> <span class="nx">rect</span> <span class="nx">repaintRect</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">	<span class="nx">Node</span><span class="o">*</span> <span class="nx">node</span><span class="p">;</span> <span class="c1">//the DOM node 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">RenderStyle</span><span class="o">*</span> <span class="nx">style</span><span class="p">;</span> <span class="c1">// the computed style 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">RenderLayer</span><span class="o">*</span> <span class="nx">containgLayer</span><span class="p">;</span> <span class="c1">//the containing z-index layer 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>每一个呈现器都代表了一个矩形的区域，通常对应于相关节点的 CSS 框，这一点在 CSS2 规范中有所描述。它包含诸如宽度、高度和位置等几何信息。
+下面这段 WebKit 代码描述了根据 display 属性的不同，针对同一个 DOM 节点应创建什么类型的呈现器。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">RenderObject</span><span class="o">*</span> <span class="nx">RenderObject</span><span class="o">::</span><span class="nx">createObject</span><span class="p">(</span><span class="nx">Node</span><span class="o">*</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">RenderStyle</span><span class="o">*</span> <span class="nx">style</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">	<span class="nx">Document</span><span class="o">*</span> <span class="nx">doc</span> <span class="o">=</span> <span class="nx">node</span><span class="o">-&gt;</span><span class="nb">document</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">	<span class="nx">RenderArena</span><span class="o">*</span> <span class="nx">arena</span> <span class="o">=</span> <span class="nx">doc</span><span class="o">-&gt;</span><span class="nx">renderArena</span><span class="p">();</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">...</span> 
+</span></span><span class="line"><span class="cl">	<span class="nx">RenderObject</span><span class="o">*</span> <span class="nx">o</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="p">(</span><span class="nx">style</span><span class="o">-&gt;</span><span class="nx">display</span><span class="p">())</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">NONE</span><span class="o">:</span> <span class="k">break</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">INLINE</span><span class="o">:</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="nx">arena</span><span class="p">)</span> <span class="nx">RenderInline</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">BLOCK</span><span class="o">:</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="nx">arena</span><span class="p">)</span> <span class="nx">RenderBlock</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">INLINE_BLOCK</span><span class="o">:</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="nx">arena</span><span class="p">)</span> <span class="nx">RenderBlock</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">LIST_ITEM</span><span class="o">:</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="nx">arena</span><span class="p">)</span> <span class="nx">RenderListItem</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">		<span class="p">...</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">o</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>元素类型也是考虑因素之一，例如表单控件和表格都对应特殊的框架。<br>
+在 WebKit 中，如果一个元素需要创建特殊的呈现器，就会替换 <code>createRenderer</code> 方法。呈现器所指向的样式对象中包含了一些和几何无关的信息。</p>
+<a href="#the-render-tree-relation-to-the-dom-tree"><h2 id="the-render-tree-relation-to-the-dom-tree"><span class="hanchor" ariaLabel="Anchor"># </span>The render tree relation to the DOM tree</h2></a>
+<ul>
+<li>呈现器是和 DOM 元素相对应的，但并非一一对应。非可视化的 DOM 元素不会插入呈现树中，例如“head”元素。如果元素的 display 属性值为“none”，那么也不会显示在呈现树中（但是 visibility 属性值为“hidden”的元素仍会显示）。</li>
+<li>一些 DOM 元素对应多个可视化对象。它们往往是具有复杂结构的元素，无法用单一的矩形来描述。例如，“select”元素有 3 个呈现器：一个用于显示区域，一个用于下拉列表框，还有一个用于按钮。如果由于宽度不够，文本无法在一行中显示而分为多行，那么新的行也会作为新的呈现器而添加。</li>
+<li>格式无效的 HTML 也会对应多个可视化对象。根据 CSS 规范，inline 元素只能包含 block 元素或 inline 元素中的一种。如果出现了混合内容，则应创建匿名的 block 呈现器，以包裹 inline 元素。</li>
+<li>有一些呈现对象对应于 DOM 节点，但在树中所在的位置与 DOM 节点不同。浮动定位和绝对定位的元素就是这样，它们处于正常的流程之外，放置在树中的其他地方，并映射到真正的框架，而放在原位的是占位框架。</li>
+</ul>
+<p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/202201281500208.png" width="auto" alt=""  /></p>
+<a href="#the-flow-of-constructing-the-tree"><h2 id="the-flow-of-constructing-the-tree"><span class="hanchor" ariaLabel="Anchor"># </span>The flow of constructing the tree</h2></a>
+<p>在 Firefox 中，系统会针对 DOM 更新注册展示层，作为侦听器。展示层将框架创建工作委托给 <code>FrameConstructor</code>，由该构造器解析样式并创建框架。</p>
+<p>在 WebKit 中，解析样式和创建呈现器的过程称为“附加”。每个 DOM 节点都有一个“attach”方法。附加是同步进行的，将节点插入 DOM 树需要调用新的节点“attach”方法。</p>
+<p>处理 html 和 body 标记就会构建呈现树根节点。这个根节点呈现对象对应于 CSS 规范中所说的容器 block，这是最上层的 block，包含了其他所有 block。它的尺寸就是视口，即浏览器窗口显示区域的尺寸。Firefox 称之为 <code>ViewPortFrame</code>，而 WebKit 称之为 <code>RenderView</code>。这就是文档所指向的呈现对象。呈现树的其余部分以 DOM 树节点插入的形式来构建。</p>
+<a href="#style-computation"><h2 id="style-computation"><span class="hanchor" ariaLabel="Anchor"># </span>Style Computation</h2></a>
+<ul>
+<li>构建呈现树时，需要计算每一个呈现对象的可视化属性。这是通过计算每个元素的样式属性来完成的。</li>
+<li>样式包括来自各种来源的样式表、inline 样式元素和 HTML 中的可视化属性（例如“bgcolor”属性）。其中后者将经过转化以匹配 CSS 样式属性。</li>
+<li>样式表的来源包括浏览器的默认样式表、由网页作者提供的样式表以及由浏览器用户提供的用户样式表</li>
+</ul>
+<a href="#sharing-style-data"><h3 id="sharing-style-data"><span class="hanchor" ariaLabel="Anchor"># </span>Sharing style data</h3></a>
+<p>WebKit 节点会引用样式对象 (RenderStyle)。这些对象在某些情况下可以由不同节点共享。这些节点是同级关系，并且：</p>
+<ol>
+<li>这些元素必须处于相同的鼠标状态（例如，不允许其中一个是“:hover”状态，而另一个不是）</li>
+<li>任何元素都没有 ID</li>
+<li>标记名称应匹配</li>
+<li>类属性应匹配</li>
+<li>映射属性的集合必须是完全相同的</li>
+<li>链接状态必须匹配</li>
+<li>焦点状态必须匹配</li>
+<li>任何元素都不应受属性选择器的影响，这里所说的“影响”是指在选择器中的任何位置有任何使用了属性选择器的选择器匹配</li>
+<li>元素中不能有任何 inline 样式属性</li>
+<li>不能使用任何同级选择器。WebCore 在遇到任何同级选择器时，只会引发一个全局开关，并停用整个文档的样式共享（如果存在）。这包括 + 选择器以及 :first-child 和 :last-child 等选择器。</li>
+</ol>
+<a href="#manipulating-the-rules-for-an-easy-match"><h3 id="manipulating-the-rules-for-an-easy-match"><span class="hanchor" ariaLabel="Anchor"># </span>Manipulating the rules for an easy match</h3></a>
+<p>样式规则有一些来源：</p>
+<ul>
+<li>外部样式表或样式元素中的 CSS 规则</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">p</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span><span class="kc">blue</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>inline 样式属性及类似内容</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nt">p</span> <span class="nt">style</span><span class="o">=</span><span class="s2">&#34;color:blue&#34;</span> <span class="o">/&gt;</span>	
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>HTML 可视化属性（映射到相关的样式规则）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nt">p</span> <span class="nt">bgcolor</span><span class="o">=</span><span class="s2">&#34;blue&#34;</span> <span class="o">/&gt;</span>	
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>后两种很容易和元素进行匹配，因为元素拥有样式属性，而且 HTML 属性可以使用元素作为键值进行映射。</p>
+<p>样式表解析完毕后，系统会根据选择器将 CSS 规则添加到某个哈希表中。这些哈希表的选择器各不相同，包括 ID、类名称、标记名称等，还有一种通用哈希表，适合不属于上述类别的规则。如果选择器是 ID，规则就会添加到 ID 表中；如果选择器是类，规则就会添加到类表中，依此类推。</p>
+<p>这种处理可以大大简化规则匹配。我们无需查看每一条声明，只要从哈希表中提取元素的相关规则即可。这种优化方法可排除掉 95% 以上规则，因此在匹配过程中根本就不用考虑这些规则了。</p>
+<a href="#applying-the-rules-in-the-correct-cascade-order"><h3 id="applying-the-rules-in-the-correct-cascade-order"><span class="hanchor" ariaLabel="Anchor"># </span>Applying the rules in the correct cascade order</h3></a>
+<p>样式对象具有与每个可视化属性一一对应的属性（均为 CSS 属性但更为通用）。如果某个属性未由任何匹配规则所定义，那么部分属性就可由父代元素样式对象继承。其他属性具有默认值。</p>
+<p>如果定义不止一个，就会出现问题，需要通过层叠顺序来解决。</p>
+<a href="#style-sheet-cascade-order"><h4 id="style-sheet-cascade-order"><span class="hanchor" ariaLabel="Anchor"># </span>Style sheet cascade order</h4></a>
+<p>某个样式属性的声明可能会出现在多个样式表中，也可能在同一个样式表中出现多次。这意味着应用规则的顺序极为重要。这称为“层叠”顺序。根据 CSS2 规范，层叠的顺序为（优先级从低到高）：</p>
+<ol>
+<li>浏览器声明</li>
+<li>用户普通声明</li>
+<li>作者普通声明</li>
+<li>作者重要声明</li>
+<li>用户重要声明</li>
+</ol>
+<p>浏览器声明是重要程度最低的，而用户只有将该声明标记为“重要”才可以替换网页作者的声明。同样顺序的声明会根据 <a href="chick26.github.io#specificity" rel="noopener" class="internal-link" data-src="chick26.github.io">特异性</a> 进行排序，然后再是其指定顺序。HTML 可视化属性会转换成匹配的 CSS 声明。它们被视为低优先级的网页作者规则。</p>
+<a href="#specificity"><h4 id="specificity"><span class="hanchor" ariaLabel="Anchor"># </span>Specificity</h4></a>
+<p>选择器的特异性由 
+<a href="http://www.w3.org/TR/CSS2/cascade.html#specificity" rel="noopener">CSS2 规范</a>定义如下：</p>
+<ul>
+<li>如果声明来自于“style”属性，而不是带有选择器的规则，则记为 1，否则记为 0 (= a)</li>
+<li>记为选择器中 ID 属性的个数 (= b)</li>
+<li>记为选择器中其他属性和伪类的个数 (= c)</li>
+<li>记为选择器中元素名称和伪元素的个数 (= d)</li>
+</ul>
+<p>将四个数字按 a-b-c-d 这样连接起来（位于大数进制的数字系统中），构成特异性。</p>
+<p>您使用的进制取决于上述类别中的最高计数。<br>
+例如，如果 a=14，您可以使用十六进制。如果 a=17，那么您需要使用十七进制；当然不太可能出现这种情况，除非是存在如下的选择器：html body div div p &hellip;（在选择器中出现了 17 个标记，这样的可能性极低）。</p>
+<p>一些示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">*</span>              <span class="p">{}</span> <span class="cm">/* a=0 b=0 c=0 d=0 -&gt; specificity = 0,0,0,0 */</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">li</span>             <span class="p">{}</span> <span class="cm">/* a=0 b=0 c=0 d=1 -&gt; specificity = 0,0,0,1 */</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">li</span><span class="o">:</span><span class="nx">first</span><span class="o">-</span><span class="nx">line</span>  <span class="p">{}</span> <span class="cm">/* a=0 b=0 c=0 d=2 -&gt; specificity = 0,0,0,2 */</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">ul</span> <span class="nx">li</span>          <span class="p">{}</span> <span class="cm">/* a=0 b=0 c=0 d=2 -&gt; specificity = 0,0,0,2 */</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">ul</span> <span class="nx">ol</span><span class="o">+</span><span class="nx">li</span>       <span class="p">{}</span> <span class="cm">/* a=0 b=0 c=0 d=3 -&gt; specificity = 0,0,0,3 */</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">h1</span> <span class="o">+</span> <span class="o">*</span><span class="p">[</span><span class="nx">rel</span><span class="o">=</span><span class="nx">up</span><span class="p">]</span> <span class="p">{}</span> <span class="cm">/* a=0 b=0 c=1 d=1 -&gt; specificity = 0,0,1,1 */</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">ul</span> <span class="nx">ol</span> <span class="nx">li</span><span class="p">.</span><span class="nx">red</span>   <span class="p">{}</span> <span class="cm">/* a=0 b=0 c=1 d=3 -&gt; specificity = 0,0,1,3 */</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">li</span><span class="p">.</span><span class="nx">red</span><span class="p">.</span><span class="nx">level</span>   <span class="p">{}</span> <span class="cm">/* a=0 b=0 c=2 d=1 -&gt; specificity = 0,0,2,1 */</span> 
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="nx">x34y</span>          <span class="p">{}</span> <span class="cm">/* a=0 b=1 c=0 d=0 -&gt; specificity = 0,1,0,0 */</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">style</span><span class="o">=</span><span class="s2">&#34;&#34;</span>          <span class="cm">/* a=1 b=0 c=0 d=0 -&gt; specificity = 1,0,0,0 */</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#sorting-the-rules"><h4 id="sorting-the-rules"><span class="hanchor" ariaLabel="Anchor"># </span>Sorting the rules</h4></a>
+<p>找到匹配的规则之后，应根据级联顺序将其排序。WebKit 对于较小的列表会使用冒泡排序，而对较大的列表则使用归并排序。对于以下规则，WebKit 通过替换“&gt;”运算符来实现排序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">static</span> <span class="n">bool</span> <span class="n">operator</span> <span class="o">&gt;(</span><span class="n">CSSRuleData</span><span class="o">&amp;</span> <span class="n">r1</span><span class="o">,</span> <span class="n">CSSRuleData</span><span class="o">&amp;</span> <span class="n">r2</span><span class="o">)</span> 
+</span></span><span class="line"><span class="cl"><span class="o">{</span> 
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">spec1</span> <span class="o">=</span> <span class="n">r1</span><span class="o">.</span><span class="na">selector</span><span class="o">()-&gt;</span><span class="n">specificity</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">spec2</span> <span class="o">=</span> <span class="n">r2</span><span class="o">.</span><span class="na">selector</span><span class="o">()-&gt;</span><span class="n">specificity</span><span class="o">();</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">(</span><span class="n">spec1</span> <span class="o">==</span> <span class="n">spec2</span><span class="o">)</span> <span class="o">:</span> <span class="n">r1</span><span class="o">.</span><span class="na">position</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">r2</span><span class="o">.</span><span class="na">position</span><span class="o">()</span> <span class="o">:</span> <span class="n">spec1</span> <span class="o">&gt;</span> <span class="n">spec2</span><span class="o">;</span> 
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#gradual-process"><h2 id="gradual-process"><span class="hanchor" ariaLabel="Anchor"># </span>Gradual process</h2></a>
+<p>WebKit 使用一个标记来表示是否所有的顶级样式表（包括 @imports）均已加载完毕。如果在附加过程中尚未完全加载样式，则使用占位符，并在文档中进行标注，等样式表加载完毕后再重新计算。</p>
+<a href="#5layout-布局"><h1 id="5layout-布局"><span class="hanchor" ariaLabel="Anchor"># </span>5.Layout 布局</h1></a>
+<p>呈现器在创建完成并添加到呈现树时，并不包含位置和大小信息。计算这些值的过程称为布局或重排。</p>
+<p>HTML 采用基于流的布局模型，这意味着大多数情况下只要一次遍历就能计算出几何信息。处于流中靠后位置元素通常不会影响靠前位置元素的几何特征，因此布局可以按从左至右、从上至下的顺序遍历文档。但是也有例外情况，比如 HTML 表格的计算就需要不止一次的遍历。</p>
+<p>坐标系是相对于根框架而建立的，使用的是上坐标和左坐标。</p>
+<p>布局是一个递归的过程。它从根呈现器（对应于 HTML 文档的 <code>&lt;html&gt;</code> 元素）开始，然后递归遍历部分或所有的框架层次结构，为每一个需要计算的呈现器计算几何信息。</p>
+<p>根呈现器的位置左边是 0,0，其尺寸为视口（也就是浏览器窗口的可见区域）。</p>
+<p>所有的呈现器都有一个“layout”或者“reflow”方法，每一个呈现器都会调用其需要进行布局的子代的 layout 方法。</p>
+<a href="#dirty-bit-system"><h2 id="dirty-bit-system"><span class="hanchor" ariaLabel="Anchor"># </span>Dirty bit system</h2></a>
+<p>为避免对所有细小更改都进行整体布局，浏览器采用了一种“dirty 位”系统。如果某个呈现器发生了更改，或者将自身及其子代标注为“dirty”，则需要进行布局。</p>
+<p>有两种标记：“dirty”和“children are dirty”。“children are dirty”表示尽管呈现器自身没有变化，但它至少有一个子代需要布局。</p>
+<a href="#global-and-incremental-layout"><h2 id="global-and-incremental-layout"><span class="hanchor" ariaLabel="Anchor"># </span>Global and incremental layout</h2></a>
+<p>全局布局是指触发了整个呈现树范围的布局，触发原因可能包括：</p>
+<ol>
+<li>影响所有呈现器的全局样式更改，例如字体大小更改。</li>
+<li>屏幕大小调整。</li>
+</ol>
+<p>布局可以采用增量方式，也就是只对 dirty 呈现器进行布局（这样可能存在需要进行额外布局的弊端）。<br>
+当呈现器为 dirty 时，会异步触发增量布局。例如，当来自网络的额外内容添加到 DOM 树之后，新的呈现器附加到了呈现树中。</p>
+<a href="#asynchronous-and-synchronous-layout"><h2 id="asynchronous-and-synchronous-layout"><span class="hanchor" ariaLabel="Anchor"># </span>Asynchronous and Synchronous layout</h2></a>
+<p>增量布局是异步执行的。Firefox 将增量布局的“reflow 命令”加入队列，而调度程序会触发这些命令的批量执行。WebKit 也有用于执行增量布局的计时器：对呈现树进行遍历，并对 dirty 呈现器进行布局。</p>
+<ul>
+<li>请求样式信息（例如“offsetHeight”）的脚本可同步触发增量布局。</li>
+<li>全局布局往往是同步触发的。</li>
+<li>有时，当初始布局完成之后，如果一些属性（如滚动位置）发生变化，布局就会作为回调而触发。</li>
+</ul>
+<a href="#optimizations"><h2 id="optimizations"><span class="hanchor" ariaLabel="Anchor"># </span>Optimizations</h2></a>
+<p>如果布局是由“大小调整”或呈现器的位置（而非大小）改变而触发的，那么可以从缓存中获取呈现器的大小，而无需重新计算。<br>
+在某些情况下，只有一个子树进行了修改，因此无需从根节点开始布局。这适用于在本地进行更改而不影响周围元素的情况，例如在文本字段中插入文本（否则每次键盘输入都将触发从根节点开始的布局）。</p>
+<a href="#the-layout-process"><h2 id="the-layout-process"><span class="hanchor" ariaLabel="Anchor"># </span>The layout process</h2></a>
+<p>布局通常具有以下模式：</p>
+<ol>
+<li>父呈现器确定自己的宽度。</li>
+<li>父呈现器依次处理子呈现器，并且：
+<ol>
+<li>放置子呈现器（设置 x,y 坐标）。</li>
+<li>如果有必要，调用子呈现器的布局（如果子呈现器是 dirty 的，或者这是全局布局，或出于其他某些原因），这会计算子呈现器的高度。</li>
+</ol>
+</li>
+<li>父呈现器根据子呈现器的累加高度以及边距和补白的高度来设置自身高度，此值也可供父呈现器的父呈现器使用。</li>
+<li>将其 dirty 位设置为 false。</li>
+</ol>
+<a href="#width-calculation"><h2 id="width-calculation"><span class="hanchor" ariaLabel="Anchor"># </span>Width calculation</h2></a>
+<p>呈现器宽度是根据容器块的宽度、呈现器样式中的“width”属性以及边距和边框计算得出的。<br>
+例如以下 div 的宽度：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;width:30%&#34;</span><span class="p">/&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将由 WebKit 计算如下（BenderBox 类，calcWidth 方法）：</p>
+<ul>
+<li>容器的宽度取容器的 availableWidth 和 0 中的较大值。availableWidth 在本例中相当于 contentWidth，clientWidth 和 clientHeight 表示一个对象的内部（除去边框和滚动条）。计算公式如下：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl">clientWidth() - paddingLeft() - paddingRight()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>元素的宽度是“width”样式属性。它会根据容器宽度的百分比计算得出一个绝对值。</li>
+<li>然后加上水平方向的边框和补白。</li>
+</ul>
+<p>现在计算得出的是“preferred width”。然后需要计算最小宽度和最大宽度。<br>
+如果首选宽度大于最大宽度，那么应使用最大宽度。如果首选宽度小于最小宽度（最小的不可破开单位），那么应使用最小宽度。</p>
+<p>这些值会缓存起来，以用于需要布局而宽度不变的情况。</p>
+<a href="#line-breaking"><h2 id="line-breaking"><span class="hanchor" ariaLabel="Anchor"># </span>Line Breaking</h2></a>
+<p>如果呈现器在布局过程中需要换行，会立即停止布局，并告知其父代需要换行。父代会创建额外的呈现器，并对其调用布局。</p>
+<a href="#6painting-绘制"><h1 id="6painting-绘制"><span class="hanchor" ariaLabel="Anchor"># </span>6.Painting 绘制</h1></a>
+<blockquote>
+<p>在绘制阶段，系统会遍历呈现树，并调用呈现器的“paint”方法，将呈现器的内容显示在屏幕上。绘制工作是使用用户界面基础组件完成的。</p>
+</blockquote>
+<a href="#global-and-incremental"><h2 id="global-and-incremental"><span class="hanchor" ariaLabel="Anchor"># </span>Global and Incremental</h2></a>
+<p>和布局一样，绘制也分为全局（绘制整个呈现树）和增量两种。在增量绘制中，部分呈现器发生了更改，但是不会影响整个树。更改后的呈现器将其在屏幕上对应的矩形区域设为无效，这导致 OS 将其视为一块“dirty 区域”，并生成“paint”事件。OS 会很巧妙地将多个区域合并成一个。在 Chrome 浏览器中，情况要更复杂一些，因为 Chrome 浏览器的呈现器不在主进程上。Chrome 浏览器会在某种程度上模拟 OS 的行为。展示层会侦听这些事件，并将消息委托给呈现根节点。然后遍历呈现树，直到找到相关的呈现器，该呈现器会重新绘制自己（通常也包括其子代）。</p>
+<a href="#the-painting-order"><h2 id="the-painting-order"><span class="hanchor" ariaLabel="Anchor"># </span>The painting order</h2></a>
+<p>
+<a href="http://www.w3.org/TR/CSS21/zindex.html" rel="noopener">CSS2 规范定义了绘制流程的顺序</a>。绘制的顺序其实就是元素进入
+<a href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/#stackingcontext" rel="noopener">堆栈样式上下文</a>的顺序。这些堆栈会从后往前绘制，因此这样的顺序会影响绘制。块呈现器的堆栈顺序如下：</p>
+<ol>
+<li>背景颜色</li>
+<li>背景图片</li>
+<li>边框</li>
+<li>子代</li>
+<li>轮廓</li>
+</ol>
+<a href="#webkit-rectangle-storage"><h2 id="webkit-rectangle-storage"><span class="hanchor" ariaLabel="Anchor"># </span>WebKit rectangle storage</h2></a>
+<p>在重新绘制之前，WebKit 会将原来的矩形另存为一张位图，然后只绘制新旧矩形之间的差异部分。</p>
+<a href="#7dynamic-changes"><h1 id="7dynamic-changes"><span class="hanchor" ariaLabel="Anchor"># </span>7.Dynamic changes</h1></a>
+<blockquote>
+<p>在发生变化时，浏览器会尽可能做出最小的响应。因此，元素的颜色改变后，只会对该元素进行重绘。元素的位置改变后，只会对该元素及其子元素（可能还有同级元素）进行布局和重绘。添加 DOM 节点后，会对该节点进行布局和重绘。一些重大变化（例如增大“html”元素的字体）会导致缓存无效，使得整个呈现树都会进行重新布局和绘制。</p>
+</blockquote>
+<a href="#8the-rendering-engines-threads"><h1 id="8the-rendering-engines-threads"><span class="hanchor" ariaLabel="Anchor"># </span>8.The rendering engine&rsquo;s threads</h1></a>
+<blockquote>
+<p>呈现引擎采用了单线程。几乎所有操作（除了网络操作）都是在单线程中进行的。在 Firefox 和 Safari 中，该线程就是浏览器的主线程。而在 Chrome 浏览器中，该线程是标签进程的主线程。  网络操作可由多个并行线程执行。并行连接数是有限的（通常为 2 至 6 个，以 Firefox 3 为例是 6 个）。</p>
+</blockquote>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://twitter.com/_jzhao">Twitter</a></li><li><a href="https://github.com/jackyzha0">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

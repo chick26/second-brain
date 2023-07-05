@@ -1,193 +1,873 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [ • TOC for Frontend
-配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于："><meta property="og:title" content="dumi 组件库搭建"><meta property="og:description" content="up:: [ • TOC for Frontend
-配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于："><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/UILibrary/dumi-%E7%BB%84%E4%BB%B6%E5%BA%93%E6%90%AD%E5%BB%BA/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="dumi 组件库搭建"><meta name=twitter:description content="up:: [ • TOC for Frontend
-配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于："><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>dumi 组件库搭建</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
-<script src=../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
-<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
-<script defer src=../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
-<script defer src=../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
-<script defer src=../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
-<script defer src=../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
-<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.d413193f7ae19d461b59d12d61b54d86.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Frontend
+配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于："
+  />
+  <meta property="og:title" content="dumi 组件库搭建">
+  <meta property="og:description" content="up:: [ • TOC for Frontend
+配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于：">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/UILibrary/dumi-%E7%BB%84%E4%BB%B6%E5%BA%93%E6%90%AD%E5%BB%BA/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="dumi 组件库搭建" />
+  <meta name="twitter:description" content="up:: [ • TOC for Frontend
+配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于：" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+      
+      <meta name="twitter:site" content="_jzhao" />
+    
+  
+    
+  
+
+  <title>
+    dumi 组件库搭建
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.ab44743a5d67084ed2332ae5677b2ec3.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
     import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
     attachSPARouting(init, render)
-  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
-<script defer src=../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
-<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>dumi 组件库搭建</h1><p class=meta>Last updated
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">🪴 Quartz 3.3</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>dumi 组件库搭建</h1>
+      <p class="meta">
+        Last updated 
 Unknown
-<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/UILibrary/dumi%20%e7%bb%84%e4%bb%b6%e5%ba%93%e6%90%ad%e5%bb%ba.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Development/Frontend/JavaScript/uiLibrary/>Development frontend java script ui library</a></li><li><a href=chick26.github.io/tags/Development/Frontend/Deploy/Dumi/>Development frontend deploy dumi</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#father-打包>father 打包</a><ol><li><a href=#esm-和-cjs>esm 和 cjs</a></li><li><a href=#umd>umd</a></li><li><a href=#定义方式>定义方式</a></li><li><a href=#注意事项>注意事项</a></li></ol></li><li><a href=#dumi-打包>dumi 打包</a></li></ol><ol><li><a href=#1引用自身组件报错>1.引用自身组件报错</a><ol><li><a href=#问题描述>问题描述</a></li><li><a href=#解决方案>解决方案</a></li></ol></li><li><a href=#2组件发布私有库>2.组件发布私有库</a><ol><li><a href=#登录私有库>登录私有库</a></li><li><a href=#发布npm包到私有仓库>发布npm包到私有仓库</a></li></ol></li><li><a href=#3解决使用私有库配置>3.解决使用私有库配置</a></li><li><a href=#4解决-father-rollup-模式对-cjs-引用问题>4.解决 father rollup 模式对 cjs 引用问题</a><ol><li><a href=#问题描述-1>问题描述</a></li><li><a href=#解决方案-1>解决方案</a></li></ol></li><li><a href=#5-解决组件库二次封装>5. 解决组件库二次封装</a><ol><li><a href=#问题描述-2>问题描述</a></li><li><a href=#解决方案-2>解决方案</a></li></ol></li></ol></nav></details></aside><p>up:: [
-<a rel=noopener class="internal-link broken" data-src=../%E2%80%A2%20TOC%20for%20Frontend>• TOC for Frontend</a></p><a href=#配置相关><h1 id=配置相关><span class=hanchor arialabel=Anchor># </span>配置相关</h1></a><a href=#father-打包><h2 id=father-打包><span class=hanchor arialabel=Anchor># </span>father 打包</h2></a><blockquote><p>esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于：</p></blockquote><a href=#esm-和-cjs><h3 id=esm-和-cjs><span class=hanchor arialabel=Anchor># </span>esm 和 cjs</h3></a><ul><li>rollup：会根据 entry，把项目依赖打包在一起只输出一个 js 文件，js 文件输出在 dist 目录 。此时 packages.json 中，</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=nt>&#34;main&#34;</span><span class=p>:</span> <span class=s2>&#34;./dist/index.js&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>	<span class=nt>&#34;module&#34;</span><span class=p>:</span> <span class=s2>&#34;./dist/index.esm.js&#34;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><ul><li>babel：会把 src 目录直接转化成 lib 目录（cjs）或 es 目录（esm），所有 js 文件的目录结构不变。此时 packages.json 中，</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=nt>&#34;main&#34;</span><span class=p>:</span> <span class=s2>&#34;./lib/index.js&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>	<span class=nt>&#34;module&#34;</span><span class=p>:</span> <span class=s2>&#34;./es/index.js&#34;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><a href=#umd><h3 id=umd><span class=hanchor arialabel=Anchor># </span>umd</h3></a><p>umd 输出在 dist 目录，常用配置为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=line><span class=cl><span class=nx>umd</span><span class=o>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;meditation&#39;</span><span class=p>,</span> <span class=c1>// 在script中引入后，可通过[name].[method]进行方法引用
-</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>file</span><span class=o>:</span> <span class=s1>&#39;meditation&#39;</span><span class=p>,</span> <span class=c1>// 打包后生成的文件名，位置在./dist/[file].js，一般与name保持一致
-</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>minFile</span>: <span class=kt>true</span><span class=p>,</span> <span class=c1>// 是否生成对应的./dist/[file].min.js
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>},</span>
-</span></span></code></pre></td></tr></table></div></div><a href=#定义方式><h3 id=定义方式><span class=hanchor arialabel=Anchor># </span>定义方式</h3></a><p>输出格式（esm/cjs/umd）的定义有两种方式：</p><ul><li>配置文件：在 <code>.fatherrc.ts</code> 中配置 esm/cjs/umd，esm/cjs 可选 babel 和 rollup 两种模式。</li><li>命令参数：father-build 后接参数，如 <code>father-build --esm --cjs --umd</code>，注意此时<code>--esm</code> 和<code>--cjs</code> 均为 rollup 模式。</li></ul><p>father 构建时会对配置文件和命令参数中输出格式的定义进行合并，命令参数的优先级比配置文件高。例如，当配置文件中 esm 和 cjs 使用 babel，而构建命令为<code>father-build --esm --cjs</code>时，最终 esm 和 cjs 的模式为 rollup。</p><a href=#注意事项><h3 id=注意事项><span class=hanchor arialabel=Anchor># </span>注意事项</h3></a><ul><li><p>通常只要配置<code>esm: "babel"</code>即可，如果要考虑 ssr，再配上<code>cjs: "babel"</code>。</p></li><li><p>package.json 里配上 <code>sideEffects: false | string[]</code>，会让 webpack 的
-<a href=https://webpack.js.org/guides/tree-shaking/ rel=noopener>tree-shaking</a> 更高效。</p></li><li><p>cjs 和 esm 格式打包方式选 rollup 时有个约定，dependencies 和 peerDependencies 里的内容会被 external。</p></li><li><p>esm.mjs 和 umd 格式，只有 peerDependencies 会被 external。</p></li><li><p>打包方式 babel 时无需考虑 external，因为是文件到文件的编译，不处理文件合并。</p></li><li><p>babel 模式下一些文件不会被编译到 es 和 lib 下，包含：</p><ul><li><code>__test__</code> 目录</li><li><code>fixtures</code> 目录</li><li><code>demos</code> 目录</li><li><code>mdx</code> 文件</li><li><code>md</code> 文件</li></ul></li><li><p>测试文件，比如</p><ul><li><code>test.js</code></li><li><code>spec.js</code></li><li><code>e2e.js</code></li><li>后缀还支持 <code>jsx</code>、<code>ts</code> 和 <code>tsx</code></li></ul></li><li><p>在 webpack + web + ESM/CJS 的应用场景中，入口文件优先级为 browser > module > main；在 node + CJS 的应用场景中，只有 main 字段有效。</p></li></ul><a href=#dumi-打包><h2 id=dumi-打包><span class=hanchor arialabel=Anchor># </span>dumi 打包</h2></a><ul><li>站点模式 <code>site | doc</code></li></ul><a href=#问题记录><h1 id=问题记录><span class=hanchor arialabel=Anchor># </span>问题记录</h1></a><a href=#1引用自身组件报错><h2 id=1引用自身组件报错><span class=hanchor arialabel=Anchor># </span>1.引用自身组件报错</h2></a><a href=#问题描述><h3 id=问题描述><span class=hanchor arialabel=Anchor># </span>问题描述</h3></a><ul><li>文件目录结构</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=line><span class=cl>📦src
-</span></span><span class=line><span class=cl>┣ 📂components
-</span></span><span class=line><span class=cl>┃ ┣ 📂Foo
-</span></span><span class=line><span class=cl>┃ ┗ 📂UniButton
-</span></span><span class=line><span class=cl>┃ ┃ ┣ 📜index.md
-</span></span><span class=line><span class=cl>┃ ┃ ┣ 📜index.tsx
-</span></span><span class=line><span class=cl>┃ ┃ ┣ 📜uniButton.less
-</span></span><span class=line><span class=cl>┃ ┃ ┗ 📜uniButton.tsx
-</span></span><span class=line><span class=cl>┣ 📂demos
-</span></span><span class=line><span class=cl>┃ ┣ 📂demo-block
-</span></span><span class=line><span class=cl>┃ ┃ ┣ 📜index.less
-</span></span><span class=line><span class=cl>┃ ┃ ┗ 📜index.tsx
-</span></span><span class=line><span class=cl>┃ ┣ 📂demo-description
-</span></span><span class=line><span class=cl>┃ ┗ 📜index.ts
-</span></span><span class=line><span class=cl>┣ 📂global
-</span></span><span class=line><span class=cl>┃ ┣ 📜global.less
-</span></span><span class=line><span class=cl>┃ ┣ 📜index.ts
-</span></span><span class=line><span class=cl>┃ ┗ 📜theme.less
-</span></span><span class=line><span class=cl>┣ 📂utils
-</span></span><span class=line><span class=cl>┗ 📜index.ts
-</span></span></code></pre></td></tr></table></div></div><ul><li>引用组件库组件作为 DEMO 展示时, dumi 自动识别当前组件文件目录 <code>src/index.ts</code>, 而内部组件(不作为输出组件声明部分, <code>src/demos/index.ts</code>) 需要添加别名</li></ul><a href=#解决方案><h3 id=解决方案><span class=hanchor arialabel=Anchor># </span>解决方案</h3></a><p><code>.umirc.ts</code> 添加别名配置</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>defineConfig</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;dumi&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>path</span> <span class=kr>from</span> <span class=s1>&#39;path&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>defineConfig</span><span class=p>({</span>
-</span></span><span class=line><span class=cl>	<span class=nx>alias</span><span class=o>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=nx>demos</span>: <span class=kt>path.join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;src/demos/index.ts&#39;</span><span class=p>),</span>
-</span></span><span class=line><span class=cl>	<span class=p>},</span>
-</span></span><span class=line><span class=cl><span class=p>});</span>
-</span></span></code></pre></td></tr></table></div></div><a href=#2组件发布私有库><h2 id=2组件发布私有库><span class=hanchor arialabel=Anchor># </span>2.组件发布私有库</h2></a><p>^2c1320</p><a href=#登录私有库><h3 id=登录私有库><span class=hanchor arialabel=Anchor># </span>登录私有库</h3></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1>#未注册且私服允许注册的</span>
-</span></span><span class=line><span class=cl>npm adduser --registry<span class=o>=</span>http://xxx.xxx.x.xx:4873
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>#输入npm账号用户名、密码和邮箱，如下：</span>
-</span></span><span class=line><span class=cl>Username: better1025
-</span></span><span class=line><span class=cl>Password: 
-</span></span><span class=line><span class=cl>Email: <span class=o>(</span>this IS public<span class=o>)</span> xxx@xx.com
-</span></span><span class=line><span class=cl>Logged in as better1025 on http://xxx.xxx.x.xx:4873/.
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>#之前已经注册过了，就使用下面的登录命令</span>
-</span></span><span class=line><span class=cl>npm login --registry<span class=o>=</span>http://xxx.xxx.x.xx:4873
-</span></span></code></pre></td></tr></table></div></div><a href=#发布npm包到私有仓库><h3 id=发布npm包到私有仓库><span class=hanchor arialabel=Anchor># </span>发布npm包到私有仓库</h3></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1>#cd 项目目录</span>
-</span></span><span class=line><span class=cl>npm publish --registry<span class=o>=</span>http://xxx.xxx.x.xx:4873
-</span></span></code></pre></td></tr></table></div></div><a href=#3解决使用私有库配置><h2 id=3解决使用私有库配置><span class=hanchor arialabel=Anchor># </span>3.解决使用私有库配置</h2></a><ul><li>.npmrc</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>registry=https://nexus.dev/repository/npm-proxy/  
-</span></span><span class=line><span class=cl>@mycompany:registry=https://myserver.dev/repository/npm-releases/
-</span></span></code></pre></td></tr></table></div></div><ul><li>.yarnrc</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>registry &#34;https://nexus.dev/repository/npm-proxy/&#34;  
-</span></span><span class=line><span class=cl>&#34;@mycompany:registry&#34; &#34;https://myserver.dev/repository/npm-releases/&#34;
-</span></span></code></pre></td></tr></table></div></div><a href=#4解决-father-rollup-模式对-cjs-引用问题><h2 id=4解决-father-rollup-模式对-cjs-引用问题><span class=hanchor arialabel=Anchor># </span>4.解决 father rollup 模式对 cjs 引用问题</h2></a><a href=#问题描述-1><h3 id=问题描述-1><span class=hanchor arialabel=Anchor># </span>问题描述</h3></a><p>项目依赖 <code>classnames</code>，希望把这个三方包打到产物中，是这样配置的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=c1>// .fatherrc.ts
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>export</span> <span class=k>default</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nx>cjs</span><span class=o>:</span> <span class=s1>&#39;rollup&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>  <span class=nx>externalsExclude</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;classnames&#39;</span><span class=p>],</span>
-</span></span><span class=line><span class=cl><span class=p>};</span>
-</span></span></code></pre></td></tr></table></div></div><p>打包时出现错误提示</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>✖  error     Error: <span class=s1>&#39;default&#39;</span> is not exported by node_modules/classnames/index.js, imported by src/index.js
-</span></span></code></pre></td></tr></table></div></div><a href=#解决方案-1><h3 id=解决方案-1><span class=hanchor arialabel=Anchor># </span>解决方案</h3></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=c1>// .fatherc.ts
-</span></span></span><span class=line><span class=cl><span class=c1>// father 锁定了 rollup 版本，需要根据对应版本选择适合的 commonjs 插件 15.1.0
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>import</span> <span class=nx>commonjs</span> <span class=kr>from</span> <span class=s1>&#39;@rollup/plugin-commonjs&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=nx>esm</span><span class=o>:</span> <span class=s1>&#39;rollup&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>	<span class=nx>entry</span><span class=o>:</span> <span class=s1>&#39;src/index&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>	<span class=nx>lessInRollupMode</span><span class=o>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=nx>javascriptEnabled</span>: <span class=kt>true</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>	<span class=p>},</span>
-</span></span><span class=line><span class=cl>	<span class=nx>autoprefixer</span><span class=o>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=nx>overrideBrowserslist</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;ie&gt;9&#39;</span><span class=p>,</span> <span class=s1>&#39;Safari &gt;= 6&#39;</span><span class=p>],</span>
-</span></span><span class=line><span class=cl>	<span class=p>},</span>
-</span></span><span class=line><span class=cl>	<span class=nx>externalsExclude</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;classnames&#39;</span><span class=p>],</span>
-</span></span><span class=line><span class=cl>	<span class=nx>extraRollupPlugins</span><span class=o>:</span> <span class=p>[</span><span class=nx>commonjs</span><span class=p>()],</span>
-</span></span><span class=line><span class=cl><span class=p>};</span>
-</span></span></code></pre></td></tr></table></div></div><a href=#5-解决组件库二次封装><h2 id=5-解决组件库二次封装><span class=hanchor arialabel=Anchor># </span>5. 解决组件库二次封装</h2></a><p>^a7bc3d</p><a href=#问题描述-2><h3 id=问题描述-2><span class=hanchor arialabel=Anchor># </span>问题描述</h3></a><p>项目基于 <code>Antd Mobile</code> 进行二次封装，引用过程中出现引用识别错误，导致不能使用</p><a href=#解决方案-2><h3 id=解决方案-2><span class=hanchor arialabel=Anchor># </span>解决方案</h3></a><p>将 <code>antd mobile</code> 降级为额外引用，使用项目时自行拉取相关库</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=s2>&#34;peerDependencies&#34;</span><span class=err>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=nt>&#34;antd-mobile&#34;</span><span class=p>:</span> <span class=s2>&#34;^5.5.0&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>	<span class=nt>&#34;react&#34;</span><span class=p>:</span> <span class=s2>&#34;&gt;=16.12.0&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>	<span class=nt>&#34;react-dom&#34;</span><span class=p>:</span> <span class=s2>&#34;&gt;=16.12.0&#34;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><a href=#参考文章><h1 id=参考文章><span class=hanchor arialabel=Anchor># </span>参考文章</h1></a><ul><li><a href=https://github.com/leonwgc/react-uni-comps rel=noopener>leonwgc/react-uni-comps: 桌面和移动端react组件库, desktop & mobile react components</a></li><li><a href=https://juejin.cn/post/6904795653243994125 rel=noopener>教你使用Dumi和father-build快速搭建React组件库 - 掘金</a></li><li><a href=https://www.cnblogs.com/leonwang/p/15646295.html rel=noopener>使用dumi生成react组件库文档并发布到github pages - 记忆的森林 - 博客园</a></li><li><a href=https://github.com/ant-design/pro-components rel=noopener>ant-design/pro-components: 🏆 Use Ant Design like a Pro!</a></li></ul></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>
+
+ 
+          
+<a href="https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/UILibrary/dumi%20%e7%bb%84%e4%bb%b6%e5%ba%93%e6%90%ad%e5%bb%ba.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/Development/Frontend/JavaScript/uiLibrary/">
+          
+            Development frontend java script ui library
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Development/Frontend/Deploy/Dumi/">
+          
+            Development frontend deploy dumi
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#father-打包">father 打包</a>
+      <ol>
+        <li><a href="#esm-和-cjs">esm 和 cjs</a></li>
+        <li><a href="#umd">umd</a></li>
+        <li><a href="#定义方式">定义方式</a></li>
+        <li><a href="#注意事项">注意事项</a></li>
+      </ol>
+    </li>
+    <li><a href="#dumi-打包">dumi 打包</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#1引用自身组件报错">1.引用自身组件报错</a>
+      <ol>
+        <li><a href="#问题描述">问题描述</a></li>
+        <li><a href="#解决方案">解决方案</a></li>
+      </ol>
+    </li>
+    <li><a href="#2组件发布私有库">2.组件发布私有库</a>
+      <ol>
+        <li><a href="#登录私有库">登录私有库</a></li>
+        <li><a href="#发布npm包到私有仓库">发布npm包到私有仓库</a></li>
+      </ol>
+    </li>
+    <li><a href="#3解决使用私有库配置">3.解决使用私有库配置</a></li>
+    <li><a href="#4解决-father-rollup-模式对-cjs-引用问题">4.解决 father rollup 模式对 cjs 引用问题</a>
+      <ol>
+        <li><a href="#问题描述-1">问题描述</a></li>
+        <li><a href="#解决方案-1">解决方案</a></li>
+      </ol>
+    </li>
+    <li><a href="#5-解决组件库二次封装">5. 解决组件库二次封装</a>
+      <ol>
+        <li><a href="#问题描述-2">问题描述</a></li>
+        <li><a href="#解决方案-2">解决方案</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<a href="#配置相关"><h1 id="配置相关"><span class="hanchor" ariaLabel="Anchor"># </span>配置相关</h1></a>
+<a href="#father-打包"><h2 id="father-打包"><span class="hanchor" ariaLabel="Anchor"># </span>father 打包</h2></a>
+<blockquote>
+<p>esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于：</p>
+</blockquote>
+<a href="#esm-和-cjs"><h3 id="esm-和-cjs"><span class="hanchor" ariaLabel="Anchor"># </span>esm 和 cjs</h3></a>
+<ul>
+<li>rollup：会根据 entry，把项目依赖打包在一起只输出一个 js 文件，js 文件输出在 dist 目录 。此时 packages.json 中，</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;main&#34;</span><span class="p">:</span> <span class="s2">&#34;./dist/index.js&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;module&#34;</span><span class="p">:</span> <span class="s2">&#34;./dist/index.esm.js&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>babel：会把 src 目录直接转化成 lib 目录（cjs）或 es 目录（esm），所有 js 文件的目录结构不变。此时 packages.json 中，</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;main&#34;</span><span class="p">:</span> <span class="s2">&#34;./lib/index.js&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;module&#34;</span><span class="p">:</span> <span class="s2">&#34;./es/index.js&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#umd"><h3 id="umd"><span class="hanchor" ariaLabel="Anchor"># </span>umd</h3></a>
+<p>umd 输出在 dist 目录，常用配置为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">umd</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;meditation&#39;</span><span class="p">,</span> <span class="c1">// 在script中引入后，可通过[name].[method]进行方法引用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">file</span><span class="o">:</span> <span class="s1">&#39;meditation&#39;</span><span class="p">,</span> <span class="c1">// 打包后生成的文件名，位置在./dist/[file].js，一般与name保持一致
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">minFile</span>: <span class="kt">true</span><span class="p">,</span> <span class="c1">// 是否生成对应的./dist/[file].min.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">},</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#定义方式"><h3 id="定义方式"><span class="hanchor" ariaLabel="Anchor"># </span>定义方式</h3></a>
+<p>输出格式（esm/cjs/umd）的定义有两种方式：</p>
+<ul>
+<li>配置文件：在 <code>.fatherrc.ts</code> 中配置 esm/cjs/umd，esm/cjs 可选 babel 和 rollup 两种模式。</li>
+<li>命令参数：father-build 后接参数，如 <code>father-build --esm --cjs --umd</code>，注意此时<code>--esm</code> 和<code>--cjs</code> 均为 rollup 模式。</li>
+</ul>
+<p>father 构建时会对配置文件和命令参数中输出格式的定义进行合并，命令参数的优先级比配置文件高。例如，当配置文件中 esm 和 cjs 使用 babel，而构建命令为<code>father-build --esm --cjs</code>时，最终 esm 和 cjs 的模式为 rollup。</p>
+<a href="#注意事项"><h3 id="注意事项"><span class="hanchor" ariaLabel="Anchor"># </span>注意事项</h3></a>
+<ul>
+<li>
+<p>通常只要配置<code>esm: &quot;babel&quot;</code>即可，如果要考虑 ssr，再配上<code>cjs: &quot;babel&quot;</code>。</p>
+</li>
+<li>
+<p>package.json 里配上 <code>sideEffects: false | string[]</code>，会让 webpack 的 
+<a href="https://webpack.js.org/guides/tree-shaking/" rel="noopener">tree-shaking</a> 更高效。</p>
+</li>
+<li>
+<p>cjs 和 esm 格式打包方式选 rollup 时有个约定，dependencies 和 peerDependencies 里的内容会被 external。</p>
+</li>
+<li>
+<p>esm.mjs 和 umd 格式，只有 peerDependencies 会被 external。</p>
+</li>
+<li>
+<p>打包方式 babel 时无需考虑 external，因为是文件到文件的编译，不处理文件合并。</p>
+</li>
+<li>
+<p>babel 模式下一些文件不会被编译到 es 和 lib 下，包含：</p>
+<ul>
+<li><code>__test__</code> 目录</li>
+<li><code>fixtures</code> 目录</li>
+<li><code>demos</code> 目录</li>
+<li><code>mdx</code> 文件</li>
+<li><code>md</code> 文件</li>
+</ul>
+</li>
+<li>
+<p>测试文件，比如</p>
+<ul>
+<li><code>test.js</code></li>
+<li><code>spec.js</code></li>
+<li><code>e2e.js</code></li>
+<li>后缀还支持 <code>jsx</code>、<code>ts</code> 和 <code>tsx</code></li>
+</ul>
+</li>
+<li>
+<p>在 webpack + web + ESM/CJS 的应用场景中，入口文件优先级为 browser &gt; module &gt; main；在 node + CJS 的应用场景中，只有 main 字段有效。</p>
+</li>
+</ul>
+<a href="#dumi-打包"><h2 id="dumi-打包"><span class="hanchor" ariaLabel="Anchor"># </span>dumi 打包</h2></a>
+<ul>
+<li>站点模式  <code>site | doc</code></li>
+</ul>
+<a href="#问题记录"><h1 id="问题记录"><span class="hanchor" ariaLabel="Anchor"># </span>问题记录</h1></a>
+<a href="#1引用自身组件报错"><h2 id="1引用自身组件报错"><span class="hanchor" ariaLabel="Anchor"># </span>1.引用自身组件报错</h2></a>
+<a href="#问题描述"><h3 id="问题描述"><span class="hanchor" ariaLabel="Anchor"># </span>问题描述</h3></a>
+<ul>
+<li>文件目录结构</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">📦src
+</span></span><span class="line"><span class="cl">┣ 📂components
+</span></span><span class="line"><span class="cl">┃ ┣ 📂Foo
+</span></span><span class="line"><span class="cl">┃ ┗ 📂UniButton
+</span></span><span class="line"><span class="cl">┃ ┃ ┣ 📜index.md
+</span></span><span class="line"><span class="cl">┃ ┃ ┣ 📜index.tsx
+</span></span><span class="line"><span class="cl">┃ ┃ ┣ 📜uniButton.less
+</span></span><span class="line"><span class="cl">┃ ┃ ┗ 📜uniButton.tsx
+</span></span><span class="line"><span class="cl">┣ 📂demos
+</span></span><span class="line"><span class="cl">┃ ┣ 📂demo-block
+</span></span><span class="line"><span class="cl">┃ ┃ ┣ 📜index.less
+</span></span><span class="line"><span class="cl">┃ ┃ ┗ 📜index.tsx
+</span></span><span class="line"><span class="cl">┃ ┣ 📂demo-description
+</span></span><span class="line"><span class="cl">┃ ┗ 📜index.ts
+</span></span><span class="line"><span class="cl">┣ 📂global
+</span></span><span class="line"><span class="cl">┃ ┣ 📜global.less
+</span></span><span class="line"><span class="cl">┃ ┣ 📜index.ts
+</span></span><span class="line"><span class="cl">┃ ┗ 📜theme.less
+</span></span><span class="line"><span class="cl">┣ 📂utils
+</span></span><span class="line"><span class="cl">┗ 📜index.ts
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>引用组件库组件作为 DEMO 展示时, dumi 自动识别当前组件文件目录 <code>src/index.ts</code>, 而内部组件(不作为输出组件声明部分, <code>src/demos/index.ts</code>) 需要添加别名</li>
+</ul>
+<a href="#解决方案"><h3 id="解决方案"><span class="hanchor" ariaLabel="Anchor"># </span>解决方案</h3></a>
+<p><code>.umirc.ts</code> 添加别名配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;dumi&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">path</span> <span class="kr">from</span> <span class="s1">&#39;path&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">alias</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">demos</span>: <span class="kt">path.join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;src/demos/index.ts&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#2组件发布私有库"><h2 id="2组件发布私有库"><span class="hanchor" ariaLabel="Anchor"># </span>2.组件发布私有库</h2></a>
+<p>^2c1320</p>
+<a href="#登录私有库"><h3 id="登录私有库"><span class="hanchor" ariaLabel="Anchor"># </span>登录私有库</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#未注册且私服允许注册的</span>
+</span></span><span class="line"><span class="cl">npm adduser --registry<span class="o">=</span>http://xxx.xxx.x.xx:4873
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#输入npm账号用户名、密码和邮箱，如下：</span>
+</span></span><span class="line"><span class="cl">Username: better1025
+</span></span><span class="line"><span class="cl">Password: 
+</span></span><span class="line"><span class="cl">Email: <span class="o">(</span>this IS public<span class="o">)</span> xxx@xx.com
+</span></span><span class="line"><span class="cl">Logged in as better1025 on http://xxx.xxx.x.xx:4873/.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#之前已经注册过了，就使用下面的登录命令</span>
+</span></span><span class="line"><span class="cl">npm login --registry<span class="o">=</span>http://xxx.xxx.x.xx:4873
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#发布npm包到私有仓库"><h3 id="发布npm包到私有仓库"><span class="hanchor" ariaLabel="Anchor"># </span>发布npm包到私有仓库</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#cd 项目目录</span>
+</span></span><span class="line"><span class="cl">npm publish --registry<span class="o">=</span>http://xxx.xxx.x.xx:4873
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#3解决使用私有库配置"><h2 id="3解决使用私有库配置"><span class="hanchor" ariaLabel="Anchor"># </span>3.解决使用私有库配置</h2></a>
+<ul>
+<li>.npmrc</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">registry=https://nexus.dev/repository/npm-proxy/  
+</span></span><span class="line"><span class="cl">@mycompany:registry=https://myserver.dev/repository/npm-releases/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>.yarnrc</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">registry &#34;https://nexus.dev/repository/npm-proxy/&#34;  
+</span></span><span class="line"><span class="cl">&#34;@mycompany:registry&#34; &#34;https://myserver.dev/repository/npm-releases/&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#4解决-father-rollup-模式对-cjs-引用问题"><h2 id="4解决-father-rollup-模式对-cjs-引用问题"><span class="hanchor" ariaLabel="Anchor"># </span>4.解决 father rollup 模式对 cjs 引用问题</h2></a>
+<a href="#问题描述-1"><h3 id="问题描述-1"><span class="hanchor" ariaLabel="Anchor"># </span>问题描述</h3></a>
+<p>项目依赖 <code>classnames</code>，希望把这个三方包打到产物中，是这样配置的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// .fatherrc.ts
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cjs</span><span class="o">:</span> <span class="s1">&#39;rollup&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">externalsExclude</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;classnames&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打包时出现错误提示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">✖  error     Error: <span class="s1">&#39;default&#39;</span> is not exported by node_modules/classnames/index.js, imported by src/index.js
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#解决方案-1"><h3 id="解决方案-1"><span class="hanchor" ariaLabel="Anchor"># </span>解决方案</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// .fatherc.ts
+</span></span></span><span class="line"><span class="cl"><span class="c1">// father 锁定了 rollup 版本，需要根据对应版本选择适合的 commonjs 插件 15.1.0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">commonjs</span> <span class="kr">from</span> <span class="s1">&#39;@rollup/plugin-commonjs&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">esm</span><span class="o">:</span> <span class="s1">&#39;rollup&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;src/index&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lessInRollupMode</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">javascriptEnabled</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">autoprefixer</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">overrideBrowserslist</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;ie&gt;9&#39;</span><span class="p">,</span> <span class="s1">&#39;Safari &gt;= 6&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">externalsExclude</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;classnames&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">extraRollupPlugins</span><span class="o">:</span> <span class="p">[</span><span class="nx">commonjs</span><span class="p">()],</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#5-解决组件库二次封装"><h2 id="5-解决组件库二次封装"><span class="hanchor" ariaLabel="Anchor"># </span>5. 解决组件库二次封装</h2></a>
+<p>^a7bc3d</p>
+<a href="#问题描述-2"><h3 id="问题描述-2"><span class="hanchor" ariaLabel="Anchor"># </span>问题描述</h3></a>
+<p>项目基于 <code>Antd Mobile</code> 进行二次封装，引用过程中出现引用识别错误，导致不能使用</p>
+<a href="#解决方案-2"><h3 id="解决方案-2"><span class="hanchor" ariaLabel="Anchor"># </span>解决方案</h3></a>
+<p>将 <code>antd mobile</code> 降级为额外引用，使用项目时自行拉取相关库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;peerDependencies&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;antd-mobile&#34;</span><span class="p">:</span> <span class="s2">&#34;^5.5.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;react&#34;</span><span class="p">:</span> <span class="s2">&#34;&gt;=16.12.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&#34;react-dom&#34;</span><span class="p">:</span> <span class="s2">&#34;&gt;=16.12.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#参考文章"><h1 id="参考文章"><span class="hanchor" ariaLabel="Anchor"># </span>参考文章</h1></a>
+<ul>
+<li>
+<a href="https://github.com/leonwgc/react-uni-comps" rel="noopener">leonwgc/react-uni-comps: 桌面和移动端react组件库, desktop &amp; mobile react components</a></li>
+<li>
+<a href="https://juejin.cn/post/6904795653243994125" rel="noopener">教你使用Dumi和father-build快速搭建React组件库 - 掘金</a></li>
+<li>
+<a href="https://www.cnblogs.com/leonwang/p/15646295.html" rel="noopener">使用dumi生成react组件库文档并发布到github pages - 记忆的森林 - 博客园</a></li>
+<li>
+<a href="https://github.com/ant-design/pro-components" rel="noopener">ant-design/pro-components: 🏆 Use Ant Design like a Pro!</a></li>
+</ul>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://twitter.com/_jzhao">Twitter</a></li><li><a href="https://github.com/jackyzha0">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

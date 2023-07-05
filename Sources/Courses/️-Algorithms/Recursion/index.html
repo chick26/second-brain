@@ -1,293 +1,910 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [ • TOC for Algorithm Course
- [! Question]+ 如何理解“递归”？
- 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1."><meta property="og:title" content="Recursion"><meta property="og:description" content="up:: [ • TOC for Algorithm Course
- [! Question]+ 如何理解“递归”？
- 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1."><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Recursion/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="Recursion"><meta name=twitter:description content="up:: [ • TOC for Algorithm Course
- [! Question]+ 如何理解“递归”？
- 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1."><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>Recursion</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
-<script src=../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
-<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
-<script defer src=../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
-<script defer src=../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
-<script defer src=../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
-<script defer src=../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
-<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.d413193f7ae19d461b59d12d61b54d86.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Algorithm Course
+ [! Question]&#43; 如何理解“递归”？
+ 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1."
+  />
+  <meta property="og:title" content="Recursion">
+  <meta property="og:description" content="up:: [ • TOC for Algorithm Course
+ [! Question]&#43; 如何理解“递归”？
+ 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/Sources/Courses/%EF%B8%8F-Algorithms/Recursion/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Recursion" />
+  <meta name="twitter:description" content="up:: [ • TOC for Algorithm Course
+ [! Question]&#43; 如何理解“递归”？
+ 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1." />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+      
+      <meta name="twitter:site" content="_jzhao" />
+    
+  
+    
+  
+
+  <title>
+    Recursion
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.ab44743a5d67084ed2332ae5677b2ec3.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
     import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
     attachSPARouting(init, render)
-  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
-<script defer src=../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
-<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>Recursion</h1><p class=meta>Last updated
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">🪴 Quartz 3.3</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>Recursion</h1>
+      <p class="meta">
+        Last updated 
 Unknown
-<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Sources/Courses/%e2%9c%8d%ef%b8%8f%20Algorithms/Recursion.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Development/ComputerBasic/DataStructure/Recursion/>Development computer basic data structure recursion</a></li><li><a href=chick26.github.io/tags/Sources/Courses/Algorithms/>Sources courses algorithms</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#递归需要满足的三个条件>递归需要满足的三个条件</a></li><li><a href=#如何编写递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e7bc96e58699e98092e5bd92e4bba3e7a081efbc9f><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%ef%bc%9f">如何编写递归代码？</a></a></li><li><a href=#递归代码要警惕堆栈溢出httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e5a086e6a088e6baa2e587ba><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e5%a0%86%e6%a0%88%e6%ba%a2%e5%87%ba">递归代码要警惕堆栈溢出</a></a></li><li><a href=#递归代码要警惕重复计算httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e9878de5a48de8aea1e7ae97><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e9%87%8d%e5%a4%8d%e8%ae%a1%e7%ae%97">递归代码要警惕重复计算</a></a></li><li><a href=#将递归代码改写为非递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5b086e98092e5bd92e4bba3e7a081e694b9e58699e4b8bae99d9ee98092e5bd92e4bba3e7a081><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%b0%86%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e6%94%b9%e5%86%99%e4%b8%ba%e9%9d%9e%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81">将递归代码改写为非递归代码</a></a></li><li><a href=#如何用三行代码找到最终推荐人httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e794a8e4b889e8a18ce4bba3e7a081e689bee588b0e69c80e7bb88e68ea8e88d90e4babaefbc9f><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%94%a8%e4%b8%89%e8%a1%8c%e4%bb%a3%e7%a0%81%e6%89%be%e5%88%b0%e6%9c%80%e7%bb%88%e6%8e%a8%e8%8d%90%e4%ba%ba%ef%bc%9f">如何用三行代码找到“最终推荐人”？</a></a></li><li><a href=#斐波那契数列httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide69690e6b3a2e982a3e5a591e695b0e58897><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e6%96%90%e6%b3%a2%e9%82%a3%e5%a5%91%e6%95%b0%e5%88%97"><strong>斐波那契数列</strong></a></a></li><li><a href=#树形显示目录httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide6a091e5bda2e698bee7a4bae79baee5bd95><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e6%a0%91%e5%bd%a2%e6%98%be%e7%a4%ba%e7%9b%ae%e5%bd%95">树形显示目录</a></a></li></ol></nav></details></aside><p>up:: [
-<a rel=noopener class="internal-link broken" data-src=%E2%80%A2%20TOC%20for%20Algorithm%20Course>• TOC for Algorithm Course</a></p><blockquote class="[! question]-callout"><p>[! Question]+ 如何理解“递归”？</p><ul><li>递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码;</li><li>递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等;</li><li>很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.</li></ul></blockquote><a href=#递归需要满足的三个条件><h2 id=递归需要满足的三个条件><span class=hanchor arialabel=Anchor># </span>递归需要满足的三个条件</h2></a><p>满足三个条件的问题可以用递归来解决：
+
+ 
+          
+<a href="https://github.com/jackyzha0/quartz/tree/hugo/content/Sources/Courses/%e2%9c%8d%ef%b8%8f%20Algorithms/Recursion.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/Development/ComputerBasic/DataStructure/Recursion/">
+          
+            Development computer basic data structure recursion
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Sources/Courses/Algorithms/">
+          
+            Sources courses algorithms
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#递归需要满足的三个条件">递归需要满足的三个条件</a></li>
+    <li><a href="#如何编写递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e7bc96e58699e98092e5bd92e4bba3e7a081efbc9f"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%ef%bc%9f">如何编写递归代码？</a></a></li>
+    <li><a href="#递归代码要警惕堆栈溢出httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e5a086e6a088e6baa2e587ba"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e5%a0%86%e6%a0%88%e6%ba%a2%e5%87%ba">递归代码要警惕堆栈溢出</a></a></li>
+    <li><a href="#递归代码要警惕重复计算httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e9878de5a48de8aea1e7ae97"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e9%87%8d%e5%a4%8d%e8%ae%a1%e7%ae%97">递归代码要警惕重复计算</a></a></li>
+    <li><a href="#将递归代码改写为非递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5b086e98092e5bd92e4bba3e7a081e694b9e58699e4b8bae99d9ee98092e5bd92e4bba3e7a081"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%b0%86%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e6%94%b9%e5%86%99%e4%b8%ba%e9%9d%9e%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81">将递归代码改写为非递归代码</a></a></li>
+    <li><a href="#如何用三行代码找到最终推荐人httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e794a8e4b889e8a18ce4bba3e7a081e689bee588b0e69c80e7bb88e68ea8e88d90e4babaefbc9f"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%94%a8%e4%b8%89%e8%a1%8c%e4%bb%a3%e7%a0%81%e6%89%be%e5%88%b0%e6%9c%80%e7%bb%88%e6%8e%a8%e8%8d%90%e4%ba%ba%ef%bc%9f">如何用三行代码找到“最终推荐人”？</a></a></li>
+    <li><a href="#斐波那契数列httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide69690e6b3a2e982a3e5a591e695b0e58897"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e6%96%90%e6%b3%a2%e9%82%a3%e5%a5%91%e6%95%b0%e5%88%97"><strong>斐波那契数列</strong></a></a></li>
+    <li><a href="#树形显示目录httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide6a091e5bda2e698bee7a4bae79baee5bd95"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e6%a0%91%e5%bd%a2%e6%98%be%e7%a4%ba%e7%9b%ae%e5%bd%95">树形显示目录</a></a></li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="%E2%80%A2%20TOC%20for%20Algorithm%20Course">• TOC for Algorithm Course</a></p>
+<blockquote class="[! question]-callout">
+<p>[! Question]+ 如何理解“递归”？</p>
+<ul>
+<li>递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码;</li>
+<li>递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等;</li>
+<li>很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.</li>
+</ul>
+</blockquote>
+<a href="#递归需要满足的三个条件"><h2 id="递归需要满足的三个条件"><span class="hanchor" ariaLabel="Anchor"># </span>递归需要满足的三个条件</h2></a>
+<p>满足三个条件的问题可以用递归来解决：
 <strong>1. 一个问题的解可以分解为几个子问题的解</strong>
 子问题就是数据规模更小的问题。比如，前面讲的电影院的例子，你要知道，“自己在哪一排”的问题，可以分解为“前一排的人在哪一排”这样一个子问题。
 <strong>2. 这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</strong>
 比如电影院那个例子，求解“自己在哪一排”的思路，和前面一排人求解“自己在哪一排”的思路，是一模一样的。
 <strong>3. 存在递归终止条件</strong>
 把问题分解为子问题，把子问题再分解为子子问题，一层一层分解下去，不能存在无限循环，这就需要有终止条件。
-还是电影院的例子，第一排的人不需要再继续询问任何人，就知道自己在哪一排，也就是 f (1)=1，这就是递归的终止条件。</p><h2 id=如何编写递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e7bc96e58699e98092e5bd92e4bba3e7a081efbc9f><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%ef%bc%9f" rel=noopener>如何编写递归代码？</a></h2><p>写递归代码最关键的是<strong>写出递推公式，找到终止条件</strong>。
+还是电影院的例子，第一排的人不需要再继续询问任何人，就知道自己在哪一排，也就是 f (1)=1，这就是递归的终止条件。</p>
+<h2 id="如何编写递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e7bc96e58699e98092e5bd92e4bba3e7a081efbc9f">
+<a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%ef%bc%9f" rel="noopener">如何编写递归代码？</a></h2>
+<p>写递归代码最关键的是<strong>写出递推公式，找到终止条件</strong>。
 假如这里有 n 个台阶，每次你可以跨 1 个台阶或者 2 个台阶，请问走这 n 个台阶有多少种走法？如果有 7 个台阶，你可以 2，2，2，1 这样子上去，也可以 1，2，1，1，2 这样子上去，总之走法有很多，那如何用编程求得总共有多少种走法呢？
-可以根据第一步的走法把所有走法分为两类，第一类是第一步走了 1 个台阶，另一类是第一步走了 2 个台阶。所以 n 个台阶的走法就等于先走 1 阶后 n-1 个台阶的走法，加上先走 2 阶后 n-2 个台阶的走法。用公式表示就是：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>f(n) = f(n-1)+f(n-2)c
-</span></span></code></pre></td></tr></table></div></div><p>再来看终止条件:
+可以根据第一步的走法把所有走法分为两类，第一类是第一步走了 1 个台阶，另一类是第一步走了 2 个台阶。所以 n 个台阶的走法就等于先走 1 阶后 n-1 个台阶的走法，加上先走 2 阶后 n-2 个台阶的走法。用公式表示就是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">f(n) = f(n-1)+f(n-2)c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>再来看终止条件:
 当有一个台阶时，就不需要再继续递归，就只有一种走法。所以 f (1)=1。
 再用 n=2，n=3 这样比较小的数试验一下这个递归终止条件是否足够：
 N=2 时，f (2)=f (1)+f (0)。如果递归终止条件只有一个 f (1)=1，那 f (2) 就无法求解了。所以除了 f (1)=1 这一个递归终止条件外，还要有 f (0)=1，表示走 0 个台阶有一种走法，不过这样子看起来又不符合正常的逻辑思维。所以可以把 f (2)=2 作为一种终止条件，表示走 2 个台阶，有两种走法，一步走完或者分两步来走。
 所以，递归终止条件就是 f (1)=1，f (2)=2。这时再拿 n=3，n=4 来验证一下，这个终止条件是否足够并且正确。
-把递归终止条件和刚刚得到的递推公式放到一起就是这样的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>f(1) = 1;
-</span></span><span class=line><span class=cl>f(2) = 2;
-</span></span><span class=line><span class=cl>f(n) = f(n-1)+f(n-2)c
-</span></span></code></pre></td></tr></table></div></div><p>有了这个公式，我们转化成递归代码就简单多了。最终的递归代码是这样的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>int f(int n) {
-</span></span><span class=line><span class=cl>  if (n == 1) return 1;
-</span></span><span class=line><span class=cl>  if (n == 2) return 2;
-</span></span><span class=line><span class=cl>  return f(n-1) + f(n-2);
-</span></span><span class=line><span class=cl>}c
-</span></span></code></pre></td></tr></table></div></div><p><strong>写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</strong>。
+把递归终止条件和刚刚得到的递推公式放到一起就是这样的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">f(1) = 1;
+</span></span><span class="line"><span class="cl">f(2) = 2;
+</span></span><span class="line"><span class="cl">f(n) = f(n-1)+f(n-2)c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>有了这个公式，我们转化成递归代码就简单多了。最终的递归代码是这样的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int f(int n) {
+</span></span><span class="line"><span class="cl">  if (n == 1) return 1;
+</span></span><span class="line"><span class="cl">  if (n == 2) return 2;
+</span></span><span class="line"><span class="cl">  return f(n-1) + f(n-2);
+</span></span><span class="line"><span class="cl">}c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</strong>。
 第二个例子，人脑几乎没办法把整个“递”和“归”的过程一步一步都想清楚。
 <strong>正确的理解递归的思维方式：</strong>
 如果一个问题 A 可以分解为若干子问题 B、C、D，先假设子问题 B、C、D 已经解决，在此基础上思考如何解决问题 A。只需要思考问题 A 与子问题 B、C、D 两层之间的关系即可，不要一层一层往下思考子问题与子子问题，子子问题与子子子问题之间的关系。屏蔽掉递归细节，这样理解起来就简单多了。
-因此，<strong>编写递归代码的关键是，只要遇到递归，就把它抽象成一个递推公式，不用想一层层的调用关系，不要试图用人脑去分解递归的每个步骤</strong>。</p><h2 id=递归代码要警惕堆栈溢出httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e5a086e6a088e6baa2e587ba><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e5%a0%86%e6%a0%88%e6%ba%a2%e5%87%ba" rel=noopener>递归代码要警惕堆栈溢出</a></h2><p>函数调用会使用栈来保存临时变量。每调用一个函数，都会将临时变量封装为栈帧压入内存栈，等函数执行完成返回时，才出栈。如果递归求解的数据规模很大，调用层次很深，一直压入栈，<strong>就会有堆栈溢出的风险</strong>。
-上面的讲的电影院的例子，如果将系统栈或者 JVM 堆栈大小设置为 1 KB，在求解 f (19999) 时便会出现如下堆栈报错：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Exception in thread &#34;main&#34; java.lang.StackOverflowErrorjava
-</span></span></code></pre></td></tr></table></div></div><p>那么，如何避免出现堆栈溢出呢？
+因此，<strong>编写递归代码的关键是，只要遇到递归，就把它抽象成一个递推公式，不用想一层层的调用关系，不要试图用人脑去分解递归的每个步骤</strong>。</p>
+<h2 id="递归代码要警惕堆栈溢出httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e5a086e6a088e6baa2e587ba">
+<a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e5%a0%86%e6%a0%88%e6%ba%a2%e5%87%ba" rel="noopener">递归代码要警惕堆栈溢出</a></h2>
+<p>函数调用会使用栈来保存临时变量。每调用一个函数，都会将临时变量封装为栈帧压入内存栈，等函数执行完成返回时，才出栈。如果递归求解的数据规模很大，调用层次很深，一直压入栈，<strong>就会有堆栈溢出的风险</strong>。
+上面的讲的电影院的例子，如果将系统栈或者 JVM 堆栈大小设置为 1 KB，在求解 f (19999) 时便会出现如下堆栈报错：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Exception in thread &#34;main&#34; java.lang.StackOverflowErrorjava
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>那么，如何避免出现堆栈溢出呢？
 方法之一是在代码中限制递归调用的最大深度，递归调用超过一定深度（比如 1000）之后，就直接返回报错。
-电影院那个例子，可以改造成下面这样子，就可以避免堆栈溢出了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>// 全局变量，表示递归的深度。
-</span></span><span class=line><span class=cl>int depth = 0;
-</span></span><span class=line><span class=cl>int f(int n) {
-</span></span><span class=line><span class=cl>  ++depth；
-</span></span><span class=line><span class=cl>  if (depth &gt; 1000) throw exception;
-</span></span><span class=line><span class=cl>  if (n == 1) return 1;
-</span></span><span class=line><span class=cl>  return f(n-1) + 1;
-</span></span><span class=line><span class=cl>}c
-</span></span></code></pre></td></tr></table></div></div><p>但这种做法并不能完全解决问题，因为最大允许的递归深度跟当前线程剩余的栈空间大小有关，事先无法计算。如果实时计算，代码过于复杂，就会影响代码的可读性。所以，如果最大深度比较小，比如 10、50，就可以用这种方法，否则这种方法并不实用。</p><h2 id=递归代码要警惕重复计算httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e9878de5a48de8aea1e7ae97><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e9%87%8d%e5%a4%8d%e8%ae%a1%e7%ae%97" rel=noopener>递归代码要警惕重复计算</a></h2><p>刚才第二个递归代码的例子把整个递归过程分解一下：
-<img src="https://cdn.nlark.com/yuque/0/2021/png/12918953/1619509314148-7c1d4862-8fdf-43d2-b7cf-aa7bade6b034.png#align=left&display=inline&height=447&originHeight=447&originWidth=496&status=done&style=none&width=496" width=auto alt>
+电影院那个例子，可以改造成下面这样子，就可以避免堆栈溢出了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 全局变量，表示递归的深度。
+</span></span><span class="line"><span class="cl">int depth = 0;
+</span></span><span class="line"><span class="cl">int f(int n) {
+</span></span><span class="line"><span class="cl">  ++depth；
+</span></span><span class="line"><span class="cl">  if (depth &gt; 1000) throw exception;
+</span></span><span class="line"><span class="cl">  if (n == 1) return 1;
+</span></span><span class="line"><span class="cl">  return f(n-1) + 1;
+</span></span><span class="line"><span class="cl">}c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>但这种做法并不能完全解决问题，因为最大允许的递归深度跟当前线程剩余的栈空间大小有关，事先无法计算。如果实时计算，代码过于复杂，就会影响代码的可读性。所以，如果最大深度比较小，比如 10、50，就可以用这种方法，否则这种方法并不实用。</p>
+<h2 id="递归代码要警惕重复计算httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e9878de5a48de8aea1e7ae97">
+<a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e9%87%8d%e5%a4%8d%e8%ae%a1%e7%ae%97" rel="noopener">递归代码要警惕重复计算</a></h2>
+<p>刚才第二个递归代码的例子把整个递归过程分解一下：
+
+
+<img src="https://cdn.nlark.com/yuque/0/2021/png/12918953/1619509314148-7c1d4862-8fdf-43d2-b7cf-aa7bade6b034.png#align=left&amp;display=inline&amp;height=447&amp;originHeight=447&amp;originWidth=496&amp;status=done&amp;style=none&amp;width=496" width="auto" alt=""  />
 从图中，可以看到要计算 f (5)，需要先计算 f (4) 和 f (3)，而计算 f (4) 还需要计算 f (3)，因此，f (3) 就被计算了很多次，这就是重复计算问题。
-为了避免重复计算，我们可以通过一个数据结构（比如散列表）来保存已经求解过的 f (k)。当递归调用到 f (k) 时，先看下是否已经求解过了。如果是，则直接从散列表中取值返回，不需要重复计算。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>public int f(int n) {
-</span></span><span class=line><span class=cl>  if (n == 1) return 1;
-</span></span><span class=line><span class=cl>  if (n == 2) return 2;
-</span></span><span class=line><span class=cl>  // hasSolvedList 可以理解成一个 Map，key 是 n，value 是 f(n)
-</span></span><span class=line><span class=cl>  if (hasSolvedList.containsKey(n)) {
-</span></span><span class=line><span class=cl>    return hasSovledList.get(n);
-</span></span><span class=line><span class=cl>  }
-</span></span><span class=line><span class=cl>  int ret = f(n-1) + f(n-2);
-</span></span><span class=line><span class=cl>  hasSovledList.put(n, ret);
-</span></span><span class=line><span class=cl>  return ret;
-</span></span><span class=line><span class=cl>}java
-</span></span></code></pre></td></tr></table></div></div><p>在时间效率上，递归代码里多了很多函数调用，当这些函数调用的数量较大时，就会积聚成一个可观的时间成本。在空间复杂度上，因为递归调用一次就会在内存栈中保存一次现场数据，所以在分析递归代码空间复杂度时，需要额外考虑这部分的开销，比如电影院递归代码，空间复杂度是 O (n)。</p><h2 id=将递归代码改写为非递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5b086e98092e5bd92e4bba3e7a081e694b9e58699e4b8bae99d9ee98092e5bd92e4bba3e7a081><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%b0%86%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e6%94%b9%e5%86%99%e4%b8%ba%e9%9d%9e%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81" rel=noopener>将递归代码改写为非递归代码</a></h2><p>递归代码的表达力很强，写起来非常简洁，但是空间复杂度高、有堆栈溢出的风险、存在重复计算、过多的函数调用会耗时较多等问题。所以，应当根据实际情况尽量把递归代码改写为非递归代码。
-只看 f (x) =f (x-1)+1 这个递推公式。可以这样改写：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>int f(int n) {
-</span></span><span class=line><span class=cl>  int ret = 1;
-</span></span><span class=line><span class=cl>  for (int i = 2; i &lt;= n; ++i) {
-</span></span><span class=line><span class=cl>    ret = ret + 1;
-</span></span><span class=line><span class=cl>  }
-</span></span><span class=line><span class=cl>  return ret;
-</span></span><span class=line><span class=cl>}c
-</span></span></code></pre></td></tr></table></div></div><p>第二个例子也可以改为非递归的实现：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>int f(int n) {
-</span></span><span class=line><span class=cl>  if (n == 1) return 1;
-</span></span><span class=line><span class=cl>  if (n == 2) return 2;
-</span></span><span class=line><span class=cl>  int ret = 0;
-</span></span><span class=line><span class=cl>  int pre = 2;
-</span></span><span class=line><span class=cl>  int prepre = 1;
-</span></span><span class=line><span class=cl>  for (int i = 3; i &lt;= n; ++i) {
-</span></span><span class=line><span class=cl>    ret = pre + prepre;
-</span></span><span class=line><span class=cl>    prepre = pre;
-</span></span><span class=line><span class=cl>    pre = ret;
-</span></span><span class=line><span class=cl>  }
-</span></span><span class=line><span class=cl>  return ret;
-</span></span><span class=line><span class=cl>}java
-</span></span></code></pre></td></tr></table></div></div><p>那是不是所有的递归代码都可以改为这种<strong>迭代循环</strong>的非递归写法呢？
-因为递归本身就是借助栈来实现的，如果自己在内存堆上实现栈，手动模拟入栈、出栈过程，这样任何递归代码都可以改写成看上去不是递归代码的样子。但是这种思路实际上是将递归改为了“手动”递归，徒增了实现的复杂度。</p><h2 id=如何用三行代码找到最终推荐人httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e794a8e4b889e8a18ce4bba3e7a081e689bee588b0e69c80e7bb88e68ea8e88d90e4babaefbc9f><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%94%a8%e4%b8%89%e8%a1%8c%e4%bb%a3%e7%a0%81%e6%89%be%e5%88%b0%e6%9c%80%e7%bb%88%e6%8e%a8%e8%8d%90%e4%ba%ba%ef%bc%9f" rel=noopener>如何用三行代码找到“最终推荐人”？</a></h2><p>推荐注册返佣金这个功能中，用户 A 推荐用户 B 来注册，用户 B 又推荐了用户 C 来注册。则用户 C 的“最终推荐人”为用户 A，用户 B 的“最终推荐人”也为用户 A，而用户 A 没有“最终推荐人”。
-可以通过数据库来记录这种推荐关系，其中 actor_id 表示用户 id，referrer_id 表示推荐人 id。</p><table><thead><tr><th>actor_id</th><th>referrer_id</th></tr></thead><tbody><tr><td>B</td><td>A</td></tr><tr><td>C</td><td>B</td></tr></tbody></table><p><strong>给定一个用户 ID，如何查找这个用户的“最终推荐人”？</strong>
-Java 递归伪代码实现：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>long findRootReferrerId(long actorId) {
-</span></span><span class=line><span class=cl>  Long referrerId = select referrer_id from [table] where actor_id = actorId;
-</span></span><span class=line><span class=cl>  if (referrerId == null) return actorId;
-</span></span><span class=line><span class=cl>  return findRootReferrerId(referrerId);
-</span></span><span class=line><span class=cl>}java
-</span></span></code></pre></td></tr></table></div></div><p>递归用三行代码就能搞定了，不过在实际项目中，上面的代码并不能工作。
+为了避免重复计算，我们可以通过一个数据结构（比如散列表）来保存已经求解过的 f (k)。当递归调用到 f (k) 时，先看下是否已经求解过了。如果是，则直接从散列表中取值返回，不需要重复计算。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public int f(int n) {
+</span></span><span class="line"><span class="cl">  if (n == 1) return 1;
+</span></span><span class="line"><span class="cl">  if (n == 2) return 2;
+</span></span><span class="line"><span class="cl">  // hasSolvedList 可以理解成一个 Map，key 是 n，value 是 f(n)
+</span></span><span class="line"><span class="cl">  if (hasSolvedList.containsKey(n)) {
+</span></span><span class="line"><span class="cl">    return hasSovledList.get(n);
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">  int ret = f(n-1) + f(n-2);
+</span></span><span class="line"><span class="cl">  hasSovledList.put(n, ret);
+</span></span><span class="line"><span class="cl">  return ret;
+</span></span><span class="line"><span class="cl">}java
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在时间效率上，递归代码里多了很多函数调用，当这些函数调用的数量较大时，就会积聚成一个可观的时间成本。在空间复杂度上，因为递归调用一次就会在内存栈中保存一次现场数据，所以在分析递归代码空间复杂度时，需要额外考虑这部分的开销，比如电影院递归代码，空间复杂度是 O (n)。</p>
+<h2 id="将递归代码改写为非递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5b086e98092e5bd92e4bba3e7a081e694b9e58699e4b8bae99d9ee98092e5bd92e4bba3e7a081">
+<a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%b0%86%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e6%94%b9%e5%86%99%e4%b8%ba%e9%9d%9e%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81" rel="noopener">将递归代码改写为非递归代码</a></h2>
+<p>递归代码的表达力很强，写起来非常简洁，但是空间复杂度高、有堆栈溢出的风险、存在重复计算、过多的函数调用会耗时较多等问题。所以，应当根据实际情况尽量把递归代码改写为非递归代码。
+只看 f (x) =f (x-1)+1 这个递推公式。可以这样改写：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int f(int n) {
+</span></span><span class="line"><span class="cl">  int ret = 1;
+</span></span><span class="line"><span class="cl">  for (int i = 2; i &lt;= n; ++i) {
+</span></span><span class="line"><span class="cl">    ret = ret + 1;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">  return ret;
+</span></span><span class="line"><span class="cl">}c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>第二个例子也可以改为非递归的实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int f(int n) {
+</span></span><span class="line"><span class="cl">  if (n == 1) return 1;
+</span></span><span class="line"><span class="cl">  if (n == 2) return 2;
+</span></span><span class="line"><span class="cl">  int ret = 0;
+</span></span><span class="line"><span class="cl">  int pre = 2;
+</span></span><span class="line"><span class="cl">  int prepre = 1;
+</span></span><span class="line"><span class="cl">  for (int i = 3; i &lt;= n; ++i) {
+</span></span><span class="line"><span class="cl">    ret = pre + prepre;
+</span></span><span class="line"><span class="cl">    prepre = pre;
+</span></span><span class="line"><span class="cl">    pre = ret;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">  return ret;
+</span></span><span class="line"><span class="cl">}java
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>那是不是所有的递归代码都可以改为这种<strong>迭代循环</strong>的非递归写法呢？
+因为递归本身就是借助栈来实现的，如果自己在内存堆上实现栈，手动模拟入栈、出栈过程，这样任何递归代码都可以改写成看上去不是递归代码的样子。但是这种思路实际上是将递归改为了“手动”递归，徒增了实现的复杂度。</p>
+<h2 id="如何用三行代码找到最终推荐人httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e794a8e4b889e8a18ce4bba3e7a081e689bee588b0e69c80e7bb88e68ea8e88d90e4babaefbc9f">
+<a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%94%a8%e4%b8%89%e8%a1%8c%e4%bb%a3%e7%a0%81%e6%89%be%e5%88%b0%e6%9c%80%e7%bb%88%e6%8e%a8%e8%8d%90%e4%ba%ba%ef%bc%9f" rel="noopener">如何用三行代码找到“最终推荐人”？</a></h2>
+<p>推荐注册返佣金这个功能中，用户 A 推荐用户 B 来注册，用户 B 又推荐了用户 C 来注册。则用户 C 的“最终推荐人”为用户 A，用户 B 的“最终推荐人”也为用户 A，而用户 A 没有“最终推荐人”。
+可以通过数据库来记录这种推荐关系，其中 actor_id 表示用户 id，referrer_id 表示推荐人 id。</p>
+<table>
+<thead>
+<tr>
+<th>actor_id</th>
+<th>referrer_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td>A</td>
+</tr>
+<tr>
+<td>C</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<p><strong>给定一个用户 ID，如何查找这个用户的“最终推荐人”？</strong>
+Java 递归伪代码实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">long findRootReferrerId(long actorId) {
+</span></span><span class="line"><span class="cl">  Long referrerId = select referrer_id from [table] where actor_id = actorId;
+</span></span><span class="line"><span class="cl">  if (referrerId == null) return actorId;
+</span></span><span class="line"><span class="cl">  return findRootReferrerId(referrerId);
+</span></span><span class="line"><span class="cl">}java
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>递归用三行代码就能搞定了，不过在实际项目中，上面的代码并不能工作。
 第一，如果递归很深，可能会有堆栈溢出的问题。
 第二，如果数据库里存在脏数据，我们还需要处理由此产生的无限递归问题。比如 demo 环境下数据库中，测试工程师为了方便测试，会人为地插入一些数据，就会出现脏数据。如果 A 的推荐人是 B，B 的推荐人是 C，C 的推荐人是 A，这样就会发生死循环。
 前两种问题都可以用限制递归深度来解决，
 第二种问题还可以检测 A-B-C-A 这种“环”，上面的伪代码可以改写为
-可以利用 python 的 set 进行检测：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-zed data-lang=zed><span class=line><span class=cl><span class=n>def</span><span class=w> </span><span class=n>find_root_referrer_id</span><span class=p>(</span><span class=n>actorId</span><span class=o>:</span><span class=w> </span><span class=n>int</span><span class=p>,</span><span class=w> </span><span class=kn>relation</span><span class=o>:</span><span class=w> </span><span class=n>set</span><span class=p>)</span><span class=o>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kn>relation</span><span class=p>.</span><span class=n>add</span><span class=p>(</span><span class=n>actorId</span><span class=p>)</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=n>referrerId</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>cursor</span><span class=p>.</span><span class=n>execute</span><span class=p>(</span><span class=n>r</span><span class=err>&#34;</span><span class=n>select</span><span class=w> </span><span class=n>referrer_id</span><span class=w> </span><span class=n>from</span><span class=w> </span><span class=n>user_info</span><span class=w> </span><span class=n>where</span><span class=w> </span><span class=n>actor_id</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>%</span><span class=n>s</span><span class=err>&#34;</span><span class=p>,</span><span class=w> </span><span class=n>actorId</span><span class=p>)</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=n>if</span><span class=w> </span><span class=n>referrerId</span><span class=w> </span><span class=n>in</span><span class=w> </span><span class=kn>relation</span><span class=w> </span><span class=n>or</span><span class=w> </span><span class=n>referrerId</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>None</span><span class=o>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>return</span><span class=w> </span><span class=n>actorId</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=n>return</span><span class=w> </span><span class=n>find_root_referrer_id</span><span class=p>(</span><span class=n>referrerId</span><span class=p>)</span><span class=n>python</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><p>最主要的问题是频繁的执行 sql 会导致频繁的磁盘 IO，性能很低。实际开发中，会事先离线计算每个用户的最终推荐人，并且保存在表中的某个字段里。当需要查看某个用户的最终推荐人的时候，访问一次数据库就可以获取到。因为某个用户的最终推荐人一旦确定，就不会变动。</p><h2 id=斐波那契数列httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide69690e6b3a2e982a3e5a591e695b0e58897><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e6%96%90%e6%b3%a2%e9%82%a3%e5%a5%91%e6%95%b0%e5%88%97" rel=noopener><strong>斐波那契数列</strong></a></h2><p>斐波那契数列（Fibonacci sequence），又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……。
-在数学上，费波那契数列是以递归的方法来定义：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>F(0)=0(n=0)
-</span></span><span class=line><span class=cl>F(1)=1(n=1)
-</span></span><span class=line><span class=cl>F(n)=F(n-1)+F(n-2) (n&gt;=2，n∈N*)
-</span></span></code></pre></td></tr></table></div></div><p>Python 实现：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>def fib(n):
-</span></span><span class=line><span class=cl>    if n &lt;= 1:
-</span></span><span class=line><span class=cl>        return n
-</span></span><span class=line><span class=cl>    return fib(n - 1) + fib(n - 2)python
-</span></span></code></pre></td></tr></table></div></div><h2 id=树形显示目录httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide6a091e5bda2e698bee7a4bae79baee5bd95><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e6%a0%91%e5%bd%a2%e6%98%be%e7%a4%ba%e7%9b%ae%e5%bd%95" rel=noopener>树形显示目录</a></h2><p>利用递归实现类似 linux 下的 tree 命令的效果，例如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>static
-</span></span><span class=line><span class=cl>|--css
-</span></span><span class=line><span class=cl>|  |--addons
-</span></span><span class=line><span class=cl>|  |  |--uikit.addons.min.css
-</span></span><span class=line><span class=cl>|  |  |--uikit.almost-flat.addons.min.css
-</span></span><span class=line><span class=cl>|  |  `--uikit.gradient.addons.min.css
-</span></span><span class=line><span class=cl>|  |--awesome.css
-</span></span><span class=line><span class=cl>|  |--uikit.almost-flat.min.css
-</span></span><span class=line><span class=cl>|  |--uikit.gradient.min.css
-</span></span><span class=line><span class=cl>|  `--uikit.min.css
-</span></span><span class=line><span class=cl>|--fonts
-</span></span><span class=line><span class=cl>|  |--fontawesome-webfont.eot
-</span></span><span class=line><span class=cl>|  |--fontawesome-webfont.ttf
-</span></span><span class=line><span class=cl>|  |--fontawesome-webfont.woff
-</span></span><span class=line><span class=cl>|  `--FontAwesome.otf
-</span></span><span class=line><span class=cl>|--img
-</span></span><span class=line><span class=cl>|  `--user.png
-</span></span><span class=line><span class=cl>|--js
-</span></span><span class=line><span class=cl>|  |--awesome.js
-</span></span><span class=line><span class=cl>|  |--jquery.min.js
-</span></span><span class=line><span class=cl>|  |--sha1.min.js
-</span></span><span class=line><span class=cl>|  |--sticky.min.js
-</span></span><span class=line><span class=cl>|  |--uikit.min.js
-</span></span><span class=line><span class=cl>|  `--vue.min.js
-</span></span><span class=line><span class=cl>`--README
-</span></span><span class=line><span class=cl>templates
-</span></span><span class=line><span class=cl>|--blog.html
-</span></span><span class=line><span class=cl>|--blogs.html
-</span></span><span class=line><span class=cl>|--manage_blogs.html
-</span></span><span class=line><span class=cl>|--manage_blog_edit.html
-</span></span><span class=line><span class=cl>|--manage_comments.html
-</span></span><span class=line><span class=cl>|--manage_users.html
-</span></span><span class=line><span class=cl>|--register.html
-</span></span><span class=line><span class=cl>|--signin.html
-</span></span><span class=line><span class=cl>`--__base__.html
-</span></span></code></pre></td></tr></table></div></div><p>代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># -*- coding: utf-8 -*-
-</span></span><span class=line><span class=cl>__author__ = &#39;xiaoxiaoming&#39;
-</span></span><span class=line><span class=cl>import os
-</span></span><span class=line><span class=cl>def tree_dir(dir, layer=0):
-</span></span><span class=line><span class=cl>    listdir = os.listdir(dir)
-</span></span><span class=line><span class=cl>    for index, file in enumerate(listdir):
-</span></span><span class=line><span class=cl>        file_path = os.path.join(dir, file)
-</span></span><span class=line><span class=cl>        print(&#34;|  &#34; * (layer - 1), end=&#34;&#34;)
-</span></span><span class=line><span class=cl>        if (layer &gt; 0):
-</span></span><span class=line><span class=cl>            print(&#34;`--&#34; if index == len(listdir) - 1 else &#34;|--&#34;, end=&#34;&#34;)
-</span></span><span class=line><span class=cl>        print(file)
-</span></span><span class=line><span class=cl>        if (os.path.isdir(file_path)):
-</span></span><span class=line><span class=cl>            tree_dir(file_path, layer + 1)
-</span></span><span class=line><span class=cl>tree_dir(&#34;..&#34;)python
-</span></span></code></pre></td></tr></table></div></div></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>
+可以利用 python 的 set 进行检测：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-zed" data-lang="zed"><span class="line"><span class="cl"><span class="n">def</span><span class="w"> </span><span class="n">find_root_referrer_id</span><span class="p">(</span><span class="n">actorId</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="p">,</span><span class="w"> </span><span class="kn">relation</span><span class="o">:</span><span class="w"> </span><span class="n">set</span><span class="p">)</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kn">relation</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">actorId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">referrerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">r</span><span class="err">&#34;</span><span class="n">select</span><span class="w"> </span><span class="n">referrer_id</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">user_info</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">actor_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">%</span><span class="n">s</span><span class="err">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">actorId</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">if</span><span class="w"> </span><span class="n">referrerId</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="kn">relation</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">referrerId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">None</span><span class="o">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">return</span><span class="w"> </span><span class="n">actorId</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">return</span><span class="w"> </span><span class="n">find_root_referrer_id</span><span class="p">(</span><span class="n">referrerId</span><span class="p">)</span><span class="n">python</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>最主要的问题是频繁的执行 sql 会导致频繁的磁盘 IO，性能很低。实际开发中，会事先离线计算每个用户的最终推荐人，并且保存在表中的某个字段里。当需要查看某个用户的最终推荐人的时候，访问一次数据库就可以获取到。因为某个用户的最终推荐人一旦确定，就不会变动。</p>
+<h2 id="斐波那契数列httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide69690e6b3a2e982a3e5a591e695b0e58897">
+<a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e6%96%90%e6%b3%a2%e9%82%a3%e5%a5%91%e6%95%b0%e5%88%97" rel="noopener"><strong>斐波那契数列</strong></a></h2>
+<p>斐波那契数列（Fibonacci sequence），又称黄金分割数列，指的是这样一个数列：0、1、1、2、3、5、8、13、21、34、……。
+在数学上，费波那契数列是以递归的方法来定义：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">F(0)=0(n=0)
+</span></span><span class="line"><span class="cl">F(1)=1(n=1)
+</span></span><span class="line"><span class="cl">F(n)=F(n-1)+F(n-2) (n&gt;=2，n∈N*)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Python 实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">def fib(n):
+</span></span><span class="line"><span class="cl">    if n &lt;= 1:
+</span></span><span class="line"><span class="cl">        return n
+</span></span><span class="line"><span class="cl">    return fib(n - 1) + fib(n - 2)python
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="树形显示目录httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide6a091e5bda2e698bee7a4bae79baee5bd95">
+<a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e6%a0%91%e5%bd%a2%e6%98%be%e7%a4%ba%e7%9b%ae%e5%bd%95" rel="noopener">树形显示目录</a></h2>
+<p>利用递归实现类似 linux 下的 tree 命令的效果，例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">static
+</span></span><span class="line"><span class="cl">|--css
+</span></span><span class="line"><span class="cl">|  |--addons
+</span></span><span class="line"><span class="cl">|  |  |--uikit.addons.min.css
+</span></span><span class="line"><span class="cl">|  |  |--uikit.almost-flat.addons.min.css
+</span></span><span class="line"><span class="cl">|  |  `--uikit.gradient.addons.min.css
+</span></span><span class="line"><span class="cl">|  |--awesome.css
+</span></span><span class="line"><span class="cl">|  |--uikit.almost-flat.min.css
+</span></span><span class="line"><span class="cl">|  |--uikit.gradient.min.css
+</span></span><span class="line"><span class="cl">|  `--uikit.min.css
+</span></span><span class="line"><span class="cl">|--fonts
+</span></span><span class="line"><span class="cl">|  |--fontawesome-webfont.eot
+</span></span><span class="line"><span class="cl">|  |--fontawesome-webfont.ttf
+</span></span><span class="line"><span class="cl">|  |--fontawesome-webfont.woff
+</span></span><span class="line"><span class="cl">|  `--FontAwesome.otf
+</span></span><span class="line"><span class="cl">|--img
+</span></span><span class="line"><span class="cl">|  `--user.png
+</span></span><span class="line"><span class="cl">|--js
+</span></span><span class="line"><span class="cl">|  |--awesome.js
+</span></span><span class="line"><span class="cl">|  |--jquery.min.js
+</span></span><span class="line"><span class="cl">|  |--sha1.min.js
+</span></span><span class="line"><span class="cl">|  |--sticky.min.js
+</span></span><span class="line"><span class="cl">|  |--uikit.min.js
+</span></span><span class="line"><span class="cl">|  `--vue.min.js
+</span></span><span class="line"><span class="cl">`--README
+</span></span><span class="line"><span class="cl">templates
+</span></span><span class="line"><span class="cl">|--blog.html
+</span></span><span class="line"><span class="cl">|--blogs.html
+</span></span><span class="line"><span class="cl">|--manage_blogs.html
+</span></span><span class="line"><span class="cl">|--manage_blog_edit.html
+</span></span><span class="line"><span class="cl">|--manage_comments.html
+</span></span><span class="line"><span class="cl">|--manage_users.html
+</span></span><span class="line"><span class="cl">|--register.html
+</span></span><span class="line"><span class="cl">|--signin.html
+</span></span><span class="line"><span class="cl">`--__base__.html
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># -*- coding: utf-8 -*-
+</span></span><span class="line"><span class="cl">__author__ = &#39;xiaoxiaoming&#39;
+</span></span><span class="line"><span class="cl">import os
+</span></span><span class="line"><span class="cl">def tree_dir(dir, layer=0):
+</span></span><span class="line"><span class="cl">    listdir = os.listdir(dir)
+</span></span><span class="line"><span class="cl">    for index, file in enumerate(listdir):
+</span></span><span class="line"><span class="cl">        file_path = os.path.join(dir, file)
+</span></span><span class="line"><span class="cl">        print(&#34;|  &#34; * (layer - 1), end=&#34;&#34;)
+</span></span><span class="line"><span class="cl">        if (layer &gt; 0):
+</span></span><span class="line"><span class="cl">            print(&#34;`--&#34; if index == len(listdir) - 1 else &#34;|--&#34;, end=&#34;&#34;)
+</span></span><span class="line"><span class="cl">        print(file)
+</span></span><span class="line"><span class="cl">        if (os.path.isdir(file_path)):
+</span></span><span class="line"><span class="cl">            tree_dir(file_path, layer + 1)
+</span></span><span class="line"><span class="cl">tree_dir(&#34;..&#34;)python
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://twitter.com/_jzhao">Twitter</a></li><li><a href="https://github.com/jackyzha0">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

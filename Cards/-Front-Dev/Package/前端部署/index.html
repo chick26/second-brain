@@ -1,237 +1,2168 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [ • TOC for Frontend
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Frontend
 静态页面 先从简单的静态页面开始，众所周知，前端资源由 HTML、JavaScript、CSS 三剑客组成，假设我们有一个简单的页面，用 Nginx 作为 Web 服务器，资源组织结构大概如下：
-HTML 1 2 3 4  <!"><meta property="og:title" content="前端部署"><meta property="og:description" content="up:: [ • TOC for Frontend
+HTML 1 2 3 4  &lt;!"
+  />
+  <meta property="og:title" content="前端部署">
+  <meta property="og:description" content="up:: [ • TOC for Frontend
 静态页面 先从简单的静态页面开始，众所周知，前端资源由 HTML、JavaScript、CSS 三剑客组成，假设我们有一个简单的页面，用 Nginx 作为 Web 服务器，资源组织结构大概如下：
-HTML 1 2 3 4  <!"><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/Package/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="前端部署"><meta name=twitter:description content="up:: [ • TOC for Frontend
+HTML 1 2 3 4  &lt;!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/Package/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="前端部署" />
+  <meta name="twitter:description" content="up:: [ • TOC for Frontend
 静态页面 先从简单的静态页面开始，众所周知，前端资源由 HTML、JavaScript、CSS 三剑客组成，假设我们有一个简单的页面，用 Nginx 作为 Web 服务器，资源组织结构大概如下：
-HTML 1 2 3 4  <!"><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>前端部署</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
-<script src=../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
-<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
-<script defer src=../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
-<script defer src=../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
-<script defer src=../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
-<script defer src=../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
-<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.d413193f7ae19d461b59d12d61b54d86.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+HTML 1 2 3 4  &lt;!" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+      
+      <meta name="twitter:site" content="_jzhao" />
+    
+  
+    
+  
+
+  <title>
+    前端部署
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.ab44743a5d67084ed2332ae5677b2ec3.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
     import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
     attachSPARouting(init, render)
-  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
-<script defer src=../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
-<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>前端部署</h1><p class=meta>Last updated
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">🪴 Quartz 3.3</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>前端部署</h1>
+      <p class="meta">
+        Last updated 
 Unknown
-<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/Package/%e5%89%8d%e7%ab%af%e9%83%a8%e7%bd%b2.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Development/Frontend/Deploy/Webpack/>Development frontend deploy webpack</a></li><li><a href=chick26.github.io/tags/Development/Frontend/Deploy/>Development frontend deploy</a></li><li><a href=chick26.github.io/tags/Development/Frontend/Package/>Development frontend package</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#静态页面>静态页面</a><ol><li><a href=#html>HTML</a></li><li><a href=#css>CSS</a></li></ol></li><li><a href=#利用缓存>利用缓存</a><ol><li><a href=#httpac37d8协商缓存>[[HTTP#^ac37d8|协商缓存]]</a></li><li><a href=#httpd668c2强缓存>[[HTTP#^d668c2|强缓存]]</a></li></ol></li><li><a href=#缓存更新问题>缓存更新问题</a></li><li><a href=#覆盖式发布引发的问题>覆盖式发布引发的问题</a></li><li><a href=#结合-cdn>结合 CDN</a><ol><li><a href=#总体部署方案>总体部署方案</a></li></ol></li><li><a href=#静态资源组织>静态资源组织</a></li><li><a href=#静态资源的加工>静态资源的加工</a></li><li><a href=#pre-环境灰度上线的常见实现>Pre 环境、灰度上线的常见实现</a><ol><li><a href=#方案一-nginx-层动态转发>方案一 Nginx 层动态转发</a></li><li><a href=#方案二-动态配置--服务端转发>方案二 动态配置 + 服务端转发</a></li></ol></li><li><a href=#前端发布服务实现与设计>前端发布服务实现与设计</a><ol><li></li></ol></li><li><a href=#总结>总结</a><ol><li><a href=#静态资源组织-1>静态资源组织</a></li><li><a href=#自动化部署>自动化部署</a></li><li><a href=#前端部署--静态资源加工>前端部署 & 静态资源加工</a></li><li><a href=#前端发布服务>前端发布服务</a></li><li><a href=#常见面试问题>常见面试问题</a></li></ol></li></ol></nav></details></aside><p>up:: [
-<a rel=noopener class="internal-link broken" data-src=../%E2%80%A2%20TOC%20for%20Frontend>• TOC for Frontend</a></p><a href=#静态页面><h2 id=静态页面><span class=hanchor arialabel=Anchor># </span>静态页面</h2></a><p>先从简单的静态页面开始，众所周知，前端资源由 <code>HTML</code>、<code>JavaScript</code>、<code>CSS</code> 三剑客组成，假设我们有一个简单的页面，用 <code>Nginx</code> 作为 Web 服务器，资源组织结构大概如下：</p><a href=#html><h3 id=html><span class=hanchor arialabel=Anchor># </span>HTML</h3></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=c>&lt;!---index.html---&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;foo.css&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;bar.css&#34;</span>
-</span></span><span class=line><span class=cl><span class=err>&lt;</span><span class=na>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34; foo&#34;</span><span class=p>&gt;</span>foo<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</span></span></code></pre></td></tr></table></div></div><a href=#css><h3 id=css><span class=hanchor arialabel=Anchor># </span>CSS</h3></a><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=c>/* foo.css */</span>
-</span></span><span class=line><span class=cl><span class=nt>foo</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>color</span><span class=p>:</span> <span class=kc>red</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=c>/* bar.css */</span>
-</span></span><span class=line><span class=cl><span class=nt>bar</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>color</span><span class=p>:</span> <span class=kc>blue</span><span class=err>；</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><p>此时， 只需将 <code>HTML</code>、<code>JavaScript</code>、<code>CSS</code> 等静态资源通过 <code>FTP</code> 等软件，上传到 <code>Web</code> 服务器（如 <code>Nginx</code>）某目录，将 <code>Nginx</code> 启动做简单配置即可让用户访问。</p><table><thead><tr><th>Name</th><th>Status</th><th>Type</th><th>Size</th></tr></thead><tbody><tr><td>index.html</td><td>200</td><td>text/html</td><td>2.0KB</td></tr><tr><td>foo.css</td><td>200</td><td>stylesheet</td><td>1.0KB</td></tr><tr><td>bar.css</td><td>200</td><td>stylesheet</td><td>1.0KB</td></tr></tbody></table><p>用户一访问，状态 200，页面渲染出来。</p><a href=#利用缓存><h2 id=利用缓存><span class=hanchor arialabel=Anchor># </span>利用缓存</h2></a><p>用户每次访问都会请求 <code>foo.css</code>, <code>bar.css</code> 等静态文件，即使该文件并无变更。会浪费带宽，同时对页面首屏性能等也有影响。于是在网络带宽紧张的互联网早期，计算机先贤们在 <code>HTTP</code> 协议上制定了多种缓存策略。</p><p>浏览器缓存：浏览器缓存 (<code>Brower Caching</code>) 是浏览器对之前请求过的文件进行缓存，以便下一次访问时重复使用，节省带宽，提高访问速度，降低服务器压力。</p><a href=#httpac37d8协商缓存><h3 id=httpac37d8协商缓存><span class=hanchor arialabel=Anchor># </span><a class="internal-link broken">协商缓存</a></h3></a><p>一种策略是浏览器先问问服务器有没有变化，没变化就用旧资源。毕竟 &ldquo;问一问&rdquo; 的通信成本，远小于每次重新加载资源的成本。大致流程如下：</p><p>协商缓存: 向服务器发送请求，服务器会根据这个请求的 <code>Request Header</code> 的一些参数来判断是否命中协商缓存，如果命中，则返回 <code>304</code> 状态码并带上新的 <code>Response Header</code> 通知浏览器从缓存中读取资源；</p><p>![
-<a rel=noopener class="internal-link broken" data-src=../../../Extras/Excalidraw/Http/http%20%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98.excalidraw>http 协商缓存.excalidraw</a></p><p>此时，使用协商缓存后，<code>Network</code> 大致变成了这样：</p><table><thead><tr><th>Name</th><th>Status</th><th>Type</th><th>Size</th></tr></thead><tbody><tr><td>index.html</td><td>200</td><td>text/html</td><td>2.0KB</td></tr><tr><td>foo.css</td><td>304</td><td>stylesheet</td><td>1.0KB</td></tr><tr><td>bar.css</td><td>304</td><td>stylesheet</td><td>1.0KB</td></tr></tbody></table><p>注：协商缓存一般可在服务端通过设置 <code>Last-Modified</code>、<code>ETag</code> 等 <code>ResponseHeader</code> 实现。<br>注：<code>304</code> 状态码，表示资源未发生变更，可使用浏览器缓存。</p><a href=#httpd668c2强缓存><h3 id=httpd668c2强缓存><span class=hanchor arialabel=Anchor># </span><a class="internal-link broken">强缓存</a></h3></a><p>强缓存：浏览器不会向服务器发送任何请求，直接从本地缓存中读取文件并返回<code>Status Code: 200 OK</code>。</p><p>此时，强缓存的大致对话过程如图：</p><table><thead><tr><th>发起方</th><th>发起流程</th></tr></thead><tbody><tr><td>浏览器</td><td>我要foo.css</td></tr><tr><td>服务器</td><td>给你，一百年内被来要新的</td></tr><tr><td>浏览器</td><td>好的，大王</td></tr><tr><td>一年后</td><td></td></tr><tr><td>浏览器</td><td>我要foo.css 还在有效期，用存起来的</td></tr><tr><td>两年后</td><td></td></tr><tr><td>浏览器</td><td>我要foo.css 还在有效期，用存起来的</td></tr><tr><td>2000年后</td><td></td></tr><tr><td>浏览器</td><td>我要foo.css 快来个新的</td></tr><tr><td>服务器</td><td>给，这次可以用到 65536 年 后</td></tr><tr><td>浏览器</td><td>好的 大王</td></tr></tbody></table><p>注意，缓存生效期间，浏览器是【自言自语】，和服务器无关。</p><p>此时，设置强缓存后，Network 大致变成了这样：</p><table><thead><tr><th>Name</th><th>Status</th><th>Type</th><th>Size</th></tr></thead><tbody><tr><td>index.html</td><td>200</td><td>text/html</td><td>2.0KB</td></tr><tr><td>foo.css</td><td>200</td><td>stylesheet</td><td>From DiskCache</td></tr><tr><td>bar.css</td><td>200</td><td>stylesheet</td><td>From DiskCache</td></tr><tr><td>head.png</td><td>200</td><td>png</td><td>From MemoryCache</td></tr></tbody></table><p><code>From DiskCache</code>：从硬盘中读取。<br><code>From MemoryCache</code>：从内存中读取，速度最快。<br>注：强缓存一般可在服务端通过设置 <code>Cache-Control:max-age</code>、<code>Expires</code> 等 <code>ResponseHeader</code> 实现。</p><blockquote class=note-callout><p>详解
-<a href=https://juejin.cn/post/6844903838768431118 rel=noopener>强缓存 / 协商缓存详解</a></p></blockquote><a href=#缓存更新问题><h2 id=缓存更新问题><span class=hanchor arialabel=Anchor># </span>缓存更新问题</h2></a><p>鉴于页面（<code>index.html</code>）会频繁更新，而静态资源则相对稳定。能推断出的一种缓存策略是 <code>index.html</code> 适合走协商缓存，相对稳定 & 不常更新的静态资源（<code>JS</code>、<code>CSS</code>、<code>IMAGE</code>S） 等应该使用强缓存。</p><p>然而问题很快就来了，都不让浏览器发请求，但缓存还未到期我们发现有 <code>bug</code>，想更新 <code>foo.css</code> 怎么办？ 又想设置尽量长的时间走缓存，又想要能随时更新？</p><ol><li>给资源加版本号，比如通过 <code>query</code> 加版本号，每次上线统一改版本号就搞定了。如下 ：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=c>&lt;!-- index.html V=001 --&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;foo.css?v=001&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;bar.css?v=001&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;foo &#34;</span><span class=p>&gt;</span>foo<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c>&lt;!-- foo.css 更新版本 --&gt;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c>&lt;!-- index.html V=002 --&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;foo.css?v=002&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;bar.css?v=002&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;foo &#34;</span><span class=p>&gt;</span>foo<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</span></span></code></pre></td></tr></table></div></div><p>注意，此时服务器内只有一份文件 <code>foo.css</code> 文件。</p><p>统一加版本号的优点是简单粗暴快捷，但缺点则是：假如只想更新 <code>foo.css</code>，但 <code>bar.css</code> 缓存也失效了，又造成了带宽的浪费。</p><ol start=2><li>需要将文件内容与版本号（URL）绑定，当文件内容发生变更时才变更版本号（<code>URL</code>），这样就能实现每个文件精确的缓存控制。什么东西与文件内容相关呢？
-<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.baike.com%2Fwikiid%2F1412805162344902915%3Fsearch_id%3D3k1jee3i202000%26prd%3Dsearch_sug%26view_id%3D2p9w1v50ati000" rel=noopener>消息摘要算法</a> ，对文件求摘要信息，摘要信息与文件内容一一对应，就有了一种可以精确到单个文件粒度的缓存控制依据。现在把 <code>URL</code> 改成带文件摘要信息的：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>＜!-- index.html v001 --&gt;
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href-</span><span class=err>&#34;</span><span class=na>foo</span><span class=err>.</span><span class=na>css</span><span class=err>?</span><span class=na>v</span><span class=o>=</span><span class=s>jj89757hp&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;bar.css?v=18a7b0826&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;foo&#34;</span><span class=p>&gt;</span>foo<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c>&lt;!-- foo.css 更新版本 --&gt;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c>&lt;!-- index.html v002 --&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;foo.css?v=ddfa8798f&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;bar.css?v=18a7b0826&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;foo &#34;</span><span class=p>&gt;</span>foo<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</span></span></code></pre></td></tr></table></div></div><p>这个方式称为 <code>query-hash</code>，后续发版上线时，只有被变更文件的 <code>URL</code> 会更新，实现了精确的缓存控制，完美！</p><p>注意，此时服务器内只有一份文件 <code>foo.css</code> 文件。</p><a href=#覆盖式发布引发的问题><h2 id=覆盖式发布引发的问题><span class=hanchor arialabel=Anchor># </span>覆盖式发布引发的问题</h2></a><p>然而按上述部署方案就上了线，很快就会 Fatal 满天飞，每次更新上线都可能会出现灾难。</p><p>网站的静态文件只有一份，部署在 <code>Nginx</code> 服务器某目录下，并且通过 <code>query-hash</code> 的方式实现按文件做精确缓存控制，问题出在哪了呢？</p><p>回顾一下，当某次更新时，更改了 <code>foo.css</code> 样式，此时会将 HTML 中的 foo.css url 更新为最新的 hash，并将服务器中存储的 <code>foo.css</code> & <code>index.html</code> 文件覆盖为最新（V2 版本），看似 HTML 和静态资源都对应更新了，但是没有考虑极端情况。那就是：</p><blockquote class=warning-callout><p>Warning Cases</p><ul><li><p>先部署静态资源，部署期间访问时，会出现 V1 版本 HTML 访问到 V2 版本新静态资源，并按 V1-hash 缓存起来。</p><ul><li>用户本地有缓存，此时无影响可正常访问。</li><li>用户本地无缓存，则会将 V2 版本静态资源加载并按 V1 版本 hash 缓存起来。用户报错。当 V2 版本 HTML 部署完成后，用户再次访问时恢复。</li></ul></li><li><p>先部署 HTML，部署期间访问时，会出现 V2 版本 HTML 访问到 V1 版本旧静态资源，并按 V2-hash 缓存起来。</p><ul><li>V2 版本 HTML，会将 V1 版本静态资源按 V2 版本 Hash 缓存起来。此时页面会出错，且缓存过期之前会持续报错。直到用户手动清除缓存，或者缓存过期，或者将来发布 V3 版本更新静态资源版本。否则用户会持续出错。</li></ul></li></ul></blockquote><p>上面方案的问题起源于静态资源只有一份，每次发布时都是<strong>覆盖式发布</strong>，导致页面与静态资源出现匹配错误的情况！解决问题方案也极其简单，使用<strong>非覆盖式发布</strong>，一种简单的改造方式是将文件摘要（<code>hash</code>）放置到<code>URL</code> 中，即将 <code>query-hash</code> 改为 <code>name-hash</code>。</p><p>此时 HTML 变成如图：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=c>&lt;!-- name-hash-index-v1.html --&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;foo.a77d43c9.css&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;bar.ca217aba.css&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;foo&#34;</span><span class=p>&gt;</span>foo<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c>&lt;!-- foo.css 更新时 --&gt;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c>&lt;!-- name-hash-index-v2.html --&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;foo.a3e54cc9.css&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span> <span class=s>&#34;bar.ca217aba.css&#34;</span> <span class=p>/&gt;</span>
-</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;foo&#34;</span><span class=p>&gt;</span>foo<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-</span></span></code></pre></td></tr></table></div></div><p>这样，每次部署时先全量部署静态资源，再灰度部署页面，就能比较完美的解决了缓存的问题。
-此时，服务器上会存在多份 <code>foo.[$hash].css</code> 文件</p><a href=#结合-cdn><h2 id=结合-cdn><span class=hanchor arialabel=Anchor># </span>结合 CDN</h2></a><p>此时静态资源仍部署在 Nginx 服务器目录下，新的问题来了，随着时间推移，非覆盖部署导致文件逐渐增加多，硬盘逐渐吃紧。而且将文件存储在 <code>Nginx</code> <code>Web</code>服务器内某目录下，深度的将 <code>Nginx</code>、网站、部署过程等强耦合在一起，无法使用 <code>CDN</code> 技术。</p><p>CDN 是一种内容分发网络，部署在应用层，利用智能分配技术，根据用户访问的地点，按照就近访问的原则分配到多个节点，来实现多点负载均衡。</p><p>简单来说，用户就近访问，访问速度更快，大公司也无需搞一台超级带宽的存储服务器，只需使用多台正常带宽的 CDN 节点即可。 而 CDN 的常见实现是有一台源站服务器，多个 CDN 节点定时从源站同步。</p><p>将静态资源部署到 <code>CDN</code> 上，再将 <code>Nginx</code> 上的流量通过 <strong>反向代理(proxy-pass)</strong> 转发到 <code>CDN</code> 上，即可将 CDN 与 Nginx 等 Web 服务器结合</p><a href=#总体部署方案><h3 id=总体部署方案><span class=hanchor arialabel=Anchor># </span>总体部署方案</h3></a><a href=#打包配置><h4 id=打包配置><span class=hanchor arialabel=Anchor># </span>打包配置</h4></a><ul><li>构建时依据环境变量，将 <code>HTML</code> 中的静态资源地址加上 <code>CDN</code> 域名。<ul><li>配置 <code>output</code> 为 <code>content-hash</code> & <code>publicPath</code></li><li>配置 <code>Webpack-HTML-Plugin</code></li></ul></li><li>构建完成后将静态资源上传到 <code>CDN</code> 。</li><li>配置 <code>Nginx</code> 的反向代理，将静态资源流量转发到 <code>CDN</code>。</li></ul><p>下面是一个 <code>webpack</code> 配置示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// webpack.config.js
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>CDN_HOST</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>CDN_HOST</span><span class=p>;</span><span class=c1>// CDN 域名
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>CDN_PATH</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>CDN_PATH</span><span class=p>;</span> <span class=c1>// CDN 路径
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>ENV</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>ENV</span><span class=p>;</span> <span class=c1>// 当前的环境等等
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>VERSION</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>VERSION</span><span class=p>;</span> <span class=c1>// 当前发布的版本
-</span></span></span><span class=line><span class=cl><span class=c1></span>
-</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>getPublicPath</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=c1>// Some code here
-</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>return</span> <span class=sb>`</span><span class=si>${</span><span class=nx>CDN_HOST</span><span class=si>}</span><span class=sb>/</span><span class=si>${</span><span class=nx>CDN_PATH</span><span class=si>}</span><span class=sb>/</span><span class=si>${</span><span class=nx>ENV</span><span class=si>}</span><span class=sb>/`</span><span class=p>;</span><span class=c1>// 依据 ENV 等动态构造 publicPath
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>publicPath</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>NODE_ENV</span> <span class=o>===</span> <span class=s1>&#39;production&#39;</span> <span class=o>?</span> <span class=nx>getPublicPath</span><span class=p>()</span> <span class=o>:</span> <span class=s1>&#39;.&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nx>output</span><span class=o>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>filename</span><span class=o>:</span> <span class=s1>&#39;bundle.[name][contenthash:8].js&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>publicPath</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>    <span class=p>},</span>
-</span></span><span class=line><span class=cl>    <span class=nx>plugins</span><span class=o>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>        <span class=k>new</span> <span class=nx>HtmlWebpackPlugin</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=p>]</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><blockquote class=tips-callout><p>备注</p><ul><li>动态构造的 publicPath 里，严格的将产物按环境 + 发布版本做了隔离 & 收敛</li><li><code>publicPath</code> 详解
-<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwebpack.docschina.org%2Fconfiguration%2Foutput%2F%23outputpublicpath" rel=noopener>webpack.docschina.org/configurati…</a></li><li>此处使用了 <code>content-hash</code>，与 <code>hash</code>、<code>chunkhash</code> 的区别请见：
-<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.cnblogs.com%2Fajaemp%2Fp%2F12915452.html" rel=noopener>详解 webpack 中的 hash、chunkhash、contenthash 区别</a></li><li>使用 <code>contenthash</code> 时，往往会增加一个小模块后，整体文件的 <code>hash</code> 都发生变化，原因为<code>Webpack</code> 的 <code>module.id</code> 默认基于解析顺序自增，从而引发缓存失效。具体可通过设置 <code>optimization.moduleIds</code> 设置为 <code>'deterministic'</code> 。</li><li>具体详见
-<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwebpack.docschina.org%2Fguides%2Fcaching%2F" rel=noopener>webpack 官方文档 - 缓存</a></li></ul></blockquote><a href=#静态资源上传-cdn-源站><h4 id=静态资源上传-cdn-源站><span class=hanchor arialabel=Anchor># </span>静态资源上传 <code>CDN</code> 源站</h4></a><p>上传 <code>CDN</code> 源站往往通过 <code>CLI</code> 调用各种客户端工具上传，此时要注意的是上传 <code>CDN</code> 依赖配置鉴权信息（如 文件存储的 <code>Bucket Name/accessKey</code>、<code>ftp</code> 的账号密码）。</p><a href=#nginx-层反向代理改造><h4 id=nginx-层反向代理改造><span class=hanchor arialabel=Anchor># </span><code>Nginx</code> 层反向代理改造</h4></a><p>反向代理 (reverse proxy): 是指以代理服务器来接受网络请求，并将请求转发给内部的服务器，并且将内部服务器的返回。</p><blockquote class=warning-callout><p>注意
-反向代理隐藏了真正的服务器，正向代理隐藏了真正的客户端。<a href=chick26.github.io/Cards/-Front-Dev/Internet/proxy rel=noopener class=internal-link data-src=chick26.github.io/Cards/-Front-Dev/Internet/proxy>什么是反向代理?</a></p></blockquote><p><code>Nginx</code> 可通过设置 <code>proxy_pass</code> 配置代理转发，如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>location ^~/static/ <span class=o>{</span>
-</span></span><span class=line><span class=cl>    proxy_pass <span class=nv>$cdn</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=o>}</span>
-</span></span></code></pre></td></tr></table></div></div><blockquote class=note-callout><p>proxy_pass 配置
-具体详见
-<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fb010c9302cd0" rel=noopener>nginx 之 proxy_pass 详解</a></p></blockquote><a href=#静态资源组织><h2 id=静态资源组织><span class=hanchor arialabel=Anchor># </span>静态资源组织</h2></a><table><thead><tr><th>目的</th><th>操作</th></tr></thead><tbody><tr><td>最大程度利用缓存</td><td>- 将页面入口 <code>HTML</code> 设置为协商缓存<br>- 将<code>JavaScript</code>、<code>CSS</code> 等静态资源设置为永久强缓存</td></tr><tr><td>强缓存更新问题</td><td>- 将文件摘要（<code>hash</code>）作为资源路径 (<code>URL</code>) 构成的一部分</td></tr><tr><td>覆盖式发布引发的问题</td><td>- 采用 <code>name-hash</code> 而非 <code>query-hash</code> 的组织方式<br>- 具体需要配置 <code>Wbpack</code> 的 <code>output.filename</code> 为 <code>contenthash</code></td></tr><tr><td><code>Nginx</code> 目录存储过大</td><td>- 结合 <code>CDN</code> 提升访问速度<br>- 采用了 <code>Nginx 反向代理</code>+ 将静态资源上传到 <code>CDN</code></td></tr><tr><td>上传 <code>CDN</code></td><td>- 按环境动态构造 <code>publicPath</code> + 按环境构造 <code>CDN</code> 上传目录并上传<br>- 动态构造 <code>publicPath</code> 并且随构建过程插入到 <code>HTML</code> 中<br>- 采用 <code>Webpack-HTML-Plugin</code> 等插件，将编译好的带 <code>hash</code> + <code>publicPath</code> 的静态资源插入到 <code>HTML</code> 中</td></tr><tr><td>保证上传 <code>CDN</code> 的安全</td><td>- 需要一种机制管控上传 <code>CDN</code> 秘钥，而非简单的将秘钥写到代码 / <code>Dockerfile</code> 等明文文件中</td></tr></tbody></table><a href=#静态资源的加工><h2 id=静态资源的加工><span class=hanchor arialabel=Anchor># </span>静态资源的加工</h2></a><p>如前所述，前端静态资源部署到 <code>CDN</code> 后，有一道 <code>Nginx</code> 反向代理做转发的加工工序。事实上，为了解决各种部署问题或为了提升性能，人们往往而需要对静态资源做更多的加工工序</p><p>比如，部分 <code>Web</code> 应用为了提升首屏性能，一种常见的方式为通过 <code>BFF</code> 层或通过后端直出 <code>HTML</code>，并且在过程中注入若干信息，如 <code>userInfo</code>、用户权限信息、灰度信息等等，从而大幅降低前端登陆研发成本 & 降低首屏耗时</p><p>下面是后端直出 <code>HTML</code> 的一种简要流程。</p><p>![
-<a rel=noopener class="internal-link broken" data-src=../../../Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/%E5%90%8E%E7%AB%AF%E7%9B%B4%E5%87%BA%20HTML.excalidraw>后端直出 HTML.excalidraw|800</a></p><p>主要流程为前端构建出的 <code>HTML</code> 包含若干模板变量，后端收到请求后，通过各种 <code>Proxy</code> 层将 <code>Cookie</code> 转换成用户信息，再按依据版本配置从 <code>CDN</code> 加载 <code>index.html</code>, 并使用模板引擎等方式将模板变量替换为用户信息，最终吐回给浏览器的则是已经包含用户信息的 <code>HTML</code></p><a href=#pre-环境灰度上线的常见实现><h2 id=pre-环境灰度上线的常见实现><span class=hanchor arialabel=Anchor># </span>Pre 环境、灰度上线的常见实现</h2></a><p>如前所述，静态资源为非覆盖式发布，多次部署后，线上存在若干版本静态资源。实现 <code>Pre</code> 环境 / 灰度上线的思路则是：通过一定的机制，让特定用户访问特定静态资源版本，从而达到访问 <code>Pre</code> / 灰度上线的能力。</p><a href=#方案一-nginx-层动态转发><h3 id=方案一-nginx-层动态转发><span class=hanchor arialabel=Anchor># </span>方案一 Nginx 层动态转发</h3></a><p>一种常见的 Pre 机制是静态资源部署多个版本后，开发者的通过 ModHeader 等浏览器插件，在请求中携带特定 Header（如 xx-env=pre），在 Nginx 层消费该 Header 并动态转发到对应环境的静态资源上，实现访问 Pre 环境目的。此时，除静态资源为特定版本外，所有环境都是生产环境，可以将变量范围控制在最小。</p><p>流程大致如图：
+
+ 
+          
+<a href="https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/Package/%e5%89%8d%e7%ab%af%e9%83%a8%e7%bd%b2.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/Development/Frontend/Deploy/Webpack/">
+          
+            Development frontend deploy webpack
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Development/Frontend/Deploy/">
+          
+            Development frontend deploy
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Development/Frontend/Package/">
+          
+            Development frontend package
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#静态页面">静态页面</a>
+      <ol>
+        <li><a href="#html">HTML</a></li>
+        <li><a href="#css">CSS</a></li>
+      </ol>
+    </li>
+    <li><a href="#利用缓存">利用缓存</a>
+      <ol>
+        <li><a href="#httpac37d8协商缓存">[[HTTP#^ac37d8|协商缓存]]</a></li>
+        <li><a href="#httpd668c2强缓存">[[HTTP#^d668c2|强缓存]]</a></li>
+      </ol>
+    </li>
+    <li><a href="#缓存更新问题">缓存更新问题</a></li>
+    <li><a href="#覆盖式发布引发的问题">覆盖式发布引发的问题</a></li>
+    <li><a href="#结合-cdn">结合 CDN</a>
+      <ol>
+        <li><a href="#总体部署方案">总体部署方案</a></li>
+      </ol>
+    </li>
+    <li><a href="#静态资源组织">静态资源组织</a></li>
+    <li><a href="#静态资源的加工">静态资源的加工</a></li>
+    <li><a href="#pre-环境灰度上线的常见实现">Pre 环境、灰度上线的常见实现</a>
+      <ol>
+        <li><a href="#方案一-nginx-层动态转发">方案一 Nginx 层动态转发</a></li>
+        <li><a href="#方案二-动态配置--服务端转发">方案二 动态配置 + 服务端转发</a></li>
+      </ol>
+    </li>
+    <li><a href="#前端发布服务实现与设计">前端发布服务实现与设计</a>
+      <ol>
+        <li></li>
+      </ol>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ol>
+        <li><a href="#静态资源组织-1">静态资源组织</a></li>
+        <li><a href="#自动化部署">自动化部署</a></li>
+        <li><a href="#前端部署--静态资源加工">前端部署 &amp; 静态资源加工</a></li>
+        <li><a href="#前端发布服务">前端发布服务</a></li>
+        <li><a href="#常见面试问题">常见面试问题</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+    
+
+    
+    
+      
+      
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<a href="#静态页面"><h2 id="静态页面"><span class="hanchor" ariaLabel="Anchor"># </span>静态页面</h2></a>
+<p>先从简单的静态页面开始，众所周知，前端资源由 <code>HTML</code>、<code>JavaScript</code>、<code>CSS</code> 三剑客组成，假设我们有一个简单的页面，用 <code>Nginx</code> 作为 Web 服务器，资源组织结构大概如下：</p>
+<a href="#html"><h3 id="html"><span class="hanchor" ariaLabel="Anchor"># </span>HTML</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!---index.html---&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;foo.css&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;bar.css&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="err">&lt;</span><span class="na">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34; foo&#34;</span><span class="p">&gt;</span>foo<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#css"><h3 id="css"><span class="hanchor" ariaLabel="Anchor"># </span>CSS</h3></a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* foo.css */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">foo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">/* bar.css */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">bar</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此时， 只需将 <code>HTML</code>、<code>JavaScript</code>、<code>CSS</code> 等静态资源通过 <code>FTP</code> 等软件，上传到 <code>Web</code> 服务器（如 <code>Nginx</code>）某目录，将 <code>Nginx</code> 启动做简单配置即可让用户访问。</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index.html</td>
+<td>200</td>
+<td>text/html</td>
+<td>2.0KB</td>
+</tr>
+<tr>
+<td>foo.css</td>
+<td>200</td>
+<td>stylesheet</td>
+<td>1.0KB</td>
+</tr>
+<tr>
+<td>bar.css</td>
+<td>200</td>
+<td>stylesheet</td>
+<td>1.0KB</td>
+</tr>
+</tbody>
+</table>
+<p>用户一访问，状态 200，页面渲染出来。</p>
+<a href="#利用缓存"><h2 id="利用缓存"><span class="hanchor" ariaLabel="Anchor"># </span>利用缓存</h2></a>
+<p>用户每次访问都会请求 <code>foo.css</code>, <code>bar.css</code> 等静态文件，即使该文件并无变更。会浪费带宽，同时对页面首屏性能等也有影响。于是在网络带宽紧张的互联网早期，计算机先贤们在 <code>HTTP</code> 协议上制定了多种缓存策略。</p>
+<p>浏览器缓存：浏览器缓存 (<code>Brower Caching</code>) 是浏览器对之前请求过的文件进行缓存，以便下一次访问时重复使用，节省带宽，提高访问速度，降低服务器压力。</p>
+<a href="#httpac37d8协商缓存"><h3 id="httpac37d8协商缓存"><span class="hanchor" ariaLabel="Anchor"># </span><a class="internal-link broken">协商缓存</a></h3></a>
+<p>一种策略是浏览器先问问服务器有没有变化，没变化就用旧资源。毕竟 &ldquo;问一问&rdquo; 的通信成本，远小于每次重新加载资源的成本。大致流程如下：</p>
+<p>协商缓存: 向服务器发送请求，服务器会根据这个请求的 <code>Request Header</code> 的一些参数来判断是否命中协商缓存，如果命中，则返回 <code>304</code> 状态码并带上新的 <code>Response Header</code> 通知浏览器从缓存中读取资源；</p>
+<p>![
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../../../Extras/Excalidraw/Http/http%20%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98.excalidraw">http 协商缓存.excalidraw</a></p>
+<p>此时，使用协商缓存后，<code>Network</code> 大致变成了这样：</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index.html</td>
+<td>200</td>
+<td>text/html</td>
+<td>2.0KB</td>
+</tr>
+<tr>
+<td>foo.css</td>
+<td>304</td>
+<td>stylesheet</td>
+<td>1.0KB</td>
+</tr>
+<tr>
+<td>bar.css</td>
+<td>304</td>
+<td>stylesheet</td>
+<td>1.0KB</td>
+</tr>
+</tbody>
+</table>
+<p>注：协商缓存一般可在服务端通过设置 <code>Last-Modified</code>、<code>ETag</code> 等 <code>ResponseHeader</code> 实现。<br>
+注：<code>304</code> 状态码，表示资源未发生变更，可使用浏览器缓存。</p>
+<a href="#httpd668c2强缓存"><h3 id="httpd668c2强缓存"><span class="hanchor" ariaLabel="Anchor"># </span><a class="internal-link broken">强缓存</a></h3></a>
+<p>强缓存：浏览器不会向服务器发送任何请求，直接从本地缓存中读取文件并返回<code>Status Code: 200 OK</code>。</p>
+<p>此时，强缓存的大致对话过程如图：</p>
+<table>
+<thead>
+<tr>
+<th>发起方</th>
+<th>发起流程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>浏览器</td>
+<td>我要foo.css</td>
+</tr>
+<tr>
+<td>服务器</td>
+<td>给你，一百年内被来要新的</td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td>好的，大王</td>
+</tr>
+<tr>
+<td>一年后</td>
+<td></td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td>我要foo.css 还在有效期，用存起来的</td>
+</tr>
+<tr>
+<td>两年后</td>
+<td></td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td>我要foo.css 还在有效期，用存起来的</td>
+</tr>
+<tr>
+<td>2000年后</td>
+<td></td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td>我要foo.css 快来个新的</td>
+</tr>
+<tr>
+<td>服务器</td>
+<td>给，这次可以用到 65536 年 后</td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td>好的 大王</td>
+</tr>
+</tbody>
+</table>
+<p>注意，缓存生效期间，浏览器是【自言自语】，和服务器无关。</p>
+<p>此时，设置强缓存后，Network 大致变成了这样：</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Type</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index.html</td>
+<td>200</td>
+<td>text/html</td>
+<td>2.0KB</td>
+</tr>
+<tr>
+<td>foo.css</td>
+<td>200</td>
+<td>stylesheet</td>
+<td>From DiskCache</td>
+</tr>
+<tr>
+<td>bar.css</td>
+<td>200</td>
+<td>stylesheet</td>
+<td>From DiskCache</td>
+</tr>
+<tr>
+<td>head.png</td>
+<td>200</td>
+<td>png</td>
+<td>From MemoryCache</td>
+</tr>
+</tbody>
+</table>
+<p><code>From DiskCache</code>：从硬盘中读取。<br>
+<code>From MemoryCache</code>：从内存中读取，速度最快。<br>
+注：强缓存一般可在服务端通过设置 <code>Cache-Control:max-age</code>、<code>Expires</code> 等 <code>ResponseHeader</code> 实现。</p>
+<blockquote class="note-callout">
+<p> 详解
+
+<a href="https://juejin.cn/post/6844903838768431118" rel="noopener">强缓存 / 协商缓存详解</a></p>
+</blockquote>
+<a href="#缓存更新问题"><h2 id="缓存更新问题"><span class="hanchor" ariaLabel="Anchor"># </span>缓存更新问题</h2></a>
+<p>鉴于页面（<code>index.html</code>）会频繁更新，而静态资源则相对稳定。能推断出的一种缓存策略是 <code>index.html</code> 适合走协商缓存，相对稳定 &amp; 不常更新的静态资源（<code>JS</code>、<code>CSS</code>、<code>IMAGE</code>S） 等应该使用强缓存。</p>
+<p>然而问题很快就来了，都不让浏览器发请求，但缓存还未到期我们发现有 <code>bug</code>，想更新 <code>foo.css</code> 怎么办？  又想设置尽量长的时间走缓存，又想要能随时更新？</p>
+<ol>
+<li>给资源加版本号，比如通过 <code>query</code> 加版本号，每次上线统一改版本号就搞定了。如下 ：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- index.html V=001 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;foo.css?v=001&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;bar.css?v=001&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;foo &#34;</span><span class="p">&gt;</span>foo<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- foo.css 更新版本 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- index.html V=002 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;foo.css?v=002&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;bar.css?v=002&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;foo &#34;</span><span class="p">&gt;</span>foo<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意，此时服务器内只有一份文件 <code>foo.css</code> 文件。</p>
+<p>统一加版本号的优点是简单粗暴快捷，但缺点则是：假如只想更新 <code>foo.css</code>，但 <code>bar.css</code> 缓存也失效了，又造成了带宽的浪费。</p>
+<ol start="2">
+<li>需要将文件内容与版本号（URL）绑定，当文件内容发生变更时才变更版本号（<code>URL</code>），这样就能实现每个文件精确的缓存控制。什么东西与文件内容相关呢？ 
+<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.baike.com%2Fwikiid%2F1412805162344902915%3Fsearch_id%3D3k1jee3i202000%26prd%3Dsearch_sug%26view_id%3D2p9w1v50ati000" rel="noopener">消息摘要算法</a> ，对文件求摘要信息，摘要信息与文件内容一一对应，就有了一种可以精确到单个文件粒度的缓存控制依据。现在把 <code>URL</code> 改成带文件摘要信息的：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">＜!-- index.html v001 --&gt;
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href-</span><span class="err">&#34;</span><span class="na">foo</span><span class="err">.</span><span class="na">css</span><span class="err">?</span><span class="na">v</span><span class="o">=</span><span class="s">jj89757hp&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;bar.css?v=18a7b0826&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;foo&#34;</span><span class="p">&gt;</span>foo<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- foo.css 更新版本 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- index.html v002 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;foo.css?v=ddfa8798f&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;bar.css?v=18a7b0826&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;foo &#34;</span><span class="p">&gt;</span>foo<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个方式称为 <code>query-hash</code>，后续发版上线时，只有被变更文件的 <code>URL</code> 会更新，实现了精确的缓存控制，完美！</p>
+<p>注意，此时服务器内只有一份文件 <code>foo.css</code> 文件。</p>
+<a href="#覆盖式发布引发的问题"><h2 id="覆盖式发布引发的问题"><span class="hanchor" ariaLabel="Anchor"># </span>覆盖式发布引发的问题</h2></a>
+<p>然而按上述部署方案就上了线，很快就会 Fatal 满天飞，每次更新上线都可能会出现灾难。</p>
+<p>网站的静态文件只有一份，部署在 <code>Nginx</code> 服务器某目录下，并且通过 <code>query-hash</code> 的方式实现按文件做精确缓存控制，问题出在哪了呢？</p>
+<p>回顾一下，当某次更新时，更改了 <code>foo.css</code> 样式，此时会将 HTML 中的 foo.css url 更新为最新的 hash，并将服务器中存储的 <code>foo.css</code> &amp; <code>index.html</code> 文件覆盖为最新（V2 版本），看似 HTML 和静态资源都对应更新了，但是没有考虑极端情况。那就是：</p>
+<blockquote class="warning-callout">
+<p> Warning Cases</p>
+<ul>
+<li>
+<p>先部署静态资源，部署期间访问时，会出现 V1 版本 HTML 访问到 V2 版本新静态资源，并按 V1-hash 缓存起来。</p>
+<ul>
+<li>用户本地有缓存，此时无影响可正常访问。</li>
+<li>用户本地无缓存，则会将 V2 版本静态资源加载并按 V1 版本 hash 缓存起来。用户报错。当 V2 版本 HTML 部署完成后，用户再次访问时恢复。</li>
+</ul>
+</li>
+<li>
+<p>先部署 HTML，部署期间访问时，会出现 V2 版本 HTML 访问到 V1 版本旧静态资源，并按 V2-hash 缓存起来。</p>
+<ul>
+<li>V2 版本 HTML，会将 V1 版本静态资源按 V2 版本 Hash 缓存起来。此时页面会出错，且缓存过期之前会持续报错。直到用户手动清除缓存，或者缓存过期，或者将来发布 V3 版本更新静态资源版本。否则用户会持续出错。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>上面方案的问题起源于静态资源只有一份，每次发布时都是<strong>覆盖式发布</strong>，导致页面与静态资源出现匹配错误的情况！解决问题方案也极其简单，使用<strong>非覆盖式发布</strong>，一种简单的改造方式是将文件摘要（<code>hash</code>）放置到<code>URL</code> 中，即将 <code>query-hash</code> 改为 <code>name-hash</code>。</p><p>
+此时 HTML 变成如图：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- name-hash-index-v1.html --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;foo.a77d43c9.css&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;bar.ca217aba.css&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;foo&#34;</span><span class="p">&gt;</span>foo<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- foo.css 更新时 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- name-hash-index-v2.html --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;foo.a3e54cc9.css&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span> <span class="s">&#34;bar.ca217aba.css&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;foo&#34;</span><span class="p">&gt;</span>foo<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样，每次部署时先全量部署静态资源，再灰度部署页面，就能比较完美的解决了缓存的问题。
+此时，服务器上会存在多份 <code>foo.[$hash].css</code> 文件</p>
+<a href="#结合-cdn"><h2 id="结合-cdn"><span class="hanchor" ariaLabel="Anchor"># </span>结合 CDN</h2></a>
+<p>此时静态资源仍部署在 Nginx 服务器目录下，新的问题来了，随着时间推移，非覆盖部署导致文件逐渐增加多，硬盘逐渐吃紧。而且将文件存储在 <code>Nginx</code> <code>Web</code>服务器内某目录下，深度的将 <code>Nginx</code>、网站、部署过程等强耦合在一起，无法使用 <code>CDN</code> 技术。</p>
+<p>CDN 是一种内容分发网络，部署在应用层，利用智能分配技术，根据用户访问的地点，按照就近访问的原则分配到多个节点，来实现多点负载均衡。</p>
+<p>简单来说，用户就近访问，访问速度更快，大公司也无需搞一台超级带宽的存储服务器，只需使用多台正常带宽的 CDN 节点即可。  而 CDN 的常见实现是有一台源站服务器，多个 CDN 节点定时从源站同步。</p>
+<p>将静态资源部署到 <code>CDN</code> 上，再将 <code>Nginx</code> 上的流量通过 <strong>反向代理(proxy-pass)</strong> 转发到 <code>CDN</code> 上，即可将 CDN 与 Nginx 等 Web 服务器结合</p>
+<a href="#总体部署方案"><h3 id="总体部署方案"><span class="hanchor" ariaLabel="Anchor"># </span>总体部署方案</h3></a>
+<a href="#打包配置"><h4 id="打包配置"><span class="hanchor" ariaLabel="Anchor"># </span>打包配置</h4></a>
+<ul>
+<li>构建时依据环境变量，将 <code>HTML</code> 中的静态资源地址加上 <code>CDN</code> 域名。
+<ul>
+<li>配置 <code>output</code> 为 <code>content-hash</code> &amp; <code>publicPath</code></li>
+<li>配置 <code>Webpack-HTML-Plugin</code></li>
+</ul>
+</li>
+<li>构建完成后将静态资源上传到 <code>CDN</code> 。</li>
+<li>配置 <code>Nginx</code> 的反向代理，将静态资源流量转发到 <code>CDN</code>。</li>
+</ul>
+<p>下面是一个 <code>webpack</code> 配置示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// webpack.config.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">CDN_HOST</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CDN_HOST</span><span class="p">;</span><span class="c1">// CDN 域名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">CDN_PATH</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CDN_PATH</span><span class="p">;</span> <span class="c1">// CDN 路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">ENV</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ENV</span><span class="p">;</span> <span class="c1">// 当前的环境等等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">VERSION</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">VERSION</span><span class="p">;</span> <span class="c1">// 当前发布的版本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">getPublicPath</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Some code here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="nx">CDN_HOST</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">CDN_PATH</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">ENV</span><span class="si">}</span><span class="sb">/`</span><span class="p">;</span><span class="c1">// 依据 ENV 等动态构造 publicPath
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">publicPath</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="s1">&#39;production&#39;</span> <span class="o">?</span> <span class="nx">getPublicPath</span><span class="p">()</span> <span class="o">:</span> <span class="s1">&#39;.&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;bundle.[name][contenthash:8].js&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">publicPath</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote class="tips-callout">
+<p> 备注</p>
+<ul>
+<li>动态构造的 publicPath 里，严格的将产物按环境 + 发布版本做了隔离 &amp; 收敛</li>
+<li><code>publicPath</code> 详解 
+<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwebpack.docschina.org%2Fconfiguration%2Foutput%2F%23outputpublicpath" rel="noopener">webpack.docschina.org/configurati…</a></li>
+<li>此处使用了 <code>content-hash</code>，与 <code>hash</code>、<code>chunkhash</code> 的区别请见：
+<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.cnblogs.com%2Fajaemp%2Fp%2F12915452.html" rel="noopener">详解 webpack 中的 hash、chunkhash、contenthash 区别</a></li>
+<li>使用 <code>contenthash</code> 时，往往会增加一个小模块后，整体文件的 <code>hash</code> 都发生变化，原因为<code>Webpack</code> 的 <code>module.id</code> 默认基于解析顺序自增，从而引发缓存失效。具体可通过设置 <code>optimization.moduleIds</code> 设置为 <code>'deterministic'</code> 。</li>
+<li>具体详见 
+<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwebpack.docschina.org%2Fguides%2Fcaching%2F" rel="noopener">webpack 官方文档 - 缓存</a></li>
+</ul>
+</blockquote>
+<a href="#静态资源上传-cdn-源站"><h4 id="静态资源上传-cdn-源站"><span class="hanchor" ariaLabel="Anchor"># </span>静态资源上传 <code>CDN</code> 源站</h4></a>
+<p>上传 <code>CDN</code> 源站往往通过 <code>CLI</code> 调用各种客户端工具上传，此时要注意的是上传 <code>CDN</code> 依赖配置鉴权信息（如 文件存储的 <code>Bucket Name/accessKey</code>、<code>ftp</code> 的账号密码）。</p>
+<a href="#nginx-层反向代理改造"><h4 id="nginx-层反向代理改造"><span class="hanchor" ariaLabel="Anchor"># </span><code>Nginx</code> 层反向代理改造</h4></a>
+<p>反向代理 (reverse proxy): 是指以代理服务器来接受网络请求，并将请求转发给内部的服务器，并且将内部服务器的返回。</p>
+<blockquote class="warning-callout">
+<p> 注意
+反向代理隐藏了真正的服务器，正向代理隐藏了真正的客户端。<a href="chick26.github.io/Cards/-Front-Dev/Internet/proxy" rel="noopener" class="internal-link" data-src="chick26.github.io/Cards/-Front-Dev/Internet/proxy">什么是反向代理?</a></p>
+</blockquote>
+<p><code>Nginx</code> 可通过设置 <code>proxy_pass</code> 配置代理转发，如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">location ^~/static/ <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    proxy_pass <span class="nv">$cdn</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote class="note-callout">
+<p> proxy_pass 配置
+具体详见 
+<a href="https://link.juejin.cn/?target=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fb010c9302cd0" rel="noopener">nginx 之 proxy_pass 详解</a></p>
+</blockquote>
+<a href="#静态资源组织"><h2 id="静态资源组织"><span class="hanchor" ariaLabel="Anchor"># </span>静态资源组织</h2></a>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最大程度利用缓存</td>
+<td>- 将页面入口 <code>HTML</code> 设置为协商缓存 <br>- 将<code>JavaScript</code>、<code>CSS</code> 等静态资源设置为永久强缓存</td>
+</tr>
+<tr>
+<td>强缓存更新问题</td>
+<td>- 将文件摘要（<code>hash</code>）作为资源路径 (<code>URL</code>) 构成的一部分</td>
+</tr>
+<tr>
+<td>覆盖式发布引发的问题</td>
+<td>- 采用 <code>name-hash</code> 而非 <code>query-hash</code> 的组织方式<br>- 具体需要配置 <code>Wbpack</code> 的 <code>output.filename</code> 为 <code>contenthash</code></td>
+</tr>
+<tr>
+<td><code>Nginx</code> 目录存储过大</td>
+<td>- 结合 <code>CDN</code> 提升访问速度<br>- 采用了 <code>Nginx 反向代理</code>+ 将静态资源上传到 <code>CDN</code></td>
+</tr>
+<tr>
+<td>上传 <code>CDN</code></td>
+<td>- 按环境动态构造 <code>publicPath</code> + 按环境构造 <code>CDN</code> 上传目录并上传<br>- 动态构造 <code>publicPath</code> 并且随构建过程插入到 <code>HTML</code> 中<br>- 采用 <code>Webpack-HTML-Plugin</code> 等插件，将编译好的带 <code>hash</code> + <code>publicPath</code> 的静态资源插入到 <code>HTML</code> 中</td>
+</tr>
+<tr>
+<td>保证上传 <code>CDN</code> 的安全</td>
+<td>- 需要一种机制管控上传 <code>CDN</code> 秘钥，而非简单的将秘钥写到代码 / <code>Dockerfile</code> 等明文文件中</td>
+</tr>
+</tbody>
+</table>
+<a href="#静态资源的加工"><h2 id="静态资源的加工"><span class="hanchor" ariaLabel="Anchor"># </span>静态资源的加工</h2></a>
+<p>如前所述，前端静态资源部署到 <code>CDN</code> 后，有一道 <code>Nginx</code> 反向代理做转发的加工工序。事实上，为了解决各种部署问题或为了提升性能，人们往往而需要对静态资源做更多的加工工序</p>
+<p>比如，部分 <code>Web</code> 应用为了提升首屏性能，一种常见的方式为通过 <code>BFF</code> 层或通过后端直出 <code>HTML</code>，并且在过程中注入若干信息，如 <code>userInfo</code>、用户权限信息、灰度信息等等，从而大幅降低前端登陆研发成本 &amp; 降低首屏耗时</p>
+<p>下面是后端直出 <code>HTML</code> 的一种简要流程。</p>
+<p>![
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../../../Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/%E5%90%8E%E7%AB%AF%E7%9B%B4%E5%87%BA%20HTML.excalidraw">后端直出 HTML.excalidraw|800</a></p>
+<p>主要流程为前端构建出的 <code>HTML</code> 包含若干模板变量，后端收到请求后，通过各种 <code>Proxy</code> 层将 <code>Cookie</code> 转换成用户信息，再按依据版本配置从 <code>CDN</code> 加载 <code>index.html</code>, 并使用模板引擎等方式将模板变量替换为用户信息，最终吐回给浏览器的则是已经包含用户信息的 <code>HTML</code></p>
+<a href="#pre-环境灰度上线的常见实现"><h2 id="pre-环境灰度上线的常见实现"><span class="hanchor" ariaLabel="Anchor"># </span>Pre 环境、灰度上线的常见实现</h2></a>
+<p>如前所述，静态资源为非覆盖式发布，多次部署后，线上存在若干版本静态资源。实现 <code>Pre</code>  环境 / 灰度上线的思路则是：通过一定的机制，让特定用户访问特定静态资源版本，从而达到访问  <code>Pre</code>  / 灰度上线的能力。</p>
+<a href="#方案一-nginx-层动态转发"><h3 id="方案一-nginx-层动态转发"><span class="hanchor" ariaLabel="Anchor"># </span>方案一 Nginx 层动态转发</h3></a>
+<p>一种常见的 Pre 机制是静态资源部署多个版本后，开发者的通过 ModHeader 等浏览器插件，在请求中携带特定 Header（如 xx-env=pre），在 Nginx 层消费该 Header 并动态转发到对应环境的静态资源上，实现访问 Pre 环境目的。此时，除静态资源为特定版本外，所有环境都是生产环境，可以将变量范围控制在最小。</p>
+<p>流程大致如图：
 ![
-<a rel=noopener class="internal-link broken" data-src=../../../Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/Nginx%20%E5%B1%82%E5%8A%A8%E6%80%81%E8%BD%AC%E5%8F%91.excalidraw>Nginx 层动态转发.excalidraw|800</a></p><p>Nginx 可通过配置 rewrite 设置转发，如下所示。</p><p>详情请查阅：
-<a href="https://link.juejin.cn/?target=https%3A%2F%2Fleokongwq.github.io%2F2016%2F11%2F23%2Fnginx-rewrite.html" rel=noopener>nginx 配置 rewrite 指令详解</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=line><span class=cl><span class=k>location</span> <span class=s>/example</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=kn>rewrite</span> <span class=s>^</span> <span class=nv>$cdn/$http_x_xx_env/index.html</span> <span class=s>break</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=kn>proxy_pass</span> <span class=nv>$cdn/prod/index.html</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># $http_x_xx_env 表示取自定义的 Request Header 字段 xx_env
-</span></span></span></code></pre></td></tr></table></div></div><p>该方案优点为配置简单高效，适用于工程师。缺点为每个用户都需要手动配置，不适用于移动端，且无法让特定用户被动精确访问某版本，比如 PM、KP 用户来配置 Header 成本过高。</p><p>同理，也可以在 Nginx 层按一些其他规则处理，实现灰度上线的能力。如通过一定随机数 rewrite，达到 <strong>小范围随机灰度</strong>；获取 ua 并 rewrite，达到 <strong>按浏览器定向灰度</strong>；通过 Nginx GeoIP 获取地域信息，达到 <strong>按地域灰度</strong>。</p><p>但上述灰度方案配置复杂，而灰度比例 / 范围往往会配置较多，每次上线都需要运维登陆生产服务器修改，较容易出各种事故。故不推荐使用，仅供拓宽思路。</p><a href=#方案二-动态配置--服务端转发><h3 id=方案二-动态配置--服务端转发><span class=hanchor arialabel=Anchor># </span>方案二 动态配置 + 服务端转发</h3></a><p>为了能随时随地调整灰度策略，而非依赖调整代码发版上线，此时引入配置中心的概念。</p><p>配置中心：一般是独立的平台 / SDK，提供动态配置管理的解决方案，提供功能有配置管理、版本管理、权限管理、灰度发布等等。后端应用通过接口消费，故配置中心和后端解耦，可以随时修改调整配置而非重新发版。 配置中心一般是配置一个 JSON 对象。 配置中心 JSON 对象人工维护容易引发问题，故增加机器人来降低出错几率。</p><p>下图是依赖配置中心 + 服务端转发的流程图：
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../../../Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/Nginx%20%E5%B1%82%E5%8A%A8%E6%80%81%E8%BD%AC%E5%8F%91.excalidraw">Nginx 层动态转发.excalidraw|800</a></p>
+<p>Nginx 可通过配置 rewrite 设置转发，如下所示。</p>
+<p>详情请查阅：
+<a href="https://link.juejin.cn/?target=https%3A%2F%2Fleokongwq.github.io%2F2016%2F11%2F23%2Fnginx-rewrite.html" rel="noopener">nginx 配置 rewrite 指令详解</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">location</span> <span class="s">/example</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">rewrite</span> <span class="s">^</span> <span class="nv">$cdn/$http_x_xx_env/index.html</span> <span class="s">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_pass</span> <span class="nv">$cdn/prod/index.html</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># $http_x_xx_env 表示取自定义的 Request Header 字段 xx_env
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>该方案优点为配置简单高效，适用于工程师。缺点为每个用户都需要手动配置，不适用于移动端，且无法让特定用户被动精确访问某版本，比如 PM、KP 用户来配置 Header 成本过高。</p>
+<p>同理，也可以在 Nginx 层按一些其他规则处理，实现灰度上线的能力。如通过一定随机数 rewrite，达到 <strong>小范围随机灰度</strong>；获取 ua 并 rewrite，达到 <strong>按浏览器定向灰度</strong>；通过 Nginx GeoIP 获取地域信息，达到 <strong>按地域灰度</strong>。</p>
+<p>但上述灰度方案配置复杂，而灰度比例 / 范围往往会配置较多，每次上线都需要运维登陆生产服务器修改，较容易出各种事故。故不推荐使用，仅供拓宽思路。</p>
+<a href="#方案二-动态配置--服务端转发"><h3 id="方案二-动态配置--服务端转发"><span class="hanchor" ariaLabel="Anchor"># </span>方案二 动态配置 + 服务端转发</h3></a>
+<p>为了能随时随地调整灰度策略，而非依赖调整代码发版上线，此时引入配置中心的概念。</p>
+<p>配置中心：一般是独立的平台 / SDK，提供动态配置管理的解决方案，提供功能有配置管理、版本管理、权限管理、灰度发布等等。后端应用通过接口消费，故配置中心和后端解耦，可以随时修改调整配置而非重新发版。 配置中心一般是配置一个 JSON 对象。 配置中心 JSON 对象人工维护容易引发问题，故增加机器人来降低出错几率。</p>
+<p>下图是依赖配置中心 + 服务端转发的流程图：
 ![
-<a rel=noopener class="internal-link broken" data-src=../../../Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/%E4%BE%9D%E8%B5%96%E9%85%8D%E7%BD%AE%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AC%E5%8F%91.excalidraw>依赖配置 服务端转发.excalidraw|800</a></p><a href=#主要流程><h4 id=主要流程><span class=hanchor arialabel=Anchor># </span>主要流程</h4></a><ul><li>前端部署多个版本静态资源到 CDN 上</li><li>后端收到请求后，通过各种 Proxy 层将 Cookie 转换成用户信息</li><li>后端读取配置中心数据，依据用户信息判断给用户访问什么环境，加载具体环境 <code>index.html</code></li><li>后端返回给浏览器加工后的 <code>index.html</code></li><li>若需添加人员 Pre 名单，只需调用机器人 / Bot 等，修改配置中心，即可生效。</li></ul><p>注意，在上述架构下，若线上某用户发生某些难以排查的问题，也可发布特定的版本，在配置中心修改后让用户访问特定版本页面，从而简化排查问题的过程。</p><p>此时，一些小流量配置，AB 实验，版本管理其实也可以通过该方案实施。</p><a href=#优点><h4 id=优点><span class=hanchor arialabel=Anchor># </span>优点</h4></a><ul><li>可以随时调整，不用后端发版，移动端也可生效。</li></ul><a href=#缺点><h4 id=缺点><span class=hanchor arialabel=Anchor># </span>缺点</h4></a><ul><li>和服务端强绑定</li><li>每次都需要从 <code>CDN</code> 加载 <code>HTML</code>， 有一定性能浪费。但若缓存 <code>HTML</code>，发版环节还要通知服务端，总体增加复杂度</li><li>若考虑 <code>CDN</code> 故障，服务端做 <code>CDN</code> 降级会增加复杂度</li><li>版本管理 / 小流量等为通用需求，而该方案每个后端应用都需要开发或接入</li><li>常见的配置中心又一般为 <code>JSON</code> 配置，比较简陋，和发版的多环境无法关联，依赖人为配置，有出错的风险（如发版 <code>v1.2501</code>，配置中心手动配置时手误改成了<code>v1.2051</code>）。</li></ul><a href=#前端发布服务实现与设计><h2 id=前端发布服务实现与设计><span class=hanchor arialabel=Anchor># </span>前端发布服务实现与设计</h2></a><p><strong>对构建产物进行深层次加工 & 管理</strong> ，版本管理 / 小流量是前端部署的常见公共业务需求，应该和业务后端服务脱离，故提出一个新的公共服务，纯用于前端部署相关，将之称为 <code>Page Server</code>，用于具体的 <code>index.html</code> 文件管理 & 承接 <code>Nginx</code> 流量或业务后端流量等。</p><p>同时，鉴于版本管理、小流量策略等调整会特别频繁，每次调整不应该都登录服务器，故我们需要一个新的服务 & 界面，用于操作管理版本、调整小流量等信息，并且与上述 <code>Page Server</code> 同步，此处将该服务称之为 <code>Page Config Web</code>。</p><p>而 <code>Page Server</code> 则可能会有很多个实例，部署在多个集群上，以满足跨国部署、多部门项目部署等要求。所以理想情况下 <code>Page Config Web</code> 还要承接 <code>PageServer</code> 的创建、管理、配置等工作。所以 <code>PageConfigWeb</code> 与 <code>PageServer</code> 是 1 比 N 关系（或 M 比 N，用于跨国部署等）。</p><p>同时，一个前端项目可能有多套前端环境，<code>PageSever</code> 在固定集群算公共设施，这些环境理论上都可以由一个或多个 <code>PageServer</code> 承载。故一个 <code>PageServer</code> 和多个前端环境是 1 比 1 或者 1 比 N 关系。</p><p>此时，对于 Nginx 来的流量，需要一种机制来区分该流量属于哪个环境实例，比如通过 <strong>URL</strong> 来区分，可以称之为 <strong>路由</strong>。</p><p>最后，为了保证上述服务的正确性和自动化，构建部署（新增版本）完成后，要同步到上述两个服务，以确保版本管理的正确性。</p><p>大致的流程图如下:
-<a href=chick26.github.io/Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/%E5%89%8D%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83%E8%AE%BE%E8%AE%A1.excalidraw rel=noopener class=internal-link data-src=chick26.github.io/Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/%E5%89%8D%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83%E8%AE%BE%E8%AE%A1.excalidraw>800</a></p><p>本质上来说，相当于有一个公用的中间服务，部署在多个集群上，与构建发布过程深度绑定，用于承接 HTML 的流量，并通过 <code>Web</code> 站点设置小流量规则、版本等等，来满足多变的上线需求。</p><p>其中，<code>PageServer</code> 在承载 <code>HTML</code> 服务时，可做一些其他工作，比如：</p><ul><li>SSR</li><li>CDN 降级，用于 CDN 异常时直出 HTML 中将静态资源替换为可用的 CDN 站点</li><li>404 处理</li><li>兜底页（比如服务出现故障，短时间内无法修复时出兜底）</li><li>模板渲染（如做模板替换，将 query 替换到模板中等）</li><li>特殊时期全局处理，如注入全局样式将页面全局置灰
-&mldr;&mldr;</li></ul><p><code>PageConfig Web</code> 和 <code>PageServer</code> 中有构建后的所有版本信息，理论上可以缓存每个版本的 HTML 文件，并且为了优化性能，PageServer 中可将最新全量版本的 HTML 文件缓存到内存中，最大程度提升响应速度，其余版本存储到 Redis 等缓存中。</p><a href=#版本回滚><h4 id=版本回滚><span class=hanchor arialabel=Anchor># </span>版本回滚</h4></a><p>下面以发布一个正式版本 <code>v.1.0.2502</code> 并且回滚过程为例：</p><ul><li>代码合并，触发自动化构建，构建产物以环境 <code>env</code> + 版本 <code>version</code> + <code>name-hash</code> 方式组织，并上传到 CDN</li><li>构建完成后，构建脚本通知、同步 PageServer、PageConfig Web 服务有新版本 v.1.0.2502</li><li>收到通知后，到 PageConfig Web 站点发布新版本 <code>v.1.0.2502 (PRE)</code>，并为该版本配置 PRE 环境小流量规则，<code>xx-env = pre</code>。此时，只有设置特定 Header 才能访问该版本</li><li>若是 Nginx 直接转发，则攻城狮通过设置 Header 访问 PRE 版本</li><li>若是通过服务端转发，攻城狮通过配置中心设置 PRE 白名单，即可让用户访问 PRE 版本</li><li>在 PRE 版本验收完成后，攻城狮登录 PageConfig Web 站点，发布正式版本 v.1.0.2502 （不带小流量信息）。此时立即生效</li><li>生效后线上回归，发现有 bug，攻城狮立马登录 PageConfig Web 站点，将版本回滚为上一版本 v.1.0.2501 。此时立即生效。</li></ul><a href=#总结><h2 id=总结><span class=hanchor arialabel=Anchor># </span>总结</h2></a><a href=#静态资源组织-1><h3 id=静态资源组织-1><span class=hanchor arialabel=Anchor># </span>静态资源组织</h3></a><ul><li>为了最大程度利用缓存，将页面 (HTML) 设置为协商缓存，将 JavaScript、CSS 等设置为永久强缓存</li><li>为了解决强缓存更新问题，将文件摘要（hash）作为资源路径 (URL) 构成的一部分</li><li>为了解决覆盖式发布引发的问题，采用 <code>name-hash</code> 而非 <code>query-hash</code> 的组织方式，具体需要配置 <code>webpack</code> 的 <code>output.filename</code> 为 <code>contenthash</code> 方式</li><li>为了解决 Nginx 目录存储过大 + 结合 CDN 提升访问速度，采用了 Nginx 反向代理 + 将静态资源上传到 CDN</li><li>为了上传 CDN，我们需要按环境动态构造 publicPath + 按环境构造 CDN 上传目录并上传</li><li>为了动态构造 publicPath 并且随构建过程插入到 HTML 中，采用 Webpack-HTML-Plugin 等插件，将编译好的带 hash + publicPath 的静态资源插入到 HTML 中</li><li>为了保证上传 CDN 的安全，我们需要一种机制管控上传 CDN 秘钥，而非简单的将秘钥写到代码 / Dockerfile 等明文文件中。</li></ul><a href=#自动化部署><h3 id=自动化部署><span class=hanchor arialabel=Anchor># </span>自动化部署</h3></a><p>为了提升部署效率，100% 避免因部署出错，需要设计 & 搭建自动化部署平台，以 Docker 等保证环境的一致性，以 Jenkins 等保证构建流程的串联。使用 es-build 等提升构建效率。</p><a href=#前端部署--静态资源加工><h3 id=前端部署--静态资源加工><span class=hanchor arialabel=Anchor># </span>前端部署 & 静态资源加工</h3></a><p>关于前端部署，能总结出下面几个原则 / 要求：</p><ul><li>构建发布后，不应该被覆盖</li><li>构建发布后，静态资源应当永久保存在服务器 / CDN 上，即只可读</li><li>静态资源组织上，每个版本应该按文件夹存储，做到资源收敛。这样假如真要删除时，可按版本删除。（如某个版本代码泄密）</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// webpack.config.js
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>CDN_HOST</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>CDN_HOST</span><span class=p>;</span><span class=c1>// CDN 域名
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>CDN_PATH</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>CDN_PATH</span><span class=s1>&#39;&#39;</span><span class=p>;</span> <span class=c1>// CDN 路径
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>ENV</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>ENV</span><span class=p>;</span> <span class=c1>// 当前的环境等等
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>VERSION</span> <span class=o>=</span> <span class=nx>process</span><span class=p>.</span><span class=nx>env</span><span class=p>.</span><span class=nx>VERSION</span><span class=p>;</span> <span class=c1>// 当前发布的版本
-</span></span></span><span class=line><span class=cl><span class=c1></span>
-</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>getPublicPath</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=c1>// Some code here
-</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>return</span> <span class=sb>`</span><span class=si>${</span><span class=nx>CDN_HOST</span><span class=si>}</span><span class=sb>/</span><span class=si>${</span><span class=nx>CDN_PATH</span><span class=si>}</span><span class=sb>/</span><span class=si>${</span><span class=nx>ENV</span><span class=si>}</span><span class=sb>/</span><span class=si>${</span><span class=nx>VERSION</span><span class=si>}</span><span class=sb>/`</span><span class=p>;</span><span class=c1>// 依据 ENV 等动态构造publicPath
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nx>output</span><span class=o>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>filename</span><span class=o>:</span> <span class=s1>&#39;bundle.[name][contenthash].js&#39;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>publicPath</span><span class=o>:</span> <span class=nx>getPublicPath</span><span class=p>(),</span>
-</span></span><span class=line><span class=cl>    <span class=p>},</span>
-</span></span><span class=line><span class=cl>    <span class=nx>plugins</span><span class=o>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>        <span class=k>new</span> <span class=nx>HtmlWebpackPlugin</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=p>]</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><p>故 publicPath 应增加 version 字段</p><ul><li>发布过程应该自动化，开发人员不应该直接接触服务器</li><li>版本切换时，也应当不接触服务器</li><li>版本切换能秒级生效。（如 v0.2 切换 v0.3，立即生效）</li><li>线上需要能同时生效多个版本，满足 AB 测试、灰度、PRE 环境等小流量需求。</li></ul><p>上述需求都相对复杂多变，为了应对复杂的线上需求，可以对静态资源做深度加工，如通过服务端直出 HTML、通过配置中心实现按用户 PRE 等等。</p><a href=#前端发布服务><h3 id=前端发布服务><span class=hanchor arialabel=Anchor># </span>前端发布服务</h3></a><p>面对复杂的商业化需求，方便多前端业务实现版本管理、灰度、PRE、AB 测试等小流量功能，我们设计了一个中间服务 PageConfig Web & PageServer，与 Nginx 和各种后端相结合，达到配置即时生效的能力</p><a href=#常见面试问题><h3 id=常见面试问题><span class=hanchor arialabel=Anchor># </span>常见面试问题</h3></a><ol><li><p>前端代码从 tsx/jsx 到部署上线被用户访问，中间大致会经历哪些过程？</p><p>经历本地开发、远程构建打包部署、安全检查、上传 CDN、Nginx 做流量转发、对静态资源做若干加工处理等过程。</p></li><li><p>可能大部分同学都知道强缓存 / 协商缓存，那前端各种产物（HTML、JS、CSS、IMAGES 等）应该用什么缓存策略？以及为什么？</p><ul><li>若使用协商缓存，但静态资源却不频繁更新，如何避免协商过程的请求浪费？</li><li>若使用强缓存，那静态资源如何更新？</li></ul><ul><li>HTML 使用协商缓存，静态资源使用强缓存，使用 name-hash（非覆盖式发布）解决静态资源更新问题。</li></ul></li><li><p>配套的，前端静态资源应该如何组织？</p><p>搭配 Webpack 的 Webpack_HTML-Plugin & 配置 output publicPath 等。</p></li><li><p>配套的，自动化构建 & 部署过程如何与 CDN 结合？</p><p>自动化构建打包后，将产物传输到对应环境 URL 的 CDN 上。</p></li><li><p>如何避免前端上线，影响未刷新页面的用户？</p><p>使用 name-hash 方式组织静态资源，先上线静态资源，再上线 HTML。</p></li><li><p>刚上线的版本发现有阻塞性 bug，如何做到秒级回滚，而非再次部署等 20 分钟甚至更久？</p><p>HTML 文件使用非覆盖方式存储在 CDN 上，搭建前端发布服务，对 HTML 按版本等做缓存加工处理。当需要回滚时，更改发布服务 HTMl 指向即可。</p></li><li><p>CDN 域名突然挂了，如何实现秒级 CDN 降级修补而非再次全部业务重新部署一次？</p><ul><li>将静态资源传输到多个 CDN 上，并开发一个加载 Script 的 SDK 集成到 HTML 中。当发现 CDN 资源加载失败时，逐步降级 CDN 域名。</li><li>在前端发布服务中，增加 HTML 文本处理环节，如增加 CDN 域名替换，发生异常时，在发布服务中一键设置即可。</li></ul></li><li><p>如何实现一个预发环境，除了前端资源外都是线上环境，将变量控制前端环境内？</p><p>对静态资源做加工，对 HTML 入口做小流量。</p></li><li><p>部署环节如何方便配套做 AB 测试等？</p><p>参见前端发布服务</p></li><li><p>如何实现一套前端代码，发布成多套环境产物？</p><p>使用环境变量，将当前环境、CDN、CDN_HOST、Version 等注入环境变量中，构建时消费 & 将产物上传不同的 CDN 即可。</p></li></ol></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../../../Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/%E4%BE%9D%E8%B5%96%E9%85%8D%E7%BD%AE%20%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%BD%AC%E5%8F%91.excalidraw">依赖配置 服务端转发.excalidraw|800</a></p>
+<a href="#主要流程"><h4 id="主要流程"><span class="hanchor" ariaLabel="Anchor"># </span>主要流程</h4></a>
+<ul>
+<li>前端部署多个版本静态资源到 CDN 上</li>
+<li>后端收到请求后，通过各种 Proxy 层将 Cookie 转换成用户信息</li>
+<li>后端读取配置中心数据，依据用户信息判断给用户访问什么环境，加载具体环境 <code>index.html</code></li>
+<li>后端返回给浏览器加工后的 <code>index.html</code></li>
+<li>若需添加人员 Pre 名单，只需调用机器人 / Bot 等，修改配置中心，即可生效。</li>
+</ul>
+<p>注意，在上述架构下，若线上某用户发生某些难以排查的问题，也可发布特定的版本，在配置中心修改后让用户访问特定版本页面，从而简化排查问题的过程。</p>
+<p>此时，一些小流量配置，AB 实验，版本管理其实也可以通过该方案实施。</p>
+<a href="#优点"><h4 id="优点"><span class="hanchor" ariaLabel="Anchor"># </span>优点</h4></a>
+<ul>
+<li>可以随时调整，不用后端发版，移动端也可生效。</li>
+</ul>
+<a href="#缺点"><h4 id="缺点"><span class="hanchor" ariaLabel="Anchor"># </span>缺点</h4></a>
+<ul>
+<li>和服务端强绑定</li>
+<li>每次都需要从 <code>CDN</code> 加载 <code>HTML</code>， 有一定性能浪费。但若缓存 <code>HTML</code>，发版环节还要通知服务端，总体增加复杂度</li>
+<li>若考虑 <code>CDN</code> 故障，服务端做 <code>CDN</code> 降级会增加复杂度</li>
+<li>版本管理 / 小流量等为通用需求，而该方案每个后端应用都需要开发或接入</li>
+<li>常见的配置中心又一般为 <code>JSON</code> 配置，比较简陋，和发版的多环境无法关联，依赖人为配置，有出错的风险（如发版 <code>v1.2501</code>，配置中心手动配置时手误改成了<code>v1.2051</code>）。</li>
+</ul>
+<a href="#前端发布服务实现与设计"><h2 id="前端发布服务实现与设计"><span class="hanchor" ariaLabel="Anchor"># </span>前端发布服务实现与设计</h2></a>
+<p><strong>对构建产物进行深层次加工 &amp; 管理</strong>  ，版本管理 / 小流量是前端部署的常见公共业务需求，应该和业务后端服务脱离，故提出一个新的公共服务，纯用于前端部署相关，将之称为 <code>Page Server</code>，用于具体的 <code>index.html</code> 文件管理 &amp; 承接 <code>Nginx</code> 流量或业务后端流量等。</p>
+<p>同时，鉴于版本管理、小流量策略等调整会特别频繁，每次调整不应该都登录服务器，故我们需要一个新的服务 &amp; 界面，用于操作管理版本、调整小流量等信息，并且与上述 <code>Page Server</code> 同步，此处将该服务称之为 <code>Page Config Web</code>。</p>
+<p>而 <code>Page Server</code> 则可能会有很多个实例，部署在多个集群上，以满足跨国部署、多部门项目部署等要求。所以理想情况下 <code>Page Config Web</code> 还要承接 <code>PageServer</code> 的创建、管理、配置等工作。所以 <code>PageConfigWeb</code> 与 <code>PageServer</code> 是 1 比 N 关系（或 M 比 N，用于跨国部署等）。</p>
+<p>同时，一个前端项目可能有多套前端环境，<code>PageSever</code> 在固定集群算公共设施，这些环境理论上都可以由一个或多个 <code>PageServer</code> 承载。故一个 <code>PageServer</code> 和多个前端环境是 1 比 1 或者 1 比 N 关系。</p>
+<p>此时，对于 Nginx 来的流量，需要一种机制来区分该流量属于哪个环境实例，比如通过 <strong>URL</strong> 来区分，可以称之为 <strong>路由</strong>。</p>
+<p>最后，为了保证上述服务的正确性和自动化，构建部署（新增版本）完成后，要同步到上述两个服务，以确保版本管理的正确性。</p>
+<p>大致的流程图如下:
+<a href="chick26.github.io/Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/%E5%89%8D%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83%E8%AE%BE%E8%AE%A1.excalidraw" rel="noopener" class="internal-link" data-src="chick26.github.io/Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/%E5%89%8D%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%8F%91%E5%B8%83%E8%AE%BE%E8%AE%A1.excalidraw">800</a></p>
+<p>本质上来说，相当于有一个公用的中间服务，部署在多个集群上，与构建发布过程深度绑定，用于承接 HTML 的流量，并通过 <code>Web</code> 站点设置小流量规则、版本等等，来满足多变的上线需求。</p>
+<p>其中，<code>PageServer</code> 在承载 <code>HTML</code> 服务时，可做一些其他工作，比如：</p>
+<ul>
+<li>SSR</li>
+<li>CDN 降级，用于 CDN 异常时直出 HTML 中将静态资源替换为可用的 CDN 站点</li>
+<li>404 处理</li>
+<li>兜底页（比如服务出现故障，短时间内无法修复时出兜底）</li>
+<li>模板渲染（如做模板替换，将 query 替换到模板中等）</li>
+<li>特殊时期全局处理，如注入全局样式将页面全局置灰
+&hellip;&hellip;</li>
+</ul>
+<p><code>PageConfig Web</code> 和 <code>PageServer</code> 中有构建后的所有版本信息，理论上可以缓存每个版本的 HTML 文件，并且为了优化性能，PageServer 中可将最新全量版本的 HTML 文件缓存到内存中，最大程度提升响应速度，其余版本存储到 Redis 等缓存中。</p>
+<a href="#版本回滚"><h4 id="版本回滚"><span class="hanchor" ariaLabel="Anchor"># </span>版本回滚</h4></a>
+<p>下面以发布一个正式版本 <code>v.1.0.2502</code> 并且回滚过程为例：</p>
+<ul>
+<li>代码合并，触发自动化构建，构建产物以环境 <code>env</code> + 版本 <code>version</code> + <code>name-hash</code> 方式组织，并上传到 CDN</li>
+<li>构建完成后，构建脚本通知、同步 PageServer、PageConfig Web 服务有新版本 v.1.0.2502</li>
+<li>收到通知后，到 PageConfig Web 站点发布新版本 <code>v.1.0.2502 (PRE)</code>，并为该版本配置 PRE 环境小流量规则，<code>xx-env = pre</code>。此时，只有设置特定 Header 才能访问该版本</li>
+<li>若是 Nginx 直接转发，则攻城狮通过设置 Header 访问 PRE 版本</li>
+<li>若是通过服务端转发，攻城狮通过配置中心设置 PRE 白名单，即可让用户访问 PRE 版本</li>
+<li>在 PRE 版本验收完成后，攻城狮登录 PageConfig Web 站点，发布正式版本 v.1.0.2502 （不带小流量信息）。此时立即生效</li>
+<li>生效后线上回归，发现有 bug，攻城狮立马登录 PageConfig Web 站点，将版本回滚为上一版本 v.1.0.2501 。此时立即生效。</li>
+</ul>
+<a href="#总结"><h2 id="总结"><span class="hanchor" ariaLabel="Anchor"># </span>总结</h2></a>
+<a href="#静态资源组织-1"><h3 id="静态资源组织-1"><span class="hanchor" ariaLabel="Anchor"># </span>静态资源组织</h3></a>
+<ul>
+<li>为了最大程度利用缓存，将页面 (HTML) 设置为协商缓存，将 JavaScript、CSS 等设置为永久强缓存</li>
+<li>为了解决强缓存更新问题，将文件摘要（hash）作为资源路径 (URL) 构成的一部分</li>
+<li>为了解决覆盖式发布引发的问题，采用 <code>name-hash</code> 而非 <code>query-hash</code> 的组织方式，具体需要配置 <code>webpack</code> 的 <code>output.filename</code> 为 <code>contenthash</code> 方式</li>
+<li>为了解决 Nginx 目录存储过大 + 结合 CDN 提升访问速度，采用了 Nginx 反向代理 + 将静态资源上传到 CDN</li>
+<li>为了上传 CDN，我们需要按环境动态构造 publicPath + 按环境构造 CDN 上传目录并上传</li>
+<li>为了动态构造 publicPath 并且随构建过程插入到 HTML 中，采用 Webpack-HTML-Plugin 等插件，将编译好的带 hash + publicPath 的静态资源插入到 HTML 中</li>
+<li>为了保证上传 CDN 的安全，我们需要一种机制管控上传 CDN 秘钥，而非简单的将秘钥写到代码 / Dockerfile 等明文文件中。</li>
+</ul>
+<a href="#自动化部署"><h3 id="自动化部署"><span class="hanchor" ariaLabel="Anchor"># </span>自动化部署</h3></a>
+<p>为了提升部署效率，100% 避免因部署出错，需要设计 &amp; 搭建自动化部署平台，以 Docker 等保证环境的一致性，以 Jenkins 等保证构建流程的串联。使用 es-build 等提升构建效率。</p>
+<a href="#前端部署--静态资源加工"><h3 id="前端部署--静态资源加工"><span class="hanchor" ariaLabel="Anchor"># </span>前端部署 &amp; 静态资源加工</h3></a>
+<p>关于前端部署，能总结出下面几个原则 / 要求：</p>
+<ul>
+<li>构建发布后，不应该被覆盖</li>
+<li>构建发布后，静态资源应当永久保存在服务器 / CDN 上，即只可读</li>
+<li>静态资源组织上，每个版本应该按文件夹存储，做到资源收敛。这样假如真要删除时，可按版本删除。（如某个版本代码泄密）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// webpack.config.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">CDN_HOST</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CDN_HOST</span><span class="p">;</span><span class="c1">// CDN 域名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">CDN_PATH</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CDN_PATH</span><span class="s1">&#39;&#39;</span><span class="p">;</span> <span class="c1">// CDN 路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">ENV</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ENV</span><span class="p">;</span> <span class="c1">// 当前的环境等等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">VERSION</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">VERSION</span><span class="p">;</span> <span class="c1">// 当前发布的版本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">getPublicPath</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Some code here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="nx">CDN_HOST</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">CDN_PATH</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">ENV</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">VERSION</span><span class="si">}</span><span class="sb">/`</span><span class="p">;</span><span class="c1">// 依据 ENV 等动态构造publicPath
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;bundle.[name][contenthash].js&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">publicPath</span><span class="o">:</span> <span class="nx">getPublicPath</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>故 publicPath 应增加 version 字段</p>
+<ul>
+<li>发布过程应该自动化，开发人员不应该直接接触服务器</li>
+<li>版本切换时，也应当不接触服务器</li>
+<li>版本切换能秒级生效。（如 v0.2 切换 v0.3，立即生效）</li>
+<li>线上需要能同时生效多个版本，满足 AB 测试、灰度、PRE 环境等小流量需求。</li>
+</ul>
+<p>上述需求都相对复杂多变，为了应对复杂的线上需求，可以对静态资源做深度加工，如通过服务端直出 HTML、通过配置中心实现按用户 PRE 等等。</p>
+<a href="#前端发布服务"><h3 id="前端发布服务"><span class="hanchor" ariaLabel="Anchor"># </span>前端发布服务</h3></a>
+<p>面对复杂的商业化需求，方便多前端业务实现版本管理、灰度、PRE、AB 测试等小流量功能，我们设计了一个中间服务 PageConfig Web &amp; PageServer，与 Nginx 和各种后端相结合，达到配置即时生效的能力</p>
+<a href="#常见面试问题"><h3 id="常见面试问题"><span class="hanchor" ariaLabel="Anchor"># </span>常见面试问题</h3></a>
+<ol>
+<li>
+<p>前端代码从 tsx/jsx 到部署上线被用户访问，中间大致会经历哪些过程？</p>
+<p>经历本地开发、远程构建打包部署、安全检查、上传 CDN、Nginx 做流量转发、对静态资源做若干加工处理等过程。</p>
+</li>
+<li>
+<p>可能大部分同学都知道强缓存 / 协商缓存，那前端各种产物（HTML、JS、CSS、IMAGES 等）应该用什么缓存策略？以及为什么？</p>
+<ul>
+<li>若使用协商缓存，但静态资源却不频繁更新，如何避免协商过程的请求浪费？</li>
+<li>若使用强缓存，那静态资源如何更新？</li>
+</ul>
+<ul>
+<li>HTML 使用协商缓存，静态资源使用强缓存，使用 name-hash（非覆盖式发布）解决静态资源更新问题。</li>
+</ul>
+</li>
+<li>
+<p>配套的，前端静态资源应该如何组织？</p>
+<p>搭配 Webpack 的 Webpack_HTML-Plugin &amp; 配置 output publicPath 等。</p>
+</li>
+<li>
+<p>配套的，自动化构建 &amp; 部署过程如何与 CDN 结合？</p>
+<p>自动化构建打包后，将产物传输到对应环境 URL 的 CDN 上。</p>
+</li>
+<li>
+<p>如何避免前端上线，影响未刷新页面的用户？</p>
+<p>使用 name-hash 方式组织静态资源，先上线静态资源，再上线 HTML。</p>
+</li>
+<li>
+<p>刚上线的版本发现有阻塞性 bug，如何做到秒级回滚，而非再次部署等 20 分钟甚至更久？</p>
+<p>HTML 文件使用非覆盖方式存储在 CDN 上，搭建前端发布服务，对 HTML 按版本等做缓存加工处理。当需要回滚时，更改发布服务 HTMl 指向即可。</p>
+</li>
+<li>
+<p>CDN 域名突然挂了，如何实现秒级 CDN 降级修补而非再次全部业务重新部署一次？</p>
+<ul>
+<li>将静态资源传输到多个 CDN 上，并开发一个加载 Script 的 SDK 集成到 HTML 中。当发现 CDN 资源加载失败时，逐步降级 CDN 域名。</li>
+<li>在前端发布服务中，增加 HTML 文本处理环节，如增加 CDN 域名替换，发生异常时，在发布服务中一键设置即可。</li>
+</ul>
+</li>
+<li>
+<p>如何实现一个预发环境，除了前端资源外都是线上环境，将变量控制前端环境内？</p>
+<p>对静态资源做加工，对 HTML 入口做小流量。</p>
+</li>
+<li>
+<p>部署环节如何方便配套做 AB 测试等？</p>
+<p>参见前端发布服务</p>
+</li>
+<li>
+<p>如何实现一套前端代码，发布成多套环境产物？</p>
+<p>使用环境变量，将当前环境、CDN、CDN_HOST、Version 等注入环境变量中，构建时消费 &amp; 将产物上传不同的 CDN 即可。</p>
+</li>
+</ol>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://twitter.com/_jzhao">Twitter</a></li><li><a href="https://github.com/jackyzha0">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

@@ -1,2 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development/Frontend/CSS on</title><link>chick26.github.io/tags/Development/Frontend/CSS/</link><description>Recent content in Development/Frontend/CSS on</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="chick26.github.io/tags/Development/Frontend/CSS/index.xml" rel="self" type="application/rss+xml"/><item><title>浏览器解析 CSS 样式的过程</title><link>chick26.github.io/Cards/-Front-Dev/CSS/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90-CSS-%E6%A0%B7%E5%BC%8F%E7%9A%84%E8%BF%87%E7%A8%8B/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>chick26.github.io/Cards/-Front-Dev/CSS/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90-CSS-%E6%A0%B7%E5%BC%8F%E7%9A%84%E8%BF%87%E7%A8%8B/</guid><description>up:: [ • TOC for Frontend
-解析 一旦 CSS 被浏览器下载，CSS 解析器就会被打开来处理它遇到的任何 CSS。这可以是单个文档内的 CSS、&amp;lt;style&amp;gt;标记内的 CSS，也可以是 DOM 元素的style属性内嵌的 CSS。所 有 CSS 都根据语法规范进行解析和标记。解析完成后，就会生成有一个包含所有选择器、属性和属性各自值的数据结构。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development/Frontend/CSS on </title>
+    <link>chick26.github.io/tags/Development/Frontend/CSS/</link>
+    <description>Recent content in Development/Frontend/CSS on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/Development/Frontend/CSS/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浏览器解析 CSS 样式的过程</title>
+      <link>chick26.github.io/Cards/-Front-Dev/CSS/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90-CSS-%E6%A0%B7%E5%BC%8F%E7%9A%84%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/Cards/-Front-Dev/CSS/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90-CSS-%E6%A0%B7%E5%BC%8F%E7%9A%84%E8%BF%87%E7%A8%8B/</guid>
+      <description>up:: [ • TOC for Frontend
+解析 一旦 CSS 被浏览器下载，CSS 解析器就会被打开来处理它遇到的任何 CSS。这可以是单个文档内的 CSS、&amp;lt;style&amp;gt;标记内的 CSS，也可以是 DOM 元素的style属性内嵌的 CSS。所 有 CSS 都根据语法规范进行解析和标记。解析完成后，就会生成有一个包含所有选择器、属性和属性各自值的数据结构。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,7 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development/Git on</title><link>chick26.github.io/tags/Development/Git/</link><description>Recent content in Development/Git on</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="chick26.github.io/tags/Development/Git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git commit message</title><link>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-commit-message/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-commit-message/</guid><description>up:: [ • TOC for Git
-A typical git commit message will look like
-1 &amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;subject&amp;gt; &amp;ldquo;type&amp;rdquo; must be one of the following mentioned below!</description></item><item><title>Git commit message</title><link>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-commit-message/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-commit-message/</guid><description>up:: [ • TOC for Git
-A typical git commit message will look like
-1 &amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;subject&amp;gt; &amp;ldquo;type&amp;rdquo; must be one of the following mentioned below!</description></item><item><title>Git hooks</title><link>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-hooks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-hooks/</guid><description>up:: [ • TOC for Git
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development/Git on </title>
+    <link>chick26.github.io/tags/Development/Git/</link>
+    <description>Recent content in Development/Git on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/Development/Git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git commit message</title>
+      <link>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-commit-message/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-commit-message/</guid>
+      <description>up:: [ • TOC for Git
+ A typical git commit message will look like
+ 1  &amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;subject&amp;gt;   &amp;ldquo;type&amp;rdquo; must be one of the following mentioned below!</description>
+    </item>
+    
+    <item>
+      <title>Git commit message</title>
+      <link>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-commit-message/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-commit-message/</guid>
+      <description>up:: [ • TOC for Git
+ A typical git commit message will look like
+ 1  &amp;lt;type&amp;gt;(&amp;lt;scope&amp;gt;): &amp;lt;subject&amp;gt;   &amp;ldquo;type&amp;rdquo; must be one of the following mentioned below!</description>
+    </item>
+    
+    <item>
+      <title>Git hooks</title>
+      <link>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-hooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/Cards/%EF%B8%8F-Git-Dev/Git-hooks/</guid>
+      <description>up:: [ • TOC for Git
 常见 Git Hooks git hooks 大体上分为两类:
-客户端 Hook pre-commit hook, 在运行 git commit 命令时且在 commit 完成前被触发 commit-msg hook, 在编辑完 commit-msg 时被触发，并且接受一个参数，这个参数是存放当前 commit-msg 的临时文件的路径 pre-push hook, 在运行 git push 命令时且在 push 命令完成前被触发 服务端 Hook pre-receive 在服务端接受到推送时且在推送过程完成前被触发 post-receive 在服务端接收到推送且推送完成后被触发 [!</description></item></channel></rss>
+客户端 Hook  pre-commit hook, 在运行 git commit 命令时且在 commit 完成前被触发 commit-msg hook, 在编辑完 commit-msg 时被触发，并且接受一个参数，这个参数是存放当前 commit-msg 的临时文件的路径 pre-push hook, 在运行 git push 命令时且在 push 命令完成前被触发  服务端 Hook  pre-receive 在服务端接受到推送时且在推送过程完成前被触发 post-receive 在服务端接收到推送且推送完成后被触发   [!</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,131 +1,815 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
 InnoDB 存储引擎  有助于 Oracle、达梦、MongoDB
- 存储结构  数据库都是通过逻辑存储结构管理物理存储结构"><meta property="og:title" content="InnoDB存储引擎"><meta property="og:description" content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+ 存储结构  数据库都是通过逻辑存储结构管理物理存储结构"
+  />
+  <meta property="og:title" content="InnoDB存储引擎">
+  <meta property="og:description" content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
 InnoDB 存储引擎  有助于 Oracle、达梦、MongoDB
- 存储结构  数据库都是通过逻辑存储结构管理物理存储结构"><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Sources/Courses/%EF%B8%8F-Database/MySQL/InnoDB%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="InnoDB存储引擎"><meta name=twitter:description content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+ 存储结构  数据库都是通过逻辑存储结构管理物理存储结构">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/Sources/Courses/%EF%B8%8F-Database/MySQL/InnoDB%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="InnoDB存储引擎" />
+  <meta name="twitter:description" content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
 InnoDB 存储引擎  有助于 Oracle、达梦、MongoDB
- 存储结构  数据库都是通过逻辑存储结构管理物理存储结构"><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>InnoDB存储引擎</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=../../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=../../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=../../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
-<script src=../../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
-<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
-<script defer src=../../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
-<script defer src=../../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
-<script defer src=../../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
-<script defer src=../../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
-<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.d413193f7ae19d461b59d12d61b54d86.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+ 存储结构  数据库都是通过逻辑存储结构管理物理存储结构" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+      
+      <meta name="twitter:site" content="_jzhao" />
+    
+  
+    
+  
+
+  <title>
+    InnoDB存储引擎
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="../../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="../../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="../../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="../../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="../../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="../../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.ab44743a5d67084ed2332ae5677b2ec3.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
     import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
     attachSPARouting(init, render)
-  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
-<script defer src=../../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
-<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>InnoDB存储引擎</h1><p class=meta>Last updated
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="../../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">🪴 Quartz 3.3</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>InnoDB存储引擎</h1>
+      <p class="meta">
+        Last updated 
 Unknown
-<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Sources/Courses/%e2%9a%99%ef%b8%8f%20Database/MySQL/InnoDB%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Sources/Courses/MySQL/>Sources courses my SQL</a></li><li><a href=chick26.github.io/tags/Development/Backend/Database/MySQL/InnoDB/>Development backend database my SQL inno db</a></li><li><a href=chick26.github.io/tags/Development/Backend/Database/MySQL/>Development backend database my SQL</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#存储结构>存储结构</a><ol><li><a href=#物理存储结构硬盘上的文件>物理存储结构：硬盘上的文件</a></li><li><a href=#逻辑存储结构>逻辑存储结构</a></li></ol></li><li><a href=#内存结构>内存结构</a><ol><li><a href=#buffer-缓冲区>Buffer 缓冲区</a></li><li><a href=#内存的刷新机制>内存的刷新机制</a></li></ol></li><li><a href=#进程结构-线程结构>进程结构 (线程结构)</a><ol><li><a href=#主线程>主线程</a></li><li><a href=#io线程>IO线程</a></li><li><a href=#其他线程>其他线程</a></li></ol></li></ol></nav></details></aside><p>up:: [
-<a rel=noopener class="internal-link broken" data-src=%E2%80%A2%20TOC%20for%20MySQL%20Course>Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course</a></p><a href=#innodb-存储引擎><h1 id=innodb-存储引擎><span class=hanchor arialabel=Anchor># </span>InnoDB 存储引擎</h1></a><blockquote><p>有助于 Oracle、达梦、MongoDB</p></blockquote><a href=#存储结构><h2 id=存储结构><span class=hanchor arialabel=Anchor># </span>存储结构</h2></a><blockquote><p>数据库都是通过逻辑存储结构管理物理存储结构</p></blockquote><a href=#物理存储结构硬盘上的文件><h3 id=物理存储结构硬盘上的文件><span class=hanchor arialabel=Anchor># </span>物理存储结构：硬盘上的文件</h3></a><a href=#数据文件><h4 id=数据文件><span class=hanchor arialabel=Anchor># </span>数据文件</h4></a><p><code>.ibd</code> 文件和 <code>ibdata</code> 文件 这两种文件都是存放 Innodb 数据的文件，之所以有两种文件来存放 Innodb 的数据（包括索引），是因为 Innodb 的数据存储方式能够通过配置来决定是使用共享表空间存放存储数据，还是独享表空间存放存储数据。</p><p>参数 <code>datadir</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mysql&gt; show variables like <span class=s1>&#39;%datadir%&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>+---------------+------------------------+
-</span></span><span class=line><span class=cl><span class=p>|</span> Variable_name <span class=p>|</span> Value                  <span class=p>|</span>
-</span></span><span class=line><span class=cl>+---------------+------------------------+
-</span></span><span class=line><span class=cl><span class=p>|</span> datadir       <span class=p>|</span> /usr/local/mysql/data/ <span class=p>|</span>
-</span></span><span class=line><span class=cl>+---------------+------------------------+
-</span></span><span class=line><span class=cl>mysql&gt; show variables like <span class=s1>&#39;%per_table%&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>+-----------------------+-------+
-</span></span><span class=line><span class=cl><span class=p>|</span> Variable_name         <span class=p>|</span> Value <span class=p>|</span>
-</span></span><span class=line><span class=cl>+-----------------------+-------+
-</span></span><span class=line><span class=cl><span class=p>|</span> innodb_file_per_table <span class=p>|</span> ON    <span class=p>|</span>
-</span></span><span class=line><span class=cl>+-----------------------+-------+
-</span></span></code></pre></td></tr></table></div></div><a href=#重做日志文件><h4 id=重做日志文件><span class=hanchor arialabel=Anchor># </span>重做日志文件</h4></a><p><code>redo log</code>, 记录的是客户端的操作（事务）, 由InnoDB引擎生成, 每个 redo log 默认的大小是 1G
-<code>redo log</code>（重做日志）是<code>InnoDB</code>存储引擎独有的，它让<code>MySQL</code>拥有了崩溃恢复能力。比如 <code>MySQL</code> 实例挂了或宕机了，重启时，<code>InnoDB</code>存储引擎会使用<code>redo log</code>恢复数据，保证数据的持久性与完整性</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mysql&gt; show variables like <span class=s1>&#39;%log_file_size%&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>+----------------------+------------+
-</span></span><span class=line><span class=cl><span class=p>|</span> Variable_name        <span class=p>|</span> Value      <span class=p>|</span>
-</span></span><span class=line><span class=cl>+----------------------+------------+
-</span></span><span class=line><span class=cl><span class=p>|</span> innodb_log_file_size <span class=p>|</span> <span class=m>1073741824</span> <span class=p>|</span>
-</span></span><span class=line><span class=cl>+----------------------+------------+
-</span></span><span class=line><span class=cl><span class=m>1</span> row in <span class=nb>set</span> <span class=o>(</span>0.01 sec<span class=o>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>mysql&gt; show variables like <span class=s1>&#39;%log_group%&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>+-----------------------------------------+-------+
-</span></span><span class=line><span class=cl><span class=p>|</span> Variable_name                           <span class=p>|</span> Value <span class=p>|</span>
-</span></span><span class=line><span class=cl>+-----------------------------------------+-------+
-</span></span><span class=line><span class=cl><span class=p>|</span> binlog_group_commit_sync_delay          <span class=p>|</span> <span class=m>0</span>     <span class=p>|</span>
-</span></span><span class=line><span class=cl><span class=p>|</span> binlog_group_commit_sync_no_delay_count <span class=p>|</span> <span class=m>0</span>     <span class=p>|</span>
-</span></span><span class=line><span class=cl><span class=p>|</span> innodb_log_group_home_dir               <span class=p>|</span> ./    <span class=p>|</span>
-</span></span><span class=line><span class=cl>+-----------------------------------------+-------+
-</span></span><span class=line><span class=cl><span class=m>3</span> rows in <span class=nb>set</span> <span class=o>(</span>0.00 sec<span class=o>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>mysql&gt; show variables like <span class=s1>&#39;%log_files_in_group%&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>+---------------------------+-------+
-</span></span><span class=line><span class=cl><span class=p>|</span> Variable_name             <span class=p>|</span> Value <span class=p>|</span>
-</span></span><span class=line><span class=cl>+---------------------------+-------+
-</span></span><span class=line><span class=cl><span class=p>|</span> innodb_log_files_in_group <span class=p>|</span> <span class=m>2</span>     <span class=p>|</span>
-</span></span><span class=line><span class=cl>+---------------------------+-------+
-</span></span></code></pre></td></tr></table></div></div><blockquote class=hint-callout><p>redo log 与 binlog 的区别</p><ol><li>redo log 是在 InnoDB 存储引擎层产生，而 binlog 是 MySQL 数据库的上层应用产生的，并且二进制日志不仅仅针对 INNODB 存储引擎，MySQL 数据库中的任何存储引擎对于数据库的更改都会产生二进制日志。</li><li>两种日志记录的内容形式不同。binlog 是逻辑日志，其记录是对应的 SQL 语句。 而 innodb 存储引擎层面的重做日志是物理日志。</li><li>两种日志与记录写入磁盘的时间点不同，二进制日志只在事务提交完成后进行一次写入。而 innodb 存储引擎的重做日志在事务进行中不断地被写入，并且日志不是随事务提交的顺序进行写入的。</li><li>binlog 不是循环使用，在写满或者重启之后，会生成新的 binlog 文件，redo log 是循环使用。</li><li>binlog 可以作为恢复数据使用，主从复制搭建，redo log 作为异常宕机或者介质故障后的数据恢复使用。</li></ol></blockquote><a href=#撤销日志文件><h4 id=撤销日志文件><span class=hanchor arialabel=Anchor># </span>撤销日志文件</h4></a><p>undo log, 也叫回滚日志, 记录的是历史数据</p><a href=#参数文件><h4 id=参数文件><span class=hanchor arialabel=Anchor># </span>参数文件</h4></a><p>在 MySQL 实例启动时，数据库会先去读一个配置参数文件，用来寻找数据库的各种文件所在位置以及指定某些初始化参数。在默认情况下，MySQL 实例会按照一定的顺序在指 定的位置进行读取，通过下面的语句可以查看读取参数文件的顺序。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=n>mysql</span><span class=w> </span><span class=o>--</span><span class=n>help</span><span class=w> </span><span class=o>|</span><span class=w> </span><span class=n>grep</span><span class=w> </span><span class=n>my</span><span class=p>.</span><span class=n>cnf</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><p>my.cnf, 两种类型</p><ul><li>静态参数（需要重启）</li><li>动态参数（不需要重启）</li></ul><a href=#错误日志文件><h4 id=错误日志文件><span class=hanchor arialabel=Anchor># </span>错误日志文件</h4></a><p>类似Oracle中告警日志</p><a href=#binlog二进制日志文件><h4 id=binlog二进制日志文件><span class=hanchor arialabel=Anchor># </span>binlog二进制日志文件</h4></a><p>binlog 文件记录了对 MySQL 数据库执行更改的所有操作，但是不包括 <code>SELECT</code> 和 <code>SHOW</code> 这类操作，因为这类操作对数据本身并没有修改。若操作本身并没有导致数据库发生变化，那么该操作也会写入二进制日志。二进制日志的主要作用：</p><ul><li>可以完成主从复制。在主服务器上把所有修改数据的操作记录到 binlog 中，通过网络发送给从服务器，从而达到主从同步。</li><li>进行恢复操作。数据可以通过 binlog 日志，使用 mysqlbinlog 命令，实现基于时间点和位置的恢复操作。</li></ul><p><code>binlog</code> 记录的模式:</p><ul><li><p>statement
-每一条会修改数据的 SQL 语句会记录到 binlog 中。优点是并不需要记录每一条 SQL 语句和每一行的数据变化，减少了 binlog 日志量， 节约 I/O，提高性能。缺点是在某些情况下会导致主从复制中的数据不一致。</p></li><li><p>row
-不记录每条 SQL 语句的上下文信息，仅需记录哪条数据被修改了，修改成什么样了，而且不会出现某些特定情况下的存储过程、存储函数或者触发器的调用问题。 缺点是会产生大量的日志， 尤其是 alter table 的时候会让日志暴涨。</p></li><li><p>mixed
-以上两种模式的混合使用， 一般的复制使用 STATEMENT 模式保存 binlog， 对于 STATEMENT 模式无法复制的操作使用 ROW 模式保存 binlog，MySQL 会根据执行的 SQL 语句选择日志保存方式。</p></li></ul><a href=#慢查询日志><h4 id=慢查询日志><span class=hanchor arialabel=Anchor># </span>慢查询日志</h4></a><p>记录超过参数 <code>long_query_time</code> 时间的所有 SQL 语句，诊断SQL的性能</p><a href=#全量日志general-log><h4 id=全量日志general-log><span class=hanchor arialabel=Anchor># </span>全量日志general log</h4></a><p>记录 MySQL 数据库所有操作的 SQL 语句，包含 <code>select</code> 和 <code>show</code>。默认情况下，禁用常规查询日志。</p><a href=#逻辑存储结构><h3 id=逻辑存储结构><span class=hanchor arialabel=Anchor># </span>逻辑存储结构</h3></a><a href=#表空间-tablespace><h4 id=表空间-tablespace><span class=hanchor arialabel=Anchor># </span>表空间, tablespace</h4></a><p>表空间可以看做是 InnoDB 存储引擎逻辑结构的最高层，所有的数据都是存放在表空间 中。默认情况下 InnoDB 存储引擎有一个共享表空间 ibdata1，用于存放撤销（Undo）信息、 系统事务信息、二次写缓冲（double write buffer）数据等。</p><p>如果启用了参数“innodb_file_per_table”，则每张表内的数据可以单独放到一 个表空间内。该参数也是默认启用的。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>mysql&gt; show variables like <span class=s1>&#39;innodb_file_per_table&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>+-----------------------+-------+ 
-</span></span><span class=line><span class=cl><span class=p>|</span> Variable_name         <span class=p>|</span> Value <span class=p>|</span> 
-</span></span><span class=line><span class=cl>+-----------------------+-------+ 
-</span></span><span class=line><span class=cl><span class=p>|</span> innodb_file_per_table <span class=p>|</span> ON    <span class=p>|</span> 
-</span></span><span class=line><span class=cl>+-----------------------+-------+
-</span></span></code></pre></td></tr></table></div></div><a href=#段-segment><h4 id=段-segment><span class=hanchor arialabel=Anchor># </span>段, segment</h4></a><p>表空间是由各个段组成的，常见的段有数据段、索引段、回滚段等。 InnoDB 存储引擎表是索引组织的（Index Organized）.因此数据即索引，索引即数据。</p><p>与 Oracle 不同的是，InnoDB 存储引擎对于段的管理是由引擎本身完成，这和 Oracle 的自动段空间管理（ASSM）类似，没有手动段空间管理（MSSM）的方式，这从一定程度上 简化了 DBA 的管理。</p><a href=#区-extent><h4 id=区-extent><span class=hanchor arialabel=Anchor># </span>区, extent</h4></a><p>区是由连续的页组成，是物理上连续分配的一段空间，每个区的大小固定是 1MB。对于大的数据段，InnoDB 存储引擎最多每次可以申请 4 个区，以此来保证数据的顺序性能。</p><a href=#页数据块-pageblock><h4 id=页数据块-pageblock><span class=hanchor arialabel=Anchor># </span>页(数据块), Page(block)</h4></a><p>InnoDB 的最小物理存储分配单位是 Page，页的默认大小是 16Kb，可以通过下面的方式查看。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>show variables like <span class=s1>&#39;innodb_page_size&#39;</span><span class=p>;</span> <span class=c1>#Oracle的参数：block_size</span>
-</span></span><span class=line><span class=cl>+------------------+-------+ 
-</span></span><span class=line><span class=cl><span class=p>|</span> Variable_name    <span class=p>|</span> Value <span class=p>|</span> 
-</span></span><span class=line><span class=cl>+------------------+-------+ 
-</span></span><span class=line><span class=cl><span class=p>|</span> innodb_page_size <span class=p>|</span> <span class=m>16384</span> <span class=p>|</span> 
-</span></span><span class=line><span class=cl>+------------------+-------+
-</span></span></code></pre></td></tr></table></div></div><a href=#行-row><h4 id=行-row><span class=hanchor arialabel=Anchor># </span>行, Row</h4></a><p>InnoDB 存储引擎是面向行的（row-oriented），也就是说数据的存放按行进行存放。 每个页存放的行记录也是有硬性定义的，最多允许存放 16KB/2-200 行的记录，即 7992 行记录。</p><a href=#内存结构><h2 id=内存结构><span class=hanchor arialabel=Anchor># </span>内存结构</h2></a><blockquote><p>System Global Area 系统的全局区，一个实例只有一个
-Process Global Area 进程的全局区，对应的是客户端的连接</p></blockquote><p>![
-<a rel=noopener class="internal-link broken" data-src=../../../../Extras/Excalidraw/%E6%95%B0%E6%8D%AE%E5%BA%93/SGA%20&%20PGA.excalidraw>SGA & PGA.excalidraw</a></p><a href=#buffer-缓冲区><h3 id=buffer-缓冲区><span class=hanchor arialabel=Anchor># </span>Buffer 缓冲区</h3></a><a href=#sga><h4 id=sga><span class=hanchor arialabel=Anchor># </span>SGA</h4></a><table><thead><tr><th>缓冲区</th><th>作用</th></tr></thead><tbody><tr><td>innodb_buffer_pool_size</td><td>缓存 Innodb 表的数据、索引、以及数据字典等信息</td></tr><tr><td>innodb_log_buffer_size</td><td>事务在内存中的缓冲，即 red log buffer 的大小</td></tr><tr><td>query_cache</td><td>高速查询缓存，在生产环境中建议关闭</td></tr></tbody></table><a href=#pga><h4 id=pga><span class=hanchor arialabel=Anchor># </span>PGA</h4></a><table><thead><tr><th>缓冲区</th><th>作用</th></tr></thead><tbody><tr><td>innodb_sort_buffer_size</td><td>主要用于 SQL 语句在内存中的临时排序</td></tr><tr><td>join_buffer_size</td><td>表连接使用，用于 BKA 优化索引。从 MySQL5.6 之后开始支持</td></tr><tr><td>read_buffer_size</td><td>表顺序扫描的缓存，只能应用于 MyISAM 表存储引擎</td></tr><tr><td>read_rnd_buffer_size</td><td>MySQL 随机读取缓存区大小,用于减少磁盘的随机访问</td></tr></tbody></table><a href=#内存的刷新机制><h3 id=内存的刷新机制><span class=hanchor arialabel=Anchor># </span>内存的刷新机制</h3></a><a href=#完全检查点-sharp-checkpoint><h4 id=完全检查点-sharp-checkpoint><span class=hanchor arialabel=Anchor># </span>完全检查点 Sharp Checkpoint</h4></a><p>将内存中所有脏页全部写到磁盘就是完全检查点，比如数据库实例关闭时。</p><a href=#模糊检查点-fuzzy-checkpoint><h4 id=模糊检查点-fuzzy-checkpoint><span class=hanchor arialabel=Anchor># </span>模糊检查点 Fuzzy Checkpoint</h4></a><p>将部分脏页刷新到磁盘就是模糊检查点，数据库实例运行过程产生的检查点基本上就是这种类型的检查点。MySQL 的模糊检查点相当于 Oracle 中的增量检查点。</p><a href=#进程结构-线程结构><h2 id=进程结构-线程结构><span class=hanchor arialabel=Anchor># </span>进程结构 (线程结构)</h2></a><a href=#主线程><h3 id=主线程><span class=hanchor arialabel=Anchor># </span>主线程</h3></a><p>主循环（最主要，分为：每隔1秒、每隔10秒）、后台循环、刷新循环、暂定循环</p><a href=#io线程><h3 id=io线程><span class=hanchor arialabel=Anchor># </span>IO线程</h3></a><p>read thread, write thread, redo log thread, change buffer thread</p><a href=#其他线程><h3 id=其他线程><span class=hanchor arialabel=Anchor># </span>其他线程</h3></a><p>page clean thread, purge thread, error monitor thread, lock monitor thread</p></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=../../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>
+
+ 
+          
+<a href="https://github.com/jackyzha0/quartz/tree/hugo/content/Sources/Courses/%e2%9a%99%ef%b8%8f%20Database/MySQL/InnoDB%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/Sources/Courses/MySQL/">
+          
+            Sources courses my SQL
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Development/Backend/Database/MySQL/InnoDB/">
+          
+            Development backend database my SQL inno db
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Development/Backend/Database/MySQL/">
+          
+            Development backend database my SQL
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#存储结构">存储结构</a>
+      <ol>
+        <li><a href="#物理存储结构硬盘上的文件">物理存储结构：硬盘上的文件</a></li>
+        <li><a href="#逻辑存储结构">逻辑存储结构</a></li>
+      </ol>
+    </li>
+    <li><a href="#内存结构">内存结构</a>
+      <ol>
+        <li><a href="#buffer-缓冲区">Buffer 缓冲区</a></li>
+        <li><a href="#内存的刷新机制">内存的刷新机制</a></li>
+      </ol>
+    </li>
+    <li><a href="#进程结构-线程结构">进程结构 (线程结构)</a>
+      <ol>
+        <li><a href="#主线程">主线程</a></li>
+        <li><a href="#io线程">IO线程</a></li>
+        <li><a href="#其他线程">其他线程</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="%E2%80%A2%20TOC%20for%20MySQL%20Course">Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course</a></p>
+<a href="#innodb-存储引擎"><h1 id="innodb-存储引擎"><span class="hanchor" ariaLabel="Anchor"># </span>InnoDB 存储引擎</h1></a>
+<blockquote>
+<p>有助于 Oracle、达梦、MongoDB</p>
+</blockquote>
+<a href="#存储结构"><h2 id="存储结构"><span class="hanchor" ariaLabel="Anchor"># </span>存储结构</h2></a>
+<blockquote>
+<p>数据库都是通过逻辑存储结构管理物理存储结构</p>
+</blockquote>
+<a href="#物理存储结构硬盘上的文件"><h3 id="物理存储结构硬盘上的文件"><span class="hanchor" ariaLabel="Anchor"># </span>物理存储结构：硬盘上的文件</h3></a>
+<a href="#数据文件"><h4 id="数据文件"><span class="hanchor" ariaLabel="Anchor"># </span>数据文件</h4></a>
+<p><code>.ibd</code> 文件和 <code>ibdata</code> 文件 这两种文件都是存放 Innodb 数据的文件，之所以有两种文件来存放 Innodb 的数据（包括索引），是因为 Innodb 的数据存储方式能够通过配置来决定是使用共享表空间存放存储数据，还是独享表空间存放存储数据。</p>
+<p>参数 <code>datadir</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mysql&gt; show variables like <span class="s1">&#39;%datadir%&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">+---------------+------------------------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Variable_name <span class="p">|</span> Value                  <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+---------------+------------------------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> datadir       <span class="p">|</span> /usr/local/mysql/data/ <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+---------------+------------------------+
+</span></span><span class="line"><span class="cl">mysql&gt; show variables like <span class="s1">&#39;%per_table%&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">+-----------------------+-------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Variable_name         <span class="p">|</span> Value <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+-----------------------+-------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> innodb_file_per_table <span class="p">|</span> ON    <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+-----------------------+-------+
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#重做日志文件"><h4 id="重做日志文件"><span class="hanchor" ariaLabel="Anchor"># </span>重做日志文件</h4></a>
+<p><code>redo log</code>, 记录的是客户端的操作（事务）, 由InnoDB引擎生成, 每个 redo log 默认的大小是 1G
+<code>redo log</code>（重做日志）是<code>InnoDB</code>存储引擎独有的，它让<code>MySQL</code>拥有了崩溃恢复能力。比如 <code>MySQL</code> 实例挂了或宕机了，重启时，<code>InnoDB</code>存储引擎会使用<code>redo log</code>恢复数据，保证数据的持久性与完整性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mysql&gt; show variables like <span class="s1">&#39;%log_file_size%&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">+----------------------+------------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Variable_name        <span class="p">|</span> Value      <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+----------------------+------------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> innodb_log_file_size <span class="p">|</span> <span class="m">1073741824</span> <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+----------------------+------------+
+</span></span><span class="line"><span class="cl"><span class="m">1</span> row in <span class="nb">set</span> <span class="o">(</span>0.01 sec<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql&gt; show variables like <span class="s1">&#39;%log_group%&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">+-----------------------------------------+-------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Variable_name                           <span class="p">|</span> Value <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+-----------------------------------------+-------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> binlog_group_commit_sync_delay          <span class="p">|</span> <span class="m">0</span>     <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> binlog_group_commit_sync_no_delay_count <span class="p">|</span> <span class="m">0</span>     <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> innodb_log_group_home_dir               <span class="p">|</span> ./    <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+-----------------------------------------+-------+
+</span></span><span class="line"><span class="cl"><span class="m">3</span> rows in <span class="nb">set</span> <span class="o">(</span>0.00 sec<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql&gt; show variables like <span class="s1">&#39;%log_files_in_group%&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">+---------------------------+-------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Variable_name             <span class="p">|</span> Value <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+---------------------------+-------+
+</span></span><span class="line"><span class="cl"><span class="p">|</span> innodb_log_files_in_group <span class="p">|</span> <span class="m">2</span>     <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+---------------------------+-------+
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote class="hint-callout">
+<p> redo log 与 binlog 的区别</p>
+<ol>
+<li>redo log 是在 InnoDB 存储引擎层产生，而 binlog 是 MySQL 数据库的上层应用产生的，并且二进制日志不仅仅针对 INNODB 存储引擎，MySQL 数据库中的任何存储引擎对于数据库的更改都会产生二进制日志。</li>
+<li>两种日志记录的内容形式不同。binlog 是逻辑日志，其记录是对应的 SQL 语句。 而 innodb 存储引擎层面的重做日志是物理日志。</li>
+<li>两种日志与记录写入磁盘的时间点不同，二进制日志只在事务提交完成后进行一次写入。而 innodb 存储引擎的重做日志在事务进行中不断地被写入，并且日志不是随事务提交的顺序进行写入的。</li>
+<li>binlog 不是循环使用，在写满或者重启之后，会生成新的 binlog 文件，redo log 是循环使用。</li>
+<li>binlog 可以作为恢复数据使用，主从复制搭建，redo log 作为异常宕机或者介质故障后的数据恢复使用。</li>
+</ol>
+</blockquote>
+<a href="#撤销日志文件"><h4 id="撤销日志文件"><span class="hanchor" ariaLabel="Anchor"># </span>撤销日志文件</h4></a>
+<p>undo log, 也叫回滚日志, 记录的是历史数据</p>
+<a href="#参数文件"><h4 id="参数文件"><span class="hanchor" ariaLabel="Anchor"># </span>参数文件</h4></a>
+<p>在 MySQL 实例启动时，数据库会先去读一个配置参数文件，用来寻找数据库的各种文件所在位置以及指定某些初始化参数。在默认情况下，MySQL 实例会按照一定的顺序在指 定的位置进行读取，通过下面的语句可以查看读取参数文件的顺序。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">mysql</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">grep</span><span class="w"> </span><span class="n">my</span><span class="p">.</span><span class="n">cnf</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>my.cnf, 两种类型</p>
+<ul>
+<li>静态参数（需要重启）</li>
+<li>动态参数（不需要重启）</li>
+</ul>
+<a href="#错误日志文件"><h4 id="错误日志文件"><span class="hanchor" ariaLabel="Anchor"># </span>错误日志文件</h4></a>
+<p>类似Oracle中告警日志</p>
+<a href="#binlog二进制日志文件"><h4 id="binlog二进制日志文件"><span class="hanchor" ariaLabel="Anchor"># </span>binlog二进制日志文件</h4></a>
+<p>binlog 文件记录了对 MySQL 数据库执行更改的所有操作，但是不包括 <code>SELECT</code> 和 <code>SHOW</code> 这类操作，因为这类操作对数据本身并没有修改。若操作本身并没有导致数据库发生变化，那么该操作也会写入二进制日志。二进制日志的主要作用：</p>
+<ul>
+<li>可以完成主从复制。在主服务器上把所有修改数据的操作记录到 binlog 中，通过网络发送给从服务器，从而达到主从同步。</li>
+<li>进行恢复操作。数据可以通过 binlog 日志，使用 mysqlbinlog 命令，实现基于时间点和位置的恢复操作。</li>
+</ul>
+<p><code>binlog</code> 记录的模式:</p>
+<ul>
+<li>
+<p>statement
+每一条会修改数据的 SQL 语句会记录到 binlog 中。优点是并不需要记录每一条 SQL 语句和每一行的数据变化，减少了 binlog 日志量， 节约 I/O，提高性能。缺点是在某些情况下会导致主从复制中的数据不一致。</p>
+</li>
+<li>
+<p>row
+不记录每条 SQL 语句的上下文信息，仅需记录哪条数据被修改了，修改成什么样了，而且不会出现某些特定情况下的存储过程、存储函数或者触发器的调用问题。 缺点是会产生大量的日志， 尤其是 alter table 的时候会让日志暴涨。</p>
+</li>
+<li>
+<p>mixed
+以上两种模式的混合使用， 一般的复制使用 STATEMENT 模式保存 binlog， 对于 STATEMENT 模式无法复制的操作使用 ROW 模式保存 binlog，MySQL 会根据执行的 SQL 语句选择日志保存方式。</p>
+</li>
+</ul>
+<a href="#慢查询日志"><h4 id="慢查询日志"><span class="hanchor" ariaLabel="Anchor"># </span>慢查询日志</h4></a>
+<p>记录超过参数 <code>long_query_time</code> 时间的所有 SQL 语句，诊断SQL的性能</p>
+<a href="#全量日志general-log"><h4 id="全量日志general-log"><span class="hanchor" ariaLabel="Anchor"># </span>全量日志general log</h4></a>
+<p>记录 MySQL 数据库所有操作的 SQL 语句，包含 <code>select</code> 和 <code>show</code>。默认情况下，禁用常规查询日志。</p>
+<a href="#逻辑存储结构"><h3 id="逻辑存储结构"><span class="hanchor" ariaLabel="Anchor"># </span>逻辑存储结构</h3></a>
+<a href="#表空间-tablespace"><h4 id="表空间-tablespace"><span class="hanchor" ariaLabel="Anchor"># </span>表空间, tablespace</h4></a>
+<p>表空间可以看做是 InnoDB 存储引擎逻辑结构的最高层，所有的数据都是存放在表空间 中。默认情况下 InnoDB 存储引擎有一个共享表空间 ibdata1，用于存放撤销（Undo）信息、 系统事务信息、二次写缓冲（double write buffer）数据等。</p>
+<p>如果启用了参数“innodb_file_per_table”，则每张表内的数据可以单独放到一 个表空间内。该参数也是默认启用的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mysql&gt; show variables like <span class="s1">&#39;innodb_file_per_table&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">+-----------------------+-------+ 
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Variable_name         <span class="p">|</span> Value <span class="p">|</span> 
+</span></span><span class="line"><span class="cl">+-----------------------+-------+ 
+</span></span><span class="line"><span class="cl"><span class="p">|</span> innodb_file_per_table <span class="p">|</span> ON    <span class="p">|</span> 
+</span></span><span class="line"><span class="cl">+-----------------------+-------+
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#段-segment"><h4 id="段-segment"><span class="hanchor" ariaLabel="Anchor"># </span>段, segment</h4></a>
+<p>表空间是由各个段组成的，常见的段有数据段、索引段、回滚段等。 InnoDB 存储引擎表是索引组织的（Index Organized）.因此数据即索引，索引即数据。</p>
+<p>与 Oracle 不同的是，InnoDB 存储引擎对于段的管理是由引擎本身完成，这和 Oracle 的自动段空间管理（ASSM）类似，没有手动段空间管理（MSSM）的方式，这从一定程度上 简化了 DBA 的管理。</p>
+<a href="#区-extent"><h4 id="区-extent"><span class="hanchor" ariaLabel="Anchor"># </span>区, extent</h4></a>
+<p>区是由连续的页组成，是物理上连续分配的一段空间，每个区的大小固定是 1MB。对于大的数据段，InnoDB 存储引擎最多每次可以申请 4 个区，以此来保证数据的顺序性能。</p>
+<a href="#页数据块-pageblock"><h4 id="页数据块-pageblock"><span class="hanchor" ariaLabel="Anchor"># </span>页(数据块), Page(block)</h4></a>
+<p>InnoDB 的最小物理存储分配单位是 Page，页的默认大小是 16Kb，可以通过下面的方式查看。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">show variables like <span class="s1">&#39;innodb_page_size&#39;</span><span class="p">;</span> <span class="c1">#Oracle的参数：block_size</span>
+</span></span><span class="line"><span class="cl">+------------------+-------+ 
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Variable_name    <span class="p">|</span> Value <span class="p">|</span> 
+</span></span><span class="line"><span class="cl">+------------------+-------+ 
+</span></span><span class="line"><span class="cl"><span class="p">|</span> innodb_page_size <span class="p">|</span> <span class="m">16384</span> <span class="p">|</span> 
+</span></span><span class="line"><span class="cl">+------------------+-------+
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#行-row"><h4 id="行-row"><span class="hanchor" ariaLabel="Anchor"># </span>行, Row</h4></a>
+<p>InnoDB 存储引擎是面向行的（row-oriented），也就是说数据的存放按行进行存放。 每个页存放的行记录也是有硬性定义的，最多允许存放 16KB/2-200 行的记录，即 7992 行记录。</p>
+<a href="#内存结构"><h2 id="内存结构"><span class="hanchor" ariaLabel="Anchor"># </span>内存结构</h2></a>
+<blockquote>
+<p>System Global Area 系统的全局区，一个实例只有一个
+Process Global Area 进程的全局区，对应的是客户端的连接</p>
+</blockquote>
+<p>![
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../../../../Extras/Excalidraw/%E6%95%B0%E6%8D%AE%E5%BA%93/SGA%20&amp;%20PGA.excalidraw">SGA &amp; PGA.excalidraw</a></p>
+<a href="#buffer-缓冲区"><h3 id="buffer-缓冲区"><span class="hanchor" ariaLabel="Anchor"># </span>Buffer 缓冲区</h3></a>
+<a href="#sga"><h4 id="sga"><span class="hanchor" ariaLabel="Anchor"># </span>SGA</h4></a>
+<table>
+<thead>
+<tr>
+<th>缓冲区</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>innodb_buffer_pool_size</td>
+<td>缓存 Innodb 表的数据、索引、以及数据字典等信息</td>
+</tr>
+<tr>
+<td>innodb_log_buffer_size</td>
+<td>事务在内存中的缓冲，即 red log buffer 的大小</td>
+</tr>
+<tr>
+<td>query_cache</td>
+<td>高速查询缓存，在生产环境中建议关闭</td>
+</tr>
+</tbody>
+</table>
+<a href="#pga"><h4 id="pga"><span class="hanchor" ariaLabel="Anchor"># </span>PGA</h4></a>
+<table>
+<thead>
+<tr>
+<th>缓冲区</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>innodb_sort_buffer_size</td>
+<td>主要用于 SQL 语句在内存中的临时排序</td>
+</tr>
+<tr>
+<td>join_buffer_size</td>
+<td>表连接使用，用于 BKA 优化索引。从 MySQL5.6 之后开始支持</td>
+</tr>
+<tr>
+<td>read_buffer_size</td>
+<td>表顺序扫描的缓存，只能应用于 MyISAM 表存储引擎</td>
+</tr>
+<tr>
+<td>read_rnd_buffer_size</td>
+<td>MySQL 随机读取缓存区大小,用于减少磁盘的随机访问</td>
+</tr>
+</tbody>
+</table>
+<a href="#内存的刷新机制"><h3 id="内存的刷新机制"><span class="hanchor" ariaLabel="Anchor"># </span>内存的刷新机制</h3></a>
+<a href="#完全检查点-sharp-checkpoint"><h4 id="完全检查点-sharp-checkpoint"><span class="hanchor" ariaLabel="Anchor"># </span>完全检查点 Sharp Checkpoint</h4></a>
+<p>将内存中所有脏页全部写到磁盘就是完全检查点，比如数据库实例关闭时。</p>
+<a href="#模糊检查点-fuzzy-checkpoint"><h4 id="模糊检查点-fuzzy-checkpoint"><span class="hanchor" ariaLabel="Anchor"># </span>模糊检查点 Fuzzy Checkpoint</h4></a>
+<p>将部分脏页刷新到磁盘就是模糊检查点，数据库实例运行过程产生的检查点基本上就是这种类型的检查点。MySQL 的模糊检查点相当于 Oracle 中的增量检查点。</p>
+<a href="#进程结构-线程结构"><h2 id="进程结构-线程结构"><span class="hanchor" ariaLabel="Anchor"># </span>进程结构 (线程结构)</h2></a>
+<a href="#主线程"><h3 id="主线程"><span class="hanchor" ariaLabel="Anchor"># </span>主线程</h3></a>
+<p>主循环（最主要，分为：每隔1秒、每隔10秒）、后台循环、刷新循环、暂定循环</p>
+<a href="#io线程"><h3 id="io线程"><span class="hanchor" ariaLabel="Anchor"># </span>IO线程</h3></a>
+<p>read thread, write thread, redo log thread, change buffer thread</p>
+<a href="#其他线程"><h3 id="其他线程"><span class="hanchor" ariaLabel="Anchor"># </span>其他线程</h3></a>
+<p>page clean thread, purge thread, error monitor thread, lock monitor thread</p>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="../../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://twitter.com/_jzhao">Twitter</a></li><li><a href="https://github.com/jackyzha0">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

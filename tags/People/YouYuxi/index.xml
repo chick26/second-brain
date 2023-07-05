@@ -1,2 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>People/YouYuxi on</title><link>chick26.github.io/tags/People/YouYuxi/</link><description>Recent content in People/YouYuxi on</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="chick26.github.io/tags/People/YouYuxi/index.xml" rel="self" type="application/rss+xml"/><item><title>2022 前端生态趋势</title><link>chick26.github.io/Sources/Talks/%E5%B0%A4%E9%9B%A8%E6%BA%AA2022-%E5%89%8D%E7%AB%AF%E7%94%9F%E6%80%81%E8%B6%8B%E5%8A%BF/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>chick26.github.io/Sources/Talks/%E5%B0%A4%E9%9B%A8%E6%BA%AA2022-%E5%89%8D%E7%AB%AF%E7%94%9F%E6%80%81%E8%B6%8B%E5%8A%BF/</guid><description>开发范式&amp;amp;底层框架 React Hooks 受到 React Hooks 范式启发，多个框架分别推出了不同的范式：
-Vue Composition API Svelte 3 SolidJS: 语法上跟 Hooks 语法更相似，但是实现上却跟 Vue Composition API 更相似的一个内在的实现 React Hooks 的开发体验问题 Hooks 执行原理和原生 JS 心智模型的差异 不能条件式调用 Stale Closure (过期闭包) 的心智负担 必须手动声明 useEffect 依赖 如何 &amp;ldquo;正确&amp;rdquo; 使用 useEffect 是个复杂的问题 需要 useMemo / useCallback 等手动优化 React 团队对改善开发体验的努力 useEvent RFC 改善 useCallback 的问题 useEffect 文档更新 React Forget 避免手动声明依赖 基于依赖追踪的范式重新得到重视 React Recoil Recoil 能创建一个数据流图（data-flow graph），从 atom（共享状态）到 selector（纯函数），再向下流向 React 组件。Atom 是组件可以订阅的状态单位。selector 可以同步或异步转换此状态</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>People/YouYuxi on </title>
+    <link>chick26.github.io/tags/People/YouYuxi/</link>
+    <description>Recent content in People/YouYuxi on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="chick26.github.io/tags/People/YouYuxi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022 前端生态趋势</title>
+      <link>chick26.github.io/Sources/Talks/%E5%B0%A4%E9%9B%A8%E6%BA%AA2022-%E5%89%8D%E7%AB%AF%E7%94%9F%E6%80%81%E8%B6%8B%E5%8A%BF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>chick26.github.io/Sources/Talks/%E5%B0%A4%E9%9B%A8%E6%BA%AA2022-%E5%89%8D%E7%AB%AF%E7%94%9F%E6%80%81%E8%B6%8B%E5%8A%BF/</guid>
+      <description>开发范式&amp;amp;底层框架 React Hooks 受到 React Hooks 范式启发，多个框架分别推出了不同的范式：
+ Vue Composition API Svelte 3 SolidJS: 语法上跟 Hooks 语法更相似，但是实现上却跟 Vue Composition API 更相似的一个内在的实现  React Hooks 的开发体验问题  Hooks 执行原理和原生 JS 心智模型的差异 不能条件式调用 Stale Closure (过期闭包) 的心智负担 必须手动声明 useEffect 依赖 如何 &amp;ldquo;正确&amp;rdquo; 使用 useEffect 是个复杂的问题 需要 useMemo / useCallback 等手动优化  React 团队对改善开发体验的努力  useEvent RFC 改善 useCallback 的问题 useEffect 文档更新 React Forget 避免手动声明依赖  基于依赖追踪的范式重新得到重视 React Recoil  Recoil 能创建一个数据流图（data-flow graph），从 atom（共享状态）到 selector（纯函数），再向下流向 React 组件。Atom 是组件可以订阅的状态单位。selector 可以同步或异步转换此状态</description>
+    </item>
+    
+  </channel>
+</rss>

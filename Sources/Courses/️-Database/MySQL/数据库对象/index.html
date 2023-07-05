@@ -1,155 +1,848 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
-表 数据类型 数值类型 MySQL 支持所有标准 SQL 数值数据类型。这些类型包括严格数值数据类型(INTEGER、 SMALLINT、DECIMAL 和 NUMERIC)，以及近似数值数据类型(FLOAT、REAL 和 DOUBLE PRECISION)"><meta property="og:title" content="数据库对象"><meta property="og:description" content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
-表 数据类型 数值类型 MySQL 支持所有标准 SQL 数值数据类型。这些类型包括严格数值数据类型(INTEGER、 SMALLINT、DECIMAL 和 NUMERIC)，以及近似数值数据类型(FLOAT、REAL 和 DOUBLE PRECISION)"><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Sources/Courses/%EF%B8%8F-Database/MySQL/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="数据库对象"><meta name=twitter:description content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
-表 数据类型 数值类型 MySQL 支持所有标准 SQL 数值数据类型。这些类型包括严格数值数据类型(INTEGER、 SMALLINT、DECIMAL 和 NUMERIC)，以及近似数值数据类型(FLOAT、REAL 和 DOUBLE PRECISION)"><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>数据库对象</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=../../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=../../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=../../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
-<script src=../../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
-<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
-<script defer src=../../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
-<script defer src=../../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
-<script defer src=../../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
-<script defer src=../../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
-<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.d413193f7ae19d461b59d12d61b54d86.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+表 数据类型 数值类型 MySQL 支持所有标准 SQL 数值数据类型。这些类型包括严格数值数据类型(INTEGER、 SMALLINT、DECIMAL 和 NUMERIC)，以及近似数值数据类型(FLOAT、REAL 和 DOUBLE PRECISION)"
+  />
+  <meta property="og:title" content="数据库对象">
+  <meta property="og:description" content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+表 数据类型 数值类型 MySQL 支持所有标准 SQL 数值数据类型。这些类型包括严格数值数据类型(INTEGER、 SMALLINT、DECIMAL 和 NUMERIC)，以及近似数值数据类型(FLOAT、REAL 和 DOUBLE PRECISION)">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/Sources/Courses/%EF%B8%8F-Database/MySQL/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E8%B1%A1/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="数据库对象" />
+  <meta name="twitter:description" content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+表 数据类型 数值类型 MySQL 支持所有标准 SQL 数值数据类型。这些类型包括严格数值数据类型(INTEGER、 SMALLINT、DECIMAL 和 NUMERIC)，以及近似数值数据类型(FLOAT、REAL 和 DOUBLE PRECISION)" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+      
+      <meta name="twitter:site" content="_jzhao" />
+    
+  
+    
+  
+
+  <title>
+    数据库对象
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="../../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="../../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="../../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="../../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="../../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="../../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.ab44743a5d67084ed2332ae5677b2ec3.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
     import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
     attachSPARouting(init, render)
-  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
-<script defer src=../../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
-<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>数据库对象</h1><p class=meta>Last updated
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="../../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">🪴 Quartz 3.3</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>数据库对象</h1>
+      <p class="meta">
+        Last updated 
 Unknown
-<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Sources/Courses/%e2%9a%99%ef%b8%8f%20Database/MySQL/%e6%95%b0%e6%8d%ae%e5%ba%93%e5%af%b9%e8%b1%a1.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Sources/Courses/MySQL/>Sources courses my SQL</a></li><li><a href=chick26.github.io/tags/Development/Backend/Database/MySQL/>Development backend database my SQL</a></li><li><a href=chick26.github.io/tags/Development/Backend/Database/MySQL/DataObject/>Development backend database my SQL data object</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#表>表</a><ol><li><a href=#数据类型>数据类型</a></li><li><a href=#表的基本操作>表的基本操作</a></li><li><a href=#数据的约束条件>数据的约束条件</a></li><li><a href=#表的碎片>表的碎片</a></li><li><a href=#统计信息-statistics>统计信息 statistics</a></li></ol></li><li><a href=#视图>视图</a></li><li><a href=#索引>索引</a><ol><li><a href=#索引类别>索引类别</a></li><li><a href=#索引优化>索引优化</a></li></ol></li><li><a href=#事件event>事件Event</a></li></ol></nav></details></aside><p>up:: [
-<a rel=noopener class="internal-link broken" data-src=%E2%80%A2%20TOC%20for%20MySQL%20Course>Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course</a></p><a href=#表><h2 id=表><span class=hanchor arialabel=Anchor># </span>表</h2></a><a href=#数据类型><h3 id=数据类型><span class=hanchor arialabel=Anchor># </span>数据类型</h3></a><a href=#数值类型><h4 id=数值类型><span class=hanchor arialabel=Anchor># </span>数值类型</h4></a><p>MySQL 支持所有标准 SQL 数值数据类型。这些类型包括严格数值数据类型(INTEGER、 SMALLINT、DECIMAL 和 NUMERIC)，以及近似数值数据类型(FLOAT、REAL 和 DOUBLE PRECISION)</p><a href=#日期和时间类型><h4 id=日期和时间类型><span class=hanchor arialabel=Anchor># </span>日期和时间类型</h4></a><p>表示时间值的日期和时间类型为 DATETIME、DATE、TIMESTAMP、TIME 和 YEAR</p><a href=#字符串类型><h4 id=字符串类型><span class=hanchor arialabel=Anchor># </span>字符串类型</h4></a><p>字符串类型指 CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET</p><a href=#表的基本操作><h3 id=表的基本操作><span class=hanchor arialabel=Anchor># </span>表的基本操作</h3></a><ul><li>创建一张新的表 test5</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>create</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=nf>test5</span><span class=p>(</span><span class=n>id</span><span class=w> </span><span class=kt>int</span><span class=p>,</span><span class=n>name</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>32</span><span class=p>),</span><span class=n>age</span><span class=w> </span><span class=kt>int</span><span class=p>);</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>查看创建表的语句</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>show</span><span class=w> </span><span class=k>create</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=n>test5</span><span class=w> </span><span class=err>\</span><span class=n>G</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>查看表的结构</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>desc</span><span class=w> </span><span class=n>test5</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>在表中增加一个字段</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>alter</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=n>test5</span><span class=w> </span><span class=k>add</span><span class=w> </span><span class=n>gender</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=k>default</span><span class=w> </span><span class=s1>&#39;M&#39;</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>修改表将 gender 字段的长度改为 10 个字符，并且默认值改为“Female”</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>alter</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=n>test5</span><span class=w> </span><span class=n>modify</span><span class=w> </span><span class=n>gender</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=w> </span><span class=k>default</span><span class=w> </span><span class=s1>&#39;Female&#39;</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>修改字段的顺序，将 gender 字段放在 id 字段的后面</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>alter</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=n>test5</span><span class=w> </span><span class=n>modify</span><span class=w> </span><span class=n>gender</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=w> </span><span class=n>after</span><span class=w> </span><span class=n>id</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>删除 gender 字段</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>alter</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=n>test5</span><span class=w> </span><span class=k>drop</span><span class=w> </span><span class=k>column</span><span class=w> </span><span class=n>gender</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>删除表 test5</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>drop</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=n>test5</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><a href=#数据的约束条件><h3 id=数据的约束条件><span class=hanchor arialabel=Anchor># </span>数据的约束条件</h3></a><a href=#主键约束-primary-key><h4 id=主键约束-primary-key><span class=hanchor arialabel=Anchor># </span>主键约束 primary key</h4></a><p>主键是表里面的一个特殊字段，这个字段能够唯一标识该表中 的每条信息。一张表只能定义一个主键，如果一个字段被定义 成了主键，该列的值不允许为 NULL，也不允许重复</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>create</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=nf>testprimarykey</span><span class=p>(</span><span class=n>tid</span><span class=w> </span><span class=kt>int</span><span class=p>,</span><span class=n>name</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>10</span><span class=p>),</span><span class=n>gender</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>10</span><span class=p>),</span><span class=k>primary</span><span class=w> </span><span class=k>key</span><span class=p>(</span><span class=n>tid</span><span class=p>));</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><a href=#外键约束-foreign-key><h4 id=外键约束-foreign-key><span class=hanchor arialabel=Anchor># </span>外键约束 foreign key</h4></a><p>外键通常会和主键约束一起使用，用来确保数据的一致性。对 于有关联关系的两张表，相关联字段中主键所在的表就是主表 （父表），外键所在的表就是从表（子表），外键就是用来建 立主表与从表的关联关系。当子表的某一个字段被定义为外键 时，该列上的值必须在父表中存在或者为 NULL 值</p><a href=#唯一约束-unique><h4 id=唯一约束-unique><span class=hanchor arialabel=Anchor># </span>唯一约束 unique</h4></a><p>唯一约束就是指所有记录中字段的值不允许重复。值得注意的 时，由于 SQL 中的 NULL 值是一个特殊值，因此如果一个字段 被定义了唯一约束，该字段的值允许为 NULL</p><a href=#非空约束-not-null><h4 id=非空约束-not-null><span class=hanchor arialabel=Anchor># </span>非空约束 not null</h4></a><p>非空约束用于确保该字段的值不能为空值，非空约束只能出现 在表对象的列上</p><a href=#检查约束-check><h4 id=检查约束-check><span class=hanchor arialabel=Anchor># </span>检查约束 check</h4></a><p>MySQL 提供了检查约束用来指定某列的可取值的范围，它通过 限制输入到列中的值来强制域的完整性。薪水必须大于0；性别 in (男、女)</p><a href=#表的碎片><h3 id=表的碎片><span class=hanchor arialabel=Anchor># </span>表的碎片</h3></a><p>在 InnoDB 中删除行的时候，这些行只是被标记为“已删除”，而不是真正从物理存储 上进行删除了，因而空间也没有真的被释放回收。InnoDB 的 Purge 线程会异步的来清理这些没用的索引键和行。但是依然没有把这些释放出来的空间还给操作系统重新使用，因而会导致页面中存在很多空洞。如果表结构中包含动态长度字段，那么这些空洞甚至可能不能被 InnoDB 重新用来存新的行。另外，删除数据就会导致页（Page）中出现空白空间，大量随机的 DELETE 操作，必然会在数据文件中造成不连续的空白空间。而当插入数据时,这些空白空间则会被利用起来，于是造成了数据的存储位置不连续。物理存储顺序与逻辑上的排序顺序不同,这种就是数据碎片。</p><p>对于大量的 UPDATE，也会产生文件碎片化 ， Innodb 的最小物理存储分配单位是页 (Page)，而 UPDATE 也可能导致页分裂（Page Split）。频繁的页分裂，页会变得稀疏，并且被不规则的填充，所以最终数据会有碎片。</p><a href=#统计信息-statistics><h3 id=统计信息-statistics><span class=hanchor arialabel=Anchor># </span>统计信息 statistics</h3></a><ul><li><p>反应的是数据的分布情况，提供给数据库的优化器，用于生成最佳的SQL执行计划</p></li><li><p>查看表的统计信息：<code>show table status</code> 或者 <code>information_schema.tables</code></p></li><li><p>统计每个库的大小</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>select</span><span class=w> </span><span class=n>table_schema</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>sum</span><span class=p>(</span><span class=n>data_length</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=o>/</span><span class=mi>1024</span><span class=o>/</span><span class=mi>1024</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=n>data_length</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>sum</span><span class=p>(</span><span class=n>index_length</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=o>/</span><span class=mi>1024</span><span class=o>/</span><span class=mi>1024</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=n>index_length</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>from</span><span class=w> </span><span class=n>information_schema</span><span class=p>.</span><span class=n>tables</span><span class=w> 
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>where</span><span class=w> </span><span class=n>table_schema</span><span class=w> </span><span class=o>!=</span><span class=s1>&#39;information_schema&#39;</span><span class=w> </span><span class=k>and</span><span class=w> </span><span class=n>table_schema</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=s1>&#39;mysql&#39;</span><span class=w> 
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>group</span><span class=w> </span><span class=k>by</span><span class=w> </span><span class=n>table_schema</span><span class=p>;</span><span class=w>	
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>查看数据表量较大的前10张表</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>SELECT</span><span class=w> </span><span class=n>TABLE_SCHEMA</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>database_name</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>TABLE_NAME</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>table_name</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>TABLE_ROWS</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>table_rows</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ENGINE</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>table_engine</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Data_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Index_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=o>+</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Total_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_FREE</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Free_MB</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>information_schema</span><span class=p>.</span><span class=n>tables</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>T1</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>WHERE</span><span class=w> </span><span class=n>T1</span><span class=p>.</span><span class=o>`</span><span class=n>TABLE_SCHEMA</span><span class=o>`</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>IN</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>(</span><span class=s1>&#39;performance_schema&#39;</span><span class=p>,</span><span class=s1>&#39;mysql&#39;</span><span class=p>,</span><span class=s1>&#39;information_schema&#39;</span><span class=p>)</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>T1</span><span class=p>.</span><span class=o>`</span><span class=n>TABLE_ROWS</span><span class=o>`</span><span class=w> </span><span class=k>DESC</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>LIMIT</span><span class=w> </span><span class=mi>10</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>查看数据表空间较大的前10张表</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>SELECT</span><span class=w> </span><span class=n>TABLE_SCHEMA</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>database_name</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>TABLE_NAME</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>table_name</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>TABLE_ROWS</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>table_rows</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ENGINE</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>table_engine</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Data_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Index_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=o>+</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Total_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_FREE</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Free_MB</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>information_schema</span><span class=p>.</span><span class=n>tables</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>T1</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>WHERE</span><span class=w> </span><span class=n>T1</span><span class=p>.</span><span class=o>`</span><span class=n>TABLE_SCHEMA</span><span class=o>`</span><span class=w> 
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>NOT</span><span class=w> </span><span class=k>IN</span><span class=p>(</span><span class=s1>&#39;performance_schema&#39;</span><span class=p>,</span><span class=s1>&#39;mysql&#39;</span><span class=p>,</span><span class=s1>&#39;information_schema&#39;</span><span class=p>)</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=o>+</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>DESC</span><span class=w> </span><span class=k>LIMIT</span><span class=w> </span><span class=mi>10</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><ul><li>查看碎片较多的前10张表</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>SELECT</span><span class=w> </span><span class=n>TABLE_SCHEMA</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>database_name</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=k>TABLE_NAME</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=k>table_name</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=n>TABLE_ROWS</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>table_rows</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=n>ENGINE</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>table_engine</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Data_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=n>ROUND</span><span class=p>((</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Index_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=o>+</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Total_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_FREE</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Free_MB</span><span class=p>,</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=n>ROUND</span><span class=p>(</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_FREE</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=o>/</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=o>+</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=o>*</span><span class=mi>100</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>Free_Percent</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>information_schema</span><span class=p>.</span><span class=n>tables</span><span class=w> </span><span class=k>AS</span><span class=w> </span><span class=n>T1</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>WHERE</span><span class=w> </span><span class=n>T1</span><span class=p>.</span><span class=o>`</span><span class=n>TABLE_SCHEMA</span><span class=o>`</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>IN</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>(</span><span class=s1>&#39;performance_schema&#39;</span><span class=p>,</span><span class=s1>&#39;mysql&#39;</span><span class=p>,</span><span class=s1>&#39;information_schema&#39;</span><span class=p>)</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>AND</span><span class=w> </span><span class=n>ROUND</span><span class=p>(</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_FREE</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=o>/</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_LENGTH</span><span class=o>+</span><span class=n>INDEX_LENGTH</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=o>*</span><span class=mi>100</span><span class=p>,</span><span class=mi>2</span><span class=p>)</span><span class=w> </span><span class=o>&gt;</span><span class=mi>10</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>AND</span><span class=w> </span><span class=n>ROUND</span><span class=p>((</span><span class=n>DATA_FREE</span><span class=p>)</span><span class=o>/</span><span class=mi>1024</span><span class=p>.</span><span class=mi>0</span><span class=o>/</span><span class=mi>1024</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=o>&gt;</span><span class=mi>100</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>ORDER</span><span class=w> </span><span class=k>BY</span><span class=w> </span><span class=n>Free_Percent</span><span class=w> </span><span class=k>DESC</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>LIMIT</span><span class=w> </span><span class=mi>10</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><blockquote class=note-callout><p>如何收集表的统计信息？</p><ol><li>自动进行收集：读取表、表的数据量更新超过一定的比例</li><li>手动进行收集：analyz table 【表名】</li><li>补充：Oracle中的统计信息（数据库、用户、表空间、表、索引&mldr;）</li></ol></blockquote><a href=#视图><h2 id=视图><span class=hanchor arialabel=Anchor># </span>视图</h2></a><ul><li>是一个虚表，数据来自于基表</li><li>简化复杂的查询</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>create</span><span class=w> </span><span class=k>or</span><span class=w> </span><span class=k>replace</span><span class=w> </span><span class=k>view</span><span class=w> </span><span class=n>myview</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>as</span><span class=w>	
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>select</span><span class=w> </span><span class=n>emp</span><span class=p>.</span><span class=n>ename</span><span class=p>,</span><span class=n>emp</span><span class=p>.</span><span class=n>sal</span><span class=p>,</span><span class=n>dept</span><span class=p>.</span><span class=n>dname</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>from</span><span class=w> </span><span class=n>emp</span><span class=p>,</span><span class=n>dept</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>where</span><span class=w> </span><span class=n>emp</span><span class=p>.</span><span class=n>deptno</span><span class=o>=</span><span class=n>dept</span><span class=p>.</span><span class=n>deptno</span><span class=p>;</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><a href=#索引><h2 id=索引><span class=hanchor arialabel=Anchor># </span>索引</h2></a><blockquote><p>就相当于一本书的目录</p></blockquote><p>MySQL 默认的索引类型是 B+树索引</p><p>B 树类似于二叉查找树，能够让查找数据、顺序访问、插入数据及删除的动作，在最差的情况下也都能在对数时间内完成。它与二叉树最大的区别是它允许一个节点有多于 2 个的元素，每个节点都包含 key 和数据，查找时可以使用二分的方式快速搜索数据。</p><p>![
-<a rel=noopener class="internal-link broken" data-src=../../../../Extras/Excalidraw/%E6%95%B0%E6%8D%AE%E5%BA%93/B+%20Tree.excalidraw>B+ Tree.excalidraw</a></p><p>B+ 树与 B 树最大的区别就是每一个叶子结点都包含指向下一个叶子结点的指针， 并且叶子结点的指针指向的是被索引的数据。由于 B+ 树在内部节点上不包含数据信息，所以它占用空间更小；叶子节点之间形成链表，从而方便了叶子结点的遍历与范围查找。</p><a href=#索引类别><h3 id=索引类别><span class=hanchor arialabel=Anchor># </span>索引类别</h3></a><a href=#普通索引><h4 id=普通索引><span class=hanchor arialabel=Anchor># </span>普通索引</h4></a><p>普通索引是最基本的索引，它没有任何限制，用于加速查询。</p><a href=#唯一索引><h4 id=唯一索引><span class=hanchor arialabel=Anchor># </span>唯一索引</h4></a><p>索引列的值必须唯一，但允许有空值；如果是组合索引，则列值的组合必须唯一。</p><a href=#主键索引><h4 id=主键索引><span class=hanchor arialabel=Anchor># </span>主键索引</h4></a><p>主键索引是一种特殊的唯一索引，一个表只能有一个主键，不允许有空值。一般是在 建表的时候同时创建主键索引。</p><a href=#组合索引><h4 id=组合索引><span class=hanchor arialabel=Anchor># </span>组合索引</h4></a><p>组合索引是指多个字段上创建的索引，只有在查询条件中使用了创建索引时的第一个 字段，索引才会被使用。</p><a href=#全文索引><h4 id=全文索引><span class=hanchor arialabel=Anchor># </span>全文索引</h4></a><p>全文索引主要用来查找文本中的关键字，而不是直接与索引中的值相比较。全文索引跟其它索引大不相同，它更像是一个搜索引擎。全文索引需要配合 <code>match against</code> 操作 使用，而不是 <code>where</code> 语句。</p><a href=#哈希索引><h4 id=哈希索引><span class=hanchor arialabel=Anchor># </span>哈希索引</h4></a><p>哈希索引（hash index）基于哈希表实现，只有精确匹配索引所有列的查询才有效。 对于每一行数据，存储引擎都会对所有的索引列计算一个哈希码（hash code），哈希码是 一个较小的值，并且不同键值的行计算出来的哈希码也不一样。哈希索引将所有的哈希码 存储在索引中，同时在哈希表中保存指向每个数据行的指针。</p><a href=#索引优化><h3 id=索引优化><span class=hanchor arialabel=Anchor># </span>索引优化</h3></a><p>ICP | MRR | BKA</p><a href=#事件event><h2 id=事件event><span class=hanchor arialabel=Anchor># </span>事件Event</h2></a><ul><li>相当于Linux crontab：定时器</li><li>决定的参数：event_scheduler | ON</li></ul></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=../../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>
+
+ 
+          
+<a href="https://github.com/jackyzha0/quartz/tree/hugo/content/Sources/Courses/%e2%9a%99%ef%b8%8f%20Database/MySQL/%e6%95%b0%e6%8d%ae%e5%ba%93%e5%af%b9%e8%b1%a1.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/Sources/Courses/MySQL/">
+          
+            Sources courses my SQL
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Development/Backend/Database/MySQL/">
+          
+            Development backend database my SQL
+          
+            </a>
+           </li>
+          
+          <li><a href="chick26.github.io/tags/Development/Backend/Database/MySQL/DataObject/">
+          
+            Development backend database my SQL data object
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#表">表</a>
+      <ol>
+        <li><a href="#数据类型">数据类型</a></li>
+        <li><a href="#表的基本操作">表的基本操作</a></li>
+        <li><a href="#数据的约束条件">数据的约束条件</a></li>
+        <li><a href="#表的碎片">表的碎片</a></li>
+        <li><a href="#统计信息-statistics">统计信息 statistics</a></li>
+      </ol>
+    </li>
+    <li><a href="#视图">视图</a></li>
+    <li><a href="#索引">索引</a>
+      <ol>
+        <li><a href="#索引类别">索引类别</a></li>
+        <li><a href="#索引优化">索引优化</a></li>
+      </ol>
+    </li>
+    <li><a href="#事件event">事件Event</a></li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="%E2%80%A2%20TOC%20for%20MySQL%20Course">Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course</a></p>
+<a href="#表"><h2 id="表"><span class="hanchor" ariaLabel="Anchor"># </span>表</h2></a>
+<a href="#数据类型"><h3 id="数据类型"><span class="hanchor" ariaLabel="Anchor"># </span>数据类型</h3></a>
+<a href="#数值类型"><h4 id="数值类型"><span class="hanchor" ariaLabel="Anchor"># </span>数值类型</h4></a>
+<p>MySQL 支持所有标准 SQL 数值数据类型。这些类型包括严格数值数据类型(INTEGER、 SMALLINT、DECIMAL 和 NUMERIC)，以及近似数值数据类型(FLOAT、REAL 和 DOUBLE PRECISION)</p>
+<a href="#日期和时间类型"><h4 id="日期和时间类型"><span class="hanchor" ariaLabel="Anchor"># </span>日期和时间类型</h4></a>
+<p>表示时间值的日期和时间类型为 DATETIME、DATE、TIMESTAMP、TIME 和 YEAR</p>
+<a href="#字符串类型"><h4 id="字符串类型"><span class="hanchor" ariaLabel="Anchor"># </span>字符串类型</h4></a>
+<p>字符串类型指 CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET</p>
+<a href="#表的基本操作"><h3 id="表的基本操作"><span class="hanchor" ariaLabel="Anchor"># </span>表的基本操作</h3></a>
+<ul>
+<li>创建一张新的表 test5</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="nf">test5</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="n">name</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">),</span><span class="n">age</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查看创建表的语句</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test5</span><span class="w"> </span><span class="err">\</span><span class="n">G</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查看表的结构</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">desc</span><span class="w"> </span><span class="n">test5</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在表中增加一个字段</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test5</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">gender</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>修改表将 gender 字段的长度改为 10 个字符，并且默认值改为“Female”</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test5</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">gender</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="s1">&#39;Female&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>修改字段的顺序，将 gender 字段放在 id 字段的后面</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test5</span><span class="w"> </span><span class="n">modify</span><span class="w"> </span><span class="n">gender</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除 gender 字段</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test5</span><span class="w"> </span><span class="k">drop</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="n">gender</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除表 test5</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test5</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#数据的约束条件"><h3 id="数据的约束条件"><span class="hanchor" ariaLabel="Anchor"># </span>数据的约束条件</h3></a>
+<a href="#主键约束-primary-key"><h4 id="主键约束-primary-key"><span class="hanchor" ariaLabel="Anchor"># </span>主键约束 primary key</h4></a>
+<p>主键是表里面的一个特殊字段，这个字段能够唯一标识该表中 的每条信息。一张表只能定义一个主键，如果一个字段被定义 成了主键，该列的值不允许为 NULL，也不允许重复</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="nf">testprimarykey</span><span class="p">(</span><span class="n">tid</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="n">name</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">gender</span><span class="w"> </span><span class="kt">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">tid</span><span class="p">));</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#外键约束-foreign-key"><h4 id="外键约束-foreign-key"><span class="hanchor" ariaLabel="Anchor"># </span>外键约束 foreign key</h4></a>
+<p>外键通常会和主键约束一起使用，用来确保数据的一致性。对 于有关联关系的两张表，相关联字段中主键所在的表就是主表 （父表），外键所在的表就是从表（子表），外键就是用来建 立主表与从表的关联关系。当子表的某一个字段被定义为外键 时，该列上的值必须在父表中存在或者为 NULL 值</p>
+<a href="#唯一约束-unique"><h4 id="唯一约束-unique"><span class="hanchor" ariaLabel="Anchor"># </span>唯一约束 unique</h4></a>
+<p>唯一约束就是指所有记录中字段的值不允许重复。值得注意的 时，由于 SQL 中的 NULL 值是一个特殊值，因此如果一个字段 被定义了唯一约束，该字段的值允许为 NULL</p>
+<a href="#非空约束-not-null"><h4 id="非空约束-not-null"><span class="hanchor" ariaLabel="Anchor"># </span>非空约束 not null</h4></a>
+<p>非空约束用于确保该字段的值不能为空值，非空约束只能出现 在表对象的列上</p>
+<a href="#检查约束-check"><h4 id="检查约束-check"><span class="hanchor" ariaLabel="Anchor"># </span>检查约束 check</h4></a>
+<p>MySQL 提供了检查约束用来指定某列的可取值的范围，它通过 限制输入到列中的值来强制域的完整性。薪水必须大于0；性别 in (男、女)</p>
+<a href="#表的碎片"><h3 id="表的碎片"><span class="hanchor" ariaLabel="Anchor"># </span>表的碎片</h3></a>
+<p>在 InnoDB 中删除行的时候，这些行只是被标记为“已删除”，而不是真正从物理存储 上进行删除了，因而空间也没有真的被释放回收。InnoDB 的 Purge 线程会异步的来清理这些没用的索引键和行。但是依然没有把这些释放出来的空间还给操作系统重新使用，因而会导致页面中存在很多空洞。如果表结构中包含动态长度字段，那么这些空洞甚至可能不能被 InnoDB 重新用来存新的行。另外，删除数据就会导致页（Page）中出现空白空间，大量随机的 DELETE 操作，必然会在数据文件中造成不连续的空白空间。而当插入数据时,这些空白空间则会被利用起来，于是造成了数据的存储位置不连续。物理存储顺序与逻辑上的排序顺序不同,这种就是数据碎片。</p>
+<p>对于大量的 UPDATE，也会产生文件碎片化 ， Innodb 的最小物理存储分配单位是页 (Page)，而 UPDATE 也可能导致页分裂（Page Split）。频繁的页分裂，页会变得稀疏，并且被不规则的填充，所以最终数据会有碎片。</p>
+<a href="#统计信息-statistics"><h3 id="统计信息-statistics"><span class="hanchor" ariaLabel="Anchor"># </span>统计信息 statistics</h3></a>
+<ul>
+<li>
+<p>反应的是数据的分布情况，提供给数据库的优化器，用于生成最佳的SQL执行计划</p>
+</li>
+<li>
+<p>查看表的统计信息：<code>show table status</code> 或者 <code>information_schema.tables</code></p>
+</li>
+<li>
+<p>统计每个库的大小</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">table_schema</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">sum</span><span class="p">(</span><span class="n">data_length</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">data_length</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">sum</span><span class="p">(</span><span class="n">index_length</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">index_length</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">table_schema</span><span class="w"> </span><span class="o">!=</span><span class="s1">&#39;information_schema&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">table_schema</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;mysql&#39;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">table_schema</span><span class="p">;</span><span class="w">	
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查看数据表量较大的前10张表</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">TABLE_SCHEMA</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">database_name</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">TABLE_ROWS</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">table_rows</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ENGINE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">table_engine</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Data_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Index_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="o">+</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_FREE</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Free_MB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">T1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="o">`</span><span class="n">TABLE_SCHEMA</span><span class="o">`</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="s1">&#39;performance_schema&#39;</span><span class="p">,</span><span class="s1">&#39;mysql&#39;</span><span class="p">,</span><span class="s1">&#39;information_schema&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="o">`</span><span class="n">TABLE_ROWS</span><span class="o">`</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查看数据表空间较大的前10张表</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">TABLE_SCHEMA</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">database_name</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">TABLE_ROWS</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">table_rows</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ENGINE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">table_engine</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Data_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Index_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="o">+</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_FREE</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Free_MB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">T1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="o">`</span><span class="n">TABLE_SCHEMA</span><span class="o">`</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="p">(</span><span class="s1">&#39;performance_schema&#39;</span><span class="p">,</span><span class="s1">&#39;mysql&#39;</span><span class="p">,</span><span class="s1">&#39;information_schema&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="o">+</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查看碎片较多的前10张表</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">TABLE_SCHEMA</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">database_name</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">TABLE_ROWS</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">table_rows</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ENGINE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">table_engine</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Data_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ROUND</span><span class="p">((</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Index_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="o">+</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Total_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_FREE</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Free_MB</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ROUND</span><span class="p">(</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_FREE</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="o">+</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Free_Percent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">T1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="o">`</span><span class="n">TABLE_SCHEMA</span><span class="o">`</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">(</span><span class="s1">&#39;performance_schema&#39;</span><span class="p">,</span><span class="s1">&#39;mysql&#39;</span><span class="p">,</span><span class="s1">&#39;information_schema&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">AND</span><span class="w"> </span><span class="n">ROUND</span><span class="p">(</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_FREE</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="o">+</span><span class="n">INDEX_LENGTH</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">AND</span><span class="w"> </span><span class="n">ROUND</span><span class="p">((</span><span class="n">DATA_FREE</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">1024</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">100</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Free_Percent</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote class="note-callout">
+<p> 如何收集表的统计信息？</p>
+<ol>
+<li>自动进行收集：读取表、表的数据量更新超过一定的比例</li>
+<li>手动进行收集：analyz table 【表名】</li>
+<li>补充：Oracle中的统计信息（数据库、用户、表空间、表、索引&hellip;）</li>
+</ol>
+</blockquote>
+<a href="#视图"><h2 id="视图"><span class="hanchor" ariaLabel="Anchor"># </span>视图</h2></a>
+<ul>
+<li>是一个虚表，数据来自于基表</li>
+<li>简化复杂的查询</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">myview</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">as</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">emp</span><span class="p">.</span><span class="n">ename</span><span class="p">,</span><span class="n">emp</span><span class="p">.</span><span class="n">sal</span><span class="p">,</span><span class="n">dept</span><span class="p">.</span><span class="n">dname</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">emp</span><span class="p">,</span><span class="n">dept</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">emp</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">dept</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><a href="#索引"><h2 id="索引"><span class="hanchor" ariaLabel="Anchor"># </span>索引</h2></a>
+<blockquote>
+<p>就相当于一本书的目录</p>
+</blockquote>
+<p>MySQL 默认的索引类型是 B+树索引</p>
+<p>B 树类似于二叉查找树，能够让查找数据、顺序访问、插入数据及删除的动作，在最差的情况下也都能在对数时间内完成。它与二叉树最大的区别是它允许一个节点有多于 2 个的元素，每个节点都包含 key 和数据，查找时可以使用二分的方式快速搜索数据。</p>
+<p>![
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../../../../Extras/Excalidraw/%E6%95%B0%E6%8D%AE%E5%BA%93/B&#43;%20Tree.excalidraw">B+ Tree.excalidraw</a></p>
+<p>B+ 树与 B 树最大的区别就是每一个叶子结点都包含指向下一个叶子结点的指针， 并且叶子结点的指针指向的是被索引的数据。由于 B+ 树在内部节点上不包含数据信息，所以它占用空间更小；叶子节点之间形成链表，从而方便了叶子结点的遍历与范围查找。</p>
+<a href="#索引类别"><h3 id="索引类别"><span class="hanchor" ariaLabel="Anchor"># </span>索引类别</h3></a>
+<a href="#普通索引"><h4 id="普通索引"><span class="hanchor" ariaLabel="Anchor"># </span>普通索引</h4></a>
+<p>普通索引是最基本的索引，它没有任何限制，用于加速查询。</p>
+<a href="#唯一索引"><h4 id="唯一索引"><span class="hanchor" ariaLabel="Anchor"># </span>唯一索引</h4></a>
+<p>索引列的值必须唯一，但允许有空值；如果是组合索引，则列值的组合必须唯一。</p>
+<a href="#主键索引"><h4 id="主键索引"><span class="hanchor" ariaLabel="Anchor"># </span>主键索引</h4></a>
+<p>主键索引是一种特殊的唯一索引，一个表只能有一个主键，不允许有空值。一般是在 建表的时候同时创建主键索引。</p>
+<a href="#组合索引"><h4 id="组合索引"><span class="hanchor" ariaLabel="Anchor"># </span>组合索引</h4></a>
+<p>组合索引是指多个字段上创建的索引，只有在查询条件中使用了创建索引时的第一个 字段，索引才会被使用。</p>
+<a href="#全文索引"><h4 id="全文索引"><span class="hanchor" ariaLabel="Anchor"># </span>全文索引</h4></a>
+<p>全文索引主要用来查找文本中的关键字，而不是直接与索引中的值相比较。全文索引跟其它索引大不相同，它更像是一个搜索引擎。全文索引需要配合 <code>match against</code> 操作 使用，而不是 <code>where</code> 语句。</p>
+<a href="#哈希索引"><h4 id="哈希索引"><span class="hanchor" ariaLabel="Anchor"># </span>哈希索引</h4></a>
+<p>哈希索引（hash index）基于哈希表实现，只有精确匹配索引所有列的查询才有效。 对于每一行数据，存储引擎都会对所有的索引列计算一个哈希码（hash code），哈希码是 一个较小的值，并且不同键值的行计算出来的哈希码也不一样。哈希索引将所有的哈希码 存储在索引中，同时在哈希表中保存指向每个数据行的指针。</p>
+<a href="#索引优化"><h3 id="索引优化"><span class="hanchor" ariaLabel="Anchor"># </span>索引优化</h3></a>
+<p>ICP | MRR | BKA</p>
+<a href="#事件event"><h2 id="事件event"><span class="hanchor" ariaLabel="Anchor"># </span>事件Event</h2></a>
+<ul>
+<li>相当于Linux crontab：定时器</li>
+<li>决定的参数：event_scheduler | ON</li>
+</ul>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="../../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://twitter.com/_jzhao">Twitter</a></li><li><a href="https://github.com/jackyzha0">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>

@@ -1,27 +1,678 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=description content="up:: [ • TOC for Frontend
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    content="up:: [ • TOC for Frontend
 1. 传输层协议 UDP  用户数据报协议 UDP（User Datagram Protocol）：
-  UDP 在传送数据之前不需要先建立连接，远程主机在收到 UDP 报文后，不需要给出任何确认。 虽然 UDP 不提供可靠交付，但在某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如：QQ 语音、 QQ 视频 、直播等等  TCP  传输控制协议 TCP（Transmission Control Protocol）："><meta property="og:title" content="TCP"><meta property="og:description" content="up:: [ • TOC for Frontend
+  UDP 在传送数据之前不需要先建立连接，远程主机在收到 UDP 报文后，不需要给出任何确认。 虽然 UDP 不提供可靠交付，但在某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如：QQ 语音、 QQ 视频 、直播等等  TCP  传输控制协议 TCP（Transmission Control Protocol）："
+  />
+  <meta property="og:title" content="TCP">
+  <meta property="og:description" content="up:: [ • TOC for Frontend
 1. 传输层协议 UDP  用户数据报协议 UDP（User Datagram Protocol）：
-  UDP 在传送数据之前不需要先建立连接，远程主机在收到 UDP 报文后，不需要给出任何确认。 虽然 UDP 不提供可靠交付，但在某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如：QQ 语音、 QQ 视频 、直播等等  TCP  传输控制协议 TCP（Transmission Control Protocol）："><meta property="og:type" content="website"><meta property="og:image" content="chick26.github.ioicon.png"><meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/Internet/TCP/"><meta property="og:width" content="200"><meta property="og:height" content="200"><meta name=twitter:card content="summary"><meta name=twitter:title content="TCP"><meta name=twitter:description content="up:: [ • TOC for Frontend
+  UDP 在传送数据之前不需要先建立连接，远程主机在收到 UDP 报文后，不需要给出任何确认。 虽然 UDP 不提供可靠交付，但在某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如：QQ 语音、 QQ 视频 、直播等等  TCP  传输控制协议 TCP（Transmission Control Protocol）：">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="chick26.github.ioicon.png">
+  <meta property="og:url" content="chick26.github.io/Cards/-Front-Dev/Internet/TCP/">
+  <meta property="og:width" content="200">
+  <meta property="og:height" content="200">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="TCP" />
+  <meta name="twitter:description" content="up:: [ • TOC for Frontend
 1. 传输层协议 UDP  用户数据报协议 UDP（User Datagram Protocol）：
-  UDP 在传送数据之前不需要先建立连接，远程主机在收到 UDP 报文后，不需要给出任何确认。 虽然 UDP 不提供可靠交付，但在某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如：QQ 语音、 QQ 视频 、直播等等  TCP  传输控制协议 TCP（Transmission Control Protocol）："><meta name=twitter:image content="chick26.github.ioicon.png"><meta name=twitter:site content="_jzhao"><title>TCP</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel="shortcut icon" type=image/png href=chick26.github.io/icon.png><link href=../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css rel=stylesheet><link href=../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css rel=stylesheet id=theme-link><script src=../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js></script>
-<script src=../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js></script>
-<link rel=preload href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css as=style onload='this.onload=null,this.rel="stylesheet"' integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js integrity=sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1></script>
-<script src=https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1></script>
-<script defer src=../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js></script>
-<script defer src=../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js></script>
-<script defer src=../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js></script>
-<script defer src=../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js></script>
-<script>const SEARCH_ENABLED=!1,LATEX_ENABLED=!0,PRODUCTION=!0,BASE_URL="chick26.github.io",fetchData=Promise.all([fetch("/chick26.github.io/indices/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json").then(e=>e.json()).then(e=>({index:e.index,links:e.links})),fetch("/chick26.github.io/indices/contentIndex.d413193f7ae19d461b59d12d61b54d86.min.json").then(e=>e.json())]).then(([{index:e,links:t},n])=>({index:e,links:t,content:n})),render=()=>{const e=new URL(BASE_URL),t=e.pathname,n=window.location.pathname,s=t==n;addCopyButtons(),addTitleToCodeBlocks(),addCollapsibleCallouts(),initPopover("chick26.github.io",!0);const o=document.getElementById("footer");if(o){const e=document.getElementById("graph-container");if(!e)return requestAnimationFrame(render);e.textContent="";const t=s&&!1;drawGraph("chick26.github.io",t,[{"/moc":"#4388cc"}],t?{centerForce:1,depth:-1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.5,linkDistance:1,opacityScale:3,repelForce:1,scale:1.4}:{centerForce:1,depth:1,enableDrag:!0,enableLegend:!1,enableZoom:!0,fontSize:.6,linkDistance:1,opacityScale:3,repelForce:2,scale:1.2})}var i=document.getElementsByClassName("mermaid");i.length>0&&import("https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs").then(e=>{e.default.init()});function a(n){const e=n.target,t=e.className.split(" "),s=t.includes("broken"),o=t.includes("internal-link");plausible("Link Click",{props:{href:e.href,broken:s,internal:o,graph:!1}})}const r=document.querySelectorAll("a");for(link of r)link.className.includes("root-title")&&link.addEventListener("click",a,{once:!0})},init=(e=document)=>{addCopyButtons(),addTitleToCodeBlocks(),renderMathInElement(e.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],macros:{'’':"'"},throwOnError:!1})}</script><script type=module>
+  UDP 在传送数据之前不需要先建立连接，远程主机在收到 UDP 报文后，不需要给出任何确认。 虽然 UDP 不提供可靠交付，但在某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如：QQ 语音、 QQ 视频 、直播等等  TCP  传输控制协议 TCP（Transmission Control Protocol）：" />
+  <meta name="twitter:image" content="chick26.github.ioicon.png">
+  
+    
+      
+      <meta name="twitter:site" content="_jzhao" />
+    
+  
+    
+  
+
+  <title>
+    TCP
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+  
+  
+  
+  
+  <link rel="shortcut icon" type="image/png"  href="chick26.github.io/icon.png" />
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link href="../../../../chick26.github.io/styles.80333fa2099c0bee674efa435fde378c.min.css" rel="stylesheet" />
+
+  
+  <link href="../../../../chick26.github.io/styles/_light_syntax.86a48a52faebeaaf42158b72922b1c90.min.css" rel="stylesheet" id="theme-link">
+
+   
+  
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/darkmode.50d9e94699d770ffc9dfb302b39382a8.min.js"></script>
+  
+  
+  
+  <script src="../../../../chick26.github.io/js/util.00639692264b21bc3ee219733d38a8be.min.js"></script>
+  
+  
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"
+        integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/copy-tex.min.js"
+        integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A"
+        crossorigin="anonymous"></script>
+
+
+  
+  
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.2.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.2.1"></script>
+  
+  <script defer src="../../../../chick26.github.io/js/popover.aa9bc99c7c38d3ae9538f218f1416adb.min.js"></script>
+
+  
+  
+  
+  <script defer src="../../../../chick26.github.io/js/code-title.ce4a43f09239a9efb48fee342e8ef2df.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/clipboard.2913da76d3cb21c5deaa4bae7da38c9f.min.js"></script>
+  
+
+  
+  
+  <script defer src="../../../../chick26.github.io/js/callouts.7723cac461d613d118ee8bb8216b9838.min.js"></script>
+  
+
+  
+   
+  <script>
+    const SEARCH_ENABLED =  false 
+    const LATEX_ENABLED =  true 
+    const PRODUCTION =  true 
+    const BASE_URL = "chick26.github.io"
+    const fetchData = Promise.all([
+          fetch("\/chick26.github.io\/indices\/linkIndex.509e28dc2a8e06241e41a4bfb8f79fe3.min.json")
+            .then(data => data.json())
+            .then(data => ({
+              index: data.index,
+              links: data.links,
+            })),
+          fetch("\/chick26.github.io\/indices\/contentIndex.ab44743a5d67084ed2332ae5677b2ec3.min.json")
+            .then(data => data.json()),
+        ])
+        .then(([{index, links}, content]) => ({
+          index,
+          links,
+          content,
+        }))
+
+      const render = () => {
+      
+
+      const siteBaseURL = new URL(BASE_URL);
+      const pathBase = siteBaseURL.pathname;
+      const pathWindow = window.location.pathname;
+      const isHome = pathBase == pathWindow;
+
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      
+
+      addCollapsibleCallouts();
+      
+
+      
+      initPopover(
+        "chick26.github.io",
+         true 
+      )
+      
+
+      
+      const footer = document.getElementById("footer")
+      if (footer) {
+        const container = document.getElementById("graph-container")
+        
+        if (!container) return requestAnimationFrame(render)
+        
+        container.textContent = ""
+
+        const drawGlobal = isHome &&  false ;
+        drawGraph(
+            "chick26.github.io",
+            drawGlobal,
+            [{"/moc":"#4388cc"}],
+            drawGlobal ? {"centerForce":1,"depth":-1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.5,"linkDistance":1,"opacityScale":3,"repelForce":1,"scale":1.4} : {"centerForce":1,"depth":1,"enableDrag":true,"enableLegend":false,"enableZoom":true,"fontSize":0.6,"linkDistance":1,"opacityScale":3,"repelForce":2,"scale":1.2}
+          );
+
+        }
+      
+
+      
+        var els = document.getElementsByClassName("mermaid");
+        if (els.length > 0) {
+          import('https://unpkg.com/mermaid@9/dist/mermaid.esm.min.mjs').then(
+            (obj) => {
+              
+              
+              obj.default.init();
+            }
+          )
+        }
+      
+      
+      
+      function clickHandler(evt) {
+        const target = evt.target 
+        const classNames = target.className.split(" ")
+        const broken = classNames.includes("broken")
+        const internal = classNames.includes("internal-link")
+        plausible("Link Click", {
+          props: {
+            href: target.href,
+            broken,
+            internal,
+            graph: false,
+          }
+        })
+      }
+
+      const links = document.querySelectorAll("a")
+      for (link of links) {
+        if (link.className.includes("root-title")) {
+          link.addEventListener('click', clickHandler, {once: true})
+        }
+      }
+    }
+
+    const init = (doc = document) => {
+      
+      addCopyButtons();
+      
+
+      addTitleToCodeBlocks();
+      renderMathInElement(doc.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+        ],
+        macros: {
+          '’': "'"
+        },
+        throwOnError : false
+      });
+      
+    };
+  </script>
+  
+  
+  <script type="module">
     import { attachSPARouting } from "\/chick26.github.io\/js\/router.d6fe6bd821db9ea97f9aeefae814d8e7.min.js"
     attachSPARouting(init, render)
-  </script><script defer data-domain src=https://plausible.io/js/script.js></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body><div id=search-container><div id=search-space><input autocomplete=off id=search-bar name=search type=text aria-label=Search placeholder="Search for something..."><div id=results-container></div></div></div><script src=https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin=anonymous defer></script>
-<script defer src=../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js></script><div class=singlePage><header><h1 id=page-title><a class=root-title href=chick26.github.io>🪴 Quartz 3.3</a></h1><div class=spacer></div><div id=search-icon><p>Search</p><svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg></div><div class=darkmode><input class=toggle id=darkmode-toggle type=checkbox tabindex=-1>
-<label id=toggle-label-light for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="dayIcon" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35"><title>Light Mode</title><path d="M6 17.5C6 16.672 5.328 16 4.5 16h-3C.672 16 0 16.672.0 17.5S.672 19 1.5 19h3C5.328 19 6 18.328 6 17.5zM7.5 26c-.414.0-.789.168-1.061.439l-2 2C4.168 28.711 4 29.086 4 29.5 4 30.328 4.671 31 5.5 31c.414.0.789-.168 1.06-.44l2-2C8.832 28.289 9 27.914 9 27.5 9 26.672 8.329 26 7.5 26zm10-20C18.329 6 19 5.328 19 4.5v-3C19 .672 18.329.0 17.5.0S16 .672 16 1.5v3C16 5.328 16.671 6 17.5 6zm10 3c.414.0.789-.168 1.06-.439l2-2C30.832 6.289 31 5.914 31 5.5 31 4.672 30.329 4 29.5 4c-.414.0-.789.168-1.061.44l-2 2C26.168 6.711 26 7.086 26 7.5 26 8.328 26.671 9 27.5 9zM6.439 8.561C6.711 8.832 7.086 9 7.5 9 8.328 9 9 8.328 9 7.5c0-.414-.168-.789-.439-1.061l-2-2C6.289 4.168 5.914 4 5.5 4 4.672 4 4 4.672 4 5.5c0 .414.168.789.439 1.06l2 2.001zM33.5 16h-3c-.828.0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5h3c.828.0 1.5-.672 1.5-1.5S34.328 16 33.5 16zM28.561 26.439C28.289 26.168 27.914 26 27.5 26c-.828.0-1.5.672-1.5 1.5.0.414.168.789.439 1.06l2 2C28.711 30.832 29.086 31 29.5 31c.828.0 1.5-.672 1.5-1.5.0-.414-.168-.789-.439-1.061l-2-2zM17.5 29c-.829.0-1.5.672-1.5 1.5v3c0 .828.671 1.5 1.5 1.5s1.5-.672 1.5-1.5v-3C19 29.672 18.329 29 17.5 29zm0-22C11.71 7 7 11.71 7 17.5S11.71 28 17.5 28 28 23.29 28 17.5 23.29 7 17.5 7zm0 18c-4.136.0-7.5-3.364-7.5-7.5s3.364-7.5 7.5-7.5 7.5 3.364 7.5 7.5S21.636 25 17.5 25z"/></svg></label><label id=toggle-label-dark for=darkmode-toggle tabindex=-1><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="nightIcon" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'"><title>Dark Mode</title><path d="M96.76 66.458c-.853-.852-2.15-1.064-3.23-.534-6.063 2.991-12.858 4.571-19.655 4.571C62.022 70.495 50.88 65.88 42.5 57.5 29.043 44.043 25.658 23.536 34.076 6.47c.532-1.08.318-2.379-.534-3.23-.851-.852-2.15-1.064-3.23-.534-4.918 2.427-9.375 5.619-13.246 9.491-9.447 9.447-14.65 22.008-14.65 35.369.0 13.36 5.203 25.921 14.65 35.368s22.008 14.65 35.368 14.65c13.361.0 25.921-5.203 35.369-14.65 3.872-3.871 7.064-8.328 9.491-13.246C97.826 68.608 97.611 67.309 96.76 66.458z"/></svg></label></div></header><article><h1>TCP</h1><p class=meta>Last updated
+  </script>
+  
+  
+  <script defer data-domain="" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+</head>
+
+
+<body>
+<div id="search-container">
+  <div id="search-space">
+    <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search"
+      placeholder="Search for something..." dir="">
+    <div id="results-container">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"
+  integrity="sha256-i3A0NZGkhsKjVMzFxv3ksk0DZh3aXqu0l49Bbh0MdjE=" crossorigin="anonymous" defer></script>
+
+<script defer src="../../../../chick26.github.io/js/full-text-search.e6e2e0c213187ca0c703d6e2c7a77fcd.min.js"></script>
+
+
+
+<div class="singlePage">
+    
+    <header>
+    
+    <h1 id="page-title"><a class="root-title" href="chick26.github.io">🪴 Quartz 3.3</a></h1>
+    <div class="spacer"></div>
+    <div id="search-icon">
+      <p>Search</p>
+      <svg tabindex="0" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">Icon to open search</desc><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg>
+    </div>
+    <div class='darkmode'>
+    <input class='toggle' id='darkmode-toggle' type='checkbox' tabindex="-1">
+    <label id="toggle-label-light" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35;" xml:space="preserve">
+            <title>Light Mode</title>
+            <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z" />
+        </svg>
+    </label>
+    <label id="toggle-label-dark" for='darkmode-toggle' tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background='new 0 0 100 100'" xml:space="preserve">
+            <title>Dark Mode</title>
+            <path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z" />
+        </svg>
+    </label>
+</div>
+</header>
+
+
+    <article>
+      <h1>TCP</h1>
+      <p class="meta">
+        Last updated 
 Unknown
-<a href=https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/Internet/TCP.md rel=noopener>Edit Source</a></p><ul class=tags><li><a href=chick26.github.io/tags/Network/Internet/>Network internet</a></li></ul><aside class=mainTOC><details><summary>Table of Contents</summary><nav id=TableOfContents><ol><li><a href=#1-传输层协议>1. 传输层协议</a><ol><li><a href=#udp>UDP</a></li><li><a href=#tcp>TCP</a></li></ol></li><li><a href=#2-tcp-报文段首部格式>2. TCP 报文段首部格式</a><ol><li></li></ol></li><li><a href=#3-tcp-三次握手建立连接>3. TCP 三次握手建立连接</a><ol><li><a href=#三次握手过程详解>三次握手过程详解</a></li><li><a href=#为什么要三次握手>为什么要三次握手</a></li><li><a href=#isn-initial-sequence-number-是固定的吗>ISN (Initial Sequence Number) 是固定的吗</a></li><li><a href=#三次握手过程中可以携带数据吗>三次握手过程中可以携带数据吗</a></li><li><a href=#半连接队列>半连接队列</a></li><li><a href=#syn-洪泛攻击>SYN 洪泛攻击</a></li><li><a href=#如果第三次握手丢失了客户端服务端会如何处理>如果第三次握手丢失了，客户端服务端会如何处理</a></li></ol></li><li><a href=#4-tcp-四次挥手释放连接>4. TCP 四次挥手释放连接</a><ol><li><a href=#四次挥手过程详解>四次挥手过程详解</a></li><li><a href=#为什么要四次挥手>为什么要四次挥手</a></li></ol></li></ol></nav></details></aside><p>up:: [
-<a rel=noopener class="internal-link broken" data-src=../%E2%80%A2%20TOC%20for%20Frontend>• TOC for Frontend</a></p><a href=#1-传输层协议><h2 id=1-传输层协议><span class=hanchor arialabel=Anchor># </span>1. 传输层协议</h2></a><a href=#udp><h3 id=udp><span class=hanchor arialabel=Anchor># </span>UDP</h3></a><blockquote><p><strong>用户数据报协议 UDP</strong>（User Datagram Protocol）：</p></blockquote><ul><li><strong>UDP 在传送数据之前不需要先建立连接</strong>，远程主机在收到 UDP 报文后，不需要给出任何确认。</li><li>虽然 UDP <strong>不提供可靠交付</strong>，但在某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如：QQ 语音、 QQ 视频 、直播等等</li></ul><a href=#tcp><h3 id=tcp><span class=hanchor arialabel=Anchor># </span>TCP</h3></a><blockquote><p><strong>传输控制协议 TCP</strong>（Transmission Control Protocol）：</p></blockquote><ul><li>TCP 提供<strong>面向连接</strong>的服务。在传送数据之前必须先建立连接，数据传送结束后要释放连接。</li><li>TCP 不提供广播或多播服务。由于 TCP 要提供<strong>可靠</strong>的，面向连接的传输服务（TCP 的可靠体现在 TCP 在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、流量控制、拥塞控制机制，在数据传完后，还会四次挥手断开连接用来节约系统资源），这不仅使协议数据单元的首部增大很多，还要占用许多处理机资源。</li><li>TCP <strong>一般用于文件传输、发送和接收邮件、远程登录等场景</strong>。</li></ul><a href=#2-tcp-报文段首部格式><h2 id=2-tcp-报文段首部格式><span class=hanchor arialabel=Anchor># </span>2. TCP 报文段首部格式</h2></a><p><strong>控制位</strong>与三次握手和四次挥手息息相关，要牢记。</p><p><img src=chick26.github.io/../../../Extras/Media/Images/640.png width=auto alt></p><p>首部固定部分各字段意义如下：</p><a href=#源端口和目的端口><h4 id=源端口和目的端口><span class=hanchor arialabel=Anchor># </span>源端口和目的端口</h4></a><p>各占 2 个字节，分别写入源端口和目的端口。IP 地址 + 端口号就可以确定一个进程地址</p><a href=#序号--序列号sequense-numbersn><h4 id=序号--序列号sequense-numbersn><span class=hanchor arialabel=Anchor># </span>序号 / 序列号（Sequense Number，SN）：</h4></a><p>在一个 TCP 连接中传送的字节流中的每一个字节都按顺序编号。该字段表示本报文段所发送的数据的第一个字节的序号。<strong>初始序号称为 Init Sequense Number, ISN</strong></p><blockquote><p>例如，一报文段的序号是 101，共有 100 字节的数据。这就表明：本报文段的数据的第一个字节的序号是 101，最后一个字节的序号是 200。显然，下一个报文段的数据序号应当从 201 开始，即下一个报文段的序号字段值应为 201。</p></blockquote><a href=#确认号-ack><h4 id=确认号-ack><span class=hanchor arialabel=Anchor># </span>确认号 ack</h4></a><p>期望收到对方下一个报文段的第一个数据字节的序号。若确认号为 N，则表明：到序号 N-1 为止的所有数据都已正确收到。</p><a href=#数据偏移首部长度><h4 id=数据偏移首部长度><span class=hanchor arialabel=Anchor># </span>数据偏移（首部长度）</h4></a><p>它指出 TCP 报文段的数据起始处距离 TCP 报文段的起始处有多远。这个字段实际上是指出 TCP 报文段的首部长度。</p><a href=#保留><h4 id=保留><span class=hanchor arialabel=Anchor># </span>保留</h4></a><p>占 6 位，应置为 0，保留为今后使用。如图，保留位的右边还有 6 个控制位（重要），这是 TCP 用来说明该报文段性质的。</p><a href=#紧急位-urg><h4 id=紧急位-urg><span class=hanchor arialabel=Anchor># </span>紧急位 URG</h4></a><p>当 URG = 1 时，表明此报文段中有紧急数据，是高优先级的数据，应尽快发送，不用在缓存中排队。该控制位需配合紧急指针使用（紧急指针指出本报文段中紧急数据的字节数）</p><blockquote><p>举个例子：我们需要取消一个已经发送了很长程序的运行，因此用户从键盘发出中断命令。如果不使用紧急数据，那么这个指令将存储在接收 TCP 的缓存末尾，只有在所有的数据被处理完毕后这两个字符才被交付接收方的应用进程，这样做就无法实现立即中断。</p></blockquote><a href=#确认-ack><h4 id=确认-ack><span class=hanchor arialabel=Anchor># </span>确认 ACK</h4></a><p>仅当 ACK = 1 时确认号字段才有效，当 ACK = 0 时确认号无效。TCP 规定，在连接建立后所有传送的报文段都必须把 ACK 置为 1。</p><a href=#推送-psh><h4 id=推送-psh><span class=hanchor arialabel=Anchor># </span>推送 PSH</h4></a><p>当两个应用进程进行交互式的通信时，有时在一端的应用进程希望在键入一个命令后立即就能收到对方的响应。在这种情况下，TCP 就可以使用推送（push）操作。这时，发送方 TCP 把 PSH 置为 1，并立即创建一个报文段发送出去。接收方 TCP 收到 PSH = 1 的报文段，就尽快地交付接收应用进程。而不用等到整个缓存都填满了后再向上交付。</p><a href=#复位-rst><h4 id=复位-rst><span class=hanchor arialabel=Anchor># </span>复位 RST</h4></a><p>当 RST = 1 时，表明 TCP 连接中出现了严重错误（如由于主机崩溃或其他原因），必须释放连接，然后再重新建立传输连接。</p><a href=#同步-syn><h4 id=同步-syn><span class=hanchor arialabel=Anchor># </span>同步 SYN</h4></a><p>SYN = 1 表示这是一个连接请求或连接接受报文。</p><p>当 SYN = 1 而 ACK = 0 时，表明这是一个连接请求报文段。对方若同意建立连接，则应在响应的报文段中使 SYN = 1 且 ACK = 1。</p><a href=#终止-fin><h4 id=终止-fin><span class=hanchor arialabel=Anchor># </span>终止 FIN</h4></a><p>用来释放一个连接。当 FIN = 1 时，表明此报文段的发送发的数据已发送完毕，并要求释放运输连接。</p><a href=#3-tcp-三次握手建立连接><h2 id=3-tcp-三次握手建立连接><span class=hanchor arialabel=Anchor># </span>3. TCP 三次握手建立连接</h2></a><a href=#三次握手过程详解><h3 id=三次握手过程详解><span class=hanchor arialabel=Anchor># </span>三次握手过程详解</h3></a><p>三次握手的原文是 <code>three-way handshake</code>，整个名词的可以翻译为：<strong>需要三个步骤才能建立握手 / 连接的机制</strong>。当然，三次握手也可以叫 <code>three-message handshake</code>，通过三条消息来建立的握手 / 连接。</p><p>进行三次握手的主要作用就是为了确认双方的接收能力和发送能力是否正常、指定自己的 <strong>初始化序列号 (Init Sequense Number,  <code>ISN</code>)</strong> 为后面的可靠性传输做准备。</p><p>三次握手过程如下图：</p><p><img src=chick26.github.io/../../../Extras/Media/Images/641.png width=auto alt></p><p>图中字符的含义：</p><ul><li><code>SYN</code>：连接请求 / 接收 报文段</li><li><code>seq</code>：发送的第一个字节的序号</li><li><code>ACK</code>：确认报文段</li><li><code>ack</code>：确认号。希望收到的下一个数据的第一个字节的序号</li></ul><p><strong>刚开始客户端处于 <code>Closed</code> 的状态，而服务端处于 <code>Listen</code> 状态</strong>：</p><ul><li><code>CLOSED</code>：没有任何连接状态</li><li><code>LISTEN</code>：侦听来自远方 TCP 端口的连接请求</li></ul><p><strong>1）第一次握手</strong>：客户端向服务端发送一个 SYN 报文（SYN = 1），并指明客户端的初始化序列号 ISN(x)，即图中的 seq = x，表示本报文段所发送的数据的第一个字节的序号。此时客户端处于 <code>SYN_Send</code> 状态。</p><p><code>SYN-SENT</code> ：在发送连接请求后等待匹配的连接请求</p><p><strong>2）第二次握手</strong>：服务器收到客户端的 SYN 报文之后，会发送 SYN 报文作为应答（SYN = 1），并且指定自己的初始化序列号 ISN(y)，即图中的 seq = y。同时会把客户端的 ISN + 1 作为确认号 ack 的值，表示已经收到了客户端发来的的 SYN 报文，希望收到的下一个数据的第一个字节的序号是 x + 1，此时服务器处于 <code>SYN_REVD</code> 的状态。</p><p><code>SYN-RECEIVED</code>：在收到和发送一个连接请求后等待对连接请求的确认</p><p><strong>3）第三次握手</strong>：客户端收到服务器端响应的 SYN 报文之后，会发送一个 ACK 报文，也是一样把服务器的 ISN + 1 作为 ack 的值，表示已经收到了服务端发来的的 SYN 报文，希望收到的下一个数据的第一个字节的序号是 y + 1，并指明此时客户端的序列号 seq = x + 1（初始为 seq = x，所以第二个报文段要 +1），此时客户端处于 <code>Establised</code> 状态。</p><p>服务器收到 ACK 报文之后，也处于 <code>Establised 状态</code>，至此，双方建立起了 TCP 连接。</p><p><code>ESTABLISHED</code>：代表一个打开的连接，数据可以传送给用户</p><a href=#为什么要三次握手><h3 id=为什么要三次握手><span class=hanchor arialabel=Anchor># </span>为什么要三次握手</h3></a><p>三次握手的目的是建立可靠的通信信道，说到通讯，简单来说就是数据的发送与接收，而三次握手最主要的目的就是<strong>双方确认自己与对方的发送与接收是正常的</strong>。</p><p>只有经过三次握手才能确认双发的收发功能都正常，缺一不可：</p><ul><li>第一次握手（客户端发送 SYN 报文给服务器，服务器接收该报文）<ul><li>客户端什么都不能确认</li><li>服务器确认了对方发送正常，自己接收正常</li></ul></li><li>第二次握手（服务器响应 SYN 报文给客户端，客户端接收该报文）<ul><li>客户端确认了：自己发送、接收正常，对方发送、接收正常</li><li>服务器确认了：对方发送正常，自己接收正常</li></ul></li><li>第三次握手（客户端发送 ACK 报文给服务器）<ul><li>客户端确认了：自己发送、接收正常，对方发送、接收正常</li><li>服务器确认了：自己发送、接收正常，对方发送、接收正常</li></ul></li></ul><a href=#isn-initial-sequence-number-是固定的吗><h3 id=isn-initial-sequence-number-是固定的吗><span class=hanchor arialabel=Anchor># </span>ISN (Initial Sequence Number) 是固定的吗</h3></a><p><strong>三次握手的其中一个重要功能是客户端和服务端交换 ISN(Initial Sequence Number)，以便让对方知道接下来接收数据的时候如何按序列号组装数据</strong>。</p><p>当一端为建立连接而发送它的 SYN 时，它会为连接选择一个初始序号。ISN 随时间而变化，因此每个连接都将具有不同的 ISN。<strong>如果 ISN 是固定的，攻击者很容易猜出后续的确认号，因此 ISN 是动态生成的</strong>。</p><a href=#三次握手过程中可以携带数据吗><h3 id=三次握手过程中可以携带数据吗><span class=hanchor arialabel=Anchor># </span>三次握手过程中可以携带数据吗</h3></a><p>第三次握手的时候，是可以携带数据的。但是，<strong>第一次、第二次握手绝对不可以携带数据</strong></p><p>假如第一次握手可以携带数据的话，如果有人要恶意攻击服务器，那他每次都在第一次握手中的 SYN 报文中放入大量的数据，然后疯狂重复发 SYN 报文的话（因为攻击者根本就不用管服务器的接收、发送能力是否正常，它就是要攻击你），这会让服务器花费很多时间、内存空间来接收这些报文。</p><p>⭐ <strong>简单的记忆就是，请求连接 / 接收 即 <code>SYN = 1</code> 的时候不能携带数据</strong></p><p>而对于第三次的话，此时客户端已经处于 <code>ESTABLISHED</code> 状态。对于客户端来说，他已经建立起连接了，并且也已经知道服务器的接收、发送能力是正常的了，所以当然能正常发送 / 携带数据了。</p><a href=#半连接队列><h3 id=半连接队列><span class=hanchor arialabel=Anchor># </span>半连接队列</h3></a><p>服务器第一次收到客户端的 SYN 之后，就会处于 <code>SYN_RCVD</code> 状态，此时双方还没有完全建立其连接，服务器会把这种状态下的请求连接放在一个队列里，我们把这种队列称之为<strong>半连接队列</strong>。</p><p>当然还有一个<strong>全连接队列</strong>，完成三次握手后建立起的连接就会放在全连接队列中。如果队列满了就有可能会出现丢包现象。</p><a href=#syn-洪泛攻击><h3 id=syn-洪泛攻击><span class=hanchor arialabel=Anchor># </span>SYN 洪泛攻击</h3></a><p>SYN 攻击就是 <strong>Client 在短时间内伪造大量不存在的 IP 地址，并向 Server 不断地发送 SYN 包</strong>，Server 则回复确认包，并等待 Client 确认，由于源地址不存在，因此 Server 需要不断重发直至超时，这些伪造的 SYN 包将长时间占用半连接队列，导致正常的 SYN 请求因为队列满而被丢弃，从而引起网络拥塞甚至系统瘫痪。</p><a href=#如果第三次握手丢失了客户端服务端会如何处理><h3 id=如果第三次握手丢失了客户端服务端会如何处理><span class=hanchor arialabel=Anchor># </span>如果第三次握手丢失了，客户端服务端会如何处理</h3></a><p>服务器发送完 SYN-ACK 包，如果未收到客户端响应的确认包，也即第三次握手丢失。那么服务器就会进行首次重传，若等待一段时间仍未收到客户确认包，就进行第二次重传。如果重传次数超过系统规定的最大重传次数，则系统将该连接信息从半连接队列中删除。</p><p>注意，每次重传等待的时间不一定相同，一般会是指数增长，例如间隔时间为 1s，2s，4s，8s…</p><a href=#4-tcp-四次挥手释放连接><h2 id=4-tcp-四次挥手释放连接><span class=hanchor arialabel=Anchor># </span>4. TCP 四次挥手释放连接</h2></a><a href=#四次挥手过程详解><h3 id=四次挥手过程详解><span class=hanchor arialabel=Anchor># </span>四次挥手过程详解</h3></a><p>建立一个 TCP 连接需要三次握手，而终止一个 TCP 连接要经过四次挥手（也有将四次挥手叫做四次握手的）。这是由于 TCP 的<strong>半关闭</strong>（half-close）特性造成的，TCP 提供了连接的一端在结束它的发送后还能接收来自另一端数据的能力。</p><p>TCP 连接的释放需要发送四个包（执行四个步骤），因此称为四次挥手 (<code>Four-way handshake</code>)，<strong>客户端或服务端均可主动发起挥手动作</strong>。</p><p><img src=chick26.github.io/../../../Extras/Media/Images/642.png width=auto alt></p><p>回顾一下上图中符号的意思：</p><ul><li><code>FIN</code> ：连接终止位</li><li><code>seq</code>：发送的第一个字节的序号</li><li><code>ACK</code>：确认报文段</li><li><code>ack</code>：确认号。希望收到的下一个数据的第一个字节的序号</li></ul><p>刚开始双方都处于<code>ESTABLISHED</code> 状态，假设是客户端先发起关闭请求。四次挥手的过程如下：</p><p><strong>1）第一次挥手</strong>：客户端发送一个 FIN 报文（请求连接终止：FIN = 1），报文中会指定一个序列号 seq = u。并<strong>停止再发送数据，主动关闭 TCP 连接</strong>。此时客户端处于 <code>FIN_WAIT1</code> 状态，等待服务端的确认。</p><p><code>FIN-WAIT-1</code> - 等待远程 TCP 的连接中断请求，或先前的连接中断请求的确认；</p><p><strong>2）第二次挥手</strong>：服务端收到 FIN 之后，会发送 ACK 报文，且把客户端的序号值 +1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 <code>CLOSE_WAIT</code> 状态。</p><p><code>CLOSE-WAIT</code> - 等待从本地用户发来的连接中断请求；</p><p><strong>此时的 TCP 处于半关闭状态，客户端到服务端的连接释放</strong>。客户端收到服务端的确认后，进入<code>FIN_WAIT2</code>（终止等待 2）状态，等待服务端发出的连接释放报文段。</p><p><code>FIN-WAIT-2</code> - 从远程 TCP 等待连接中断请求；</p><p><strong>3）第三次挥手</strong>：如果服务端也想断开连接了（没有要向客户端发出的数据），和客户端的第一次挥手一样，发送 FIN 报文，且指定一个序列号。此时服务端处于 <code>LAST_ACK</code> 的状态，等待客户端的确认。</p><p><code>LAST-ACK</code> - 等待原来发向远程 TCP 的连接中断请求的确认；</p><p><strong>4）第四次挥手</strong>：客户端收到 FIN 之后，一样发送一个 ACK 报文作为应答（ack = w+1），且把服务端的序列值 +1 作为自己 ACK 报文的序号值（seq=u+1），此时客户端处于 <strong><code>TIME_WAIT</code> （时间等待）状态</strong>。</p><p><code>TIME-WAIT</code> - 等待足够的时间以确保远程 TCP 接收到连接中断请求的确认；</p><p>🚨 注意 ！！！这个时候由服务端到客户端的 TCP 连接并未释放掉，<strong>需要经过时间等待计时器设置的时间 2MSL（一个报文的来回时间） 后才会进入 <code>CLOSED</code> 状态</strong>（这样做的目的是确保服务端收到自己的 ACK 报文。如果服务端在规定时间内没有收到客户端发来的 ACK 报文的话，服务端会重新发送 FIN 报文给客户端，客户端再次收到 FIN 报文之后，就知道之前的 ACK 报文丢失了，然后再次发送 ACK 报文给服务端）。服务端收到 ACK 报文之后，就关闭连接了，处于 <code>CLOSED</code> 状态。</p><a href=#为什么要四次挥手><h3 id=为什么要四次挥手><span class=hanchor arialabel=Anchor># </span>为什么要四次挥手</h3></a><p>由于 TCP 的<strong>半关闭</strong>（half-close）特性，TCP 提供了连接的一端在结束它的发送后还能接收来自另一端数据的能力。</p><p>任何一方都可以在数据传送结束后发出连接释放的通知，待对方确认后进入<strong>半关闭状态</strong>。当另一方也没有数据再发送的时候，则发出连接释放通知，对方确认后就<strong>完全关闭</strong>了 TCP 连接。</p><p><strong>通俗的来说，两次握手就可以释放一端到另一端的 TCP 连接，完全释放连接一共需要四次握手</strong>。</p><p>举个例子：A 和 B 打电话，通话即将结束后，A 说 “我没啥要说的了”，B 回答 “我知道了”，于是 A 向 B 的连接释放了。但是 B 可能还会有要说的话，于是 B 可能又巴拉巴拉说了一通，最后 B 说 “我说完了”，A 回答 “知道了”，于是 B 向 A 的连接释放了，这样整个通话就结束了。</p></article><hr><div class=page-end id=footer><div class=backlinks-container><h3>Backlinks</h3><ul class=backlinks><li>No backlinks found</li></ul></div><div><script src=https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI=" crossorigin=anonymous></script><h3>Interactive Graph</h3><div id=graph-container></div><style>:root{--g-node:var(--secondary);--g-node-active:var(--primary);--g-node-inactive:var(--visited);--g-link:var(--outlinegray);--g-link-active:#5a7282}</style><script src=../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js></script></div></div><div id=contact_buttons><footer><p>Made by Jacky Zhao using <a href=https://github.com/jackyzha0/quartz>Quartz</a>, © 2023</p><ul><li><a href=chick26.github.io>Home</a></li><li><a href=https://twitter.com/_jzhao>Twitter</a></li><li><a href=https://github.com/jackyzha0>GitHub</a></li></ul></footer></div></div></body></html>
+
+ 
+          
+<a href="https://github.com/jackyzha0/quartz/tree/hugo/content/Cards/%f0%9f%93%b2%20Front%20Dev/Internet/TCP.md" rel="noopener">Edit Source</a>
+
+
+      </p>
+      <ul class="tags">
+          
+          <li><a href="chick26.github.io/tags/Network/Internet/">
+          
+            Network internet
+          
+            </a>
+           </li>
+          
+      </ul>
+      
+
+<aside class="mainTOC">
+    <details >
+        <summary>Table of Contents</summary>
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-传输层协议">1. 传输层协议</a>
+      <ol>
+        <li><a href="#udp">UDP</a></li>
+        <li><a href="#tcp">TCP</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-tcp-报文段首部格式">2. TCP 报文段首部格式</a>
+      <ol>
+        <li></li>
+      </ol>
+    </li>
+    <li><a href="#3-tcp-三次握手建立连接">3. TCP 三次握手建立连接</a>
+      <ol>
+        <li><a href="#三次握手过程详解">三次握手过程详解</a></li>
+        <li><a href="#为什么要三次握手">为什么要三次握手</a></li>
+        <li><a href="#isn-initial-sequence-number-是固定的吗">ISN (Initial Sequence Number) 是固定的吗</a></li>
+        <li><a href="#三次握手过程中可以携带数据吗">三次握手过程中可以携带数据吗</a></li>
+        <li><a href="#半连接队列">半连接队列</a></li>
+        <li><a href="#syn-洪泛攻击">SYN 洪泛攻击</a></li>
+        <li><a href="#如果第三次握手丢失了客户端服务端会如何处理">如果第三次握手丢失了，客户端服务端会如何处理</a></li>
+      </ol>
+    </li>
+    <li><a href="#4-tcp-四次挥手释放连接">4. TCP 四次挥手释放连接</a>
+      <ol>
+        <li><a href="#四次挥手过程详解">四次挥手过程详解</a></li>
+        <li><a href="#为什么要四次挥手">为什么要四次挥手</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </details>
+</aside>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+    
+    
+      
+      
+    
+    
+  
+  
+  
+  
+
+
+
+
+
+
+<p>up:: [
+
+
+
+
+
+<a
+  
+  rel="noopener" class="internal-link broken"
+  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<a href="#1-传输层协议"><h2 id="1-传输层协议"><span class="hanchor" ariaLabel="Anchor"># </span>1. 传输层协议</h2></a>
+<a href="#udp"><h3 id="udp"><span class="hanchor" ariaLabel="Anchor"># </span>UDP</h3></a>
+<blockquote>
+<p><strong>用户数据报协议 UDP</strong>（User Datagram Protocol）：</p>
+</blockquote>
+<ul>
+<li><strong>UDP 在传送数据之前不需要先建立连接</strong>，远程主机在收到 UDP 报文后，不需要给出任何确认。</li>
+<li>虽然 UDP <strong>不提供可靠交付</strong>，但在某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如：QQ 语音、 QQ 视频 、直播等等</li>
+</ul>
+<a href="#tcp"><h3 id="tcp"><span class="hanchor" ariaLabel="Anchor"># </span>TCP</h3></a>
+<blockquote>
+<p><strong>传输控制协议 TCP</strong>（Transmission Control Protocol）：</p>
+</blockquote>
+<ul>
+<li>TCP 提供<strong>面向连接</strong>的服务。在传送数据之前必须先建立连接，数据传送结束后要释放连接。</li>
+<li>TCP 不提供广播或多播服务。由于 TCP 要提供<strong>可靠</strong>的，面向连接的传输服务（TCP 的可靠体现在 TCP 在传递数据之前，会有三次握手来建立连接，而且在数据传递时，有确认、窗口、重传、流量控制、拥塞控制机制，在数据传完后，还会四次挥手断开连接用来节约系统资源），这不仅使协议数据单元的首部增大很多，还要占用许多处理机资源。</li>
+<li>TCP <strong>一般用于文件传输、发送和接收邮件、远程登录等场景</strong>。</li>
+</ul>
+<a href="#2-tcp-报文段首部格式"><h2 id="2-tcp-报文段首部格式"><span class="hanchor" ariaLabel="Anchor"># </span>2. TCP 报文段首部格式</h2></a>
+<p><strong>控制位</strong>与三次握手和四次挥手息息相关，要牢记。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/640.png" width="auto" alt=""  /></p>
+<p>首部固定部分各字段意义如下：</p>
+<a href="#源端口和目的端口"><h4 id="源端口和目的端口"><span class="hanchor" ariaLabel="Anchor"># </span>源端口和目的端口</h4></a>
+<p>各占 2 个字节，分别写入源端口和目的端口。IP 地址 + 端口号就可以确定一个进程地址</p>
+<a href="#序号--序列号sequense-numbersn"><h4 id="序号--序列号sequense-numbersn"><span class="hanchor" ariaLabel="Anchor"># </span>序号 / 序列号（Sequense Number，SN）：</h4></a>
+<p>在一个 TCP 连接中传送的字节流中的每一个字节都按顺序编号。该字段表示本报文段所发送的数据的第一个字节的序号。<strong>初始序号称为 Init Sequense Number, ISN</strong></p>
+<blockquote>
+<p>例如，一报文段的序号是 101，共有 100 字节的数据。这就表明：本报文段的数据的第一个字节的序号是 101，最后一个字节的序号是 200。显然，下一个报文段的数据序号应当从 201 开始，即下一个报文段的序号字段值应为 201。</p>
+</blockquote>
+<a href="#确认号-ack"><h4 id="确认号-ack"><span class="hanchor" ariaLabel="Anchor"># </span>确认号 ack</h4></a>
+<p>期望收到对方下一个报文段的第一个数据字节的序号。若确认号为 N，则表明：到序号 N-1 为止的所有数据都已正确收到。</p>
+<a href="#数据偏移首部长度"><h4 id="数据偏移首部长度"><span class="hanchor" ariaLabel="Anchor"># </span>数据偏移（首部长度）</h4></a>
+<p>它指出 TCP 报文段的数据起始处距离 TCP 报文段的起始处有多远。这个字段实际上是指出 TCP 报文段的首部长度。</p>
+<a href="#保留"><h4 id="保留"><span class="hanchor" ariaLabel="Anchor"># </span>保留</h4></a>
+<p>占 6 位，应置为 0，保留为今后使用。如图，保留位的右边还有 6 个控制位（重要），这是 TCP 用来说明该报文段性质的。</p>
+<a href="#紧急位-urg"><h4 id="紧急位-urg"><span class="hanchor" ariaLabel="Anchor"># </span>紧急位 URG</h4></a>
+<p>当 URG = 1 时，表明此报文段中有紧急数据，是高优先级的数据，应尽快发送，不用在缓存中排队。该控制位需配合紧急指针使用（紧急指针指出本报文段中紧急数据的字节数）</p>
+<blockquote>
+<p>举个例子：我们需要取消一个已经发送了很长程序的运行，因此用户从键盘发出中断命令。如果不使用紧急数据，那么这个指令将存储在接收 TCP 的缓存末尾，只有在所有的数据被处理完毕后这两个字符才被交付接收方的应用进程，这样做就无法实现立即中断。</p>
+</blockquote>
+<a href="#确认-ack"><h4 id="确认-ack"><span class="hanchor" ariaLabel="Anchor"># </span>确认 ACK</h4></a>
+<p>仅当 ACK = 1 时确认号字段才有效，当 ACK = 0 时确认号无效。TCP 规定，在连接建立后所有传送的报文段都必须把 ACK 置为 1。</p>
+<a href="#推送-psh"><h4 id="推送-psh"><span class="hanchor" ariaLabel="Anchor"># </span>推送 PSH</h4></a>
+<p>当两个应用进程进行交互式的通信时，有时在一端的应用进程希望在键入一个命令后立即就能收到对方的响应。在这种情况下，TCP 就可以使用推送（push）操作。这时，发送方 TCP 把 PSH 置为 1，并立即创建一个报文段发送出去。接收方 TCP 收到 PSH = 1 的报文段，就尽快地交付接收应用进程。而不用等到整个缓存都填满了后再向上交付。</p>
+<a href="#复位-rst"><h4 id="复位-rst"><span class="hanchor" ariaLabel="Anchor"># </span>复位 RST</h4></a>
+<p>当 RST = 1 时，表明 TCP 连接中出现了严重错误（如由于主机崩溃或其他原因），必须释放连接，然后再重新建立传输连接。</p>
+<a href="#同步-syn"><h4 id="同步-syn"><span class="hanchor" ariaLabel="Anchor"># </span>同步 SYN</h4></a>
+<p>SYN = 1 表示这是一个连接请求或连接接受报文。</p>
+<p>当 SYN = 1 而 ACK = 0 时，表明这是一个连接请求报文段。对方若同意建立连接，则应在响应的报文段中使 SYN = 1 且 ACK = 1。</p>
+<a href="#终止-fin"><h4 id="终止-fin"><span class="hanchor" ariaLabel="Anchor"># </span>终止 FIN</h4></a>
+<p>用来释放一个连接。当 FIN = 1 时，表明此报文段的发送发的数据已发送完毕，并要求释放运输连接。</p>
+<a href="#3-tcp-三次握手建立连接"><h2 id="3-tcp-三次握手建立连接"><span class="hanchor" ariaLabel="Anchor"># </span>3. TCP 三次握手建立连接</h2></a>
+<a href="#三次握手过程详解"><h3 id="三次握手过程详解"><span class="hanchor" ariaLabel="Anchor"># </span>三次握手过程详解</h3></a>
+<p>三次握手的原文是 <code>three-way handshake</code>，整个名词的可以翻译为：<strong>需要三个步骤才能建立握手 / 连接的机制</strong>。当然，三次握手也可以叫 <code>three-message handshake</code>，通过三条消息来建立的握手 / 连接。</p>
+<p>进行三次握手的主要作用就是为了确认双方的接收能力和发送能力是否正常、指定自己的 <strong>初始化序列号 (Init Sequense Number,  <code>ISN</code>)</strong> 为后面的可靠性传输做准备。</p>
+<p>三次握手过程如下图：</p>
+<p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/641.png" width="auto" alt=""  /></p>
+<p>图中字符的含义：</p>
+<ul>
+<li><code>SYN</code>：连接请求 / 接收 报文段</li>
+<li><code>seq</code>：发送的第一个字节的序号</li>
+<li><code>ACK</code>：确认报文段</li>
+<li><code>ack</code>：确认号。希望收到的下一个数据的第一个字节的序号</li>
+</ul>
+<p><strong>刚开始客户端处于 <code>Closed</code> 的状态，而服务端处于 <code>Listen</code> 状态</strong>：</p>
+<ul>
+<li><code>CLOSED</code>：没有任何连接状态</li>
+<li><code>LISTEN</code>：侦听来自远方 TCP 端口的连接请求</li>
+</ul>
+<p><strong>1）第一次握手</strong>：客户端向服务端发送一个 SYN 报文（SYN = 1），并指明客户端的初始化序列号 ISN(x)，即图中的 seq = x，表示本报文段所发送的数据的第一个字节的序号。此时客户端处于 <code>SYN_Send</code> 状态。</p>
+<p><code>SYN-SENT</code> ：在发送连接请求后等待匹配的连接请求</p>
+<p><strong>2）第二次握手</strong>：服务器收到客户端的 SYN 报文之后，会发送 SYN 报文作为应答（SYN = 1），并且指定自己的初始化序列号 ISN(y)，即图中的 seq = y。同时会把客户端的 ISN + 1 作为确认号 ack 的值，表示已经收到了客户端发来的的 SYN 报文，希望收到的下一个数据的第一个字节的序号是 x + 1，此时服务器处于 <code>SYN_REVD</code> 的状态。</p>
+<p><code>SYN-RECEIVED</code>：在收到和发送一个连接请求后等待对连接请求的确认</p>
+<p><strong>3）第三次握手</strong>：客户端收到服务器端响应的 SYN 报文之后，会发送一个 ACK 报文，也是一样把服务器的 ISN + 1 作为 ack 的值，表示已经收到了服务端发来的的 SYN 报文，希望收到的下一个数据的第一个字节的序号是 y + 1，并指明此时客户端的序列号 seq = x + 1（初始为 seq = x，所以第二个报文段要 +1），此时客户端处于 <code>Establised</code> 状态。</p>
+<p>服务器收到 ACK 报文之后，也处于 <code>Establised 状态</code>，至此，双方建立起了 TCP 连接。</p>
+<p><code>ESTABLISHED</code>：代表一个打开的连接，数据可以传送给用户</p>
+<a href="#为什么要三次握手"><h3 id="为什么要三次握手"><span class="hanchor" ariaLabel="Anchor"># </span>为什么要三次握手</h3></a>
+<p>三次握手的目的是建立可靠的通信信道，说到通讯，简单来说就是数据的发送与接收，而三次握手最主要的目的就是<strong>双方确认自己与对方的发送与接收是正常的</strong>。</p>
+<p>只有经过三次握手才能确认双发的收发功能都正常，缺一不可：</p>
+<ul>
+<li>第一次握手（客户端发送 SYN 报文给服务器，服务器接收该报文）
+<ul>
+<li>客户端什么都不能确认</li>
+<li>服务器确认了对方发送正常，自己接收正常</li>
+</ul>
+</li>
+<li>第二次握手（服务器响应 SYN 报文给客户端，客户端接收该报文）
+<ul>
+<li>客户端确认了：自己发送、接收正常，对方发送、接收正常</li>
+<li>服务器确认了：对方发送正常，自己接收正常</li>
+</ul>
+</li>
+<li>第三次握手（客户端发送 ACK 报文给服务器）
+<ul>
+<li>客户端确认了：自己发送、接收正常，对方发送、接收正常</li>
+<li>服务器确认了：自己发送、接收正常，对方发送、接收正常</li>
+</ul>
+</li>
+</ul>
+<a href="#isn-initial-sequence-number-是固定的吗"><h3 id="isn-initial-sequence-number-是固定的吗"><span class="hanchor" ariaLabel="Anchor"># </span>ISN (Initial Sequence Number) 是固定的吗</h3></a>
+<p><strong>三次握手的其中一个重要功能是客户端和服务端交换 ISN(Initial Sequence Number)，以便让对方知道接下来接收数据的时候如何按序列号组装数据</strong>。</p>
+<p>当一端为建立连接而发送它的 SYN 时，它会为连接选择一个初始序号。ISN 随时间而变化，因此每个连接都将具有不同的 ISN。<strong>如果 ISN 是固定的，攻击者很容易猜出后续的确认号，因此 ISN 是动态生成的</strong>。</p>
+<a href="#三次握手过程中可以携带数据吗"><h3 id="三次握手过程中可以携带数据吗"><span class="hanchor" ariaLabel="Anchor"># </span>三次握手过程中可以携带数据吗</h3></a>
+<p>第三次握手的时候，是可以携带数据的。但是，<strong>第一次、第二次握手绝对不可以携带数据</strong></p>
+<p>假如第一次握手可以携带数据的话，如果有人要恶意攻击服务器，那他每次都在第一次握手中的 SYN 报文中放入大量的数据，然后疯狂重复发 SYN 报文的话（因为攻击者根本就不用管服务器的接收、发送能力是否正常，它就是要攻击你），这会让服务器花费很多时间、内存空间来接收这些报文。</p>
+<p>⭐ <strong>简单的记忆就是，请求连接 / 接收 即 <code>SYN = 1</code> 的时候不能携带数据</strong></p>
+<p>而对于第三次的话，此时客户端已经处于 <code>ESTABLISHED</code> 状态。对于客户端来说，他已经建立起连接了，并且也已经知道服务器的接收、发送能力是正常的了，所以当然能正常发送 / 携带数据了。</p>
+<a href="#半连接队列"><h3 id="半连接队列"><span class="hanchor" ariaLabel="Anchor"># </span>半连接队列</h3></a>
+<p>服务器第一次收到客户端的 SYN 之后，就会处于 <code>SYN_RCVD</code> 状态，此时双方还没有完全建立其连接，服务器会把这种状态下的请求连接放在一个队列里，我们把这种队列称之为<strong>半连接队列</strong>。</p>
+<p>当然还有一个<strong>全连接队列</strong>，完成三次握手后建立起的连接就会放在全连接队列中。如果队列满了就有可能会出现丢包现象。</p>
+<a href="#syn-洪泛攻击"><h3 id="syn-洪泛攻击"><span class="hanchor" ariaLabel="Anchor"># </span>SYN 洪泛攻击</h3></a>
+<p>SYN 攻击就是 <strong>Client 在短时间内伪造大量不存在的 IP 地址，并向 Server 不断地发送 SYN 包</strong>，Server 则回复确认包，并等待 Client 确认，由于源地址不存在，因此 Server 需要不断重发直至超时，这些伪造的 SYN 包将长时间占用半连接队列，导致正常的 SYN 请求因为队列满而被丢弃，从而引起网络拥塞甚至系统瘫痪。</p>
+<a href="#如果第三次握手丢失了客户端服务端会如何处理"><h3 id="如果第三次握手丢失了客户端服务端会如何处理"><span class="hanchor" ariaLabel="Anchor"># </span>如果第三次握手丢失了，客户端服务端会如何处理</h3></a>
+<p>服务器发送完 SYN-ACK 包，如果未收到客户端响应的确认包，也即第三次握手丢失。那么服务器就会进行首次重传，若等待一段时间仍未收到客户确认包，就进行第二次重传。如果重传次数超过系统规定的最大重传次数，则系统将该连接信息从半连接队列中删除。</p>
+<p>注意，每次重传等待的时间不一定相同，一般会是指数增长，例如间隔时间为 1s，2s，4s，8s…</p>
+<a href="#4-tcp-四次挥手释放连接"><h2 id="4-tcp-四次挥手释放连接"><span class="hanchor" ariaLabel="Anchor"># </span>4. TCP 四次挥手释放连接</h2></a>
+<a href="#四次挥手过程详解"><h3 id="四次挥手过程详解"><span class="hanchor" ariaLabel="Anchor"># </span>四次挥手过程详解</h3></a>
+<p>建立一个 TCP 连接需要三次握手，而终止一个 TCP 连接要经过四次挥手（也有将四次挥手叫做四次握手的）。这是由于 TCP 的<strong>半关闭</strong>（half-close）特性造成的，TCP 提供了连接的一端在结束它的发送后还能接收来自另一端数据的能力。</p>
+<p>TCP 连接的释放需要发送四个包（执行四个步骤），因此称为四次挥手 (<code>Four-way handshake</code>)，<strong>客户端或服务端均可主动发起挥手动作</strong>。</p>
+<p>
+
+
+<img src="chick26.github.io/../../../Extras/Media/Images/642.png" width="auto" alt=""  /></p>
+<p>回顾一下上图中符号的意思：</p>
+<ul>
+<li><code>FIN</code> ：连接终止位</li>
+<li><code>seq</code>：发送的第一个字节的序号</li>
+<li><code>ACK</code>：确认报文段</li>
+<li><code>ack</code>：确认号。希望收到的下一个数据的第一个字节的序号</li>
+</ul>
+<p>刚开始双方都处于<code>ESTABLISHED</code> 状态，假设是客户端先发起关闭请求。四次挥手的过程如下：</p>
+<p><strong>1）第一次挥手</strong>：客户端发送一个 FIN 报文（请求连接终止：FIN = 1），报文中会指定一个序列号 seq = u。并<strong>停止再发送数据，主动关闭 TCP 连接</strong>。此时客户端处于 <code>FIN_WAIT1</code> 状态，等待服务端的确认。</p>
+<p><code>FIN-WAIT-1</code> - 等待远程 TCP 的连接中断请求，或先前的连接中断请求的确认；</p>
+<p><strong>2）第二次挥手</strong>：服务端收到 FIN 之后，会发送 ACK 报文，且把客户端的序号值 +1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 <code>CLOSE_WAIT</code> 状态。</p>
+<p><code>CLOSE-WAIT</code> - 等待从本地用户发来的连接中断请求；</p>
+<p><strong>此时的 TCP 处于半关闭状态，客户端到服务端的连接释放</strong>。客户端收到服务端的确认后，进入<code>FIN_WAIT2</code>（终止等待 2）状态，等待服务端发出的连接释放报文段。</p>
+<p><code>FIN-WAIT-2</code> - 从远程 TCP 等待连接中断请求；</p>
+<p><strong>3）第三次挥手</strong>：如果服务端也想断开连接了（没有要向客户端发出的数据），和客户端的第一次挥手一样，发送 FIN 报文，且指定一个序列号。此时服务端处于 <code>LAST_ACK</code> 的状态，等待客户端的确认。</p>
+<p><code>LAST-ACK</code> - 等待原来发向远程 TCP 的连接中断请求的确认；</p>
+<p><strong>4）第四次挥手</strong>：客户端收到 FIN 之后，一样发送一个 ACK 报文作为应答（ack = w+1），且把服务端的序列值 +1 作为自己 ACK 报文的序号值（seq=u+1），此时客户端处于 <strong><code>TIME_WAIT</code> （时间等待）状态</strong>。</p>
+<p><code>TIME-WAIT</code> - 等待足够的时间以确保远程 TCP 接收到连接中断请求的确认；</p>
+<p>🚨 注意 ！！！这个时候由服务端到客户端的 TCP 连接并未释放掉，<strong>需要经过时间等待计时器设置的时间 2MSL（一个报文的来回时间） 后才会进入 <code>CLOSED</code> 状态</strong>（这样做的目的是确保服务端收到自己的 ACK 报文。如果服务端在规定时间内没有收到客户端发来的 ACK 报文的话，服务端会重新发送 FIN 报文给客户端，客户端再次收到 FIN 报文之后，就知道之前的 ACK 报文丢失了，然后再次发送 ACK 报文给服务端）。服务端收到 ACK 报文之后，就关闭连接了，处于 <code>CLOSED</code> 状态。</p>
+<a href="#为什么要四次挥手"><h3 id="为什么要四次挥手"><span class="hanchor" ariaLabel="Anchor"># </span>为什么要四次挥手</h3></a>
+<p>由于 TCP 的<strong>半关闭</strong>（half-close）特性，TCP 提供了连接的一端在结束它的发送后还能接收来自另一端数据的能力。</p>
+<p>任何一方都可以在数据传送结束后发出连接释放的通知，待对方确认后进入<strong>半关闭状态</strong>。当另一方也没有数据再发送的时候，则发出连接释放通知，对方确认后就<strong>完全关闭</strong>了 TCP 连接。</p>
+<p><strong>通俗的来说，两次握手就可以释放一端到另一端的 TCP 连接，完全释放连接一共需要四次握手</strong>。</p>
+<p>举个例子：A 和 B 打电话，通话即将结束后，A 说 “我没啥要说的了”，B 回答 “我知道了”，于是 A 向 B 的连接释放了。但是 B 可能还会有要说的话，于是 B 可能又巴拉巴拉说了一通，最后 B 说 “我说完了”，A 回答 “知道了”，于是 B 向 A 的连接释放了，这样整个通话就结束了。</p>
+
+
+    </article>
+    
+
+<hr/>
+
+
+<div class="page-end" id="footer">
+    <div class="backlinks-container">
+        <h3>Backlinks</h3>
+<ul class="backlinks">
+    
+    
+    
+    
+    
+    
+    
+    <li>
+      No backlinks found
+    </li>
+    
+</ul>
+
+    </div>
+    <div>
+        <script
+  src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"
+  integrity="sha256-+7jaYCp29O1JusNWHaYtgUn6EhuP0VaFuswhNV06MyI="
+  crossorigin="anonymous"
+></script>
+<h3>Interactive Graph</h3>
+<div id="graph-container"></div>
+<style>
+  :root {
+    --g-node: var(--secondary);
+    --g-node-active: var(--primary);
+    --g-node-inactive: var(--visited);
+    --g-link: var(--outlinegray);
+    --g-link-active: #5a7282;
+  }
+</style>
+
+<script src="../../../../chick26.github.io/js/graph.6579af7b10c818dbd2ca038702db0224.js"></script>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="contact_buttons">
+    <footer>
+        
+        
+        <p>Made by Jacky Zhao using <a href="https://github.com/jackyzha0/quartz">Quartz</a>, © 2023</p>
+        <ul>
+            
+            <li><a href="chick26.github.io">Home</a></li>
+            <li><a href="https://twitter.com/_jzhao">Twitter</a></li><li><a href="https://github.com/jackyzha0">GitHub</a></li></ul>
+    </footer>
+</div>
+
+
+</div>
+</body>
+</html>
