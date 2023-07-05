@@ -1,7 +1,7 @@
 baseURL = "chick26.github.io"
 languageCode = "zh-cn"
 relativeURLs = false
-disablePathToLower = true
+disablePathToLower = false
 ignoreFiles = [
     "/content/templates/*",
     "/content/private/*",
