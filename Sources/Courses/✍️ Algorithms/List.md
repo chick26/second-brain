@@ -6,11 +6,11 @@ tags:
 - Development/ComputerBasic/DataStructure/List
 - Sources/Courses/Algorithms
 ---
-up:: [[• TOC for Algorithm Course](%E2%80%A2%20TOC%20for%20Algorithm%20Course.md)
+up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
 
 ## 1 基本结构
 
-![[../../../Extras/Excalidraw/算法之美/list-construct.excalidraw.md|600]]
+![[Extras/Excalidraw/算法之美/list-construct.excalidraw|600]]
 
 ### 1.1 单链表
 
@@ -68,9 +68,9 @@ up:: [[• TOC for Algorithm Course](%E2%80%A2%20TOC%20for%20Algorithm%20Course.
 
 ## 4 工程应用
 
-- [[LRU Using List|LRU 高速缓存](LRU%20Using%20List.md)
-- [[Palindromic string|回文字符串](Palindromic%20string.md)
-- [[Josephus Problem Using List|约瑟夫环](Josephus%20Problem%20Using%20List.md)
+- [[Sources/Courses/✍️ Algorithms/LRU Using List|LRU 高速缓存]]
+- [[Sources/Courses/✍️ Algorithms/Palindromic string|回文字符串]]
+- [[Sources/Courses/✍️ Algorithms/Josephus Problem Using List|约瑟夫环]]
 
 ## 5 链表的代码技巧
 
@@ -82,7 +82,7 @@ C 语言有“指针”的概念； Java、Python的“引用”相当于C 语�
 
 单链表的插入操作：
 
-![[Single list insert .excalidraw|600](../../../Extras/Excalidraw/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/Single%20list%20insert%20.excalidraw.md)
+![[Extras/Excalidraw/算法之美/Single list insert .excalidraw|600]]
 
 如图所示，需要在结点 a 和相邻的结点 b 之间插入结点 x，假设当前指针 p 指向结点 a。若使用以下代码实现，就会发生指针丢失和内存泄露。
 

@@ -9,7 +9,7 @@ tags:
 ---
 <div class="title" style="color:#fff">Media</div>
 
-# < [[Journal MOC|🌏](../../../Calendar/Journal%20MOC.md) | [[New Discoveries Hub |💡](New%20Discoveries%20Hub.md)  | [[Ship Hub|🛳️](Ship%20Hub.md) >
+# < [[Calendar/Journal MOC|🌏]] | [[Atlas/Scopes/Calendar/New Discoveries Hub|💡]] | [[Atlas/Scopes/Calendar/Ship Hub|🛳️]] >
 
 Media Log contains mini-reviews on the books/articles I read and the videos I watch.
 

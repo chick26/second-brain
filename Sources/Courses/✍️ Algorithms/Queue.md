@@ -6,7 +6,7 @@ tags:
 - Development/ComputerBasic/DataStructure/Queue
 - Sources/Courses/Algorithms
 ---
-up:: [[• TOC for Algorithm Course](%E2%80%A2%20TOC%20for%20Algorithm%20Course.md)
+up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
 
 ## 1 基本结构
 
@@ -93,7 +93,7 @@ class ArrayQueue:
 - 调用两次出队操作之后，队列中 head 指针指向下标为 2 的位置，tail 指针仍然指向下标为 4 的位置。 
 - 随着不停地进行入队、出队操作，head 和 tail 都会持续往后移动。当 tail 移动到最右边，即使数组中还有空闲空间，也无法继续往队列中添加数据了。这时需要触发一次数据的搬移操作
 
-![[Basic queue.excalidraw|300](../../../Extras/Excalidraw/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/Basic%20queue.excalidraw.md)
+![[Extras/Excalidraw/算法之美/Basic queue.excalidraw|300]]
 
 #### 2.1.3 Java 数据搬移
 
@@ -242,7 +242,7 @@ class LinkedQueue:
 - **队列为空**的判断条件是 `head == tail`
 - **队列满**的判断条件是 `(tail+1)%n=head`，为了避免和队空的判断条件混淆，则必须牺牲一个数组的存储空间
 
-![[Cyclic array queue.excalidraw|800](../../../Extras/Excalidraw/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/Cyclic%20array%20queue.excalidraw.md)
+![[Extras/Excalidraw/算法之美/Cyclic array queue.excalidraw|800]]
 
 #### 2.3.1 Java 循环数组实现
 
@@ -312,9 +312,9 @@ class CircularQueue:
 
 ## 3 工程应用
 
-- [[Blocking queue|阻塞队列](Blocking%20queue.md)
-- [[Concurrent queue|并发队列](Concurrent%20queue.md)
-- [[Finite resource pool|有限资源池](Finite%20resource%20pool.md)
+- [[Sources/Courses/✍️ Algorithms/Blocking queue|阻塞队列]]
+- [[Sources/Courses/✍️ Algorithms/Concurrent queue|并发队列]]
+- [[Sources/Courses/✍️ Algorithms/Finite resource pool|有限资源池]]
 
 ## 4 思考题
 
