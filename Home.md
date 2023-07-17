@@ -32,7 +32,7 @@ obsidianUIMode: preview
 	-  📆 [[Calendar/Journal MOC|Daily Note]]
 
 -  [[Sources/Sources MOC|Things]]
-	-  📚 [[Atlas/Scopes/Bookshelf|Bookshelf|Library]]
+	-  📚 [[Atlas/Scopes/Bookshelf|Library]]
 	-  🧑‍🏫 [[Sources/Talks/• TOC for Talks|Talks]]
 	-  😶‍🌫️ [[Atlas/MOCs/Concepts MOC|Concepts]]
 	-  🔬 [[Atlas/MOCs/Courses MOC|Courses]]
