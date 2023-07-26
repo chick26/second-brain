@@ -6,7 +6,7 @@ tags:
 - Development/AI/NLP/GPT
 - Development/AI/NLP/GPT/Prompt
 ---
-up:: [[• TOC for GPT](%E2%80%A2%20TOC%20for%20GPT.md)
+up:: [[Cards/🪀 GPT/• TOC for GPT|• TOC for GPT]]
 
 ## 如何编写清晰简洁的 Prompt
 

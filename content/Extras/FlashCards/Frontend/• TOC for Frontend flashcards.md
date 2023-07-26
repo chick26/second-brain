@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Flashcards MOC](../Flashcards%20MOC.md) | Frontend Flashcards
+# 🌏 [[Extras/FlashCards/Flashcards MOC|Flashcards MOC]]| Frontend Flashcards
 
 ``` dataview
 TABLE 

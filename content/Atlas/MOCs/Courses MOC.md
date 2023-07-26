@@ -4,7 +4,7 @@ obsidianUIMode: preview
 tags:
 - Atlas/MOC
 ---
-# 🌏 [[Atlases MOC| Atlases](../Atlases%20MOC.md) | MOC | [[• TOC for Courses|TOC](../../Sources/Courses/%E2%80%A2%20TOC%20for%20Courses.md)
+# 🌏 [[Atlas/Atlases MOC| Atlases]] | MOC | [[Sources/Courses/• TOC for Courses|• TOC for Courses]]
 
 | [[Courses waiting List]] | [[You have to review there courses]] 
 
@@ -13,25 +13,24 @@ tags:
 
 ### Alibaba ACA
 
-- [[../../Sources/Courses/☁️%20Cloud%20Tech/ACA-云计算基础.md]]
-- [[../../Sources/Courses/☁️%20Cloud%20Tech/云计算架构.md]]
+- [[Sources/Courses/☁️ Cloud Tech/ACA-云计算基础|ACA-云计算基础]]
+- [[Sources/Courses/☁️ Cloud Tech/云计算架构|云计算架构]]
 
 ### 通信工程师
 
-- [[../../Sources/Courses/☎️%20Communicate%20Tech/计算机网络.md]]
+- [[Sources/Courses/☎️ Communicate Tech/计算机网络|计算机网络]]
 
 ### CFA
 
-- [[The Time Value of Money](../../Sources/Courses/%F0%9F%92%B5%20CFA/The%20Time%20Value%20of%20Money.md)
+- [[Sources/Courses/💵 CFA/The Time Value of Money|The Time Value of Money]]
 
 ### MySQL
 
-- [[• TOC for MySQL Course](../../Sources/Courses/%E2%9A%99%EF%B8%8F%20Database/MySQL/%E2%80%A2%20TOC%20for%20MySQL%20Course.md)
-
+- [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course]]
 ---
 ## Interview
 
 ### Frontend
 
 -  [大厂面试题每日一题](https://q.shanyue.tech/)
-- [[• TOC for Frontend Interview](../../Sources/Courses/%F0%9F%97%BF%20Frontend%20Interview/%E2%80%A2%20TOC%20for%20Frontend%20Interview.md)
+- [[Sources/Courses/🗿 Frontend Interview/• TOC for Frontend Interview|• TOC for Frontend Interview]]

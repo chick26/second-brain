@@ -6,7 +6,7 @@ tags:
 - Development/Frontend/Deploy/Rollupjs
 - Development/Frontend/Package
 ---
-up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
+up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 
 [rollup.js](https://rollupjs.org/) 是一个 JavaScript 打包工具。本文介绍它的基本用法。
 

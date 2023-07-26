@@ -4,7 +4,7 @@ obsidianUIMode: preview
 tags:
 - Atlas/Scope
 ---
-# 🌏 [[Atlases MOC| Atlases](../Atlases%20MOC.md) | The Outbox 📤
+# 🌏 [[Atlas/Atlases MOC|Atlases]] | The Outbox 📤
 
 ```dataview
 TABLE WITHOUT ID

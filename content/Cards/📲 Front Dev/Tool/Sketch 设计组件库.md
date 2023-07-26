@@ -6,7 +6,7 @@ tags:
 - Development/Tools
 - UI-UX/Sketch
 ---
-up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
+up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 
 **1. Apple UI Design Resources**
 下载地址：[Design Resources – Apple Developer](https://developer.apple.com/design/resources/)

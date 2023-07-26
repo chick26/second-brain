@@ -11,29 +11,29 @@ Front-end ^zg8J6EGh
 
 Internet ^PTtyYUVi
 
-[[../../Cards/📲%20Front%20Dev/Internet/DNS.md|DNS and How it works]] ^CEIpnN1E
+[[Cards/📲 Front Dev/Internet/DNS|DNS and How it works]] ^CEIpnN1E
 
-[[../../Cards/📲%20Front%20Dev/Internet/INTERNET.md|How does the Internet works?]] ^8F2pqe5B
+[[Cards/📲 Front Dev/Internet/INTERNET|How does the Internet works?]] ^8F2pqe5B
 
-[[../../Cards/📲%20Front%20Dev/Internet/HTTP.md|What is Http?]] ^IJE5QvgR
+[[Cards/📲 Front Dev/Internet/HTTP|What is Http?]] ^IJE5QvgR
 
-[[Web Browsers|Browsers and How they work?](../../Cards/%F0%9F%93%B2%20Front%20Dev/Internet/Web%20Browsers.md) ^wgWPJMn4
+[[Cards/📲 Front Dev/Internet/Web Browsers|Browsers and How they work?]] ^wgWPJMn4
 
-[[Domain Name|What is Domain Name](../../Cards/%F0%9F%93%B2%20Front%20Dev/Internet/Domain%20Name.md) ^ekfCepKg
+[[Cards/📲 Front Dev/Internet/Domain Name|What is Domain Name]] ^ekfCepKg
 
-[[Web Hosting|What is Hosing](../../Cards/%F0%9F%93%B2%20Front%20Dev/Internet/Web%20Hosting.md) ^lRziEnsg
+[[Cards/📲 Front Dev/Internet/Web Hosting|What is Hosing]] ^lRziEnsg
 
-[[../../Cards/📲%20Front%20Dev/HTML/HTML.md]] ^050RVjVu
+[[Cards/📲 Front Dev/HTML/HTML|HTML]] ^050RVjVu
 
 [[CSS]] ^pdIJzgkG
 
-[[../../Cards/📲%20Front%20Dev/HTML/HTML.md|Learn the Basics]] ^X10GDBWE
+[[Cards/📲 Front Dev/HTML/HTML|Learn the Basics]] ^X10GDBWE
 
-[[../../Cards/📲%20Front%20Dev/HTML/HTML-Validation.md|Forms and Validations]] ^u7jG1c2E
+[[Cards/📲 Front Dev/HTML/HTML-Validation|Forms and Validations]] ^u7jG1c2E
 
 [[HTML_Semantic|Writing the Semantic HTML]] ^Bcdb6d9S
 
-[[../../Cards/📲%20Front%20Dev/HTML/HTML-Principel.md|Conventions and Best Practices]] ^jNDfg4cr
+[[Cards/📲 Front Dev/HTML/HTML-Principel|Conventions and Best Practices]] ^jNDfg4cr
 
 Accessibility ^yrAcvuzq
 
@@ -66,12 +66,12 @@ CSS Grid
 {
 	"type": "excalidraw",
 	"version": 2,
-	"source": "https://excalidraw.com",
+	"source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/1.9.6",
 	"elements": [
 		{
 			"type": "text",
-			"version": 568,
-			"versionNonce": 1507559706,
+			"version": 577,
+			"versionNonce": 658676601,
 			"isDeleted": false,
 			"id": "zg8J6EGh",
 			"fillStyle": "hachure",
@@ -84,34 +84,39 @@ CSS Grid
 			"y": -797.9627416085452,
 			"strokeColor": "#000",
 			"backgroundColor": "transparent",
-			"width": 50,
-			"height": 14,
+			"width": 48.269439697265625,
+			"height": 13.171980574324326,
 			"seed": 1469152971,
 			"groupIds": [],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659866,
+			"updated": 1688542370926,
 			"link": null,
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 10.537584459459461,
 			"fontFamily": 1,
 			"text": "Front-end",
 			"rawText": "Front-end",
-			"baseline": 10,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Front-end"
+			"originalText": "Front-end",
+			"lineHeight": 1.25,
+			"baseline": 10
 		},
 		{
 			"type": "rectangle",
-			"version": 1054,
-			"versionNonce": 1783672198,
+			"version": 1063,
+			"versionNonce": 1482798231,
 			"isDeleted": false,
 			"id": "zUxqb8fksYDnx8fpjSNfv",
 			"fillStyle": "solid",
@@ -130,7 +135,8 @@ CSS Grid
 			"groupIds": [
 				"COsqhzhmooDRutDHLhQQf"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -153,14 +159,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659866,
+			"updated": 1688542370926,
 			"link": null,
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 463,
-			"versionNonce": 578770394,
+			"version": 472,
+			"versionNonce": 523420761,
 			"isDeleted": false,
 			"id": "PTtyYUVi",
 			"fillStyle": "solid",
@@ -173,36 +182,41 @@ CSS Grid
 			"y": -762.318552824888,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 43,
-			"height": 11,
+			"width": 41.765625,
+			"height": 10.703289473684197,
 			"seed": 967284357,
 			"groupIds": [
 				"COsqhzhmooDRutDHLhQQf"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "-CjcT0eC7uD1K22xiIYLG",
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659866,
+			"updated": 1688542370926,
 			"link": null,
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 8.919407894736832,
 			"fontFamily": 3,
 			"text": "Internet",
 			"rawText": "Internet",
-			"baseline": 9,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Internet"
+			"originalText": "Internet",
+			"lineHeight": 1.2,
+			"baseline": 9
 		},
 		{
 			"type": "arrow",
-			"version": 2578,
-			"versionNonce": 1210911942,
+			"version": 2587,
+			"versionNonce": 898435511,
 			"isDeleted": false,
 			"id": "9elQIEYFo4vFhLWqb_NfT",
 			"fillStyle": "solid",
@@ -219,9 +233,12 @@ CSS Grid
 			"height": 37.05065355523038,
 			"seed": 1264077605,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659866,
+			"updated": 1688542370926,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -250,8 +267,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 1741,
-			"versionNonce": 1720421018,
+			"version": 1750,
+			"versionNonce": 2095763769,
 			"isDeleted": false,
 			"id": "0bF7shtuVQ896fh_8smJH",
 			"fillStyle": "solid",
@@ -270,21 +287,25 @@ CSS Grid
 			"groupIds": [
 				"-tGcTKmwuvZcX3Rk5FyXB"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659866,
+			"updated": 1688542370926,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 1593,
-			"versionNonce": 1102808070,
+			"version": 1602,
+			"versionNonce": 953203415,
 			"isDeleted": false,
 			"id": "CEIpnN1E",
 			"fillStyle": "solid",
@@ -297,36 +318,41 @@ CSS Grid
 			"y": -805.2926083076172,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 91,
-			"height": 10,
+			"width": 89.8828125,
+			"height": 9.208685988620188,
 			"seed": 1120603595,
 			"groupIds": [
 				"-tGcTKmwuvZcX3Rk5FyXB"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659866,
-			"link": "[[DNS]]",
+			"updated": 1688542370926,
+			"link": "[[Cards/📲 Front Dev/Internet/DNS]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
 			"text": "DNS and How it works",
-			"rawText": "[[DNS|DNS and How it works]]",
-			"baseline": 8,
+			"rawText": "[[Cards/📲 Front Dev/Internet/DNS|DNS and How it works]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "DNS and How it works"
+			"originalText": "DNS and How it works",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "rectangle",
-			"version": 1785,
-			"versionNonce": 1823680346,
+			"version": 1795,
+			"versionNonce": 97403417,
 			"isDeleted": false,
 			"id": "4MmGNvakr5sVZXx4aH_b9",
 			"fillStyle": "solid",
@@ -345,7 +371,8 @@ CSS Grid
 			"groupIds": [
 				"fo_QtoZng26uz9ZZN5PwV"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -356,14 +383,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2035,
-			"versionNonce": 1224282950,
+			"version": 2095,
+			"versionNonce": 1750240311,
 			"isDeleted": false,
 			"id": "8F2pqe5B",
 			"fillStyle": "solid",
@@ -376,13 +406,14 @@ CSS Grid
 			"y": -799.2962889657692,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 127,
-			"height": 10,
+			"width": 125.8359375,
+			"height": 9.208685988620188,
 			"seed": 1543608394,
 			"groupIds": [
 				"fo_QtoZng26uz9ZZN5PwV"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -393,23 +424,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
-			"link": "[[INTERNET]]",
+			"updated": 1688542387054,
+			"link": "[[Cards/📲 Front Dev/Internet/INTERNET]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
 			"text": "How does the Internet works?",
-			"rawText": "[[INTERNET|How does the Internet works?]]",
-			"baseline": 8,
+			"rawText": "[[Cards/📲 Front Dev/Internet/INTERNET|How does the Internet works?]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "How does the Internet works?"
+			"originalText": "How does the Internet works?",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "arrow",
-			"version": 625,
-			"versionNonce": 759770138,
+			"version": 634,
+			"versionNonce": 114333433,
 			"isDeleted": false,
 			"id": "Jo5CSzfYbnGyd3O850PtE",
 			"fillStyle": "solid",
@@ -426,9 +461,12 @@ CSS Grid
 			"height": 92.388671875,
 			"seed": 1608139959,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -457,8 +495,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 1226,
-			"versionNonce": 138590854,
+			"version": 1235,
+			"versionNonce": 2103652631,
 			"isDeleted": false,
 			"id": "AMb7t_b1-8ns2DYtfDO_o",
 			"fillStyle": "solid",
@@ -477,7 +515,8 @@ CSS Grid
 			"groupIds": [
 				"dafkdMK8_t3dItHdWOSJR"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -488,14 +527,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 1085,
-			"versionNonce": 507549914,
+			"version": 1094,
+			"versionNonce": 1651855321,
 			"isDeleted": false,
 			"id": "IJE5QvgR",
 			"fillStyle": "solid",
@@ -508,36 +550,41 @@ CSS Grid
 			"y": -762.6821532349279,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 60,
-			"height": 10,
+			"width": 58.423828125,
+			"height": 9.208685988620188,
 			"seed": 1182223594,
 			"groupIds": [
 				"dafkdMK8_t3dItHdWOSJR"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "2PD9Of7J44Cq6tMYDCYqo",
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
-			"link": "[[HTTP]]",
+			"updated": 1688542370927,
+			"link": "[[Cards/📲 Front Dev/Internet/HTTP]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
 			"text": "What is Http?",
-			"rawText": "[[HTTP|What is Http?]]",
-			"baseline": 8,
+			"rawText": "[[Cards/📲 Front Dev/Internet/HTTP|What is Http?]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "What is Http?"
+			"originalText": "What is Http?",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "arrow",
-			"version": 516,
-			"versionNonce": 1448442310,
+			"version": 527,
+			"versionNonce": 640349751,
 			"isDeleted": false,
 			"id": "MACPfw3o3RKRtWuTUXwcr",
 			"fillStyle": "solid",
@@ -554,9 +601,12 @@ CSS Grid
 			"height": 37.00346941581938,
 			"seed": 1638386538,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -585,8 +635,8 @@ CSS Grid
 		},
 		{
 			"type": "arrow",
-			"version": 602,
-			"versionNonce": 2133618074,
+			"version": 611,
+			"versionNonce": 1590684857,
 			"isDeleted": false,
 			"id": "2PD9Of7J44Cq6tMYDCYqo",
 			"fillStyle": "solid",
@@ -603,9 +653,12 @@ CSS Grid
 			"height": 4.579746363516051,
 			"seed": 2002421034,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -634,8 +687,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 1988,
-			"versionNonce": 709775622,
+			"version": 1997,
+			"versionNonce": 670898007,
 			"isDeleted": false,
 			"id": "RvW0-B3c4m5xtM8fZ1KjM",
 			"fillStyle": "solid",
@@ -654,7 +707,8 @@ CSS Grid
 			"groupIds": [
 				"fmiLb19fLUnsMaBS-w41c"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -665,14 +719,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2301,
-			"versionNonce": 624929370,
+			"version": 2310,
+			"versionNonce": 864284057,
 			"isDeleted": false,
 			"id": "wgWPJMn4",
 			"fillStyle": "solid",
@@ -685,13 +742,14 @@ CSS Grid
 			"y": -727.6207190531403,
 			"strokeColor": "#000",
 			"backgroundColor": "#f8e6a2",
-			"width": 123,
-			"height": 10,
+			"width": 184.259765625,
+			"height": 9.208685988620188,
 			"seed": 1356362193,
 			"groupIds": [
 				"fmiLb19fLUnsMaBS-w41c"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -706,23 +764,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
-			"link": "[[Web Browsers]]",
+			"updated": 1688542370927,
+			"link": "[[Cards/📲 Front Dev/Internet/Web Browsers]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
 			"text": "Browsers and How they work?",
-			"rawText": "[[Web Browers|Browsers and How they work?]]",
-			"baseline": 8,
+			"rawText": "[[Cards/📲 Front Dev/Internet/Web Browsers|Browsers and How they work?]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Browsers and How they work?"
+			"originalText": "Browsers and How they work?",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "arrow",
-			"version": 385,
-			"versionNonce": 262815814,
+			"version": 394,
+			"versionNonce": 690885751,
 			"isDeleted": false,
 			"id": "6S9MYETA5OoJFCMgkCy_m",
 			"fillStyle": "solid",
@@ -739,9 +801,12 @@ CSS Grid
 			"height": 12.416985066668758,
 			"seed": 32186673,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -766,8 +831,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 1991,
-			"versionNonce": 1196248858,
+			"version": 2000,
+			"versionNonce": 1472516729,
 			"isDeleted": false,
 			"id": "leptvAeghyS3bszqE3w0K",
 			"fillStyle": "solid",
@@ -786,7 +851,8 @@ CSS Grid
 			"groupIds": [
 				"oIGTcszxJBuscBaLbPm3A"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -797,14 +863,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 1800,
-			"versionNonce": 440813446,
+			"version": 1809,
+			"versionNonce": 293760407,
 			"isDeleted": false,
 			"id": "ekfCepKg",
 			"fillStyle": "solid",
@@ -817,36 +886,41 @@ CSS Grid
 			"y": -769.436322575137,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 87,
-			"height": 10,
+			"width": 143.8125,
+			"height": 9.208685988620188,
 			"seed": 2069737876,
 			"groupIds": [
 				"oIGTcszxJBuscBaLbPm3A"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
-			"link": "[[Domain Name]]",
+			"updated": 1688542370927,
+			"link": "[[Cards/📲 Front Dev/Internet/Domain Name]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
-			"text": "What is Domain Name",
-			"rawText": "[[Domain Name|What is Domain Name]]",
-			"baseline": 8,
+			"text": "[[Cards/📲 Front Dev/Internet/Domain Name|What is Domain Name]]",
+			"rawText": "[[Cards/📲 Front Dev/Internet/Domain Name|What is Domain Name]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "What is Domain Name"
+			"originalText": "What is Domain Name",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "arrow",
-			"version": 330,
-			"versionNonce": 1237867482,
+			"version": 339,
+			"versionNonce": 274078553,
 			"isDeleted": false,
 			"id": "c6CEeUg8MAvZtnouH9_TJ",
 			"fillStyle": "solid",
@@ -863,9 +937,12 @@ CSS Grid
 			"height": 1.060110430837426,
 			"seed": 957878755,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -894,8 +971,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 2268,
-			"versionNonce": 1516201670,
+			"version": 2277,
+			"versionNonce": 1546560183,
 			"isDeleted": false,
 			"id": "dbZ6tVtvwxeBUHABIQF9j",
 			"fillStyle": "solid",
@@ -914,7 +991,8 @@ CSS Grid
 			"groupIds": [
 				"UcLiVTcETxtVrcWsp22Gb"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -929,14 +1007,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2029,
-			"versionNonce": 180605082,
+			"version": 2038,
+			"versionNonce": 1032538169,
 			"isDeleted": false,
 			"id": "lRziEnsg",
 			"fillStyle": "solid",
@@ -949,36 +1030,41 @@ CSS Grid
 			"y": -737.498822575137,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 64,
-			"height": 10,
+			"width": 121.341796875,
+			"height": 9.208685988620188,
 			"seed": 513276675,
 			"groupIds": [
 				"UcLiVTcETxtVrcWsp22Gb"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
-			"link": "[[Web Hosting]]",
+			"updated": 1688542370927,
+			"link": "[[Cards/📲 Front Dev/Internet/Web Hosting]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
 			"text": "What is Hosing",
-			"rawText": "[[Hosting|What is Hosing]]",
-			"baseline": 8,
+			"rawText": "[[Cards/📲 Front Dev/Internet/Web Hosting|What is Hosing]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "What is Hosing"
+			"originalText": "What is Hosing",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "arrow",
-			"version": 325,
-			"versionNonce": 1351785990,
+			"version": 334,
+			"versionNonce": 701969367,
 			"isDeleted": false,
 			"id": "HqncXMJc5gQaBb12n2A_l",
 			"fillStyle": "solid",
@@ -995,9 +1081,12 @@ CSS Grid
 			"height": 28.715165475165577,
 			"seed": 1078114637,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1026,8 +1115,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 1454,
-			"versionNonce": 770878810,
+			"version": 1463,
+			"versionNonce": 1766316313,
 			"isDeleted": false,
 			"id": "prHiKwp7Bb3a_Enu7cMmK",
 			"fillStyle": "solid",
@@ -1046,7 +1135,8 @@ CSS Grid
 			"groupIds": [
 				"R2dL1Az3590Kb37y25lc6"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -1097,14 +1187,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 841,
-			"versionNonce": 1641868614,
+			"version": 850,
+			"versionNonce": 311468279,
 			"isDeleted": false,
 			"id": "050RVjVu",
 			"fillStyle": "solid",
@@ -1117,31 +1210,33 @@ CSS Grid
 			"y": -617.3697570352276,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 22,
-			"height": 11,
+			"width": 215.8412628173828,
+			"height": 10.703289473684197,
 			"seed": 1567143405,
 			"groupIds": [
 				"R2dL1Az3590Kb37y25lc6"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [],
-			"updated": 1662104659867,
-			"link": "[[HTML]]",
+			"updated": 1688542370927,
+			"link": "[[Cards/📲 Front Dev/HTML/HTML]]",
 			"locked": false,
 			"fontSize": 8.919407894736832,
 			"fontFamily": 3,
-			"text": "HTML",
-			"rawText": "[[HTML]]",
-			"baseline": 9,
+			"text": "Cards/📲 Front Dev/HTML/HTML",
+			"rawText": "[[Cards/📲 Front Dev/HTML/HTML|HTML]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "HTML"
+			"originalText": "HTML",
+			"lineHeight": 1.2,
+			"baseline": 9
 		},
 		{
 			"type": "rectangle",
-			"version": 1505,
-			"versionNonce": 1755836954,
+			"version": 1514,
+			"versionNonce": 352275961,
 			"isDeleted": false,
 			"id": "ORhuye2OnWjhpwiy0z5oc",
 			"fillStyle": "solid",
@@ -1160,7 +1255,8 @@ CSS Grid
 			"groupIds": [
 				"UoUHo_ghqabzyYefyYgpw"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -1195,14 +1291,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": null,
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 917,
-			"versionNonce": 1268470918,
+			"version": 926,
+			"versionNonce": 937388567,
 			"isDeleted": false,
 			"id": "pdIJzgkG",
 			"fillStyle": "solid",
@@ -1215,31 +1314,33 @@ CSS Grid
 			"y": -584.9771789102276,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 17,
-			"height": 11,
+			"width": 15.662109375,
+			"height": 10.703289473684197,
 			"seed": 667172525,
 			"groupIds": [
 				"UoUHo_ghqabzyYefyYgpw"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370927,
 			"link": "[[CSS]]",
 			"locked": false,
 			"fontSize": 8.919407894736832,
 			"fontFamily": 3,
 			"text": "CSS",
 			"rawText": "[[CSS]]",
-			"baseline": 9,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "CSS"
+			"originalText": "CSS",
+			"lineHeight": 1.2,
+			"baseline": 9
 		},
 		{
 			"type": "arrow",
-			"version": 354,
-			"versionNonce": 1305911002,
+			"version": 363,
+			"versionNonce": 1203054297,
 			"isDeleted": false,
 			"id": "-CjcT0eC7uD1K22xiIYLG",
 			"fillStyle": "solid",
@@ -1256,9 +1357,12 @@ CSS Grid
 			"height": 102.55859375,
 			"seed": 921291683,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1291,8 +1395,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 2050,
-			"versionNonce": 394974150,
+			"version": 2059,
+			"versionNonce": 381161271,
 			"isDeleted": false,
 			"id": "GazNAaAiEFtl2bJOI-W7G",
 			"fillStyle": "solid",
@@ -1311,7 +1415,8 @@ CSS Grid
 			"groupIds": [
 				"2nWK6YzhgaoyKWnTNzKkv"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -1326,14 +1431,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2410,
-			"versionNonce": 437367706,
+			"version": 2419,
+			"versionNonce": 1543300025,
 			"isDeleted": false,
 			"id": "X10GDBWE",
 			"fillStyle": "solid",
@@ -1346,13 +1454,14 @@ CSS Grid
 			"y": -664.9594311092116,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 74,
-			"height": 10,
+			"width": 72.46875,
+			"height": 9.281102156191064,
 			"seed": 571590147,
 			"groupIds": [
 				"2nWK6YzhgaoyKWnTNzKkv"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -1363,23 +1472,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
-			"link": "[[HTML]]",
+			"updated": 1688542370928,
+			"link": "[[Cards/📲 Front Dev/HTML/HTML]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.7342517968258875,
 			"fontFamily": 3,
 			"text": "Learn the Basics",
-			"rawText": "[[HTML|Learn the Basics]]",
-			"baseline": 8,
+			"rawText": "[[Cards/📲 Front Dev/HTML/HTML|Learn the Basics]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Learn the Basics"
+			"originalText": "Learn the Basics",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "rectangle",
-			"version": 1885,
-			"versionNonce": 264792838,
+			"version": 1894,
+			"versionNonce": 427757655,
 			"isDeleted": false,
 			"id": "jYo1Iv3lOSptQCKR3YuIh",
 			"fillStyle": "solid",
@@ -1398,7 +1511,8 @@ CSS Grid
 			"groupIds": [
 				"FPPhz7zzMepzNRz9aecx8"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -1413,14 +1527,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2251,
-			"versionNonce": 2139893850,
+			"version": 2260,
+			"versionNonce": 234488985,
 			"isDeleted": false,
 			"id": "u7jG1c2E",
 			"fillStyle": "solid",
@@ -1433,13 +1550,14 @@ CSS Grid
 			"y": -606.1745182534048,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 96,
-			"height": 10,
+			"width": 94.376953125,
+			"height": 9.208685988620188,
 			"seed": 1364114221,
 			"groupIds": [
 				"FPPhz7zzMepzNRz9aecx8"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -1450,23 +1568,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
-			"link": "[[HTML-Validation]]",
+			"updated": 1688542370928,
+			"link": "[[Cards/📲 Front Dev/HTML/HTML-Validation]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
 			"text": "Forms and Validations",
-			"rawText": "[[HTML-Validation|Forms and Validations]]",
-			"baseline": 8,
+			"rawText": "[[Cards/📲 Front Dev/HTML/HTML-Validation|Forms and Validations]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Forms and Validations"
+			"originalText": "Forms and Validations",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "rectangle",
-			"version": 1911,
-			"versionNonce": 852564550,
+			"version": 1920,
+			"versionNonce": 1778969975,
 			"isDeleted": false,
 			"id": "0aQVfrdSAcMV-2wFj_oY0",
 			"fillStyle": "solid",
@@ -1485,7 +1607,8 @@ CSS Grid
 			"groupIds": [
 				"9_nWuIaoNJnFyAuj4zyhd"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -1500,14 +1623,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2142,
-			"versionNonce": 1914246426,
+			"version": 2151,
+			"versionNonce": 1231030649,
 			"isDeleted": false,
 			"id": "Bcdb6d9S",
 			"fillStyle": "solid",
@@ -1520,13 +1646,14 @@ CSS Grid
 			"y": -635.1878646075714,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 114,
-			"height": 10,
+			"width": 112.353515625,
+			"height": 9.208685988620188,
 			"seed": 201669805,
 			"groupIds": [
 				"9_nWuIaoNJnFyAuj4zyhd"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -1537,23 +1664,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": "[[HTML_Semantic]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
 			"text": "Writing the Semantic HTML",
 			"rawText": "[[HTML_Semantic|Writing the Semantic HTML]]",
-			"baseline": 8,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Writing the Semantic HTML"
+			"originalText": "Writing the Semantic HTML",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "rectangle",
-			"version": 1920,
-			"versionNonce": 662823302,
+			"version": 1929,
+			"versionNonce": 60434071,
 			"isDeleted": false,
 			"id": "SXQNsB1sJtD5Thz0ySPxv",
 			"fillStyle": "solid",
@@ -1572,7 +1703,8 @@ CSS Grid
 			"groupIds": [
 				"9izHBejTYoDzVthMf5P2M"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -1587,14 +1719,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2243,
-			"versionNonce": 1932222938,
+			"version": 2252,
+			"versionNonce": 930247257,
 			"isDeleted": false,
 			"id": "jNDfg4cr",
 			"fillStyle": "solid",
@@ -1607,13 +1742,14 @@ CSS Grid
 			"y": -577.5734526009925,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 136,
-			"height": 10,
+			"width": 134.82421875,
+			"height": 9.208685988620188,
 			"seed": 62407043,
 			"groupIds": [
 				"9izHBejTYoDzVthMf5P2M"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -1624,23 +1760,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
-			"link": "[[HTML-Principel]]",
+			"updated": 1688542370928,
+			"link": "[[Cards/📲 Front Dev/HTML/HTML-Principel]]",
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.6739049905168235,
 			"fontFamily": 3,
 			"text": "Conventions and Best Practices",
-			"rawText": "[[HTML-Principel|Conventions and Best Practices]]",
-			"baseline": 8,
+			"rawText": "[[Cards/📲 Front Dev/HTML/HTML-Principel|Conventions and Best Practices]]",
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Conventions and Best Practices"
+			"originalText": "Conventions and Best Practices",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "arrow",
-			"version": 473,
-			"versionNonce": 823640262,
+			"version": 482,
+			"versionNonce": 82262967,
 			"isDeleted": false,
 			"id": "JBzj-Gz8vh583DU3rSqQX",
 			"fillStyle": "solid",
@@ -1657,9 +1797,12 @@ CSS Grid
 			"height": 42.113984791203166,
 			"seed": 362180035,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1688,8 +1831,8 @@ CSS Grid
 		},
 		{
 			"type": "arrow",
-			"version": 161,
-			"versionNonce": 1574311578,
+			"version": 170,
+			"versionNonce": 218414905,
 			"isDeleted": false,
 			"id": "VIUWNQksg8HAnLHnGlO6Q",
 			"fillStyle": "solid",
@@ -1706,9 +1849,12 @@ CSS Grid
 			"height": 8.305462712979875,
 			"seed": 1561946979,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1737,8 +1883,8 @@ CSS Grid
 		},
 		{
 			"type": "arrow",
-			"version": 161,
-			"versionNonce": 590329862,
+			"version": 170,
+			"versionNonce": 1108651223,
 			"isDeleted": false,
 			"id": "3XVpA_ItaAk9JJ2lEgP1O",
 			"fillStyle": "solid",
@@ -1755,9 +1901,12 @@ CSS Grid
 			"height": 29.33032682255225,
 			"seed": 1410356483,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1786,8 +1935,8 @@ CSS Grid
 		},
 		{
 			"type": "arrow",
-			"version": 67,
-			"versionNonce": 852243290,
+			"version": 76,
+			"versionNonce": 410677273,
 			"isDeleted": false,
 			"id": "bbFfFq_GPZvAqnpnxtb6y",
 			"fillStyle": "solid",
@@ -1804,9 +1953,12 @@ CSS Grid
 			"height": 12.745322316408533,
 			"seed": 767482125,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -1835,8 +1987,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 2263,
-			"versionNonce": 1439090502,
+			"version": 2272,
+			"versionNonce": 381090295,
 			"isDeleted": false,
 			"id": "delfvQBqgWz3x2OLiqFzZ",
 			"fillStyle": "solid",
@@ -1855,7 +2007,8 @@ CSS Grid
 			"groupIds": [
 				"1o0mIyeFoOw-VbA0UWj-S"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -1874,14 +2027,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2672,
-			"versionNonce": 1684060186,
+			"version": 2681,
+			"versionNonce": 264701177,
 			"isDeleted": false,
 			"id": "yrAcvuzq",
 			"fillStyle": "solid",
@@ -1894,13 +2050,14 @@ CSS Grid
 			"y": -656.200345513569,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 60,
-			"height": 10,
+			"width": 58.880859375,
+			"height": 9.281102156191064,
 			"seed": 1488514458,
 			"groupIds": [
 				"1o0mIyeFoOw-VbA0UWj-S"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -1911,23 +2068,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.7342517968258875,
 			"fontFamily": 3,
 			"text": "Accessibility",
 			"rawText": "Accessibility",
-			"baseline": 8,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Accessibility"
+			"originalText": "Accessibility",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "rectangle",
-			"version": 2445,
-			"versionNonce": 423227014,
+			"version": 2454,
+			"versionNonce": 2010293015,
 			"isDeleted": false,
 			"id": "qYJgzIB_wpevNnQ3GxA6T",
 			"fillStyle": "solid",
@@ -1946,7 +2107,8 @@ CSS Grid
 			"groupIds": [
 				"w2zacApPqTZYqYvpHGaqU"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -1965,14 +2127,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2685,
-			"versionNonce": 579249370,
+			"version": 2694,
+			"versionNonce": 510524889,
 			"isDeleted": false,
 			"id": "iRKNoRQx",
 			"fillStyle": "solid",
@@ -1985,13 +2150,14 @@ CSS Grid
 			"y": -624.886868951069,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 60,
-			"height": 10,
+			"width": 58.880859375,
+			"height": 9.281102156191064,
 			"seed": 129617690,
 			"groupIds": [
 				"w2zacApPqTZYqYvpHGaqU"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -2002,23 +2168,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.7342517968258875,
 			"fontFamily": 3,
 			"text": "Basics of SEO",
 			"rawText": "Basics of SEO",
-			"baseline": 8,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Basics of SEO"
+			"originalText": "Basics of SEO",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "arrow",
-			"version": 94,
-			"versionNonce": 709242310,
+			"version": 103,
+			"versionNonce": 1172056119,
 			"isDeleted": false,
 			"id": "cYBZnFb7c1WA4RLBNIoZP",
 			"fillStyle": "solid",
@@ -2035,9 +2205,12 @@ CSS Grid
 			"height": 29.27001953125,
 			"seed": 434077574,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -2066,8 +2239,8 @@ CSS Grid
 		},
 		{
 			"type": "arrow",
-			"version": 80,
-			"versionNonce": 651229594,
+			"version": 89,
+			"versionNonce": 864213689,
 			"isDeleted": false,
 			"id": "plyg0s0Mxc8oyBoGrxm5h",
 			"fillStyle": "solid",
@@ -2084,9 +2257,12 @@ CSS Grid
 			"height": 8.976510701436268,
 			"seed": 947660038,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -2115,8 +2291,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 2593,
-			"versionNonce": 638092550,
+			"version": 2602,
+			"versionNonce": 1589119319,
 			"isDeleted": false,
 			"id": "KbE5bhjnL3z71TdDSoC2F",
 			"fillStyle": "solid",
@@ -2135,7 +2311,8 @@ CSS Grid
 			"groupIds": [
 				"f-Ce6vNPP61-FQ-edMsJf"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -2158,14 +2335,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370928,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2955,
-			"versionNonce": 7517786,
+			"version": 2964,
+			"versionNonce": 262740889,
 			"isDeleted": false,
 			"id": "OHA8Lxa2",
 			"fillStyle": "solid",
@@ -2178,13 +2358,14 @@ CSS Grid
 			"y": -592.9911169979439,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 92,
-			"height": 10,
+			"width": 90.5859375,
+			"height": 9.281102156191064,
 			"seed": 259350810,
 			"groupIds": [
 				"f-Ce6vNPP61-FQ-edMsJf"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -2195,23 +2376,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.7342517968258875,
 			"fontFamily": 3,
 			"text": "Learn the CSS Basics",
 			"rawText": "Learn the CSS Basics",
-			"baseline": 8,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Learn the CSS Basics"
+			"originalText": "Learn the CSS Basics",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "rectangle",
-			"version": 2781,
-			"versionNonce": 2113795142,
+			"version": 2790,
+			"versionNonce": 1874511479,
 			"isDeleted": false,
 			"id": "HFD5vl9BIYM505glKAOuK",
 			"fillStyle": "solid",
@@ -2230,7 +2415,8 @@ CSS Grid
 			"groupIds": [
 				"qlD4CPOdF9JL8FveTlifp"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -2257,14 +2443,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 2904,
-			"versionNonce": 1614732058,
+			"version": 2913,
+			"versionNonce": 320094329,
 			"isDeleted": false,
 			"id": "U7Pz6SYS",
 			"fillStyle": "solid",
@@ -2277,13 +2466,14 @@ CSS Grid
 			"y": -560.9891638729439,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 65,
-			"height": 10,
+			"width": 63.41015625,
+			"height": 9.281102156191064,
 			"seed": 924724698,
 			"groupIds": [
 				"qlD4CPOdF9JL8FveTlifp"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -2294,23 +2484,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.7342517968258875,
 			"fontFamily": 3,
 			"text": "Making layouts",
 			"rawText": "Making layouts",
-			"baseline": 8,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Making layouts"
+			"originalText": "Making layouts",
+			"lineHeight": 1.2,
+			"baseline": 7
 		},
 		{
 			"type": "rectangle",
-			"version": 3154,
-			"versionNonce": 1812167558,
+			"version": 3163,
+			"versionNonce": 128507799,
 			"isDeleted": false,
 			"id": "VQJG1YztNhjZ-7H7IwUH6",
 			"fillStyle": "solid",
@@ -2329,7 +2523,8 @@ CSS Grid
 			"groupIds": [
 				"-kbImu3I9yQG5aUzUzLO2"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -2348,14 +2543,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 3813,
-			"versionNonce": 1688758234,
+			"version": 3822,
+			"versionNonce": 1267190105,
 			"isDeleted": false,
 			"id": "iHpKtSNb",
 			"fillStyle": "solid",
@@ -2368,13 +2566,14 @@ CSS Grid
 			"y": -528.7540564510689,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 146,
-			"height": 9,
+			"width": 144.580078125,
+			"height": 8.463060410334343,
 			"seed": 1438128390,
 			"groupIds": [
 				"-kbImu3I9yQG5aUzUzLO2"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -2389,23 +2588,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.052550341945286,
 			"fontFamily": 3,
 			"text": "Responsive design and Media Queries",
 			"rawText": "Responsive design and Media Queries",
-			"baseline": 7,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Responsive design and Media Queries"
+			"originalText": "Responsive design and Media Queries",
+			"lineHeight": 1.2,
+			"baseline": 6
 		},
 		{
 			"type": "arrow",
-			"version": 101,
-			"versionNonce": 1716918982,
+			"version": 110,
+			"versionNonce": 1756812471,
 			"isDeleted": false,
 			"id": "Xi4VDtOYdXQmrNYMsaghY",
 			"fillStyle": "solid",
@@ -2422,9 +2625,12 @@ CSS Grid
 			"height": 4.386813360906558,
 			"seed": 785940826,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -2453,8 +2659,8 @@ CSS Grid
 		},
 		{
 			"type": "arrow",
-			"version": 68,
-			"versionNonce": 1707236506,
+			"version": 77,
+			"versionNonce": 1113011769,
 			"isDeleted": false,
 			"id": "es3pJtGHAjyN2V0HxyRV9",
 			"fillStyle": "solid",
@@ -2471,9 +2677,12 @@ CSS Grid
 			"height": 22.01904296875,
 			"seed": 1585813210,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -2502,8 +2711,8 @@ CSS Grid
 		},
 		{
 			"type": "arrow",
-			"version": 108,
-			"versionNonce": 328389126,
+			"version": 117,
+			"versionNonce": 445195735,
 			"isDeleted": false,
 			"id": "D7j6Y1mOONOU0T3ygSile",
 			"fillStyle": "solid",
@@ -2520,9 +2729,12 @@ CSS Grid
 			"height": 46.4013671875,
 			"seed": 1280858886,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -2551,8 +2763,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 2782,
-			"versionNonce": 1094695258,
+			"version": 2791,
+			"versionNonce": 174458649,
 			"isDeleted": false,
 			"id": "9hiSTYVS7RyS1OOyVacye",
 			"fillStyle": "solid",
@@ -2571,7 +2783,8 @@ CSS Grid
 			"groupIds": [
 				"XGFHFNjxxkkE9QumHau2n"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -2590,14 +2803,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": "",
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 3180,
-			"versionNonce": 1052156230,
+			"version": 3189,
+			"versionNonce": 1010062071,
 			"isDeleted": false,
 			"id": "Oh95S3vr",
 			"fillStyle": "solid",
@@ -2610,13 +2826,14 @@ CSS Grid
 			"y": -604.8024647527772,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 49,
-			"height": 114,
+			"width": 48.662109375,
+			"height": 108.78193484368487,
 			"seed": 868684038,
 			"groupIds": [
 				"XGFHFNjxxkkE9QumHau2n"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "Jo5CSzfYbnGyd3O850PtE",
@@ -2631,23 +2848,27 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
 			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			},
 			"fontSize": 7.554301030811449,
 			"fontFamily": 3,
 			"text": "Positioning\n\nFloats\n\nDisplay\n\nBox Model\n\nFlex Box\n\nCSS Grid\n",
 			"rawText": "Positioning\n\nFloats\n\nDisplay\n\nBox Model\n\nFlex Box\n\nCSS Grid\n",
-			"baseline": 112,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "Positioning\n\nFloats\n\nDisplay\n\nBox Model\n\nFlex Box\n\nCSS Grid\n"
+			"originalText": "Positioning\n\nFloats\n\nDisplay\n\nBox Model\n\nFlex Box\n\nCSS Grid\n",
+			"lineHeight": 1.2,
+			"baseline": 107
 		},
 		{
 			"type": "arrow",
-			"version": 385,
-			"versionNonce": 645103130,
+			"version": 394,
+			"versionNonce": 237485049,
 			"isDeleted": false,
 			"id": "vYUzc4Sp07UMF_Y6m140J",
 			"fillStyle": "solid",
@@ -2664,9 +2885,12 @@ CSS Grid
 			"height": 0.08594379659371043,
 			"seed": 1784088666,
 			"groupIds": [],
-			"strokeSharpness": "round",
+			"frameId": null,
+			"roundness": {
+				"type": 2
+			},
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
 			"locked": false,
 			"startBinding": {
@@ -2695,8 +2919,8 @@ CSS Grid
 		},
 		{
 			"type": "rectangle",
-			"version": 1630,
-			"versionNonce": 1260292230,
+			"version": 1639,
+			"versionNonce": 373087255,
 			"isDeleted": false,
 			"id": "HYLbI6wLAoJuIcohvtimM",
 			"fillStyle": "solid",
@@ -2715,7 +2939,8 @@ CSS Grid
 			"groupIds": [
 				"bO27foyPi9PMxGK9LJLyc"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [
 				{
 					"id": "9elQIEYFo4vFhLWqb_NfT",
@@ -2750,14 +2975,17 @@ CSS Grid
 					"type": "arrow"
 				}
 			],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": null,
-			"locked": false
+			"locked": false,
+			"customData": {
+				"legacyTextWrap": true
+			}
 		},
 		{
 			"type": "text",
-			"version": 1137,
-			"versionNonce": 1649453786,
+			"version": 1146,
+			"versionNonce": 497013977,
 			"isDeleted": false,
 			"id": "DcGvOw8z",
 			"fillStyle": "solid",
@@ -2770,30 +2998,69 @@ CSS Grid
 			"y": -554.9317292109665,
 			"strokeColor": "#000",
 			"backgroundColor": "#fab005",
-			"width": 53,
-			"height": 11,
+			"width": 52.20703125,
+			"height": 10.703289473684197,
 			"seed": 212136090,
 			"groupIds": [
 				"bO27foyPi9PMxGK9LJLyc"
 			],
-			"strokeSharpness": "sharp",
+			"frameId": null,
+			"roundness": null,
 			"boundElements": [],
-			"updated": 1662104659867,
+			"updated": 1688542370929,
 			"link": "[[JavaScript]]",
 			"locked": false,
 			"fontSize": 8.919407894736832,
 			"fontFamily": 3,
 			"text": "JavaScript",
 			"rawText": "[[JavaScript]]",
-			"baseline": 9,
 			"textAlign": "left",
 			"verticalAlign": "top",
 			"containerId": null,
-			"originalText": "JavaScript"
+			"originalText": "JavaScript",
+			"lineHeight": 1.2,
+			"baseline": 9
+		},
+		{
+			"type": "text",
+			"version": 3,
+			"versionNonce": 446412887,
+			"isDeleted": true,
+			"id": "2qQNoDT4",
+			"fillStyle": "hachure",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"angle": 0,
+			"x": -181.79251522445088,
+			"y": -794.4045054880304,
+			"strokeColor": "#000",
+			"backgroundColor": "transparent",
+			"width": 211.6640625,
+			"height": 18.4,
+			"seed": 10672,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"boundElements": [],
+			"updated": 1688542366592,
+			"link": "[[Cards/📲 Front Dev/Internet/INTERNET]]",
+			"locked": false,
+			"fontSize": 16,
+			"fontFamily": 2,
+			"text": "How does the Internet works?",
+			"rawText": "[[Cards/📲 Front Dev/Internet/INTERNET|How does the Internet works?]]",
+			"textAlign": "left",
+			"verticalAlign": "top",
+			"containerId": null,
+			"originalText": "How does the Internet works?",
+			"lineHeight": 1.15,
+			"baseline": 15
 		}
 	],
 	"appState": {
-		"theme": "light",
+		"theme": "dark",
 		"viewBackgroundColor": "#fff",
 		"currentItemStrokeColor": "#000",
 		"currentItemBackgroundColor": "#feff55",
@@ -2805,12 +3072,18 @@ CSS Grid
 		"currentItemFontFamily": 2,
 		"currentItemFontSize": 16,
 		"currentItemTextAlign": "left",
-		"currentItemStrokeSharpness": "sharp",
 		"currentItemStartArrowhead": null,
 		"currentItemEndArrowhead": null,
-		"currentItemLinearStrokeSharpness": "round",
+		"scrollX": 545.2376636924685,
+		"scrollY": 949.2531526056451,
+		"zoom": {
+			"value": 1.6
+		},
+		"currentItemRoundness": "round",
 		"gridSize": null,
-		"colorPalette": {}
+		"colorPalette": {},
+		"currentStrokeOptions": null,
+		"previousGridSize": null
 	},
 	"files": {}
 }

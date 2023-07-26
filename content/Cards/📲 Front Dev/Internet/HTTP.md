@@ -6,15 +6,15 @@ tags:
 - Network/Internet/http
 - Development/Frontend/WebBrowser
 ---
-up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
+up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 
->**超文本传输协议**（英语：**H**yper**T**ext **T**ransfer **P**rotocol，缩写：**HTTP**）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]]是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 最初的目的是为了提供一种发布和接收 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 页面的方法。通过 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 或者 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md|HTTPS协议]] 请求的资源由 [[URL.md|统一资源标识符]] 来标识。 
+>**超文本传输协议**（英语：**H**yper**T**ext **T**ransfer **P**rotocol，缩写：**HTTP**）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 最初的目的是为了提供一种发布和接收 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 页面的方法。通过 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 或者 [[Cards/📲 Front Dev/Internet/HTTP|HTTPS协议]] 请求的资源由 [[Cards/📲 Front Dev/Internet/URL|统一资源标识符]] 来标识。 
 
 # 协议概述
 
-HTTP是一个客户端（用户）和服务端（网站）之间请求和应答的标准，通常使用 [[TCP.md|TCP协议]]。通过使用网页浏览器、网络爬虫或者其它的工具，客户端发起一个HTTP请求到服务器上指定端口（默认端口为80）。我们称这个客户端为用户代理程序（user agent）。应答的服务器上存储着一些资源，比如 [[../HTML/HTML.md]] 文件和图像。我们称这个应答服务器为源服务器（origin server）。
+HTTP 是一个客户端（用户）和服务端（网站）之间请求和应答的标准，通常使用 [[Cards/📲 Front Dev/Internet/TCP|TCP协议]]。通过使用网页浏览器、网络爬虫或者其它的工具，客户端发起一个 HTTP 请求到服务器上指定端口（默认端口为80）。我们称这个客户端为用户代理程序（user agent）。应答的服务器上存储着一些资源，比如 [[Cards/📲 Front Dev/HTML/HTML|HTML]] 文件和图像。我们称这个应答服务器为源服务器（origin server）。
 
-尽管 TCP/IP 协议是互联网上最流行的应用，但是在 HTTP 协议中并没有规定它必须使用或它支持的层。事实上 HTTP 可以在任何互联网协议或其他网络上实现。HTTP 假定其下层协议提供可靠的传输。因此，任何能够提供这种保证的协议都可以被其使用，所以其在 TCP/IP 协议族使用 [[TCP.md]] 作为其传输层。
+尽管 TCP/IP 协议是互联网上最流行的应用，但是在 HTTP 协议中并没有规定它必须使用或它支持的层。事实上 HTTP 可以在任何互联网协议或其他网络上实现。HTTP 假定其下层协议提供可靠的传输。因此，任何能够提供这种保证的协议都可以被其使用，所以其在 TCP/IP 协议族使用 [[Cards/📲 Front Dev/Internet/TCP|TCP]] 作为其传输层。
 
 # 状态码
 
@@ -142,7 +142,7 @@ HTTP是一个客户端（用户）和服务端（网站）之间请求和应答�
 - public：可以被代理服务器识别
 - Expires ( 控制缓存过期，被 Cache-Control 代替 )
 
-![[http 强制缓存.excalidraw](../../../Extras/Excalidraw/Http/http%20%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98.excalidraw.md)
+![[Extras/Excalidraw/Http/http 强制缓存.excalidraw|http 强制缓存.excalidraw]]
 
 ### 协商缓存（对比缓存）
 
@@ -155,7 +155,7 @@ HTTP是一个客户端（用户）和服务端（网站）之间请求和应答�
 - Last-Modified 资源的最后修改时间
 - Etag 资源的唯一标识（指纹，字符串）
 - 共存优先使用 Etag（因为修改时间只能秒级）
-![[http 协商缓存.excalidraw](../../../Extras/Excalidraw/Http/http%20%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98.excalidraw.md)
+![[Extras/Excalidraw/Http/http 协商缓存.excalidraw|http 协商缓存.excalidraw]]
 
 ## 刷新操作方式，对缓存的影响
 

@@ -6,7 +6,7 @@ tags:
 - Network/Internet
 - Network/Internet/proxy
 ---
-up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
+up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 
 ## 正向代理
 

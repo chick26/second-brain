@@ -6,7 +6,7 @@ tags:
 - Development/Docker
 - Development/Docker/list
 ---
-up:: [[• TOC for Docker](%E2%80%A2%20TOC%20for%20Docker.md)
+up:: [[Cards/📀 Docker/• TOC for Docker|• TOC for Docker]]
 ## 
 
 ### Sync timezone between system and container

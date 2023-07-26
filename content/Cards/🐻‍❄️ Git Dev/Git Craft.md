@@ -5,7 +5,7 @@ status: done
 tag: 
 - Development/Git/craft
 ---
-up:: [[• TOC for Git](%E2%80%A2%20TOC%20for%20Git.md)
+up:: [[Cards/🐻‍❄️ Git Dev/• TOC for Git|• TOC for Git]]
 
 **1、设置错误的远程库怎么办？**
 

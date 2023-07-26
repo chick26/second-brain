@@ -13,15 +13,15 @@ DOM Tree ^ddgRHkc9
 
 HTML ^0ekwpW7S
 
-[[Web Browsers#HTML Parser|HTML Parser]] ^G0ldbDAq
+[[Cards/📲 Front Dev/Internet/Web Browsers#HTML Parser|HTML Parser]] ^G0ldbDAq
 
 Attachment ^zi6fc3E8
 
 Style Sheets ^xLhKUqyB
 
-[[Web Browsers#5 Layout 布局|Layout]] ^h1NyEEUV
+[[Cards/📲 Front Dev/Internet/Web Browsers#5 Layout 布局|Layout]] ^h1NyEEUV
 
-[[Web Browsers#CSS Parser|CSS Parser]] ^SvwBp4Np
+[[Cards/📲 Front Dev/Internet/Web Browsers#CSS Parser|CSS Parser]] ^SvwBp4Np
 
 Style Rules ^9O8j0csY
 
@@ -33,7 +33,7 @@ Display ^EZHetPAY
 
 同步进行 ^frSTZjtF
 
-[[Web Browsers#Style Computation|Style Computation]] ^ztQQDVyP
+[[Cards/📲 Front Dev/Internet/Web Browsers#Style Computation|Style Computation]] ^ztQQDVyP
 
 %%
 # Drawing

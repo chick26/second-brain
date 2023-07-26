@@ -5,7 +5,7 @@ tags:
 - Atlas/TOC
 ---
 
-# 🌏 [[Cards MOC](../Cards%20MOC.md) | GPT TOC
+# 🌏 [[Cards/Cards MOC|Cards MOC]] | GPT TOC
 
 ```dataview
 table WITHOUT ID

@@ -6,7 +6,7 @@ tags:
 - Development/Frontend/Python
 - Development/Frontend/Python/Playwright
 ---
-up:: [[• TOC for Python](%E2%80%A2%20TOC%20for%20Python.md)
+up:: [[Cards/🅿️ Python/• TOC for Python|• TOC for Python]]
 
 ## Off-line System Python Develop Environment Configuration
 

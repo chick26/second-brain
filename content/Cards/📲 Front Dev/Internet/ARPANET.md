@@ -6,7 +6,7 @@ tags:
 - Network/Internet
 - Network/Internet/Apranet
 ---
-up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
+up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 
 # Apranet  阿帕网
 
@@ -14,7 +14,7 @@ up:: [[• TOC for Frontend](../%E2%80%A2%20TOC%20for%20Frontend.md)
 
 ## 历史房展
 
-ARPA网无法做到和个别计算机网络交流，这引发了研究者的思考。根据诺顿的看法，他的设计需要太多的控制和太多的网络中机器设备的标准化。因此，1973年春，[文顿·瑟夫](https://zh.wikipedia.org/wiki/%E6%96%87%E9%A1%BF%C2%B7%E7%91%9F%E5%A4%AB "文顿·瑟夫")和[鲍勃·康](https://zh.wikipedia.org/wiki/%E9%B2%8D%E5%8B%83%C2%B7%E5%BA%B7 "鲍勃·康")（Bob Kahn）开始思考如何将ARPA网和另外两个已有的网络相连接，尤其是连接卫星网络（SAT NET）和基于夏威夷的分组无线业务的ALOHA网（ALOHA NET）瑟夫设想了新的计算机交流协议，最后创造出 [[TCP.md|传送控制协议]]／[[IP|互联网协议]]
+ARPA 网无法做到和个别计算机网络交流，这引发了研究者的思考。根据诺顿的看法，他的设计需要太多的控制和太多的网络中机器设备的标准化。因此，1973年春，[文顿·瑟夫]( https://zh.wikipedia.org/wiki/%E6%96%87%E9%A1%BF%C2%B7%E7%91%9F%E5%A4%AB "文顿·瑟夫")和[鲍勃·康]( https://zh.wikipedia.org/wiki/%E9%B2%8D%E5%8B%83%C2%B7%E5%BA%B7 "鲍勃·康")（Bob Kahn）开始思考如何将 ARPA 网和另外两个已有的网络相连接，尤其是连接卫星网络（SAT NET）和基于夏威夷的分组无线业务的 ALOHA 网（ALOHA NET）瑟夫设想了新的计算机交流协议，最后创造出 [[Cards/📲 Front Dev/Internet/TCP|传送控制协议]] ／ [[IP|互联网协议]]
 
 1975年，ARPA网被转交到美国国防部通信处 (Defense Department Communicationg Agence)。此后ARPA网不再是实验性和独一无二的了。大量新的网络在1970年代开始出现，包括[计算机科学研究网络](https://zh.wikipedia.org/w/index.php?title=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%BD%91%E7%BB%9C&action=edit&redlink=1 "计算机科学研究网络（页面不存在）")（CSNET，Computer Science Research Network），[加拿大网络](https://zh.wikipedia.org/w/index.php?title=%E5%8A%A0%E6%8B%BF%E5%A4%A7%E7%BD%91%E7%BB%9C&action=edit&redlink=1 "加拿大网络（页面不存在）")（CDnet，Canadian Network），[因时网](https://zh.wikipedia.org/wiki/%E5%9B%A0%E6%97%B6%E7%BD%91 "因时网")（BITNET，Because It's Time Network）和美国国家自然科学基金网络（NSFnet，National Science Foundation Network）。最后一个网络最终将在它自身被商业网络取代前代替ARPA网作为互联网的高速链路。
 
