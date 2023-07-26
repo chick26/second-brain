@@ -12,11 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/html/html-principel/</guid>
-      <description>up:: [ • TOC for Frontend
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 HTML 最佳实践 编写易于维护与扩展的 HTML 文档。
-全局 以 DOCTYPE 为开头 激活标准模式需要 DOCTYPE。
-Bad:
-1 2 3  &amp;lt;html&amp;gt; .</description>
+全局 以 DOCTYPE 为开头 激活标准模式需要 DOCTYPE。</description>
     </item>
     
   </channel>

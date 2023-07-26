@@ -8,10 +8,10 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="在多线程情况下，会有多个线程同时操作 [[Queue.md|队列]]，这个时候就会存在线程安全问题。线程安全的队列叫作并发队列。最简单直接的实现方式是直接在 enqueue ()、dequeue () 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。"
+    content="在多线程情况下，会有多个线程同时操作 [[Sources/Courses/✍️ Algorithms/Queue|队列]]，这个时候就会存在线程安全问题。线程安全的队列叫作并发队列。最简单直接的实现方式是直接在 enqueue ()、dequeue () 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。"
   />
   <meta property="og:title" content="Concurrent queue">
-  <meta property="og:description" content="在多线程情况下，会有多个线程同时操作 [[Queue.md|队列]]，这个时候就会存在线程安全问题。线程安全的队列叫作并发队列。最简单直接的实现方式是直接在 enqueue ()、dequeue () 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。">
+  <meta property="og:description" content="在多线程情况下，会有多个线程同时操作 [[Sources/Courses/✍️ Algorithms/Queue|队列]]，这个时候就会存在线程安全问题。线程安全的队列叫作并发队列。最简单直接的实现方式是直接在 enqueue ()、dequeue () 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。">
   <meta property="og:type" content="website">
   <meta property="og:image" content="chick26.github.ioicon.png">
   <meta property="og:url" content="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/concurrent-queue/">
@@ -19,7 +19,7 @@
   <meta property="og:height" content="200">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Concurrent queue" />
-  <meta name="twitter:description" content="在多线程情况下，会有多个线程同时操作 [[Queue.md|队列]]，这个时候就会存在线程安全问题。线程安全的队列叫作并发队列。最简单直接的实现方式是直接在 enqueue ()、dequeue () 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。" />
+  <meta name="twitter:description" content="在多线程情况下，会有多个线程同时操作 [[Sources/Courses/✍️ Algorithms/Queue|队列]]，这个时候就会存在线程安全问题。线程安全的队列叫作并发队列。最简单直接的实现方式是直接在 enqueue ()、dequeue () 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。" />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
   
     
@@ -130,13 +130,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({

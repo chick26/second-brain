@@ -136,13 +136,13 @@ Drawing 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({

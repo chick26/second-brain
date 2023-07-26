@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/uilibrary/dumi-%E7%BB%84%E4%BB%B6%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
-      <description>up:: [ • TOC for Frontend
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于：</description>
     </item>
     

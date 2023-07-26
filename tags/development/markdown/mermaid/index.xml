@@ -12,8 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-markdown/mermaid/</guid>
-      <description>up:: [ • TOC for Markdown
-Mermaid Markdown 概述 什么是 Mermaid？  Mermaid 是一种基于 Javascript 的绘图工具，使用类似于 Markdown 的语法，使用户可以方便快捷地通过代码创建图表。 项目地址： https://github.com/mermaid-js/mermaid（需要将梯子设置成全局模式才能访问） 在线渲染器： Online FlowChart &amp;amp; Diagrams Editor（需要梯子）  怎么使用 Mermaid？  使用特定的 Mermaid 渲染器； 使用集成了 Mermaid 渲染功能的 Markdown 编辑器，如 Typora。**使用时，需要将代码块的语言选择为 Mermaid  Mermaid 能绘制哪些图？  饼状图：使用pie关键字，具体用法后文将详细介绍 流程图：使用graph关键字，具体用法后文将详细介绍 序列图：使用sequenceDiagram关键字 类图：使用classDiagram关键字 状态图：使用stateDiagram关键字 用户旅程图：使用journey关键字  实例  朱元璋家谱简图，圆圈代表皇帝。  1 2 3 4 5 6 7 8  graph LR emperor((朱八八))-.</description>
+      <description>up:: [[Cards/🎰 Markdown/• TOC for Markdown|• TOC for Markdown]]
+Mermaid Markdown 概述 什么是 Mermaid？  Mermaid 是一种基于 Javascript 的绘图工具，使用类似于 Markdown 的语法，使用户可以方便快捷地通过代码创建图表。 项目地址： https://github.</description>
     </item>
     
   </channel>

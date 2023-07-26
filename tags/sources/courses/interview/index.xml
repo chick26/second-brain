@@ -14,7 +14,7 @@
       <guid>chick26.github.io/sources/courses/-frontend-interview/%E9%97%AE%E7%AD%94%E6%B1%87%E6%80%BB/q0001-%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
       <description>问题 网站开发中，如何实现图片的懒加载，随着 web 技术的发展，他有没有一些更好的方案
 解析 懒加载，顾名思义，在当前网页，滑动页面到能看到图片的时候再加载图片，故问题拆分成两个：
- 如何判断图片出现在了当前视口 （即如何判断我们能够看到图片） 如何控制图片的加载  解答 ![ Lazyload Img.excalidraw | 650
+ 如何判断图片出现在了当前视口 （即如何判断我们能够看到图片） 如何控制图片的加载  解答 ![[Extras/Excalidraw/前端开发/Lazyload Img.excalidraw|650]]
 1. 位置计算 + 滚动事件 (Scroll) + DataSet API 实现 图片懒加载_窗口高度</description>
     </item>
     

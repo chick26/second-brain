@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-docker/docker-container-problem-list/</guid>
-      <description>up:: [ • TOC for Docker
+      <description>up:: [[Cards/📀 Docker/• TOC for Docker|• TOC for Docker]]
  Sync timezone between system and container  Enter container as root user  1  docker exec -it --user root &amp;lt;container name&amp;gt; bash    Rename container timezone file avioding two-file issue  1  mv /etc/localtime /etc/localtime.</description>
     </item>
     
@@ -22,7 +22,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-docker/docker-container-problem-list/</guid>
-      <description>up:: [ • TOC for Docker
+      <description>up:: [[Cards/📀 Docker/• TOC for Docker|• TOC for Docker]]
  Sync timezone between system and container  Enter container as root user  1  docker exec -it --user root &amp;lt;container name&amp;gt; bash    Rename container timezone file avioding two-file issue  1  mv /etc/localtime /etc/localtime.</description>
     </item>
     
@@ -32,7 +32,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-docker/phpipam-docker-install/</guid>
-      <description>up:: [ • TOC for Docker
+      <description>up:: [[Cards/📀 Docker/• TOC for Docker|• TOC for Docker]]
 Install Docker Engine and Docker-compose  To install the latest version, run  1 2 3 4  sudo yum install -y yum-utils sudo yum-config-manager --add-repo https://download.</description>
     </item>
     
@@ -42,7 +42,7 @@ Install Docker Engine and Docker-compose  To install the latest version, run  1 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-docker/phpipam-docker-install/</guid>
-      <description>up:: [ • TOC for Docker
+      <description>up:: [[Cards/📀 Docker/• TOC for Docker|• TOC for Docker]]
 Install Docker Engine and Docker-compose  To install the latest version, run  1 2 3 4  sudo yum install -y yum-utils sudo yum-config-manager --add-repo https://download.</description>
     </item>
     

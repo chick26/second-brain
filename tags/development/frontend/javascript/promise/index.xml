@@ -12,9 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/javascript/promise-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
-      <description>up:: [ • TOC for Frontend
-Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。
-1. 概述 Promise.all&amp;lt;T&amp;gt;(promises: Iterable&amp;lt;Promise&amp;lt;T&amp;gt;&amp;gt;): Promise&amp;lt;Array&amp;lt;T&amp;gt;&amp;gt;</description>
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
+Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。</description>
     </item>
     
   </channel>

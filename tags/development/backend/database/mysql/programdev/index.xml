@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</guid>
-      <description>up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+      <description>up:: [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course]]
 存储过程 procedure  打印Hello World  1 2 3 4 5 6 7 8 9 10  set@result=&amp;#34;&amp;#34;;delimiter$$createproceduresayHelloWorld()beginselect&amp;#34;Hello World&amp;#34;into@result;end$$delimiter;  基于员工表（emp）, 创建存储过程raiseSalaryByEmpno，为指定的员工涨10%的工资，并输出涨前和涨后的薪水。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  set@beforeRaise=0;set@afterRaise=0;delimiter$$createprocedureraiseSalaryByEmpno(inenoint)begin-- 查询员工涨前的薪水 selectsalinto@beforeRaisefromempwhereempno=eno;-- 给员工涨工资 updateempsetsal=sal*1.</description>
     </item>
     

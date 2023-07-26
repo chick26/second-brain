@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/%EF%B8%8F-git-dev/git-hooks/</guid>
-      <description>up:: [ • TOC for Git
+      <description>up:: [[Cards/🐻‍❄️ Git Dev/• TOC for Git|• TOC for Git]]
 常见 Git Hooks git hooks 大体上分为两类:
 客户端 Hook  pre-commit hook, 在运行 git commit 命令时且在 commit 完成前被触发 commit-msg hook, 在编辑完 commit-msg 时被触发，并且接受一个参数，这个参数是存放当前 commit-msg 的临时文件的路径 pre-push hook, 在运行 git push 命令时且在 push 命令完成前被触发  服务端 Hook  pre-receive 在服务端接受到推送时且在推送过程完成前被触发 post-receive 在服务端接收到推送且推送完成后被触发   [!</description>
     </item>

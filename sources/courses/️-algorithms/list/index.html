@@ -8,14 +8,14 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="up:: [ • TOC for Algorithm Course
-1 基本结构 ![[../../../Extras/Excalidraw/算法之美/list-construct.excalidraw.md|600]]
-1.1 单链表  上图中有两个特殊的结点，分别是第一个结点（头结点）和最后一个结点（尾结点）。 头结点用来记录链表的基地址，用它可以遍历得到整条链表。 尾结点指向一个空地址 NULL，表示这是链表上最后一个结点。  1.2 循环链表  和单链表相比，循环链表的优点是从链尾到链头比较方便。 当要处理的数据具有环型结构特点时，采用循环链表实现代码会简洁很多。  1."
+    content="up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
+1 基本结构 ![[Extras/Excalidraw/算法之美/list-construct.excalidraw|600]]
+1.1 单链表  上图中有两个特殊的结点，分别是第一个结点（头结点）和最后一个结点（尾结点）。 头结点用来记录链表的基地址，用它可以遍历得到整条链表。 尾结点指向一个空地址 NULL，表示这是链表上最后一个结点。  1."
   />
   <meta property="og:title" content="List">
-  <meta property="og:description" content="up:: [ • TOC for Algorithm Course
-1 基本结构 ![[../../../Extras/Excalidraw/算法之美/list-construct.excalidraw.md|600]]
-1.1 单链表  上图中有两个特殊的结点，分别是第一个结点（头结点）和最后一个结点（尾结点）。 头结点用来记录链表的基地址，用它可以遍历得到整条链表。 尾结点指向一个空地址 NULL，表示这是链表上最后一个结点。  1.2 循环链表  和单链表相比，循环链表的优点是从链尾到链头比较方便。 当要处理的数据具有环型结构特点时，采用循环链表实现代码会简洁很多。  1.">
+  <meta property="og:description" content="up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
+1 基本结构 ![[Extras/Excalidraw/算法之美/list-construct.excalidraw|600]]
+1.1 单链表  上图中有两个特殊的结点，分别是第一个结点（头结点）和最后一个结点（尾结点）。 头结点用来记录链表的基地址，用它可以遍历得到整条链表。 尾结点指向一个空地址 NULL，表示这是链表上最后一个结点。  1.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="chick26.github.ioicon.png">
   <meta property="og:url" content="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/list/">
@@ -23,9 +23,9 @@
   <meta property="og:height" content="200">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="List" />
-  <meta name="twitter:description" content="up:: [ • TOC for Algorithm Course
-1 基本结构 ![[../../../Extras/Excalidraw/算法之美/list-construct.excalidraw.md|600]]
-1.1 单链表  上图中有两个特殊的结点，分别是第一个结点（头结点）和最后一个结点（尾结点）。 头结点用来记录链表的基地址，用它可以遍历得到整条链表。 尾结点指向一个空地址 NULL，表示这是链表上最后一个结点。  1.2 循环链表  和单链表相比，循环链表的优点是从链尾到链头比较方便。 当要处理的数据具有环型结构特点时，采用循环链表实现代码会简洁很多。  1." />
+  <meta name="twitter:description" content="up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
+1 基本结构 ![[Extras/Excalidraw/算法之美/list-construct.excalidraw|600]]
+1.1 单链表  上图中有两个特殊的结点，分别是第一个结点（头结点）和最后一个结点（尾结点）。 头结点用来记录链表的基地址，用它可以遍历得到整条链表。 尾结点指向一个空地址 NULL，表示这是链表上最后一个结点。  1." />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
   
     
@@ -136,13 +136,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -459,6 +459,327 @@ Unknown
 
   
 
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
 
 
 
@@ -494,16 +815,7 @@ Unknown
 
 
 
-<p>up:: [
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="%E2%80%A2%20TOC%20for%20Algorithm%20Course">• TOC for Algorithm Course</a></p>
+<p>up:: <a href="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/-toc-for-algorithm-course" rel="noopener" class="internal-link" data-src="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/-toc-for-algorithm-course">• TOC for Algorithm Course</a></p>
 <a href="#1-基本结构"><h2 id="1-基本结构"><span class="hanchor" ariaLabel="Anchor"># </span>1 基本结构</h2></a>
 <p><a href="chick26.github.io/extras/excalidraw/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/list-construct.excalidraw" rel="noopener" class="internal-link" data-src="chick26.github.io/extras/excalidraw/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/list-construct.excalidraw">600</a></p>
 <a href="#11-单链表"><h3 id="11-单链表"><span class="hanchor" ariaLabel="Anchor"># </span>1.1 单链表</h3></a>
@@ -582,52 +894,16 @@ Unknown
 </table>
 <a href="#4-工程应用"><h2 id="4-工程应用"><span class="hanchor" ariaLabel="Anchor"># </span>4 工程应用</h2></a>
 <ul>
-<li>[
-
-
-
-
-
-<a
-  href="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/lru-using-list/"
-  rel="noopener" class="internal-link"
-  data-src="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/lru-using-list/">LRU Using List|LRU 高速缓存</a></li>
-<li>[
-
-
-
-
-
-<a
-  href="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/palindromic-string/"
-  rel="noopener" class="internal-link"
-  data-src="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/palindromic-string/">Palindromic string|回文字符串</a></li>
-<li>[
-
-
-
-
-
-<a
-  href="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/josephus-problem-using-list/"
-  rel="noopener" class="internal-link"
-  data-src="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/josephus-problem-using-list/">Josephus Problem Using List|约瑟夫环</a></li>
+<li><a href="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/lru-using-list" rel="noopener" class="internal-link" data-src="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/lru-using-list">LRU 高速缓存</a></li>
+<li><a href="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/palindromic-string" rel="noopener" class="internal-link" data-src="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/palindromic-string">回文字符串</a></li>
+<li><a href="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/josephus-problem-using-list" rel="noopener" class="internal-link" data-src="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/josephus-problem-using-list">约瑟夫环</a></li>
 </ul>
 <a href="#5-链表的代码技巧"><h2 id="5-链表的代码技巧"><span class="hanchor" ariaLabel="Anchor"># </span>5 链表的代码技巧</h2></a>
 <a href="#51-技巧一理解指针或引用的含义"><h3 id="51-技巧一理解指针或引用的含义"><span class="hanchor" ariaLabel="Anchor"># </span>5.1 技巧一：理解指针或引用的含义</h3></a>
 <p>C 语言有“指针”的概念； Java、Python的“引用”相当于C 语言的“指针”。“指针”和“引用”都是存储所指对象的内存地址。**将某个变量赋值给指针，实际上就是将这个变量的地址赋值给指针，或者反过来说，指针中存储了这个变量的内存地址，指向了这个变量，通过指针就能找到这个变量。**p-&gt;next=q 表示 p 结点中的 next 指针存储了 q 结点的内存地址。p-&gt;next=p-&gt;next-&gt;next 表示 p 结点的 next 指针存储了 p 结点的下下一个结点的内存地址。</p>
 <a href="#52-技巧二警惕指针丢失和内存泄漏"><h3 id="52-技巧二警惕指针丢失和内存泄漏"><span class="hanchor" ariaLabel="Anchor"># </span>5.2 技巧二：警惕指针丢失和内存泄漏</h3></a>
 <p>单链表的插入操作：</p>
-<p>![
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="../../../Extras/Excalidraw/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/Single%20list%20insert%20.excalidraw">Single list insert .excalidraw|600</a></p>
+<p><a href="chick26.github.io/extras/excalidraw/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/single-list-insert-.excalidraw" rel="noopener" class="internal-link" data-src="chick26.github.io/extras/excalidraw/%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/single-list-insert-.excalidraw">600</a></p>
 <p>如图所示，需要在结点 a 和相邻的结点 b 之间插入结点 x，假设当前指针 p 指向结点 a。若使用以下代码实现，就会发生指针丢失和内存泄露。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

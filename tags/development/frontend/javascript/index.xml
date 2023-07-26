@@ -12,8 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/tool/document-handler/</guid>
-      <description>up:: [ • TOC for Frontend
-1. PDF PDF.js  Github: mozilla/pdf.js: PDF Reader in JavaScript Document: PDF.js  PDF.js 是使用 HTML5 构建的可移植文档格式 (PDF) 查看器。它由社区驱动并受 Mozilla 支持，目标是创建一个通用的、基于 Web 标准的平台来解析和呈现 PDF。</description>
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
+1. PDF PDF.js  Github: mozilla/pdf.js: PDF Reader in JavaScript Document: PDF.</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/uilibrary/dumi-%E7%BB%84%E4%BB%B6%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
-      <description>up:: [ • TOC for Frontend
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 配置相关 father 打包  esm 和 cjs 支持 rollup 和 babel 两种打包方式，rollup 和 babel 两者的区别在于：</description>
     </item>
     
@@ -32,7 +32,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/tool/file-preview-in-javascript/</guid>
-      <description>up:: [ • TOC for Frontend
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 实现方案    文档格式 老的开源组件 替代开源组件     word（docx） mammoth docx-preview(npm)   powerpoint（pptx） pptxjs pptxjs改造开发   excel（xlsx） sheetjs、handsontable exceljs(npm)、handsontable(npm)(npm)   pdf（pdf） pdfjs pdfjs(npm)   图片 jquery.</description>
     </item>
     
@@ -42,9 +42,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/javascript/promise-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
-      <description>up:: [ • TOC for Frontend
-Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。
-1. 概述 Promise.all&amp;lt;T&amp;gt;(promises: Iterable&amp;lt;Promise&amp;lt;T&amp;gt;&amp;gt;): Promise&amp;lt;Array&amp;lt;T&amp;gt;&amp;gt;</description>
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
+Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。</description>
     </item>
     
     <item>
@@ -53,9 +52,8 @@ Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/javascript/promise-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
-      <description>up:: [ • TOC for Frontend
-Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。
-1. 概述 Promise.all&amp;lt;T&amp;gt;(promises: Iterable&amp;lt;Promise&amp;lt;T&amp;gt;&amp;gt;): Promise&amp;lt;Array&amp;lt;T&amp;gt;&amp;gt;</description>
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
+Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们大都使用的是 Promise.all()和Promise.race()，Promise.allSettled() 提案已经到第4阶段，因此将会成为ECMAScript 2020的一部分。</description>
     </item>
     
     <item>
@@ -64,7 +62,7 @@ Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/typescript/typescript-%E8%AF%AD%E6%B3%95/</guid>
-      <description>up:: [ • TOC for Frontend
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 1. 简介 Javascript的超集，特点：扩展语法、面向对象、静态类型。
 全局安装typescript 1  yarn global add typescript   编译执行TS文件 1 2  tsc demo.</description>
     </item>
@@ -75,7 +73,7 @@ Promise 中的三兄弟 .all(), .race(), .allSettled() 从 ES6 开始，我们�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/uilibrary/%E5%89%8D%E7%AB%AF%E7%BB%84%E4%BB%B6%E5%BA%93%E8%AE%BE%E8%AE%A1/</guid>
-      <description>up:: [ • TOC for Frontend
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 前端组件库的设计原则 细粒度的考量 设计模式: 单一职责原则，所谓的单一职责组件要建立在可复用的基础上，对于不可复用的单一职责组件我们仅仅作为独立组件的内部组件即可。
 通用性考量 Antd 依赖了大量以rc-开头的底层组件, 这些组件由 react-component (同时也就是 Antd 团队) 维护, 其主要实现组件的底层逻辑, Antd 则是在此基础上添加 Ant Design 设计语言而实现的，以 Select 组件为例，基本将所有的 DOM 结构控制权全部暴露给了开发者,，其本身只负责底层逻辑和最基本的 DOM 结构.</description>
     </item>

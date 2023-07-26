@@ -8,14 +8,14 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="up:: [ • TOC for Algorithm Course
+    content="up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
  [! Question]&#43; 如何理解“递归”？
- 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1."
+ 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等."
   />
   <meta property="og:title" content="Recursion">
-  <meta property="og:description" content="up:: [ • TOC for Algorithm Course
+  <meta property="og:description" content="up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
  [! Question]&#43; 如何理解“递归”？
- 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1.">
+ 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="chick26.github.ioicon.png">
   <meta property="og:url" content="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/recursion/">
@@ -23,9 +23,9 @@
   <meta property="og:height" content="200">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Recursion" />
-  <meta name="twitter:description" content="up:: [ • TOC for Algorithm Course
+  <meta name="twitter:description" content="up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
  [! Question]&#43; 如何理解“递归”？
- 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.   递归需要满足的三个条件 满足三个条件的问题可以用递归来解决： 1." />
+ 递归是一种非常高效、简洁的编码技巧，编写递归代码的关键是写出递推公式，找出终止条件，然后再翻译成递归代码; 递归代码虽然简洁高效，但是，递归代码有很多副作用。比如，堆栈溢出、重复计算、函数调用耗时多、空间复杂度高等; 很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等." />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
   
     
@@ -136,13 +136,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -345,8 +345,8 @@ Unknown
         <summary>Table of Contents</summary>
         <nav id="TableOfContents">
   <ol>
-    <li><a href="#递归需要满足的三个条件">递归需要满足的三个条件</a></li>
-    <li><a href="#如何编写递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e7bc96e58699e98092e5bd92e4bba3e7a081efbc9f"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%ef%bc%9f">如何编写递归代码？</a></a></li>
+    <li><a href="#递归的三个条件">递归的三个条件</a></li>
+    <li><a href="#递归代码编写">递归代码编写</a></li>
     <li><a href="#递归代码要警惕堆栈溢出httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e5a086e6a088e6baa2e587ba"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e5%a0%86%e6%a0%88%e6%ba%a2%e5%87%ba">递归代码要警惕堆栈溢出</a></a></li>
     <li><a href="#递归代码要警惕重复计算httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide98092e5bd92e4bba3e7a081e8a681e8ada6e68395e9878de5a48de8aea1e7ae97"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e8%a6%81%e8%ad%a6%e6%83%95%e9%87%8d%e5%a4%8d%e8%ae%a1%e7%ae%97">递归代码要警惕重复计算</a></a></li>
     <li><a href="#将递归代码改写为非递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5b086e98092e5bd92e4bba3e7a081e694b9e58699e4b8bae99d9ee98092e5bd92e4bba3e7a081"><a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%b0%86%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%e6%94%b9%e5%86%99%e4%b8%ba%e9%9d%9e%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81">将递归代码改写为非递归代码</a></a></li>
@@ -374,6 +374,75 @@ Unknown
 
 
 
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
 
 
 
@@ -400,25 +469,28 @@ Unknown
     
     
   
+    
+    
+      
+      
+        
+      
+      
+      
+      
+    
+    
   
   
   
-
-
-
-
-
-
-<p>up:: [
-
-
-
-
-
-<a
   
-  rel="noopener" class="internal-link broken"
-  data-src="%E2%80%A2%20TOC%20for%20Algorithm%20Course">• TOC for Algorithm Course</a></p>
+
+
+
+
+
+
+<p>up:: <a href="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/-toc-for-algorithm-course" rel="noopener" class="internal-link" data-src="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/-toc-for-algorithm-course">• TOC for Algorithm Course</a></p>
 <blockquote class="[! question]-callout">
 <p>[! Question]+ 如何理解“递归”？</p>
 <ul>
@@ -427,34 +499,31 @@ Unknown
 <li>很多数据结构和算法的编码实现都要用到递归，比如 DFS 深度优先搜索、前中后序二叉树遍历等.</li>
 </ul>
 </blockquote>
-<a href="#递归需要满足的三个条件"><h2 id="递归需要满足的三个条件"><span class="hanchor" ariaLabel="Anchor"># </span>递归需要满足的三个条件</h2></a>
-<p>满足三个条件的问题可以用递归来解决：
-<strong>1. 一个问题的解可以分解为几个子问题的解</strong>
-子问题就是数据规模更小的问题。比如，前面讲的电影院的例子，你要知道，“自己在哪一排”的问题，可以分解为“前一排的人在哪一排”这样一个子问题。
-<strong>2. 这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</strong>
-比如电影院那个例子，求解“自己在哪一排”的思路，和前面一排人求解“自己在哪一排”的思路，是一模一样的。
-<strong>3. 存在递归终止条件</strong>
-把问题分解为子问题，把子问题再分解为子子问题，一层一层分解下去，不能存在无限循环，这就需要有终止条件。
-还是电影院的例子，第一排的人不需要再继续询问任何人，就知道自己在哪一排，也就是 f (1)=1，这就是递归的终止条件。</p>
-<h2 id="如何编写递归代码httpsdatastructurexiaoxiaomingxyz06e98092e5bd92ide5a682e4bd95e7bc96e58699e98092e5bd92e4bba3e7a081efbc9f">
-<a href="https://datastructure.xiaoxiaoming.xyz/#/06.%E9%80%92%E5%BD%92?id=%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99%e9%80%92%e5%bd%92%e4%bb%a3%e7%a0%81%ef%bc%9f" rel="noopener">如何编写递归代码？</a></h2>
-<p>写递归代码最关键的是<strong>写出递推公式，找到终止条件</strong>。
-假如这里有 n 个台阶，每次你可以跨 1 个台阶或者 2 个台阶，请问走这 n 个台阶有多少种走法？如果有 7 个台阶，你可以 2，2，2，1 这样子上去，也可以 1，2，1，1，2 这样子上去，总之走法有很多，那如何用编程求得总共有多少种走法呢？
-可以根据第一步的走法把所有走法分为两类，第一类是第一步走了 1 个台阶，另一类是第一步走了 2 个台阶。所以 n 个台阶的走法就等于先走 1 阶后 n-1 个台阶的走法，加上先走 2 阶后 n-2 个台阶的走法。用公式表示就是：</p>
+<a href="#递归的三个条件"><h2 id="递归的三个条件"><span class="hanchor" ariaLabel="Anchor"># </span>递归的三个条件</h2></a>
+<ul>
+<li>问题的解可以分解为几个子问题的解</li>
+<li>这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</li>
+<li>存在递归终止条件</li>
+</ul>
+<a href="#递归代码编写"><h2 id="递归代码编写"><span class="hanchor" ariaLabel="Anchor"># </span>递归代码编写</h2></a>
+<p><strong>写出递推公式，找到终止条件</strong>。</p>
+<blockquote class="example-callout">
+<p></p>
+<p>假如这里有 n 个台阶，每次你可以跨 1 个台阶或者 2 个台阶，请问走这 n 个台阶有多少种走法？如果有 7 个台阶，你可以 2，2，2，1 这样子上去，也可以 1，2，1，1，2 这样子上去，总之走法有很多，那如何用编程求得总共有多少种走法呢？</p>
+<p>可以根据第一步的走法把所有走法分为两类，第一类是第一步走了 1 个台阶，另一类是第一步走了 2 个台阶。所以 n 个台阶的走法就等于先走 1 阶后 n-1 个台阶的走法，加上先走 2 阶后 n-2 个台阶的走法。用公式表示就是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">f(n) = f(n-1)+f(n-2)c
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>再来看终止条件:
-当有一个台阶时，就不需要再继续递归，就只有一种走法。所以 f (1)=1。
+</div><p>当有一个台阶时，就不需要再继续递归，就只有一种走法。所以 f (1)=1。
 再用 n=2，n=3 这样比较小的数试验一下这个递归终止条件是否足够：
-N=2 时，f (2)=f (1)+f (0)。如果递归终止条件只有一个 f (1)=1，那 f (2) 就无法求解了。所以除了 f (1)=1 这一个递归终止条件外，还要有 f (0)=1，表示走 0 个台阶有一种走法，不过这样子看起来又不符合正常的逻辑思维。所以可以把 f (2)=2 作为一种终止条件，表示走 2 个台阶，有两种走法，一步走完或者分两步来走。
+n=2 时，f (2)=f (1)+f (0)。如果递归终止条件只有一个 f (1)=1，那 f (2) 就无法求解了。所以除了 f (1)=1 这一个递归终止条件外，还要有 f (0)=1，表示走 0 个台阶有一种走法，不过这样子看起来又不符合正常的逻辑思维。所以可以把 f (2)=2 作为一种终止条件，表示走 2 个台阶，有两种走法，一步走完或者分两步来走。
 所以，递归终止条件就是 f (1)=1，f (2)=2。这时再拿 n=3，n=4 来验证一下，这个终止条件是否足够并且正确。
-把递归终止条件和刚刚得到的递推公式放到一起就是这样的：</p>
+把递归终止条件和刚刚得到的递推公式放到一起就是这样的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -462,9 +531,9 @@ N=2 时，f (2)=f (1)+f (0)。如果递归终止条件只有一个 f (1)=1，那
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">f(1) = 1;
-</span></span><span class="line"><span class="cl">f(2) = 2;
-</span></span><span class="line"><span class="cl">f(n) = f(n-1)+f(n-2)c
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">f</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>有了这个公式，我们转化成递归代码就简单多了。最终的递归代码是这样的：</p>
@@ -477,14 +546,15 @@ N=2 时，f (2)=f (1)+f (0)。如果递归终止条件只有一个 f (1)=1，那
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int f(int n) {
-</span></span><span class="line"><span class="cl">  if (n == 1) return 1;
-</span></span><span class="line"><span class="cl">  if (n == 2) return 2;
-</span></span><span class="line"><span class="cl">  return f(n-1) + f(n-2);
-</span></span><span class="line"><span class="cl">}c
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">f</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</strong>。
+</div></blockquote>
+<p><strong>写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</strong>。
 第二个例子，人脑几乎没办法把整个“递”和“归”的过程一步一步都想清楚。
 <strong>正确的理解递归的思维方式：</strong>
 如果一个问题 A 可以分解为若干子问题 B、C、D，先假设子问题 B、C、D 已经解决，在此基础上思考如何解决问题 A。只需要思考问题 A 与子问题 B、C、D 两层之间的关系即可，不要一层一层往下思考子问题与子子问题，子子问题与子子子问题之间的关系。屏蔽掉递归细节，这样理解起来就简单多了。

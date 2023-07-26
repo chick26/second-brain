@@ -12,10 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/html/html-semantic/</guid>
-      <description>up:: [ • TOC for Frontend
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 什么是语义元素？ 非语义元素的例子：&amp;lt;div&amp;gt;和&amp;lt;span&amp;gt;- 没有说明它的内容。 语义元素示例： &amp;lt;form&amp;gt;、&amp;lt;table&amp;gt;和&amp;lt;article&amp;gt;- 明确定义其内容。
-HTML 中的语义元素 许多网站包含 HTML 代码，例如： 来指示导航、页眉和页脚。
-在 HTML 中，有一些语义元素可用于定义网页的不同部分：</description>
+HTML 中的语义元素 许多网站包含 HTML 代码，例如： 来指示导航、页眉和页脚。</description>
     </item>
     
   </channel>

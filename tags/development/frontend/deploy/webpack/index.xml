@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/package/%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
-      <description>up:: [ • TOC for Frontend
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 静态页面 先从简单的静态页面开始，众所周知，前端资源由 HTML、JavaScript、CSS 三剑客组成，假设我们有一个简单的页面，用 Nginx 作为 Web 服务器，资源组织结构大概如下：
 HTML 1 2 3 4  &amp;lt;!</description>
     </item>

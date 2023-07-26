@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-docker/docker-container-problem-list/</guid>
-      <description>up:: [ • TOC for Docker
+      <description>up:: [[Cards/📀 Docker/• TOC for Docker|• TOC for Docker]]
  Sync timezone between system and container  Enter container as root user  1  docker exec -it --user root &amp;lt;container name&amp;gt; bash    Rename container timezone file avioding two-file issue  1  mv /etc/localtime /etc/localtime.</description>
     </item>
     

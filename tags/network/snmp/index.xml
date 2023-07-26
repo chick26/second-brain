@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-network/snmp-vs.-ssh/</guid>
-      <description>up:: [ • TOC for Network</description>
+      <description>up:: [[Cards/📡 Network/• TOC for Network|• TOC for Network]]</description>
     </item>
     
     <item>
@@ -21,7 +21,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-network/%E7%BD%91%E7%AE%A1%E6%8E%A5%E5%8F%A3/</guid>
-      <description>up:: [ • TOC for Network
+      <description>up:: [[Cards/📡 Network/• TOC for Network|• TOC for Network]]
 北向接口 北向接口（Northbound Interface）提供给其他厂家或运营商进行接入和管理的接口，即向上提供的接口。它是驻留在底层网管上的一个进程，与通常所说的 Agent 功能相同，负责处理来自上层网管的请求报文，发送 trap 信息。经常简写为“Intf. N”。
 一般网管提供三种北向接口，分别为 CORBA（Common Object Request Broker Architecture）、SNMP、Syslog 北向接口。它们负责向上级网管系统提供基于 CORBA、SNMP 和 Syslog 协议的北向接口，支持上级网管系统通过对应的协议接入网管。</description>
     </item>

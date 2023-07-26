@@ -8,12 +8,12 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+    content="up:: [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course]]
 MySQL 的主从复制是一种主从式的架构。由于整个架构中只存在一个主节点 master，当它发了宕机或者出现问题的时候势 必影响整个集群的正常工作。因此需要基于高可用的架构来解决 MySQL 主从复制的单点故障问题。
 高可用架构的核心就是对主节点 master 进行监控，当其出现故障的时候通过提升某一从节点为新的主节点，从而实现故障的自动转移。"
   />
   <meta property="og:title" content="高可用架构">
-  <meta property="og:description" content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+  <meta property="og:description" content="up:: [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course]]
 MySQL 的主从复制是一种主从式的架构。由于整个架构中只存在一个主节点 master，当它发了宕机或者出现问题的时候势 必影响整个集群的正常工作。因此需要基于高可用的架构来解决 MySQL 主从复制的单点故障问题。
 高可用架构的核心就是对主节点 master 进行监控，当其出现故障的时候通过提升某一从节点为新的主节点，从而实现故障的自动转移。">
   <meta property="og:type" content="website">
@@ -23,7 +23,7 @@ MySQL 的主从复制是一种主从式的架构。由于整个架构中只存�
   <meta property="og:height" content="200">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="高可用架构" />
-  <meta name="twitter:description" content="up:: [ Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course
+  <meta name="twitter:description" content="up:: [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course]]
 MySQL 的主从复制是一种主从式的架构。由于整个架构中只存在一个主节点 master，当它发了宕机或者出现问题的时候势 必影响整个集群的正常工作。因此需要基于高可用的架构来解决 MySQL 主从复制的单点故障问题。
 高可用架构的核心就是对主节点 master 进行监控，当其出现故障的时候通过提升某一从节点为新的主节点，从而实现故障的自动转移。" />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
@@ -136,13 +136,13 @@ MySQL 的主从复制是一种主从式的架构。由于整个架构中只存�
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -449,6 +449,85 @@ Unknown
 
   
 
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
 
 
 
@@ -484,16 +563,7 @@ Unknown
 
 
 
-<p>up:: [
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="%E2%80%A2%20TOC%20for%20MySQL%20Course">Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|• TOC for MySQL Course</a></p>
+<p>up:: <a href="chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/-toc-for-mysql-course" rel="noopener" class="internal-link" data-src="chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/-toc-for-mysql-course">• TOC for MySQL Course</a></p>
 <p>MySQL 的主从复制是一种主从式的架构。由于整个架构中只存在一个主节点 <code>master</code>，当它发了宕机或者出现问题的时候势 必影响整个集群的正常工作。因此需要基于高可用的架构来解决 MySQL 主从复制的单点故障问题。</p>
 <p>高可用架构的核心就是对主节点 <code>master</code> 进行监控，当其出现故障的时候通过提升某一从节点为新的主节点，从而实现故障的自动转移。</p>
 <a href="#mha"><h2 id="mha"><span class="hanchor" ariaLabel="Anchor"># </span>MHA</h2></a>
@@ -526,7 +596,7 @@ Unknown
 <li>集群性能受限于性能最差的节点</li>
 <li>因为需要保证数据的一致性，所以在多个节点并发写时，冲突比较严重</li>
 <li>存在写扩大问题，所有节点都会发生写操作</li>
-<li>只支持 <a href="chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/innodb%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" rel="noopener" class="internal-link" data-src="chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/innodb%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"> InnoDB</a> 存储引擎 没有表级别的锁定，执行 DDL 语句操作会把整个集群锁住</li>
+<li>只支持 <a href="chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/innodb%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" rel="noopener" class="internal-link" data-src="chick26.github.io/sources/courses/%EF%B8%8F-database/mysql/innodb%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"> InnoDB</a> 存储引擎没有表级别的锁定，执行 DDL 语句操作会把整个集群锁住</li>
 <li>所有表必须有主键，不然操作数据时会报错</li>
 </ul>
 <a href="#mgr"><h2 id="mgr"><span class="hanchor" ariaLabel="Anchor"># </span>MGR</h2></a>

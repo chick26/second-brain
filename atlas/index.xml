@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/atlases-moc/</guid>
-      <description>🌏 [[../Home.md]] | Atlases MOC MOCs  [!Example]- [ Concepts MOC| 😵‍💫 CONCEPT
+      <description>🌏 [[Home]] | Atlases MOC MOCs  [!Example]- [[Atlas/MOCs/Concepts MOC|😵‍💫 CONCEPT]]
  It creates new knowledge: by creating concept notes we allow our ideas to connect together across classes and semesters.</description>
     </item>
     
@@ -22,7 +22,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/logs/essays/</guid>
-      <description>🌏 [[../../Home.md]] | Essays 🖌 2022 1 2 3  table tags from #essay/2022 sort dates desc   </description>
+      <description>🌏 [[Home]] | Essays 🖌 2022 1 2 3  table tags from #essay/2022 sort dates desc   </description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/mocs/concepts-moc/</guid>
-      <description>🌏[[../../Home.md]] | Concepts MOC </description>
+      <description>🌏[[Home]] | Concepts MOC </description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/mocs/courses-moc/</guid>
-      <description>🌏 [ Atlases MOC| Atlases | MOC | [ • TOC for Courses|TOC | [[Courses waiting List]] | [[You have to review there courses]]</description>
+      <description>🌏 [[Atlas/Atlases MOC| Atlases]] | MOC | [[Sources/Courses/• TOC for Courses|• TOC for Courses]] | [[Courses waiting List]] | [[You have to review there courses]]</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/mocs/development-moc/</guid>
-      <description>🌏 [ Atlases MOC| Atlases | Development MOC Develop my note  [ • TOC for Markdown|Markdown  Basic Learning  [[.</description>
+      <description>🌏 [[Atlas/Atlases MOC| Atlases]] | Development MOC Develop my note  [[Cards/🎰 Markdown/• TOC for Markdown|Markdown]]  Basic Learning  [[Cards/📉 Data Structure/Database/数据库对比|Database]]  [[Sources/Courses/⚙️ Database/MySQL/• TOC for MySQL Course|MySQL]] [[Redis]]   [[Docker]] [[Atlas/MOCs/Network MOC|Network]]  Frontend development  Language  [[JavaScript]] / [[Cards/📲 Front Dev/TypeScript/TypeScript 语法|TypeScript]] [[CSS]] [[Cards/📲 Front Dev/HTML/HTML|HTML]] [[Cards/📲 Front Dev/AppleScript/AppleScript|AppleScript]]   [[Cards/📲 Front Dev/Package/前端部署|Deployment]]  [[Cards/📲 Front Dev/Package/rollup.</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/mocs/network-moc/</guid>
-      <description>🌏 [ Atlases MOC| Atlases | MOC | [ • TOC for Network|TOC [ • TOC for Network|IP Carrying Network  [ SNMP vs.</description>
+      <description>🌏 [[Atlas/Atlases MOC| Atlases]] | MOC | [[Cards/📡 Network/• TOC for Network|TOC]] [[Cards/📡 Network/• TOC for Network|IP Carrying Network]]  [[Cards/📡 Network/SNMP vs.</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/scopes/bookshelf/</guid>
-      <description>🌏[ Sources MOC | Bookshelf 📚 | [[Books I&amp;rsquo;ve Read MOC]] | [[Books Purgatory List]]
+      <description>🌏[[Sources/Sources MOC|Sources MOC]] | Bookshelf 📚 | [[Books I&amp;rsquo;ve Read MOC]] | [[Books Purgatory List]]
 1 2 3 4 5  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
     </item>
     
@@ -77,7 +77,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/scopes/cooling-pad/</guid>
-      <description>🌏[[../../Home.md]] | Cooling pad 🧊 1 2 3 4 5 6 7 8 9 10 11 12 13  TABLE WITHOUT ID file.</description>
+      <description>🌏[[Home]] | Cooling pad 🧊 1 2 3 4 5 6 7 8 9 10 11 12 13  TABLE WITHOUT ID file.</description>
     </item>
     
     <item>
@@ -86,7 +86,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/scopes/outbox/</guid>
-      <description>🌏 [ Atlases MOC| Atlases | The Outbox 📤 1 2 3 4 5  TABLE WITHOUT ID file.link as Outputs, tags as Tags FROM #output SORT file.</description>
+      <description>🌏 [[Atlas/Atlases MOC|Atlases]] | The Outbox 📤 1 2 3 4 5  TABLE WITHOUT ID file.link as Outputs, tags as Tags FROM #output SORT file.</description>
     </item>
     
     <item>
@@ -95,7 +95,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/scopes/calendar/media-hub/</guid>
-      <description>Media &amp;lt; [ Journal MOC|🌏 | [ New Discoveries Hub |💡 | [ Ship Hub|🛳️ &amp;gt; Media Log contains mini-reviews on the books/articles I read and the videos I watch.</description>
+      <description>Media &amp;lt; [[Calendar/Journal MOC|🌏]] | [[Atlas/Scopes/Calendar/New Discoveries Hub|💡]] | [[Atlas/Scopes/Calendar/Ship Hub|🛳️]] &amp;gt; Media Log contains mini-reviews on the books/articles I read and the videos I watch.</description>
     </item>
     
     <item>
@@ -104,7 +104,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/scopes/calendar/new-discoveries-hub/</guid>
-      <description>New Discoveries &amp;lt; [ Journal MOC|🌏 | [ Ship Hub|🛳️ | [ Media Hub|📚 &amp;gt; A log containing the interesting discoveries from the Daily Notes.</description>
+      <description>New Discoveries &amp;lt; [[Calendar/Journal MOC|🌏]] | [[Atlas/Scopes/Calendar/Ship Hub|🛳️]] | [[Atlas/Scopes/Calendar/Media Hub|📚]] &amp;gt; A log containing the interesting discoveries from the Daily Notes.</description>
     </item>
     
     <item>
@@ -113,7 +113,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/atlas/scopes/calendar/ship-hub/</guid>
-      <description>Set Out &amp;lt; [ Journal MOC|🌏 | [ New Discoveries Hub |💡 | [ Media Hub|📚 &amp;gt; ⛽️ Life Happenings 1 2 3 4 5  TABLE WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
+      <description>Set Out &amp;lt; [[Calendar/Journal MOC|🌏]] | [[Atlas/Scopes/Calendar/New Discoveries Hub|💡]] | [[Atlas/Scopes/Calendar/Media Hub|📚]] &amp;gt; ⛽️ Life Happenings 1 2 3 4 5  TABLE WITHOUT ID (&amp;#34;[[&amp;#34; + file.</description>
     </item>
     
     <item>

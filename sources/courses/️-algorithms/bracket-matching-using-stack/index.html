@@ -9,11 +9,11 @@
   <meta
     name="description"
     content="问题 假设表达式中只包含三种括号，圆括号 ()、方括号 [] 和花括号 {}，并且它们可以任意嵌套。
- {[{}]} 或 [{()}([])] 等都为合法格式 {[}()] 或 [({)] 为不合法的格式 对于一个包含三种括号的表达式字符串，检查是否合法 ( 跟 ) 匹配，[ 跟 ] 匹配，{ 跟 } 匹配  思路 使用一个 [[Stack."
+ {[{}]} 或 [{()}([])] 等都为合法格式 {[}()] 或 [({)] 为不合法的格式 对于一个包含三种括号的表达式字符串，检查是否合法 ( 跟 ) 匹配，[ 跟 ] 匹配，{ 跟 } 匹配  思路 使用一个 [[Sources/Courses/✍️ Algorithms/Stack|栈]] 即可实现："
   />
   <meta property="og:title" content="Bracket Matching Using Stack">
   <meta property="og:description" content="问题 假设表达式中只包含三种括号，圆括号 ()、方括号 [] 和花括号 {}，并且它们可以任意嵌套。
- {[{}]} 或 [{()}([])] 等都为合法格式 {[}()] 或 [({)] 为不合法的格式 对于一个包含三种括号的表达式字符串，检查是否合法 ( 跟 ) 匹配，[ 跟 ] 匹配，{ 跟 } 匹配  思路 使用一个 [[Stack.">
+ {[{}]} 或 [{()}([])] 等都为合法格式 {[}()] 或 [({)] 为不合法的格式 对于一个包含三种括号的表达式字符串，检查是否合法 ( 跟 ) 匹配，[ 跟 ] 匹配，{ 跟 } 匹配  思路 使用一个 [[Sources/Courses/✍️ Algorithms/Stack|栈]] 即可实现：">
   <meta property="og:type" content="website">
   <meta property="og:image" content="chick26.github.ioicon.png">
   <meta property="og:url" content="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/bracket-matching-using-stack/">
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Bracket Matching Using Stack" />
   <meta name="twitter:description" content="问题 假设表达式中只包含三种括号，圆括号 ()、方括号 [] 和花括号 {}，并且它们可以任意嵌套。
- {[{}]} 或 [{()}([])] 等都为合法格式 {[}()] 或 [({)] 为不合法的格式 对于一个包含三种括号的表达式字符串，检查是否合法 ( 跟 ) 匹配，[ 跟 ] 匹配，{ 跟 } 匹配  思路 使用一个 [[Stack." />
+ {[{}]} 或 [{()}([])] 等都为合法格式 {[}()] 或 [({)] 为不合法的格式 对于一个包含三种括号的表达式字符串，检查是否合法 ( 跟 ) 匹配，[ 跟 ] 匹配，{ 跟 } 匹配  思路 使用一个 [[Sources/Courses/✍️ Algorithms/Stack|栈]] 即可实现：" />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
   
     
@@ -133,13 +133,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({

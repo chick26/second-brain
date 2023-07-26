@@ -285,7 +285,7 @@ a ^jtdsUxAt</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/extras/flashcards/communicate-int-tech/-toc-for-communicate-int-tech-flashcards/</guid>
-      <description>🌏 [ Flashcards MOC | Untitled 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.name + &amp;#34;]]&amp;#34;) as TITLE, string(map(file.</description>
+      <description>🌏 [[Extras/FlashCards/Flashcards MOC|Flashcards MOC]] 1 2 3 4 5 6 7  table WITHOUT ID (&amp;#34;[[&amp;#34; + file.name + &amp;#34;]]&amp;#34;) as TITLE, string(map(file.</description>
     </item>
     
     <item>
@@ -312,7 +312,7 @@ a ^jtdsUxAt</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/extras/flashcards/flashcards-moc/</guid>
-      <description>🌏 [ Atlases MOC|Atlases | Flashcards MOC Card Package 1 2 3 4  TABLE file.folder as PATH, dateformat(file.mtime, &amp;#34;yyyy-MM-dd&amp;#34;) as MODIFIED FROM &amp;#34;Extras/FlashCards&amp;#34;   Card Classification 1 2 3 4  TABLE dateformat(file.</description>
+      <description>🌏 [[Atlas/Atlases MOC|Atlases]] | Flashcards MOC Card Package 1 2 3 4  TABLE file.folder as PATH, dateformat(file.mtime, &amp;#34;yyyy-MM-dd&amp;#34;) as MODIFIED FROM &amp;#34;Extras/FlashCards&amp;#34;   Card Classification 1 2 3 4  TABLE dateformat(file.</description>
     </item>
     
     <item>
@@ -321,7 +321,7 @@ a ^jtdsUxAt</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/extras/flashcards/frontend/handwriting/</guid>
-      <description>Fronten Hand Writing [[../../../Sources/Courses/🗿%20Frontend%20Interview/问答汇总/Q0001-图片懒加载.md|图片懒加载]] #flashcard  位置计算 + 滚动事件 (Scroll) + DataSet API  1 2 3 4 5 6  const isInView = ( offsetTop &amp;lt; scrollTop + innerHeight &amp;amp;&amp;amp; offsetTop + el.</description>
+      <description>Fronten Hand Writing [[Sources/Courses/🗿 Frontend Interview/问答汇总/Q0001-图片懒加载|图片懒加载]] #flashcard  位置计算 + 滚动事件 (Scroll) + DataSet API  1 2 3 4 5 6  const isInView = ( offsetTop &amp;lt; scrollTop + innerHeight &amp;amp;&amp;amp; offsetTop + el.</description>
     </item>
     
     <item>
@@ -330,7 +330,7 @@ a ^jtdsUxAt</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/extras/flashcards/frontend/-toc-for-frontend-flashcards/</guid>
-      <description>🌏 [ Flashcards MOC | Frontend Flashcards 1 2 3 4  TABLE dates FROM &amp;#34;Cards/Frontend&amp;#34; SORT file.name ASC   </description>
+      <description>🌏 [[Extras/FlashCards/Flashcards MOC|Flashcards MOC]]| Frontend Flashcards 1 2 3 4  TABLE dates FROM &amp;#34;Cards/Frontend&amp;#34; SORT file.name ASC   </description>
     </item>
     
   </channel>

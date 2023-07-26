@@ -10,13 +10,13 @@
     name="description"
     content="问题 网站开发中，如何实现图片的懒加载，随着 web 技术的发展，他有没有一些更好的方案
 解析 懒加载，顾名思义，在当前网页，滑动页面到能看到图片的时候再加载图片，故问题拆分成两个：
- 如何判断图片出现在了当前视口 （即如何判断我们能够看到图片） 如何控制图片的加载  解答 ![ Lazyload Img.excalidraw | 650
+ 如何判断图片出现在了当前视口 （即如何判断我们能够看到图片） 如何控制图片的加载  解答 ![[Extras/Excalidraw/前端开发/Lazyload Img.excalidraw|650]]
 1. 位置计算 &#43; 滚动事件 (Scroll) &#43; DataSet API 实现 图片懒加载_窗口高度"
   />
   <meta property="og:title" content="图片懒加载">
   <meta property="og:description" content="问题 网站开发中，如何实现图片的懒加载，随着 web 技术的发展，他有没有一些更好的方案
 解析 懒加载，顾名思义，在当前网页，滑动页面到能看到图片的时候再加载图片，故问题拆分成两个：
- 如何判断图片出现在了当前视口 （即如何判断我们能够看到图片） 如何控制图片的加载  解答 ![ Lazyload Img.excalidraw | 650
+ 如何判断图片出现在了当前视口 （即如何判断我们能够看到图片） 如何控制图片的加载  解答 ![[Extras/Excalidraw/前端开发/Lazyload Img.excalidraw|650]]
 1. 位置计算 &#43; 滚动事件 (Scroll) &#43; DataSet API 实现 图片懒加载_窗口高度">
   <meta property="og:type" content="website">
   <meta property="og:image" content="chick26.github.ioicon.png">
@@ -27,7 +27,7 @@
   <meta name="twitter:title" content="图片懒加载" />
   <meta name="twitter:description" content="问题 网站开发中，如何实现图片的懒加载，随着 web 技术的发展，他有没有一些更好的方案
 解析 懒加载，顾名思义，在当前网页，滑动页面到能看到图片的时候再加载图片，故问题拆分成两个：
- 如何判断图片出现在了当前视口 （即如何判断我们能够看到图片） 如何控制图片的加载  解答 ![ Lazyload Img.excalidraw | 650
+ 如何判断图片出现在了当前视口 （即如何判断我们能够看到图片） 如何控制图片的加载  解答 ![[Extras/Excalidraw/前端开发/Lazyload Img.excalidraw|650]]
 1. 位置计算 &#43; 滚动事件 (Scroll) &#43; DataSet API 实现 图片懒加载_窗口高度" />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
   
@@ -139,13 +139,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -372,6 +372,68 @@ Unknown
 
 
 
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
 
 
 
@@ -404,16 +466,7 @@ Unknown
 <li>如何控制图片的加载</li>
 </ol>
 <a href="#解答"><h2 id="解答"><span class="hanchor" ariaLabel="Anchor"># </span>解答</h2></a>
-<p>![
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="../../../../Extras/Excalidraw/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Lazyload%20Img.excalidraw">Lazyload Img.excalidraw | 650</a></p>
+<p><a href="chick26.github.io/extras/excalidraw/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/lazyload-img.excalidraw" rel="noopener" class="internal-link" data-src="chick26.github.io/extras/excalidraw/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/lazyload-img.excalidraw">650</a></p>
 <a href="#1-位置计算--滚动事件-scroll--dataset-api"><h3 id="1-位置计算--滚动事件-scroll--dataset-api"><span class="hanchor" ariaLabel="Anchor"># </span>1. 位置计算 + 滚动事件 (Scroll) + DataSet API</h3></a>
 <p>实现 
 <a href="https://codepen.io/chick26/pen/zYWRZBG" rel="noopener">图片懒加载_窗口高度</a></p>

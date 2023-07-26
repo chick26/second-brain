@@ -8,12 +8,12 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="up:: [ • TOC for Frontend
+    content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 前端组件库的设计原则 细粒度的考量 设计模式: 单一职责原则，所谓的单一职责组件要建立在可复用的基础上，对于不可复用的单一职责组件我们仅仅作为独立组件的内部组件即可。
 通用性考量 Antd 依赖了大量以rc-开头的底层组件, 这些组件由 react-component (同时也就是 Antd 团队) 维护, 其主要实现组件的底层逻辑, Antd 则是在此基础上添加 Ant Design 设计语言而实现的，以 Select 组件为例，基本将所有的 DOM 结构控制权全部暴露给了开发者,，其本身只负责底层逻辑和最基本的 DOM 结构."
   />
   <meta property="og:title" content="前端组件库设计">
-  <meta property="og:description" content="up:: [ • TOC for Frontend
+  <meta property="og:description" content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 前端组件库的设计原则 细粒度的考量 设计模式: 单一职责原则，所谓的单一职责组件要建立在可复用的基础上，对于不可复用的单一职责组件我们仅仅作为独立组件的内部组件即可。
 通用性考量 Antd 依赖了大量以rc-开头的底层组件, 这些组件由 react-component (同时也就是 Antd 团队) 维护, 其主要实现组件的底层逻辑, Antd 则是在此基础上添加 Ant Design 设计语言而实现的，以 Select 组件为例，基本将所有的 DOM 结构控制权全部暴露给了开发者,，其本身只负责底层逻辑和最基本的 DOM 结构.">
   <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
   <meta property="og:height" content="200">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="前端组件库设计" />
-  <meta name="twitter:description" content="up:: [ • TOC for Frontend
+  <meta name="twitter:description" content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 前端组件库的设计原则 细粒度的考量 设计模式: 单一职责原则，所谓的单一职责组件要建立在可复用的基础上，对于不可复用的单一职责组件我们仅仅作为独立组件的内部组件即可。
 通用性考量 Antd 依赖了大量以rc-开头的底层组件, 这些组件由 react-component (同时也就是 Antd 团队) 维护, 其主要实现组件的底层逻辑, Antd 则是在此基础上添加 Ant Design 设计语言而实现的，以 Select 组件为例，基本将所有的 DOM 结构控制权全部暴露给了开发者,，其本身只负责底层逻辑和最基本的 DOM 结构." />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
@@ -136,13 +136,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -450,18 +450,7 @@ Unknown
     
     
     
-      
-      
     
-    
-    
-      
-      
-      
-      
-      
-      
-      
     
     
 
@@ -469,6 +458,10 @@ Unknown
     
       
       
+      
+      
+      
+    
     
 
   
@@ -496,16 +489,7 @@ Unknown
 
 
 
-<p>up:: [
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<p>up:: <a href="chick26.github.io/cards/-front-dev/-toc-for-frontend" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/-toc-for-frontend">• TOC for Frontend</a></p>
 <a href="#前端组件库的设计原则"><h1 id="前端组件库的设计原则"><span class="hanchor" ariaLabel="Anchor"># </span>前端组件库的设计原则</h1></a>
 <a href="#细粒度的考量"><h2 id="细粒度的考量"><span class="hanchor" ariaLabel="Anchor"># </span>细粒度的考量</h2></a>
 <p>设计模式: <strong>单一职责原则</strong>，所谓的单一职责组件要建立在可复用的基础上，对于不可复用的单一职责组件我们仅仅作为独立组件的内部组件即可。</p>
@@ -531,7 +515,7 @@ Unknown
 <a href="#技术选型"><h1 id="技术选型"><span class="hanchor" ariaLabel="Anchor"># </span>技术选型</h1></a>
 <a href="#css-解决方案"><h2 id="css-解决方案"><span class="hanchor" ariaLabel="Anchor"># </span>css 解决方案</h2></a>
 <p>由于 CSS 本身的众多缺陷，如书写繁琐（不支持嵌套）、样式易冲突（没有作用域概念）、缺少变量（不便于一键换主题）等不一而足。为了解决这些问题，社区里的解决方案也是出了一茬又一茬，从最早的 <code>CSS prepocessor</code>（<code>SASS</code>、<code>LESS</code>、<code>Stylus</code>）到后来的后起之秀 <code>PostCSS</code>，再到 <code>CSS Modules</code>、<code>Styled-Components</code> 等。</p>
-<p>Antd 选择了 <code>less</code> 作为 css 的预处理方案, Bootstrap 选择了 <code>Scss</code>, 这两种方案孰优孰劣已经争论了很多年了: <a class="internal-link broken"> SCSS 和 LESS 相比有什么优势</a></p>
+<p>Antd 选择了 <code>less</code> 作为 css 的预处理方案, Bootstrap 选择了 <code>Scss</code>, 这两种方案孰优孰劣已经争论了很多年了</p>
 <p>但是不管是哪种方案都有一个问题，需要额外引入 css, 比如 Antd 需要这样显式引入:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

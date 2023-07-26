@@ -12,10 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/sources/courses/%EF%B8%8F-algorithms/array/</guid>
-      <description>up:: [ • TOC for Algorithm Course
+      <description>up:: [[Sources/Courses/✍️ Algorithms/• TOC for Algorithm Course|• TOC for Algorithm Course]]
  数组是一种最基础的数据结构，在大部分编程语言中，数组都是从 0 开始编号的。
-  [! Info]+ 线性表与非线性表
- 线性表，数据最多只有前和后两个方向，包括数组，链表、队列、栈等。其中数组 是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。 非线性表，数据之间并不是简单的前后关系，有二叉树、堆、图等   1 操作复杂度 1.</description>
+  [! Info]+ 线性表与非线性表</description>
     </item>
     
   </channel>

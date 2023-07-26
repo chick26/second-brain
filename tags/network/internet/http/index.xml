@@ -12,8 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>chick26.github.io/cards/-front-dev/internet/http/</guid>
-      <description>up:: [ • TOC for Frontend
- 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]]是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 最初的目的是为了提供一种发布和接收 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 页面的方法。通过 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 或者 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md|HTTPS协议]] 请求的资源由 [[URL.</description>
+      <description>up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
+ 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 最初的目的是为了提供一种发布和接收 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 页面的方法。通过 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 或者 [[Cards/📲 Front Dev/Internet/HTTP|HTTPS协议]] 请求的资源由 [[Cards/📲 Front Dev/Internet/URL|统一资源标识符]] 来标识。</description>
     </item>
     
   </channel>

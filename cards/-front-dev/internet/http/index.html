@@ -8,12 +8,12 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="up:: [ • TOC for Frontend
- 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]]是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 最初的目的是为了提供一种发布和接收 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 页面的方法。通过 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 或者 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md|HTTPS协议]] 请求的资源由 [[URL."
+    content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
+ 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 最初的目的是为了提供一种发布和接收 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 页面的方法。通过 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 或者 [[Cards/📲 Front Dev/Internet/HTTP|HTTPS协议]] 请求的资源由 [[Cards/📲 Front Dev/Internet/URL|统一资源标识符]] 来标识。"
   />
   <meta property="og:title" content="HTTP">
-  <meta property="og:description" content="up:: [ • TOC for Frontend
- 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]]是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 最初的目的是为了提供一种发布和接收 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 页面的方法。通过 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 或者 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md|HTTPS协议]] 请求的资源由 [[URL.">
+  <meta property="og:description" content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
+ 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 最初的目的是为了提供一种发布和接收 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 页面的方法。通过 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 或者 [[Cards/📲 Front Dev/Internet/HTTP|HTTPS协议]] 请求的资源由 [[Cards/📲 Front Dev/Internet/URL|统一资源标识符]] 来标识。">
   <meta property="og:type" content="website">
   <meta property="og:image" content="chick26.github.ioicon.png">
   <meta property="og:url" content="chick26.github.io/cards/-front-dev/internet/http/">
@@ -21,8 +21,8 @@
   <meta property="og:height" content="200">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="HTTP" />
-  <meta name="twitter:description" content="up:: [ • TOC for Frontend
- 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]]是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 最初的目的是为了提供一种发布和接收 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 页面的方法。通过 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md]] 或者 [[../../../..//Cards/📲%20Front%20Dev/Internet/HTTP.md|HTTPS协议]] 请求的资源由 [[URL." />
+  <meta name="twitter:description" content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
+ 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议, [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 是 [[WWW.md|万维网]] 的数据通信的基础。设计 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 最初的目的是为了提供一种发布和接收 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 页面的方法。通过 [[Cards/📲 Front Dev/Internet/HTTP|HTTP]] 或者 [[Cards/📲 Front Dev/Internet/HTTP|HTTPS协议]] 请求的资源由 [[Cards/📲 Front Dev/Internet/URL|统一资源标识符]] 来标识。" />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
   
     
@@ -133,13 +133,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -455,13 +455,12 @@ Unknown
     
     
     
-      
-      
     
     
     
-      
-      
+
+    
+    
       
       
       
@@ -470,12 +469,6 @@ Unknown
     
     
 
-    
-    
-      
-      
-    
-
   
 
   
@@ -596,25 +589,18 @@ Unknown
     
     
     
-      
-      
     
     
     
-      
-      
+
+    
+    
       
       
       
       
       
-    
-    
-
-    
     
-      
-      
     
 
   
@@ -670,18 +656,74 @@ Unknown
     
     
     
-      
-      
     
     
     
-      
-      
+
+    
+    
       
       
       
       
       
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
     
     
 
@@ -689,7 +731,11 @@ Unknown
     
       
       
+      
+      
+      
     
+    
 
   
 
@@ -744,25 +790,85 @@ Unknown
     
     
     
-      
-      
     
     
     
-      
-      
+
+    
+    
       
       
       
       
       
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
     
+    
+    
+    
+    
+    
+    
+    
 
     
     
       
       
+      
+      
+      
+    
     
 
   
@@ -818,25 +924,85 @@ Unknown
     
     
     
-      
-      
     
     
     
-      
-      
+
+    
+    
       
       
       
       
       
+    
+    
+
+  
+
+  
+  
+  
+    
+  
+    
+  
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
     
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
 
     
     
       
       
+      
+      
+      
+    
     
 
   
@@ -1026,9 +1192,12 @@ Unknown
     
     
     
+      
+      
     
     
     
+    
 
     
     
@@ -1088,10 +1257,13 @@ Unknown
     
     
 
+    
     
     
     
     
+      
+      
     
     
     
@@ -1140,28 +1312,19 @@ Unknown
   
   
   
-
-
 
 
 
 
-<p>up:: [
 
 
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<p>up:: <a href="chick26.github.io/cards/-front-dev/-toc-for-frontend" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/-toc-for-frontend">• TOC for Frontend</a></p>
 <blockquote>
-<p><strong>超文本传输协议</strong>（英语：<strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol，缩写：<strong>HTTP</strong>）是一种用于分布式、协作式和超媒体信息系统的应用层协议, <a class="internal-link broken">HTTP.md</a>是 <a href="chick26.github.io/cards/-front-dev/internet/www" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/www">万维网</a> 的数据通信的基础。设计 <a class="internal-link broken">HTTP.md</a> 最初的目的是为了提供一种发布和接收 <a class="internal-link broken">HTTP.md</a> 页面的方法。通过 <a class="internal-link broken">HTTP.md</a> 或者 <a class="internal-link broken">HTTPS协议</a> 请求的资源由 <a href="chick26.github.io/cards/-front-dev/internet/url" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/url">统一资源标识符</a> 来标识。</p>
+<p><strong>超文本传输协议</strong>（英语：<strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol，缩写：<strong>HTTP</strong>）是一种用于分布式、协作式和超媒体信息系统的应用层协议, <a href="chick26.github.io/cards/-front-dev/internet/http" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/http">HTTP</a> 是 <a href="chick26.github.io/cards/-front-dev/internet/www" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/www">万维网</a> 的数据通信的基础。设计 <a href="chick26.github.io/cards/-front-dev/internet/http" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/http">HTTP</a> 最初的目的是为了提供一种发布和接收 <a href="chick26.github.io/cards/-front-dev/internet/http" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/http">HTTP</a> 页面的方法。通过 <a href="chick26.github.io/cards/-front-dev/internet/http" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/http">HTTP</a> 或者 <a href="chick26.github.io/cards/-front-dev/internet/http" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/http">HTTPS协议</a> 请求的资源由 <a href="chick26.github.io/cards/-front-dev/internet/url" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/url">统一资源标识符</a> 来标识。</p>
 </blockquote>
 <a href="#协议概述"><h1 id="协议概述"><span class="hanchor" ariaLabel="Anchor"># </span>协议概述</h1></a>
-<p>HTTP是一个客户端（用户）和服务端（网站）之间请求和应答的标准，通常使用 <a href="chick26.github.io/cards/-front-dev/internet/tcp" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/tcp">TCP协议</a>。通过使用网页浏览器、网络爬虫或者其它的工具，客户端发起一个HTTP请求到服务器上指定端口（默认端口为80）。我们称这个客户端为用户代理程序（user agent）。应答的服务器上存储着一些资源，比如 <a href="chick26.github.io/cards/-front-dev/html/html" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/html/html">HTML.md</a> 文件和图像。我们称这个应答服务器为源服务器（origin server）。</p>
-<p>尽管 TCP/IP 协议是互联网上最流行的应用，但是在 HTTP 协议中并没有规定它必须使用或它支持的层。事实上 HTTP 可以在任何互联网协议或其他网络上实现。HTTP 假定其下层协议提供可靠的传输。因此，任何能够提供这种保证的协议都可以被其使用，所以其在 TCP/IP 协议族使用 <a href="chick26.github.io/cards/-front-dev/internet/tcp" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/tcp">TCP.md</a> 作为其传输层。</p>
+<p>HTTP 是一个客户端（用户）和服务端（网站）之间请求和应答的标准，通常使用 <a href="chick26.github.io/cards/-front-dev/internet/tcp" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/tcp">TCP协议</a>。通过使用网页浏览器、网络爬虫或者其它的工具，客户端发起一个 HTTP 请求到服务器上指定端口（默认端口为80）。我们称这个客户端为用户代理程序（user agent）。应答的服务器上存储着一些资源，比如 <a href="chick26.github.io/cards/-front-dev/html/html" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/html/html">HTML</a> 文件和图像。我们称这个应答服务器为源服务器（origin server）。</p>
+<p>尽管 TCP/IP 协议是互联网上最流行的应用，但是在 HTTP 协议中并没有规定它必须使用或它支持的层。事实上 HTTP 可以在任何互联网协议或其他网络上实现。HTTP 假定其下层协议提供可靠的传输。因此，任何能够提供这种保证的协议都可以被其使用，所以其在 TCP/IP 协议族使用 <a href="chick26.github.io/cards/-front-dev/internet/tcp" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/internet/tcp">TCP</a> 作为其传输层。</p>
 <a href="#状态码"><h1 id="状态码"><span class="hanchor" ariaLabel="Anchor"># </span>状态码</h1></a>
 <a href="#状态码分类"><h2 id="状态码分类"><span class="hanchor" ariaLabel="Anchor"># </span>状态码分类</h2></a>
 <ul>
@@ -1281,16 +1444,7 @@ Unknown
 <li>public：可以被代理服务器识别</li>
 <li>Expires ( 控制缓存过期，被 Cache-Control 代替 )</li>
 </ul>
-<p>![
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="../../../Extras/Excalidraw/Http/http%20%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98.excalidraw">http 强制缓存.excalidraw</a></p>
+<p><a href="chick26.github.io/extras/excalidraw/http/http-%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98.excalidraw" rel="noopener" class="internal-link" data-src="chick26.github.io/extras/excalidraw/http/http-%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98.excalidraw">http 强制缓存.excalidraw</a></p>
 <a href="#协商缓存对比缓存"><h3 id="协商缓存对比缓存"><span class="hanchor" ariaLabel="Anchor"># </span>协商缓存（对比缓存）</h3></a>
 <p>^ac37d8</p>
 <ul>
@@ -1301,16 +1455,7 @@ Unknown
 <li>Last-Modified 资源的最后修改时间</li>
 <li>Etag 资源的唯一标识（指纹，字符串）</li>
 <li>共存优先使用 Etag（因为修改时间只能秒级）
-![
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="../../../Extras/Excalidraw/Http/http%20%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98.excalidraw">http 协商缓存.excalidraw</a></li>
+<a href="chick26.github.io/extras/excalidraw/http/http-%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98.excalidraw" rel="noopener" class="internal-link" data-src="chick26.github.io/extras/excalidraw/http/http-%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98.excalidraw">http 协商缓存.excalidraw</a></li>
 </ul>
 <a href="#刷新操作方式对缓存的影响"><h2 id="刷新操作方式对缓存的影响"><span class="hanchor" ariaLabel="Anchor"># </span>刷新操作方式，对缓存的影响</h2></a>
 <ul>

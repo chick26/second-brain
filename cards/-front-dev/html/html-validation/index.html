@@ -8,13 +8,13 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="up:: [ • TOC for Frontend
+    content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 不同类型的表单数据校验 在 Web 中，你可能会遇见各种不同的表单校验：
 客户端校验 发生在浏览器端，表单数据被提交到服务器之前，这种方式相较于服务器端校验来说，用户体验更好，它能实时的反馈用户的输入校验结果，这种类型的校验可以进一步细分成下面这些方式：
  JavaScript 校验，这是可以完全自定义的实现方式； HTML5 内置校验，这不需要 JavaScript ，而且性能更好，但是不能像JavaScript那样可自定义。  服务器端校验 发生在浏览器提交数据并被服务器端程序接收之后 —— 通常服务器端校验都是发生在将数据写入数据库之前，如果数据没通过校验，则会直接从服务器端返回错误消息，并且告诉浏览器端发生错误的具体位置和原因，服务器端校验不像客户端校验那样有好的用户体验，因为它直到整个表单都提交后才能返回错误信息。但是服务器端校验是你的应用对抗错误/恶意数据的最后防线，在这之后，数据将被持久化至数据库。当今 所有的服务端框架都提供了数据校验与清洁功能（让数据更安全）。"
   />
   <meta property="og:title" content="HTML-Validation">
-  <meta property="og:description" content="up:: [ • TOC for Frontend
+  <meta property="og:description" content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 不同类型的表单数据校验 在 Web 中，你可能会遇见各种不同的表单校验：
 客户端校验 发生在浏览器端，表单数据被提交到服务器之前，这种方式相较于服务器端校验来说，用户体验更好，它能实时的反馈用户的输入校验结果，这种类型的校验可以进一步细分成下面这些方式：
  JavaScript 校验，这是可以完全自定义的实现方式； HTML5 内置校验，这不需要 JavaScript ，而且性能更好，但是不能像JavaScript那样可自定义。  服务器端校验 发生在浏览器提交数据并被服务器端程序接收之后 —— 通常服务器端校验都是发生在将数据写入数据库之前，如果数据没通过校验，则会直接从服务器端返回错误消息，并且告诉浏览器端发生错误的具体位置和原因，服务器端校验不像客户端校验那样有好的用户体验，因为它直到整个表单都提交后才能返回错误信息。但是服务器端校验是你的应用对抗错误/恶意数据的最后防线，在这之后，数据将被持久化至数据库。当今 所有的服务端框架都提供了数据校验与清洁功能（让数据更安全）。">
@@ -25,7 +25,7 @@
   <meta property="og:height" content="200">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="HTML-Validation" />
-  <meta name="twitter:description" content="up:: [ • TOC for Frontend
+  <meta name="twitter:description" content="up:: [[Cards/📲 Front Dev/• TOC for Frontend|• TOC for Frontend]]
 不同类型的表单数据校验 在 Web 中，你可能会遇见各种不同的表单校验：
 客户端校验 发生在浏览器端，表单数据被提交到服务器之前，这种方式相较于服务器端校验来说，用户体验更好，它能实时的反馈用户的输入校验结果，这种类型的校验可以进一步细分成下面这些方式：
  JavaScript 校验，这是可以完全自定义的实现方式； HTML5 内置校验，这不需要 JavaScript ，而且性能更好，但是不能像JavaScript那样可自定义。  服务器端校验 发生在浏览器提交数据并被服务器端程序接收之后 —— 通常服务器端校验都是发生在将数据写入数据库之前，如果数据没通过校验，则会直接从服务器端返回错误消息，并且告诉浏览器端发生错误的具体位置和原因，服务器端校验不像客户端校验那样有好的用户体验，因为它直到整个表单都提交后才能返回错误信息。但是服务器端校验是你的应用对抗错误/恶意数据的最后防线，在这之后，数据将被持久化至数据库。当今 所有的服务端框架都提供了数据校验与清洁功能（让数据更安全）。" />
@@ -139,13 +139,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -386,6 +386,81 @@ Unknown
 
 
 
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
 
 
 
@@ -452,16 +527,7 @@ Unknown
 
 
 
-<p>up:: [
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="../%E2%80%A2%20TOC%20for%20Frontend">• TOC for Frontend</a></p>
+<p>up:: <a href="chick26.github.io/cards/-front-dev/-toc-for-frontend" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-front-dev/-toc-for-frontend">• TOC for Frontend</a></p>
 <a href="#不同类型的表单数据校验"><h1 id="不同类型的表单数据校验"><span class="hanchor" ariaLabel="Anchor"># </span>不同类型的表单数据校验</h1></a>
 <p>在 Web 中，你可能会遇见各种不同的表单校验：</p>
 <a href="#客户端校验"><h2 id="客户端校验"><span class="hanchor" ariaLabel="Anchor"># </span>客户端校验</h2></a>

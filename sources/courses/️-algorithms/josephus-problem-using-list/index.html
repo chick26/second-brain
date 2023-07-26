@@ -9,11 +9,11 @@
   <meta
     name="description"
     content="问题 有 n 个人围成一圈，顺序排号。从第一个人开始报数（从 1 到 m 报数），凡报到 m 的人退出圈子，直到船上仅剩 r 人为止, 问都有哪些编号的人下船了呢？
-实现  假设 n=30，m=9，r=15 [[Array.md|数组]] 实现  1 2 3 4 5 6 7 8 9 10 11 12 13  # -*- coding: utf-8 -*- __author__ = &#39;xiaoxiaoming&#39; n, m, r = 30, 9, 15 circle = list(range(1, n &#43; 1)) # index&#43;1代表当前报数的人在剩余报数人群中的编号 index = 0 result = [] while len(circle) &gt; r: index &#43;= m-1 if (index &gt;= len(circle)): index -= len(circle) result."
+实现  假设 n=30，m=9，r=15 [[Sources/Courses/✍️ Algorithms/Array|数组]] 实现  1 2 3 4 5 6 7 8 9 10 11 12 13  # -*- coding: utf-8 -*- __author__ = &#39;xiaoxiaoming&#39; n, m, r = 30, 9, 15 circle = list(range(1, n &#43; 1)) # index&#43;1代表当前报数的人在剩余报数人群中的编号 index = 0 result = [] while len(circle) &gt; r: index &#43;= m-1 if (index &gt;= len(circle)): index -= len(circle) result."
   />
   <meta property="og:title" content="Josephus Problem Using List">
   <meta property="og:description" content="问题 有 n 个人围成一圈，顺序排号。从第一个人开始报数（从 1 到 m 报数），凡报到 m 的人退出圈子，直到船上仅剩 r 人为止, 问都有哪些编号的人下船了呢？
-实现  假设 n=30，m=9，r=15 [[Array.md|数组]] 实现  1 2 3 4 5 6 7 8 9 10 11 12 13  # -*- coding: utf-8 -*- __author__ = &#39;xiaoxiaoming&#39; n, m, r = 30, 9, 15 circle = list(range(1, n &#43; 1)) # index&#43;1代表当前报数的人在剩余报数人群中的编号 index = 0 result = [] while len(circle) &gt; r: index &#43;= m-1 if (index &gt;= len(circle)): index -= len(circle) result.">
+实现  假设 n=30，m=9，r=15 [[Sources/Courses/✍️ Algorithms/Array|数组]] 实现  1 2 3 4 5 6 7 8 9 10 11 12 13  # -*- coding: utf-8 -*- __author__ = &#39;xiaoxiaoming&#39; n, m, r = 30, 9, 15 circle = list(range(1, n &#43; 1)) # index&#43;1代表当前报数的人在剩余报数人群中的编号 index = 0 result = [] while len(circle) &gt; r: index &#43;= m-1 if (index &gt;= len(circle)): index -= len(circle) result.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="chick26.github.ioicon.png">
   <meta property="og:url" content="chick26.github.io/sources/courses/%EF%B8%8F-algorithms/josephus-problem-using-list/">
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Josephus Problem Using List" />
   <meta name="twitter:description" content="问题 有 n 个人围成一圈，顺序排号。从第一个人开始报数（从 1 到 m 报数），凡报到 m 的人退出圈子，直到船上仅剩 r 人为止, 问都有哪些编号的人下船了呢？
-实现  假设 n=30，m=9，r=15 [[Array.md|数组]] 实现  1 2 3 4 5 6 7 8 9 10 11 12 13  # -*- coding: utf-8 -*- __author__ = &#39;xiaoxiaoming&#39; n, m, r = 30, 9, 15 circle = list(range(1, n &#43; 1)) # index&#43;1代表当前报数的人在剩余报数人群中的编号 index = 0 result = [] while len(circle) &gt; r: index &#43;= m-1 if (index &gt;= len(circle)): index -= len(circle) result." />
+实现  假设 n=30，m=9，r=15 [[Sources/Courses/✍️ Algorithms/Array|数组]] 实现  1 2 3 4 5 6 7 8 9 10 11 12 13  # -*- coding: utf-8 -*- __author__ = &#39;xiaoxiaoming&#39; n, m, r = 30, 9, 15 circle = list(range(1, n &#43; 1)) # index&#43;1代表当前报数的人在剩余报数人群中的编号 index = 0 result = [] while len(circle) &gt; r: index &#43;= m-1 if (index &gt;= len(circle)): index -= len(circle) result." />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
   
     
@@ -133,13 +133,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({

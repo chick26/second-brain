@@ -8,14 +8,12 @@
   <meta charset="UTF-8" />
   <meta
     name="description"
-    content="up:: [ • TOC for Data Structure
-数据库特性 关系型数据库比如 MySQL, 非关系数据库 (NoSql 数据库) 比如 Redis, MongoDB 等等
- 事务方面，关系型数据库的最大特点就是事务的一致性, 所以对于订单模型对一致性要求比较高的还是建议用 MySQL。 关系数据库的另一个特点就是其具有固定的表结构，其实在业务模型中, 表结构固定反而是一件好事, 没有约束的模型更容易出问题。 复杂 SQL，特别是多表关联查询，NoSql 是不支持 JOIN 这种查询的。 索引方式，关系型数据库：B 树、哈希等；NoSql：键值索引 并发支持，关系型数据库：通过事务和锁来支持并发，高并发情况下，执行效率较低；NoSql：打破了传统关系型数据库范式的约束和事务一致性，因此并发性能高。  "
+    content="up:: [[Cards/📉 Data Structure/• TOC for Data Structure|• TOC for Data Structure]]
+数据库特性 关系型数据库比如 MySQL, 非关系数据库 (NoSql 数据库) 比如 Redis, MongoDB 等等"
   />
   <meta property="og:title" content="数据库对比">
-  <meta property="og:description" content="up:: [ • TOC for Data Structure
-数据库特性 关系型数据库比如 MySQL, 非关系数据库 (NoSql 数据库) 比如 Redis, MongoDB 等等
- 事务方面，关系型数据库的最大特点就是事务的一致性, 所以对于订单模型对一致性要求比较高的还是建议用 MySQL。 关系数据库的另一个特点就是其具有固定的表结构，其实在业务模型中, 表结构固定反而是一件好事, 没有约束的模型更容易出问题。 复杂 SQL，特别是多表关联查询，NoSql 是不支持 JOIN 这种查询的。 索引方式，关系型数据库：B 树、哈希等；NoSql：键值索引 并发支持，关系型数据库：通过事务和锁来支持并发，高并发情况下，执行效率较低；NoSql：打破了传统关系型数据库范式的约束和事务一致性，因此并发性能高。  ">
+  <meta property="og:description" content="up:: [[Cards/📉 Data Structure/• TOC for Data Structure|• TOC for Data Structure]]
+数据库特性 关系型数据库比如 MySQL, 非关系数据库 (NoSql 数据库) 比如 Redis, MongoDB 等等">
   <meta property="og:type" content="website">
   <meta property="og:image" content="chick26.github.ioicon.png">
   <meta property="og:url" content="chick26.github.io/cards/-data-structure/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%B9%E6%AF%94/">
@@ -23,9 +21,8 @@
   <meta property="og:height" content="200">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="数据库对比" />
-  <meta name="twitter:description" content="up:: [ • TOC for Data Structure
-数据库特性 关系型数据库比如 MySQL, 非关系数据库 (NoSql 数据库) 比如 Redis, MongoDB 等等
- 事务方面，关系型数据库的最大特点就是事务的一致性, 所以对于订单模型对一致性要求比较高的还是建议用 MySQL。 关系数据库的另一个特点就是其具有固定的表结构，其实在业务模型中, 表结构固定反而是一件好事, 没有约束的模型更容易出问题。 复杂 SQL，特别是多表关联查询，NoSql 是不支持 JOIN 这种查询的。 索引方式，关系型数据库：B 树、哈希等；NoSql：键值索引 并发支持，关系型数据库：通过事务和锁来支持并发，高并发情况下，执行效率较低；NoSql：打破了传统关系型数据库范式的约束和事务一致性，因此并发性能高。  " />
+  <meta name="twitter:description" content="up:: [[Cards/📉 Data Structure/• TOC for Data Structure|• TOC for Data Structure]]
+数据库特性 关系型数据库比如 MySQL, 非关系数据库 (NoSql 数据库) 比如 Redis, MongoDB 等等" />
   <meta name="twitter:image" content="chick26.github.ioicon.png">
   
     
@@ -136,13 +133,13 @@
     const PRODUCTION =  true 
     const BASE_URL = "chick26.github.io"
     const fetchData = Promise.all([
-          fetch("\/chick26.github.io\/indices\/linkIndex.be8d46b9a234e78c5d4aff44878bff9a.min.json")
+          fetch("\/chick26.github.io\/indices\/linkIndex.fe3f5ad5b228089426b1f1ee1f8802dc.min.json")
             .then(data => data.json())
             .then(data => ({
               index: data.index,
               links: data.links,
             })),
-          fetch("\/chick26.github.io\/indices\/contentIndex.9291ed66da9e2ecea79c593f0f578101.min.json")
+          fetch("\/chick26.github.io\/indices\/contentIndex.26784557210a4229f3e78ead974fc8c1.min.json")
             .then(data => data.json()),
         ])
         .then(([{index, links}, content]) => ({
@@ -360,6 +357,49 @@ Unknown
 
 
 
+  
+  
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+    
+    
+
+  
+
 
 
 
@@ -383,16 +423,7 @@ Unknown
 
 
 
-<p>up:: [
-
-
-
-
-
-<a
-  
-  rel="noopener" class="internal-link broken"
-  data-src="../%E2%80%A2%20TOC%20for%20Data%20Structure">• TOC for Data Structure</a></p>
+<p>up:: <a href="chick26.github.io/cards/-data-structure/-toc-for-data-structure" rel="noopener" class="internal-link" data-src="chick26.github.io/cards/-data-structure/-toc-for-data-structure">• TOC for Data Structure</a></p>
 <a href="#数据库特性"><h2 id="数据库特性"><span class="hanchor" ariaLabel="Anchor"># </span>数据库特性</h2></a>
 <p>关系型数据库比如 MySQL, 非关系数据库 (NoSql 数据库) 比如 Redis, MongoDB 等等</p>
 <ul>
