@@ -1,0 +1,32 @@
+filters:
+  and:
+    - file.inFolder("3-Resources")
+views:
+  - type: table
+    name: Doing List
+    filters:
+      and:
+        - status == "ondo"
+    order:
+      - file.name
+      - tags
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 201
+      note.tags: 378
+      file.ctime: 200
+  - type: table
+    name: Wating List
+    filters:
+      and:
+        - status == "todo"
+    order:
+      - file.name
+      - tags
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 201
+      note.tags: 311
+      file.ctime: 200

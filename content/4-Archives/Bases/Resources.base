@@ -1,0 +1,76 @@
+filters:
+  and:
+    - file.inFolder("3-Resources")
+views:
+  - type: table
+    name: dev
+    filters:
+      and:
+        - file.hasTag("field/dev")
+    groupBy:
+      property: file.folder
+      direction: ASC
+    order:
+      - file.name
+      - file.ctime
+      - file.tags
+      - status
+    markers: bullet
+    indentProperties: true
+    separator: ""
+    cardSize: 190
+    imageAspectRatio: 0.95
+  - type: table
+    name: network
+    filters:
+      and:
+        - file.hasTag("field/network")
+    groupBy:
+      property: file.folder
+      direction: ASC
+    order:
+      - file.name
+      - file.ctime
+      - file.tags
+      - status
+    markers: bullet
+    indentProperties: true
+    separator: ""
+    cardSize: 190
+    imageAspectRatio: 0.95
+  - type: table
+    name: ai
+    filters:
+      and:
+        - file.hasTag("field/ai")
+    groupBy:
+      property: file.folder
+      direction: ASC
+    order:
+      - file.name
+      - file.ctime
+      - file.tags
+      - status
+    markers: bullet
+    indentProperties: true
+    separator: ""
+    cardSize: 190
+    imageAspectRatio: 0.95
+  - type: table
+    name: other
+    filters:
+      and:
+        - file.hasTag("field/other")
+    groupBy:
+      property: file.folder
+      direction: ASC
+    order:
+      - file.name
+      - file.ctime
+      - file.tags
+      - status
+    markers: bullet
+    indentProperties: true
+    separator: ""
+    cardSize: 190
+    imageAspectRatio: 0.95

@@ -1,0 +1,54 @@
+filters:
+  and:
+    - file.inFolder("2-Areas/Journal")
+views:
+  - type: list
+    name: 最近 30 天
+    filters:
+      and:
+        - date(file.name) > now() - "30d"
+    groupBy:
+      property: week
+      direction: ASC
+    order:
+      - file.name
+    sort:
+      - property: week
+        direction: ASC
+    columnSize:
+      file.name: 136
+      file.mtime: 151
+      file.ctime: 146
+    indentProperties: true
+  - type: table
+    name: "2024"
+    filters:
+      and:
+        - file.ctime < "2024-12-31"
+        - file.ctime > "2024-01-01"
+    order:
+      - file.name
+      - file.ctime
+      - file.mtime
+      - file.tags
+    sort:
+      - property: file.name
+        direction: DESC
+      - property: file.basename
+        direction: DESC
+  - type: table
+    name: "2025"
+    filters:
+      and:
+        - file.ctime < "2025-12-31"
+        - file.ctime > "2025-01-01"
+    order:
+      - file.name
+      - file.ctime
+      - file.mtime
+      - file.tags
+    sort:
+      - property: file.name
+        direction: DESC
+      - property: file.basename
+        direction: DESC

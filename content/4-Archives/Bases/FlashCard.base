@@ -1,0 +1,11 @@
+filters:
+  and:
+    - file.inFolder("4-Archives/Extras/FlashCards")
+    - '!file.hasTag("type/MOC")'
+views:
+  - type: table
+    name: 表格
+    order:
+      - file.name
+      - file.ctime
+      - file.tags
