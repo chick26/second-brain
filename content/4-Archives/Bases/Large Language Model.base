@@ -1,0 +1,25 @@
+filters:
+  and:
+    - file.inFolder("3-Resources/Large Language Model")
+    - '!file.inFolder("3-Resources/Large Language Model/_import_audit")'
+views:
+  - type: table
+    name: All
+    filters:
+      and:
+        - file.inFolder("3-Resources/Large Language Model")
+        - '!file.inFolder("3-Resources/Large Language Model/images")'
+    groupBy:
+      property: file.folder
+      direction: ASC
+    order:
+      - file.name
+      - file.ctime
+      - file.mtime
+      - file.tags
+      - status
+    markers: bullet
+    indentProperties: true
+    separator: ""
+    cardSize: 190
+    imageAspectRatio: 0.95
