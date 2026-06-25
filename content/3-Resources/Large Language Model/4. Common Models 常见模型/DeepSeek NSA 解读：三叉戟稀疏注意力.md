@@ -137,42 +137,17 @@ $\mathbf{o}_t^* = \sum_{c \in \{\text{cmp}, \text{slc}, \text{win}\}} g_t^c \cdo
 
 **关键超参数**（论文的实验设置）：
 
-<table><colgroup><col width="244"><col width="244"><col width="244"></colgroup>
-<thead>
-<tr>
-<th>参数</th>
-<th>含义</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>l</td>
-<td>压缩块长度</td>
-<td>32</td>
-</tr>
-<tr>
-<td>d</td>
-<td>压缩滑动步长</td>
-<td>16</td>
-</tr>
-<tr>
-<td>l'</td>
-<td>选择块大小</td>
-<td>64</td>
-</tr>
-<tr>
-<td>n</td>
-<td>选择块数量</td>
-<td>16</td>
-</tr>
-<tr>
-<td>w</td>
-<td>滑动窗口大小</td>
-<td>512</td>
-</tr>
-</tbody>
-</table>
+
+
+| 参数 | 含义 | 值 |
+| --- | --- | --- |
+| l | 压缩块长度 | 32 |
+| d | 压缩滑动步长 | 16 |
+| l' | 选择块大小 | 64 |
+| n | 选择块数量 | 16 |
+| w | 滑动窗口大小 | 512 |
+
+
 
 # 4. 三路注意力模式
 
@@ -479,27 +454,14 @@ for t, g in grid_schedule:
 
 根据 1.3 节的分析，训练/prefill 和解码面临不同的瓶颈：
 
-<table><colgroup><col width="244"><col width="244"><col width="330"></colgroup>
-<thead>
-<tr>
-<th>阶段</th>
-<th>瓶颈类型</th>
-<th>NSA 优化策略</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>训练/Prefill</td>
-<td>计算瓶颈</td>
-<td>稀疏 kernel 减少 FLOPS：只计算选中块的注意力</td>
-</tr>
-<tr>
-<td>解码</td>
-<td>内存瓶颈</td>
-<td>减少 KV-Cache 加载量：从 N 降到 \sim N_t \ll N</td>
-</tr>
-</tbody>
-</table>
+
+
+| 阶段 | 瓶颈类型 | NSA 优化策略 |
+| --- | --- | --- |
+| 训练/Prefill | 计算瓶颈 | 稀疏 kernel 减少 FLOPS：只计算选中块的注意力 |
+| 解码 | 内存瓶颈 | 减少 KV-Cache 加载量：从 N 降到 $\sim N_t \ll N$ |
+
+
 
 在 decode 阶段，Full Attention 每生成一个 token 要读取整个历史 KV cache。如果上下文长度是 `s`，等价读取量就是 `s` 个 token。
 

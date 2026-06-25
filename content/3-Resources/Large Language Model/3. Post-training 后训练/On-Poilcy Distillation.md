@@ -496,61 +496,18 @@ DistiLLM 的核心是 skew KL。它不是为了数学优雅，而是为了工程
 
 ## 10. 怎么选 divergence？按任务和训练阶段选
 
-<table><colgroup><col width="200"><col width="200"><col width="200"><col width="200"><col width="200"></colgroup>
-<thead>
-<tr>
-<th>散度</th>
-<th>行为</th>
-<th>优点</th>
-<th>风险</th>
-<th>更适合场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Forward KL KL(T|S)</td>
-<td>mode-covering</td>
-<td>覆盖 teacher 多样性，稳定，接近传统 KD</td>
-<td>小模型浪费容量，容易学长尾噪声</td>
-<td>翻译、开放问答、对话、多答案任务</td>
-</tr>
-<tr>
-<td>Reverse KL KL(S|T)</td>
-<td>mode-seeking</td>
-<td>学 teacher 高置信模式，输出更尖锐</td>
-<td>mode collapse，过度自信，方差大</td>
-<td>数学、代码、强 reasoning、小模型蒸馏</td>
-</tr>
-<tr>
-<td>JS</td>
-<td>对称、平滑</td>
-<td>稳定，不极端</td>
-<td>分布差距大时梯度可能弱</td>
-<td>teacher/student 接近，做温和对齐</td>
-</tr>
-<tr>
-<td>\alpha-divergence</td>
-<td>可调覆盖/尖锐</td>
-<td>可连续调节训练行为</td>
-<td>超参敏感，IS 方差问题</td>
-<td>需要阶段性调节的 OPD</td>
-</tr>
-<tr>
-<td>Skew KL</td>
-<td>缓冲极端概率比</td>
-<td>更稳定，工程友好</td>
-<td>目标更启发式</td>
-<td>大规模 autoregressive 蒸馏</td>
-</tr>
-<tr>
-<td>Hellinger / TV</td>
-<td>有界/鲁棒</td>
-<td>对极端概率不敏感</td>
-<td>梯度可能不够细</td>
-<td>噪声 teacher、黑盒打分、稳健对齐</td>
-</tr>
-</tbody>
-</table>
+
+
+| 散度 | 行为 | 优点 | 风险 | 更适合场景 |
+| --- | --- | --- | --- | --- |
+| Forward KL KL(T\|S) | mode-covering | 覆盖 teacher 多样性，稳定，接近传统 KD | 小模型浪费容量，容易学长尾噪声 | 翻译、开放问答、对话、多答案任务 |
+| Reverse KL KL(S\|T) | mode-seeking | 学 teacher 高置信模式，输出更尖锐 | mode collapse，过度自信，方差大 | 数学、代码、强 reasoning、小模型蒸馏 |
+| JS | 对称、平滑 | 稳定，不极端 | 分布差距大时梯度可能弱 | teacher/student 接近，做温和对齐 |
+| $\alpha$-divergence | 可调覆盖/尖锐 | 可连续调节训练行为 | 超参敏感，IS 方差问题 | 需要阶段性调节的 OPD |
+| Skew KL | 缓冲极端概率比 | 更稳定，工程友好 | 目标更启发式 | 大规模 autoregressive 蒸馏 |
+| Hellinger / TV | 有界/鲁棒 | 对极端概率不敏感 | 梯度可能不够细 | 噪声 teacher、黑盒打分、稳健对齐 |
+
+
 
 > 如果任务是“答案空间很窄”，优先考虑 RKL / sampled-token log-prob gap / reward-like OPD。
 > 如果任务是“表达空间很宽”，优先考虑 FKL / SKL / entropy-aware mixture。
