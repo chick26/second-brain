@@ -18,13 +18,13 @@ imported: 2026-05-24
 
 > 定义了一种详细的方式来表征现代模型的解释能力，并创建一个细致且可解释的解释评估工具，该工具能够自动生成这些表征从而进行定量和定性的分析，而不依赖昂贵的API调用或人工注释。
 
-![](<../images/Digital Socrates! Evaluating LLMs through explanation critiques-image-5.png>)
+![[_Attachments/Images/Digital Socrates! Evaluating LLMs through explanation critiques-image-5.png]]
 
 **过程细节：**
 
 首先作者们对推理过程中出现的错误进行了总结与分类，见图：
 
-![](<../images/Digital Socrates! Evaluating LLMs through explanation critiques-image-3.png>)
+![[_Attachments/Images/Digital Socrates! Evaluating LLMs through explanation critiques-image-3.png]]
 
 > 除了定位错误类型和针对错误提出意见外，解释性批评任务还涉及对解释质量提供一个量化指标，解释分数 **ESC** 的评分范围为0-5。
 > Student Models：GPT-4、GPT-3.5-、Llama2-7B-chat和Llama2-70B-chat（需要被批评的模型）
@@ -41,19 +41,19 @@ imported: 2026-05-24
 
 > 有必要说一下文章的行文顺序，本文首先通过一些图表说明GPT4对Student模型评估的有效性，然后再说自身所训模型和与GPT4相差不大，间接证明自训模型的有效性。
 
-![](<../images/Digital Socrates! Evaluating LLMs through explanation critiques-image-4.png>)
+![[_Attachments/Images/Digital Socrates! Evaluating LLMs through explanation critiques-image-4.png]]
 
 > 上图中，分别绘制了解释分数 ESC 的分布，针对Student模型在回答问题时准确（acc = 1）与不准确（acc = 0）的情况。即使模型回答正确，它仍可能给出一个有缺陷的推理链，从轻微的缺陷（ESC = 4）到完全错误的情况（ESC = 0）。另一方面，当模型在答案上错误时，它仍可能提出一些有效的观点（ESC = 2），因此并非所有不正确的最终答案都应被视为对问题所需理解的完全缺乏。这样的趋势在各种模型中都能看到，而不受模型大小和类型的影响。
 
-![](<../images/Digital Socrates! Evaluating LLMs through explanation critiques-image-1.png>)
+![[_Attachments/Images/Digital Socrates! Evaluating LLMs through explanation critiques-image-1.png]]
 
 > 使用由人工评定为高质量的GPT-4生成的评论（评论分数为2和3），在图17中展示了模型推理链中不同重要错误的总体比例。发现当模型正确回答问题时，有许多合理的解释没有缺陷，但仍然存在一些推理链中存在缺陷的情况，比如不正确的信息。当模型回答不正确时，存在广泛的缺陷，比如对问题或答案选项的误解，不正确的信息或推理，以及与给定答案不一致的推理。
 
-![](<../images/Digital Socrates! Evaluating LLMs through explanation critiques-image.png>)
+![[_Attachments/Images/Digital Socrates! Evaluating LLMs through explanation critiques-image.png]]
 
 > 上图比较了两个学生模型GPT-3.5和Llama2-70B。这两个模型的准确性相当，但是Llama2-70B模型的解释得分较低，表明其理解更为浅显。展示缺陷维度的饼图为模型的弱点提供了一个高效的快照。对于错误答案，可以看到Llama2-70B模型有更高比例的不正确信息，这可能通过信息检索或其他方式提高事实性来缓解。而GPT-3.5模型则在不一致答案上有明显较大的比例，其中答案与解释中的推理不匹配。这可能通过自我反思来改进，询问答案是否真的来自于解释。他们将这些有趣的假设留待未来的工作。
 
-![](<../images/Digital Socrates! Evaluating LLMs through explanation critiques-image-2.png>)
+![[_Attachments/Images/Digital Socrates! Evaluating LLMs through explanation critiques-image-2.png]]
 
 > * **Rated good**: 由人工评定为良好的批评的数量占比。
 > * **Rated good**\*：重新调整测评比例后，被评定为良好的问题数量。

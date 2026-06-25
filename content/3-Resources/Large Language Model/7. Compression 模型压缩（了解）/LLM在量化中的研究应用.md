@@ -10,7 +10,7 @@ imported: 2026-05-24
 
 # QuantaAlpha: An Evolutionary Framework for LLM-Driven Alpha Mining
 
-![](<../images/LLM在量化中的研究应用-image.png>)
+![[_Attachments/Images/LLM在量化中的研究应用-image.png]]
 
 ## 动机
 
@@ -20,13 +20,13 @@ QuantaAlpha 的总体目标就是：在市场 **非平稳** 与 **低信噪比**
 * **可信性不足**：很多方法每一轮更像“随机再生成”，缺少把已验证的推理与有效步骤显式继承下来的机制，所以难审计、难复现、难信任。
 * **探索受限**：搜索常围绕初始 seed 的局部邻域过度 exploit，导致factor crowding，覆盖不了更广的假设空间。
 
-![](<../images/LLM在量化中的研究应用-image-3.png>)
+![[_Attachments/Images/LLM在量化中的研究应用-image-3.png]]
 
 ## 核心方法
 
 把一次 alpha 挖掘当成一条研究轨迹，用 **轨迹级 mutation + crossover** 替代噪声驱动的反复重生成；同时用符号化中间表示与一致性/复杂度/冗余约束，保证迭代既能探索又不漂移，从而在非平稳市场里得到更稳、更可复用、且可审计的因子发现流程。
 
-![](<../images/LLM在量化中的研究应用-image-2.png>)
+![[_Attachments/Images/LLM在量化中的研究应用-image-2.png]]
 
 ### 2.1 多样化初始化：先把搜索空间铺开
 
@@ -67,7 +67,7 @@ QuantaAlpha 的总体目标就是：在市场 **非平稳** 与 **低信噪比**
 
 ## 实验结论
 
-![](<../images/LLM在量化中的研究应用-image-1.png>)
+![[_Attachments/Images/LLM在量化中的研究应用-image-1.png]]
 
 ### 3.1 主结果：CSI300 上全面胜出
 

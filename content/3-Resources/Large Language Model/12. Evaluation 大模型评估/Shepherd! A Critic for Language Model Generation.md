@@ -18,7 +18,7 @@ imported: 2026-05-24
 
 > 在这项工作中，他们介绍了Shepherd，这是一个专门调校的语言模型，用于批评模型的响应并提出改进建议，能够识别各种错误并提供相应的建议。采用定性的方式来衡量生成文本。
 
-![](<../images/Shepherd! A Critic for Language Model Generation-image-1.png>)
+![[_Attachments/Images/Shepherd! A Critic for Language Model Generation-image-1.png]]
 
 > **过程细节**：重点介绍下训练数据与评估benchmark的构造。
 > * **训练数据**
@@ -33,9 +33,9 @@ imported: 2026-05-24
 
 # 三、实验结果
 
-![](<../images/Shepherd! A Critic for Language Model Generation-image-2.png>)
+![[_Attachments/Images/Shepherd! A Critic for Language Model Generation-image-2.png]]
 
-![](<../images/Shepherd! A Critic for Language Model Generation-image.png>)
+![[_Attachments/Images/Shepherd! A Critic for Language Model Generation-image.png]]
 
 总的来说，对于不同的Critical model来说，不同的不管是人类评估还是GPT4评估，Shepherd非常具有优势，且在对照组中的得分最高。
 

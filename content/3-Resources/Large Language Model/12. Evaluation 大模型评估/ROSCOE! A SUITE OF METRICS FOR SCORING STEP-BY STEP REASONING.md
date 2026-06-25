@@ -31,7 +31,7 @@ imported: 2026-05-24
 
 # 三、实验结果
 
-![](<../images/ROSCOE! A SUITE OF METRICS FOR SCORING STEP-BY STEP REASONING-image.png>)
+![[_Attachments/Images/ROSCOE! A SUITE OF METRICS FOR SCORING STEP-BY STEP REASONING-image.png]]
 
 可以看出ROSСOE在六个不同的诊断数据集上在所有参考无关的度量标准上都表现出色，表现优于其他参考无关的方法。在每个数据集中，ROSСOE都取得了最高的相关性分数，显示其在评估生成的推理步骤方面的卓越性能。ROSСOE专注于参考无关的设置，能够在没有参考文本的情况下，对每个生成的步骤进行评估。相比之下，基线度量标准的相关性较低，因为它们旨在捕捉参考文本和假设之间的语义或词汇重叠，而在没有参考文本的情况下，逻辑一致性更难以检测。在人类评估数据集上，ROSСOE指标在无参考答案的情况下表现出色，与其他基线相比，它产生更高的相关性。这表明ROSСOE在评估模型逐步推理生成时，能够提供更为有效的信息，与人类判断的相关性明显更好。
 

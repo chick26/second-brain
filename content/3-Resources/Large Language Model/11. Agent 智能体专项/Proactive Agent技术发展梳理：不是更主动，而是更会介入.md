@@ -11,7 +11,7 @@ imported: 2026-05-24
 > 过去一年，proactive agent 之所以突然变热，不是因为大家第一次想到 让 agent 主动一点，而是因为这个问题终于被当成了一个独立方向来处理。对于产品侧来说，LangChain 在 2025 年初提出 ambient agents，强调 agent 持续接收环境信号，只在检测到重要机会或确实需要反馈时才向用户要注意力；OpenAI 在 2025 年 7 月发布 ChatGPT agent 时，也把 自主选工具、必要时主动追问、支持任务周期运行 放进了统一 agent 能力框架里。到这一步，proactive 已经不再是 prompt 层的小修补，而是在走向一种新的交互范式。
 > 近一年的工作给出倾向于，proactive agent 不是模型能不能抢先回答，而是系统能否在用户尚未明确发起请求时，基于连续上下文判断 **是否该介入、该以什么方式介入、以及这次介入是否值得**。这也是为什么这条线迅速从一般 agent 研究里分化出来，它天然带着 mixed-initiative interaction、用户成本、长期上下文和策略学习这几层约束，而不再只是一个会不会推理的问题。
 
-![](<../images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image-2.png>)
+![[_Attachments/Images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image-2.png]]
 
 ## 一、问题定义
 
@@ -19,11 +19,11 @@ imported: 2026-05-24
 
 这条线的起点之一是 **ContextAgent**。它把 proactive 从封闭桌面环境拉到开放世界感知：不是只看聊天记录和工具结果，而是结合可穿戴设备的视频、音频以及历史 persona 去判断是否需要主动服务，并配套提出 ContextAgentBench。
 
-![](<../images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image-1.png>)
+![[_Attachments/Images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image-1.png]]
 
 紧接着，**FingerTip 20K** 把主动性和个性化一起放进长期手机使用轨迹里，强调用户过去的 intents 和 actions 对未来建议的重要性。到了 2026 年，**ProactiveMobile** 已经把问题进一步形式化为：基于多维设备上下文推断 latent intent，并生成可执行的函数序列。换句话说，主动性开始从 <u>自然语言理解</u> 变成 <u>上下文感知 + 行动生成 </u>的联合任务。
 
-![](<../images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image-4.png>)
+![[_Attachments/Images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image-4.png]]
 
 > 评测数据本身也在发生变化。**ProAgentBench** 明确指出，过去很多数据集依赖 LLM 合成样本，缺少真实工作流里的 pre-assistance behavioral context，于是它转向 500 多小时真实用户工作会话和 2.8 万多个事件，显式把 proactive assistance 拆成两层：一层是 timing prediction，另一层是 assist content generation。
 > **ProactiveVideoQA** 不再只看回答文本，而是把响应发生的时间也纳入评测，并提出 PAUC 指标；**ProactiveBench** 在多模态场景中测试模型是否会在视觉信息不足时主动请求用户做最小干预：当前 MLLM 普遍缺乏这种主动性，单纯在 prompt 里 提醒模型更主动 只带来很有限的收益；而 **PROBE** 则把 proactive problem solving 拆成搜索未明说的问题、识别具体瓶颈、执行解决三步，说明真正难的不是回答一条明确 query，而是在开放环境里先发现哪里值得解决。近一年这批工作拼在一起，已经把 proactive 的问题边界定义清楚了，它不是 reaction 的加强版，而是 intervention 的建模。
@@ -34,9 +34,9 @@ imported: 2026-05-24
 
 **BAO** 直接把 proactive agent 的训练写成一个多目标优化问题：一边是任务表现，一边是用户参与成本。论文点得很透，更多交互当然可能换来更高的完成质量，但反复向用户索取反馈，也会迅速消耗用户对 agent 能力的信任。**Training Proactive and Personalized LLM Agents** 说明了真实 agent 不能只优化 productivity，还要同时优化 proactivity 和 personalization。这里的 proactivity，不是多说话，而是在真正必要的节点上问出必要的问题。
 
-![](<../images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image-3.png>)
+![[_Attachments/Images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image-3.png]]
 
-![](<../images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image.png>)
+![[_Attachments/Images/Proactive Agent技术发展梳理：不是更主动，而是更会介入-image.png]]
 
 > 这也是为什么我认为 **clarification 应该被当成 proactive agent 的第一类动作，而不是 fallback**。**IntentRL** 在 deep research 场景里给出的动机非常有代表性：长时研究任务成本高、执行时间长，如果一开始就在模糊需求上盲目开跑，代价往往比多问一句更大。它的核心不是让 agent 少打断用户，而是先把 latent intent 澄清，再进入昂贵的长链条执行。这个思路其实很工程：真正好的主动性，不是省掉所有交互，而是在关键分叉点上，用最小交互换最大确定性。
 > **Morae** 则把这个观点推进到了 UI agent 场景。它做的不是更自动，而是更会暂停：在任务执行过程中识别 decision points，然后主动停下来，把选择权还给用户。这个设计对 BLV 用户场景尤其有价值，但它的启发不只在 accessibility。更一般地说，Morae 说明了一个经常被忽视的事实：很多时候，主动性的高质量体现，不是替用户做更多，而是准确识别哪些决策不该替用户做。

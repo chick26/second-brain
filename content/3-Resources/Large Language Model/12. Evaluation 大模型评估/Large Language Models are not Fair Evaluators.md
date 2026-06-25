@@ -12,7 +12,7 @@ imported: 2026-05-24
 
 > 随着生成式 AI 的快速发展，怎么评测模型生成的内容成为了一个非常有意思的问题。传统的生成的指标像 n-gram based metrics（BLEU、ROUGE）以及基于语义距离的指标 BERT-Score 都不太适合开放域，因此考虑利用大语言模型来进行生成文本的评估确实是一个不错的选择，但是大型语言模型（如GPT-4）评估不同模型表现时存在系统性偏见: 通过改变不同模型的答案在评价模版中的顺序，可以轻松篡改它们的质量排名，从而扭曲评估结果。这显然并不是我们想看到的。
 
-![](<../images/Large Language Models are not Fair Evaluators-image.png>)
+![[_Attachments/Images/Large Language Models are not Fair Evaluators-image.png]]
 
 # 二、研究方法
 
@@ -23,7 +23,7 @@ imported: 2026-05-24
 
 # 三、实验结果
 
-![](<../images/Large Language Models are not Fair Evaluators-image-1.png>)
+![[_Attachments/Images/Large Language Models are not Fair Evaluators-image-1.png]]
 
 从上图可以看出；GPT-4整体优于 ChatGPT，且两种校准策略显著提高评估器与人工标注的一致性，特别对比较弱的 ChatGPT准确性提高14.3％，kappa相关系数增加0.25。
 

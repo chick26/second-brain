@@ -56,7 +56,7 @@ KV-Cache 的大小与 **上下文长度** 成正比。对话越长、上下文�
 > * 传统对话是 **你问我答的面试，几轮就结束了**
 > * **Agent 推理像是让模型当一天的程序员，** 需要不停地写代码、跑测试、看报错、改代码、再跑，每一步的输出都要拼接到上下文里，上下文像滚雪球一样越滚越大
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-d9072ff63a5503e50b1bdc5d6196830410f70b1d843a498375af1376b30f132e.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-d9072ff63a5503e50b1bdc5d6196830410f70b1d843a498375af1376b30f132e.jpg]]
 
 ***Agent 轨迹示例（论文 Figure 2）。每一轮 Agent 接收环境反馈（工具输出），拼接到已有上下文后继续生成下一个动作，一个完整的 Agent 任务可能持续上百轮***
 
@@ -76,7 +76,7 @@ KV-Cache 的大小与 **上下文长度** 成正比。对话越长、上下文�
 
 论文用一个指标量化了这个问题，**Cache-Compute Ratio**（GB/PFLOP），即每做 1 PFLOP 计算需要读多少 GB 的 KV-Cache：
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-image.png>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-image.png]]
 
 ***各模型的 Cache-Compute Ratio。数字越大表示越 I/O-bound。即便是 DeepSeek 使用了 MLA的模型，在 Agent 场景下仍然严重受限于存储带宽。传统 GQA/MHA 模型则更加 I/O-bound***
 
@@ -95,9 +95,9 @@ KV-Cache 的大小与 **上下文长度** 成正比。对话越长、上下文�
 > * 问题出在第 1 步：**只有 PE 在读存储，DE 的存储网卡（SNIC）完全闲置**。在传统设计中，只有 PE 需要加载 KV-Cache 来做 Prefill。DE 只负责 Decode，它的 KV-Cache 是从 PE 通过 RDMA 传过来的，根本不需要碰存储
 > * 类比一下：**快递分拣中心只有入口处的一条传送带在工作，而出口处的传送带闲着不用**。DualPath 的想法很直接——既然出口的传送带也能搬东西，那就让它帮忙把货搬进来再转交给入口侧
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-60f0ceb071ac1128d3ab93dcd626fb3ea0d9d53210309ece8b77783466570696.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-60f0ceb071ac1128d3ab93dcd626fb3ea0d9d53210309ece8b77783466570696.jpg]]
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-affedcfdfa8a87c81c0c2f1b70c6a70906417435f3e7d9d235ea060135a269a5.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-affedcfdfa8a87c81c0c2f1b70c6a70906417435f3e7d9d235ea060135a269a5.jpg]]
 
 *（论文 Figure 1）：左，传统架构的瓶颈，PE 的存储网卡被打满（红色），DE 的存储网卡完全闲置（灰色）。右，DualPath 的方案，让 DE 也帮忙从存储读取 KV-Cache，再通过计算网络转发给 PE*
 
@@ -105,7 +105,7 @@ KV-Cache 的大小与 **上下文长度** 成正比。对话越长、上下文�
 
 硬件的发展趋势还在让这个问题加速恶化：
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-8e17b9baf47801a7a593d1f9931fcae2229762c29c692c0172e79d9b7f158b7c.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-8e17b9baf47801a7a593d1f9931fcae2229762c29c692c0172e79d9b7f158b7c.jpg]]
 
 ***（论文 Figure 3）：左，从 Ampere 到 Blackwell，GPU 算力（FLOPS）增长远快于网络带宽（NIC BW）和显存容量（HBM），GPU 算力翻了 14 倍多，但网络带宽只翻了 2 倍，I/O-Compute Ratio 下降了 14.4×。右，不同 batch size 下的吞吐量，受限于 HBM 容量***
 
@@ -129,7 +129,7 @@ KV-Cache 的大小与 **上下文长度** 成正比。对话越长、上下文�
 
 ## PE Read Path
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-6ed1eaeb8feaa336572aa1ccf19af6be4208654927d010aa779a931cdac15833.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-6ed1eaeb8feaa336572aa1ccf19af6be4208654927d010aa779a931cdac15833.jpg]]
 
 ***（论文 Figure 4a）：PE Read Path 的数据流***
 
@@ -142,7 +142,7 @@ PE Read Path的步骤：
 
 ## DE Read Path
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-f7f9f3c3473c0765acf3fda48f5acf3657c46466f67f5b45e647736e501803c9.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-f7f9f3c3473c0765acf3fda48f5acf3657c46466f67f5b45e647736e501803c9.jpg]]
 
 ***（论文 Figure 4b）：DE Read Path 的数据流。KV-Cache 先读到 DE 节点，再通过计算网络转发给 PE***
 
@@ -239,7 +239,7 @@ DualPath 采用了一个看似绕路但大概是当前唯一实用的方法：
 
 为什么要优先选磁盘队列短的？因为存储网卡带宽是稀缺资源，如果某台 PE 的磁盘队列即将排空，意味着它的 SNIC 马上就要空闲。此时赶紧塞一个请求进去，可以 **保持 SNIC 满载**，最大化利用存储带宽
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-53e5806699534cd6c5df38924046a2399f777a07a0c662bdc6807d1a68f94c0c.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-53e5806699534cd6c5df38924046a2399f777a07a0c662bdc6807d1a68f94c0c.jpg]]
 
 ***（论文 Figure 5）：Inter-Engine PE 调度示意。同一 PE group 内有 8 块 GPU，调度器根据 tok 数和磁盘队列长度选择最优的 GPU***
 
@@ -256,7 +256,7 @@ DualPath 采用了一个看似绕路但大概是当前唯一实用的方法：
 
 * 在 Expert Parallel（EP，专家并行）模式下，多块 GPU 各自负责不同的请求做 attention 计算，但它们必须 **同步进入 FFN 层**。如果某块 GPU 分到的请求 attention 计算量特别大，其他 GPU 就必须 **空等，** 这就是 **GPU bubble（气泡）**
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-f45d78d1c9f195d8a49426d32cbbda1ea95688b4e07414cf598d984035baa9f9.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-f45d78d1c9f195d8a49426d32cbbda1ea95688b4e07414cf598d984035baa9f9.jpg]]
 
 ***（论文 Figure 6）：左，Compute Quota 机制的示意。右，应用 Compute Quota 前后的 GPU 时间线。Before 中可以看到明显的灰色空白区域（GPU idle），After 中各 GPU 的 attention 计算时间趋于一致***
 
@@ -277,7 +277,7 @@ DualPath 采用了一个看似绕路但大概是当前唯一实用的方法：
 
 离线推理对应的是 RL 训练中的 **rollout 阶段**：大量 Agent 同时开始执行任务，系统需要尽快完成所有轨迹的生成。核心指标是 **JCT（Job Completion Time，任务完成时间）**
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-67a328996968262cb2bb357d18c9f04f65a3e7069a2cf3652a1f61a0385834f9.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-67a328996968262cb2bb357d18c9f04f65a3e7069a2cf3652a1f61a0385834f9.jpg]]
 
 ***（论文 Figure 7）：不同 Agent 数和最大上下文长度下的离线推理性能***
 
@@ -287,7 +287,7 @@ DualPath 采用了一个看似绕路但大概是当前唯一实用的方法：
 * **Agent 数量越多、上下文越长，收益越大**：因为更多 Agent 意味着更大的 I/O 压力，DualPath 的存储带宽池化效果就越明显
 * **小模型（DS 27B）收益相对较小**：因为小模型用 1P1D 配置（1 台 PE + 1 台 DE），PE-DE 之间的跨节点传输固定开销占比较大。不过仍然有最高 1.78× 的加速
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-52c4d17b4502d2e9bec7a634aab2cce6c91292d7c132aff371e97f765c89cab8.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-52c4d17b4502d2e9bec7a634aab2cce6c91292d7c132aff371e97f765c89cab8.jpg]]
 
 ***（论文 Figure 9）：左，不同 append 长度下的性能。右，不同生成长度下的性能（DS 660B, 64K, 1024 agents）***
 
@@ -303,7 +303,7 @@ DualPath 采用了一个看似绕路但大概是当前唯一实用的方法：
 * **TTST（Time To Second Token）**：从第一个 token 到第二个 token 的时间，反映 PD 传输开销
 * **TPOT（Time Per Output Token）**：每个输出 token 的平均时间，反映 Decode 效率
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-c7d4772789c128712c42c290877ebe4f8ca9e1610aed809d92180b53b54f6350.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-c7d4772789c128712c42c290877ebe4f8ca9e1610aed809d92180b53b54f6350.jpg]]
 
 ***（论文 Figure 10）：在线服务的 TTFT、TTST、TPOT 随 Agent 到达率（APS, Agent Per Second）的变化***
 
@@ -315,7 +315,7 @@ DualPath 采用了一个看似绕路但大概是当前唯一实用的方法：
 
 DualPath 由三个技术组件叠加而成，论文做了消融实验：
 
-![](<../images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-c2a8efc24d4505136f0bb404f4d6d3ce1e2e6844584d40119fce18fd56bbdd94.jpg>)
+![[_Attachments/Images/DualPath 深度解读：DeepSeek 如何榨干每一块闲置网卡的带宽-c2a8efc24d4505136f0bb404f4d6d3ce1e2e6844584d40119fce18fd56bbdd94.jpg]]
 
 ***（论文 Figure 12）：左，在线服务的 TTFT 细分（Sch.=调度, A.=分配, R.=读取, PF.=Prefill）。右，离线推理的消融实验（DS 660B, 64K）***
 

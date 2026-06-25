@@ -15,7 +15,7 @@ imported: 2026-05-24
 
 ## Rubric的价值
 
-![](<../images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image-2.png>)
+![[_Attachments/Images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image-2.png]]
 
 > Rubric 将复杂的质量判断拆分成可理解的评价标准，弥补了二元正确性信号与粗糙偏好打分之间的空白。在缺乏唯一标准答案的场景下，rubric可以提供细化的、多维度的奖励反馈；例如，一道医学问答可以设立多个Rubric项并按权重计算最终得分。相对于黑盒的奖励模型，Rubric的规则明确、可解释，能更好地捕捉专家意图和细粒度细节。
 > 在实践中，Scale AI 等机构发现，Rubrics as Rewards在健康与科研问答等领域能获得显著提升使用Rubric作为奖励可让较小规模的Judger也更贴合人类偏好。
@@ -46,19 +46,19 @@ Rubric 标准：
 
 * **RaR：** Rubric 作为奖励，将结构化的Checklist式Rubric直接用作可解释的奖励信号，用于Policy的 on-policy 训练。其核心是为每个prompt生成一组Rubric项，并用强大的 LLM 作为 Judger 分别对每个项目做二分类评分，最终按权重聚合得分。
 
-![](<../images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image.png>)
+![[_Attachments/Images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image.png]]
 
 * **RLAIF：** 在无人工标注情况下，使用现成的大语言模型自动生成偏好数据并训练奖励模型。具体流程先由初始模型生成候选答案，再让另一个模型或同一个模型根据固定准则对答案打分，形成偏好标签，接着用这些标签训练奖励模型并进行RL微调。这种方法将人工反馈替换为自动规则或模型评估，显著降低了对人工标注的依赖。
 
-![](<../images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image-4.png>)
+![[_Attachments/Images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image-4.png]]
 
 * **Rubric Anchors：** 构建了迄今最大的Rubric库（10000+条），并提出“Rubric驱动RL”框架。其Open-source的Qwen-30B-A3B模型在仅5K样本的微调条件下，通过引入人工/LLM生成的Rubric作为奖励，实现了多项开领域任务（尤其是人文方向）的性能提升。同时，利用Rubric作为风格锚点，有效减轻了大模型“公式化”语气，让生成回答更具人类表达特征。这表明Rubric不仅能优化模型对任务的理解，也可用于调整生成风格。
 
-![](<../images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image-3.png>)
+![[_Attachments/Images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image-3.png]]
 
 * **OnlineRubrics：** 动态Rubric生成。这一方法在线采样模型输出与参考输出的对比，通过LLM自动“反演”出新的评价标准，并将这些新准则加入Rubric中进行训练。具体地，在RL训练循环中，对比当前策略输出和参考答案，LLM会提炼出新的Rubric条目，补充到原有标准里。
 
-![](<../images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image-1.png>)
+![[_Attachments/Images/RL又整花活，Rubric for Non-Verifiable RL 是个啥-image-1.png]]
 
 ## Rubric设计要点
 

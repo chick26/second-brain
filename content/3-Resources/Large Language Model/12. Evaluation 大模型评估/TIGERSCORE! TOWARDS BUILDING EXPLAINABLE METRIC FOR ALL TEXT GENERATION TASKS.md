@@ -22,12 +22,12 @@ imported: 2026-05-24
 > * 评估过程无需参考答案或完美示例进行比较。
 > * 它具有高度的可解释性，因为该模型能生成错误分析，帮助用户理解每个识别出的错误及其相关的惩罚。
 
-![](<../images/TIGERSCORE! TOWARDS BUILDING EXPLAINABLE METRIC FOR ALL TEXT GENERATION TASKS-image.png>)
+![[_Attachments/Images/TIGERSCORE! TOWARDS BUILDING EXPLAINABLE METRIC FOR ALL TEXT GENERATION TASKS-image.png]]
 
 > **过程细节：**
 > TIGERScore是一个无参考的度量，有一个函数F定义，以三元组 $[I(instruction),x(input\;context),\hat{y}(output) ]$ 作为输入，产生一个结构化的错误列表 $[E_{1},E_{2} ,..,E_{M} ]$ 输出，对于每个错误来说有 $E_{i}=(l_{i},a_{i},e_{i},s_{i} )$ 其中 $l\_{i}$ 表示错误的位置， $a_{i}$ 表示错误类型， $e_{i}$ 表示对此错误的修改意见， $s_{i}$ 错误的惩罚分数。最后会输出一个总的惩罚分数。
 
-![](<../images/TIGERSCORE! TOWARDS BUILDING EXPLAINABLE METRIC FOR ALL TEXT GENERATION TASKS-image-1.png>)
+![[_Attachments/Images/TIGERSCORE! TOWARDS BUILDING EXPLAINABLE METRIC FOR ALL TEXT GENERATION TASKS-image-1.png]]
 
 > **训练数据：** MetricInstruct数据集，该数据集用于对TIGERSCORE进行微调。数据集构建的三个基本标准是：
 > * 数据集多样性：选择了23个不同的数据集作为源上下文，以覆盖足够的生成任务。
@@ -41,7 +41,7 @@ imported: 2026-05-24
 
 # 三、实验结果
 
-![](<../images/TIGERSCORE! TOWARDS BUILDING EXPLAINABLE METRIC FOR ALL TEXT GENERATION TASKS-image-2.png>)
+![[_Attachments/Images/TIGERSCORE! TOWARDS BUILDING EXPLAINABLE METRIC FOR ALL TEXT GENERATION TASKS-image-2.png]]
 
 > 上图结果突显了TIGERSCORE在与其他无参考文献度量标准的比较中的显著优势。值得注意的是，TIGERSCORE在Kendall相关性方面超过了所有其他无参考文献度量标准。在相关性方面，TIGERSCORE在7个任务中有6个是最高的。这突显了TIGERSCORE在评估文本生成任务时的鲁棒性和一致性。此外，与API替代品GPT-3.5-Turbo（few-shot）和Llama-2-13b-chat（0-shot）相比，TIGERSCORE实现了显著更高的总体相关性，证明了其有效性。值得注意的是，TIGERSCORE-13b在某些任务上（如总结、翻译、数据生成文本和故事生成）可以达到与GPT-4（0-shot）相当甚至更高的相关性性能。在所有7个任务中的平均分数也接近GPT-4。
 

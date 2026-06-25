@@ -28,9 +28,9 @@ imported: 2026-05-24
 > * **硬件对齐比稀疏率更关键**：NSA 选择连续 block，而不是随机 token，目的是让 GPU 访存连续、Tensor Core 可用、GQA/MQA 的 KV cache 读取能复用
 > * **实验配置下，NSA 在 64k 上下文的训练 forward / backward 和 decode 都有显著加速**：论文报告 **在不损失甚至超越 Full Attention 精度的前提下** 64k 时 forward 最高 9.0×、backward 最高 6.0×，decode 等价 KV 读取量对应 11.6× 的预期加速
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-418b2bc767dfc51ba60dc76db31962cf29976636291f5b096032a982736f322d.jpg>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-418b2bc767dfc51ba60dc76db31962cf29976636291f5b096032a982736f322d.jpg]]
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-22e005b01acc8852a9c8a75764f150e25a978c5a6b824028a6aec36a55520589.jpg>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-22e005b01acc8852a9c8a75764f150e25a978c5a6b824028a6aec36a55520589.jpg]]
 
 # 1. 为什么需要 NSA：长上下文 attention 的真瓶颈
 
@@ -107,7 +107,7 @@ NSA 的目标很明确：**设计一种端到端可训练、全阶段加速、�
 
 # 3. NSA 总览
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image.png]]
 
 **整体框架：压缩 + 选择 + 滑动窗口**
 
@@ -133,7 +133,7 @@ $\mathbf{o}_t^* = \sum_{c \in \{\text{cmp}, \text{slc}, \text{win}\}} g_t^c \cdo
 > * **就近搜身**（滑窗分支）：直接搜查最近几位乘客，确保不遗漏身边的威胁
 > 三道关的结果再去 **综合判断**，既全面又高效
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-6.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-6.png]]
 
 **关键超参数**（论文的实验设置）：
 
@@ -163,7 +163,7 @@ $\tilde{K}_t^{\text{cmp}} = \left\{\varphi(\mathbf{k}_{id+1:id+l}) \mid 0 \leq i
 
 注意这里有个巧妙的设计：**滑动步长** $d=16$ **小于块长** $l=32$，**相邻的压缩块之间有 16 个 token 的重叠**
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-7.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-7.png]]
 
 ***压缩过程的细节。每 32 个 token 为一个压缩块，相邻块以 stride=16 滑动，产生 16 token 的重叠——就像会议纪要，不同段落稍有重叠以保证上下文连贯***
 
@@ -219,7 +219,7 @@ class ToyNSACompressor(nn.Module):
 
 * **Selection 数据流**
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-8.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-8.png]]
 
 先计算压缩 attention score：
 
@@ -389,7 +389,7 @@ class ToyNSAGate(nn.Module):
 * 而 NSA 的 blockwise 选择（每个块 64 个 token）就像 **把同一层的书打成箱搬，** 一次搬一整箱，连续内存访问，Tensor Core 吃满
 * **类比**：搬家时，把书打箱（blockwise）比一本本搬（tokenwise）高效得多。虽然可能装了几本不需要的书，但节省的搬运时间远超多搬几本书的代价
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-3.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-3.png]]
 
 ## 5.2 GQA 友好设计：同组共享，一次加载
 
@@ -400,7 +400,7 @@ class ToyNSAGate(nn.Module):
 
 **类比**：四个同事（GQA 组内的 head）去同一个仓库（KV 块）取货。如果他们要的东西在同一个货架上（共享选择），只需要跑一趟；如果各要各的（独立选择），就得跑四趟
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-4.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-4.png]]
 
 ## 5.3 Triton Kernel 设计：Group-Centric 数据编排
 
@@ -412,7 +412,7 @@ NSA 的核心优化是改用 **Group-Centric** 编排：
 2. **内循环（Inner Loop）**：按索引 $\mathcal{I}_t$ 顺序加载 **该位置共享的稀疏 KV 块** 到 SRAM
 3) **一次加载、多 head 复用**：KV 块在 SRAM 中被所有 head 共享计算
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-d81eb73a5629c16ea075ac75d9a72cc7b7b982e03bf474639bbc5d98486565e4.jpg>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-d81eb73a5629c16ea075ac75d9a72cc7b7b982e03bf474639bbc5d98486565e4.jpg]]
 
 *NSA kernel 的数据流。绿色块在 SRAM 上，蓝色块在 HBM 上。Grid Loop 按 GQA 组位置遍历，Inner Loop 按稀疏索引加载 KV 块，只加载共享的稀疏 KV 块，兼顾稀疏性和算术强度。FlashAttention-2 vs NSA kernel 的对比。FlashAttention 按 Query 块遍历、加载所有 KV（无法有效稀疏）*
 
@@ -448,7 +448,7 @@ for t, g in grid_schedule:
 * **内循环长度几乎恒定**（每个位置都是 $n$ 个块），适合 Triton 的 grid 调度
 * **KV 块的连续加载** 保持了高算术强度
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-5.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-5.png]]
 
 ## 5.4 训练 vs 推理：不同阶段的优化侧重
 
@@ -480,9 +480,9 @@ $\underbrace{\left\lfloor \frac{s-l}{d}\right\rfloor + 1}_{\text{compression tok
 
 也就是在 32K 上下文下，NSA 每个 Query 只需激活约 3584 个 token（压缩 \~2046 + 选择 1024 + 滑窗 512），相比 Full Attention 的 32768 个，**稀疏比约 11%**
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-1.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-1.png]]
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-2.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-image-2.png]]
 
 直观上，NSA 的读取量里有一项 `s/d` 的 compression 全局扫描，所以不是常数复杂度；但相对 full attention 的 `s`，它的斜率小很多。上下文越长，节省越明显
 
@@ -618,7 +618,7 @@ final_output = o_cmp + o_sel + o_swa
 
 NSA 平均分略高于 Full Attention。尤其 DROP、GSM8K、BBH 等推理相关项有提升。可以理解为：**原生 sparse 训练会迫使模型学会更明确地分配注意力资源，但这个解释属于合理推断，不能脱离实验设置泛化**
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-d7fad856bbea9c2ef202cf220e06b97eb2de9e2dd500e599efc8a3534abc6ac4.jpg>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-d7fad856bbea9c2ef202cf220e06b97eb2de9e2dd500e599efc8a3534abc6ac4.jpg]]
 
 *预训练 loss 曲线对比。NSA 全程 loss 低于 Full Attention，收敛平稳*
 
@@ -633,7 +633,7 @@ NSA 平均分略高于 Full Attention。尤其 DROP、GSM8K、BBH 等推理相�
 | Full Attn | 0.437 |
 | NSA | 0.469 |
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-96c1a96ee29cddaee24367ca78486fa95931df283477e398726bc0074fc955d1.jpg>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-96c1a96ee29cddaee24367ca78486fa95931df283477e398726bc0074fc955d1.jpg]]
 
 论文还报告 NSA 在 64k Needle-in-a-Haystack 测试中 across all positions 达到 perfect retrieval accuracy。这个结果与 NSA 的设计目标一致：**Compression 负责全局定位，Selection 负责把定位到的细粒度原始 token 拿回来**
 
@@ -662,13 +662,13 @@ NSA 平均分略高于 Full Attention。尤其 DROP、GSM8K、BBH 等推理相�
 
 加速随上下文变长而放大，这与 token budget 公式一致
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-4b86504a4e3a3d3e521671feff9d3a98b0de89dda1183958bcabaeeb6e30361b.jpg>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-4b86504a4e3a3d3e521671feff9d3a98b0de89dda1183958bcabaeeb6e30361b.jpg]]
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-34d197f6a61d0aecbbc8e1d1c7999bdaf8bf7ce0d6b21fb20ae1211647c7bef0.jpg>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-34d197f6a61d0aecbbc8e1d1c7999bdaf8bf7ce0d6b21fb20ae1211647c7bef0.jpg]]
 
 一个关键观察：**加速比随序列长度增长而增大**。这是因为 NSA 的激活 token 数量增长远慢于 Full Attention，Full Attention 线性增长，而 NSA 的增长主要来自压缩 token 数（与序列长度成正比但分母是 $d=16$），选择和滑窗部分基本不变。序列越长，节省比例越大
 
-![](<../images/DeepSeek NSA 解读：三叉戟稀疏注意力-fig_sparsity_ratio.png>)
+![[_Attachments/Images/DeepSeek NSA 解读：三叉戟稀疏注意力-fig_sparsity_ratio.png]]
 
 # 8. **NSA 和相邻技术的关系**
 
