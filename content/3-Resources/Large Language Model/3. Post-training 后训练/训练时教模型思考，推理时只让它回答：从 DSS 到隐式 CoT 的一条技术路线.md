@@ -13,7 +13,7 @@ imported: 2026-05-24
 > 但如果答案是后者，问题就变成了：**能不能在训练阶段用 CoT 帮模型学会更强的推理能力，而在真正推理时只保留更短、更直接的答案输出路径，关注的是训练范式和部署范式能不能解耦**
 > 这个和 **自适应思考** 不一样，自适应思考是：**模型在推理阶段自己判断一道题值不值得思考、思考多久，关注的是推理时的计算分配**
 
-![[_Attachments/Images/训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-1.png]]
+![训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-1.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782946467_img-a455b885cb57e0188d1e.png)
 
 # 1. DSS：把 CoT 从推理输出改成训练监督
 
@@ -25,7 +25,7 @@ DSS 的核心：
 2. 再让小模型做双任务训练
 3. 训练阶段学两件事，推理阶段只走答案任务
 
-![[_Attachments/Images/训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image.png]]
+![训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783129500_img-b2c29efacb6bc43f8418.png)
 
 论文里最值得注意的一点是 **任务拆分的方式，** DSS 不是把 `question -> CoT -> answer` 直接拼成一个长 target 去硬训，而是显式地用两个 **task prefix** 来区分输出模式：
 
@@ -44,7 +44,7 @@ $L = L_{label} + \lambda L_{rationale}$
 
 ***<u>答案 token 往往只占整个 target 的很小一段，训练信号会被长 CoT 序列稀释。</u>**<u> 模型会学到很多关于 CoT 文风、句式组织、解释习惯的东西，但这些东西不一定直接服务于最后那一下答案预测</u>*
 
-![[_Attachments/Images/训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-5.png]]
+![训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-5.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783068917_img-07390d39fb47c60685a1.png)
 
 工程实现里，推荐把数据整理成两个任务，而不是一个大串联 target。最小可用的数据格式可以直接写成下面这样：
 
@@ -74,11 +74,11 @@ DSS 虽然用了双任务框架，但 **没有显式建模答案任务和 ration
 
 这一步很关键，说明了一个问题：**CoT 不是加了就有用，关键在于它和主任务是否发生了高质量的信息对齐**
 
-![[_Attachments/Images/训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-6.png]]
+![训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-6.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783099581_img-07c68226e814b93178ef.png)
 
 # 4. 从显式 CoT 到隐式 CoT
 
-![[_Attachments/Images/训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-2.png]]
+![训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-2.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782976470_img-49260763949cd5796a74.png)
 
 ## 4.1 Stepwise Internalization
 
@@ -86,7 +86,7 @@ DSS 虽然用了双任务框架，但 **没有显式建模答案任务和 ration
 
 **这篇论文** 提出了一个很有启发性的想法：不是一下子把 CoT 全删掉，而是 **逐步删除中间步骤并继续 finetune**。这样模型会被逼着把原本写在文本里的推理过程逐渐迁移到 hidden states 里
 
-![[_Attachments/Images/训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-3.png]]
+![训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-3.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783003754_img-305e20bac0e6f0fbdd8f.png)
 
 ## 4.2 CODI：把 CoT 压进 continuous latent
 
@@ -94,4 +94,4 @@ DSS 虽然用了双任务框架，但 **没有显式建模答案任务和 ration
 
 CODI 把 reasoning 从自然语言 token 空间压进 **continuous space**，通过 teacher task 和 student task 的 hidden-state alignment，**让模型在潜空间里完成 reasoning**
 
-![[_Attachments/Images/训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-4.png]]
+![训练时教模型思考，推理时只让它回答：从 DSS 到隐式 CoT 的一条技术路线-image-4.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783037158_img-cc69578b061c54d6bdc3.png)

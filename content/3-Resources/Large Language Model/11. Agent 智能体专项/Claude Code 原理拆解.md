@@ -1,6 +1,7 @@
 ---
 status: todo
 tags:
+  - cubox
   - topic/ai
   - topic/llm
 topic: "Claude Code 原理拆解"
@@ -71,3 +72,25 @@ Claude Code 的安全设计同样不是外围补丁，而是 runtime 的一部�
 checkpoint 也是同一类设计。Claude Code 会在每次编辑前自动记录代码状态；每个用户 prompt 都会形成新的 checkpoint；这些 checkpoint 可以跨会话保留，并支持 rewind。意思很明确：它不是假设模型永远不会偏，而是承认长链执行一定会有走偏风险，所以必须把回退成本做低。没有这种可逆性，用户很难真正放手让 agent 做较大范围修改。
 
 再往前一步，就是 sandbox。官方安全文档把 sandboxed bash 定义成带文件系统和网络隔离的执行边界；Anthropic 的工程文章也明确说，沙箱的目标是在预定义边界内减少权限提示，同时保持更高安全性。这里非常关键的一点是：安全不是用来压制自治，而是用来扩大可安全自治的范围。没有边界，agent 只能频繁打断用户；边界一旦清晰，系统反而可以更自动。
+
+## Cubox Review 增补：源码架构视角
+
+`claude code 源码分析-架构篇` 把 Claude Code 看成“终端里的小型 Agent 操作系统”，这个视角适合补充到本笔记：
+
+- 进程入口层负责快路径分流和重型初始化，避免 CLI 每次启动都加载全部运行时。
+- 应用外壳层承载 REPL、消息转录、任务视图、IDE 集成和插件交互。
+- Agent 运行时层负责构建上下文、流式接收模型输出、解释 tool use、重试、压缩和完成态。
+- Tool 与策略层是一等公民，工具定义、权限判断、批处理和调度都在这一层完成。
+- 扩展层通过 skills、plugins、MCP 把能力按需接入。
+- 多 Agent 与远程层处理子 Agent、后台任务、bridge/remote 场景。
+
+这个分层再次说明：Claude Code 的核心不是“更会补全代码”，而是把交互 UI、agent loop、工具策略、扩展机制和环境隔离合成一个运行时。
+
+## 增补来源
+
+- [[claude code 源码分析-架构篇-2026-03-31]]
+
+## Cubox 回源复核
+
+- 2026-06-29 回源审计结果为 `source_unreachable`：微信原页正文不可见；详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-03 Cubox Review|2026-03 Cubox 复盘]] 和 [[2025-12 to 2026-05 Cubox Source Re-Audit]]。
+- 本笔记中的 Claude Code 运行时/工具设计判断应优先用官方文档、源码或可访问的一手材料补充核验。

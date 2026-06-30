@@ -20,12 +20,12 @@ imported: 2026-05-24
 > * **正确性**，即每一步都基于该步、前面的步骤和输入上下文中包含的信息进行有效推理；
 > * **信息量**，即每一步提供对生成答案有帮助的新信息。
 
-![[_Attachments/Images/RECEVAL! Evaluating Reasoning Chains via Correctness and Informativeness-image.png]]
+![RECEVAL! Evaluating Reasoning Chains via Correctness and Informativeness-image.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783608419_img-8d617dc403f42c13f743.png)
 
 > 过程细节：下图展示了针对正确性与信息量的相关Case；
 > 作者对于推理链中的每一步的是否正确与是否含有有用信息进行详细的讨论，具体如下；
 
-![[_Attachments/Images/RECEVAL! Evaluating Reasoning Chains via Correctness and Informativeness-image-1.png]]
+![RECEVAL! Evaluating Reasoning Chains via Correctness and Informativeness-image-1.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783796005_img-8e036129795f16eea39c.png)
 
 > * **正确性**
 > 为了使推理链正确，每个步骤都必须是正确的。此外，他们认为，如果相应的结论 $RCU_{c}^{(i)}$ 是正确的，那么思维链中的步骤 $s^{(i)}$ 就是正确的，步骤间的正确性衡量了全局一致性。通过计算步骤 $s^{(i)}$ 中给出前提 $RCU_{p}^{(i)}$ 的结论 $RCU_{c}^{(i)}$ 的蕴含概率来定义其的正确性，即有；
@@ -40,7 +40,7 @@ imported: 2026-05-24
 
 伪代码详如图：
 
-![[_Attachments/Images/RECEVAL! Evaluating Reasoning Chains via Correctness and Informativeness-image-2.png]]
+![RECEVAL! Evaluating Reasoning Chains via Correctness and Informativeness-image-2.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783873459_img-e279bb58b7342ca35321.png)
 
 # 三、实验结果
 

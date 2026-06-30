@@ -18,14 +18,14 @@ imported: 2026-05-24
 
 > 提出了一个名为CritiqueLLM的新的评论生成模型，其中包括一种基于对话的提示方法，用于生成高质量的参考/无参考文本的评估分析文本及对应得分。
 
-![[_Attachments/Images/CRITIQUELLM! Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model -image-1.png]]
+![CRITIQUELLM! Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model -image-1.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714128786_img-aa9161a07e2227416aed.png)
 
 **过程细节：**
 
 > * **训练数据**
 > 从少量公开平台收集的用户询问增广得到覆盖面较广的大量询问数据，并根据多样性和回答难度进行了精心的筛选和过滤最终得到1000个问题。随后，收集了各种能力层次的LLMs在该询问集合上的生成结果。设计提示让GPT-4根据用户询问、参考文本和模型生成文本生成评价结果。提示包含详细的评价标准，使GPT-4生成的评价结果能和人类较好地对齐。具体流程如下图所示：
 
-![[_Attachments/Images/CRITIQUELLM! Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model -image.png]]
+![CRITIQUELLM! Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model -image.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714184937_img-ff6476ceb71fbf4999b1.png)
 
 作者采用了一种基于对话的提示方法，以获取参考和非参考评估数据。具体而言，该方法首先引导GPT-4生成参考评估结果，随后通过修订上一轮的输出，得到非参考结果。操作步骤为;先让GPT4生成带有参考答案的评估，然后在下一轮对话中，要求GPT-4忽略之前提供的参考评估，并限制本轮输出的评估分数与上一轮有参考答案给出的评估分数保持一定关联，以防止评估分数差异过大。
 
@@ -36,11 +36,11 @@ imported: 2026-05-24
 
 # 三、实验结果
 
-![[_Attachments/Images/CRITIQUELLM! Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model -image-2.png]]
+![CRITIQUELLM! Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model -image-2.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714148455_img-fb03a3e3e1d14e80e138.png)
 
 > CRITIQUELLM-66B在特别是在有参考文本中能够达到与GPT-4相当的性能。可以观察到，CRITIQUELLM-66B在设置参考文本中的System-Level的Spearman和Kendall相关性甚至接近1.0，这表明他们的模型能够区分所有八个LLM的整体性能。尽管无参考文本更具挑战性，CRITIQUELLM-66B仍然能够超过大多数基准，并在System-Level相关性中实现超过90%的GPT-4评估能力。比较CRITIQUELLM-6B到CRITIQUELLM-66B的性能，还可以观察到良好的扩展性能。这表明，如果继续增加基础模型的参数数量，他们的解决方案有望成为GPT-4的可靠替代品。
 
-![[_Attachments/Images/CRITIQUELLM! Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model -image-3.png]]
+![CRITIQUELLM! Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model -image-3.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714168251_img-e01bea30cac9fdc63557.png)
 
 > 从上图可以看出，CRITIQUELLM-66B在生成解释的质量上大大超过ChatGPT，并且能够与GPT-4达到相当的表现。从中间的图可以看出，尽管CRITIQUELLM-6B/12B在特别是在设置有参考文本的System-Level的相关性上可以获得与CRITIQUELLM-66B相似的评估结果，但在生成解释方面仍然比CRITIQUELLM-66B表现差，且差距相对较大。右图比较了不同的解码策略，展示了这些解码方法在66B模型规模下生成解释的质量是可比的。
 

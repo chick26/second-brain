@@ -18,7 +18,7 @@ up:: [[3-Resources/· MOC for Resources|· MOC for Resources]]
 
 # 域名的结构
 
-![](../../../Extras/Media/Images/202202101543606.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782644211022_202202101543606.png)
 
 ## TLD （Top-Level Domain，顶级域名）
 

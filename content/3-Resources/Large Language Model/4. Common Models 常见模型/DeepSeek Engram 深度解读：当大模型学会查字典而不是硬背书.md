@@ -36,7 +36,7 @@ imported: 2026-05-24
 
 论文引用了一个经典案例，大模型如何识别 "Diana, Princess of Wales"（戴安娜王妃）
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714460590_img-89391e41f2eea103c4e9.png)
 
 | 层 | 潜状态翻译（模型的内部理解） | 解释 |
 | --------- | -------------------------- | --------- |
@@ -50,7 +50,7 @@ imported: 2026-05-24
 
 > 上面是一个 interpretability 案例，用来帮助理解静态模式重建会占用早层表示空间，不是一个对所有实体识别过程的普适定理
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-6.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-6.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714418145_img-cf0e67c0e622623704ea.png)
 
 ***传统 Transformer 需要逐层计算重建实体（左），Engram 通过 O(1) 哈希查表直接获取（右）***
 
@@ -72,11 +72,11 @@ imported: 2026-05-24
 4) **判断是否采纳**（上下文感知门控）：根据当前语境决定这条释义是否有用
 5. **融合**（ShortConv + 残差）：将有用的记忆信息注入 Transformer 主干
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-arch.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-arch.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714283920_img-e262b1e26e06b192e2ae.png)
 
 ***Engram 论文原始架构图。模块仅插入特定层（Layer 2 和 Layer 15），通过残差连接融入主干***
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-5.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-5.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714398484_img-84b4899042df1efecc43.png)
 
 ***Engram 架构简化流程图，展示从输入 Token 到输出的完整数据流***
 
@@ -219,7 +219,7 @@ for n in range(2, self.max_ngram_size + 1):
 > * 为什么用 **质数** 作为嵌入表大小？因为质数取模能增大哈希分布的均匀性。prime-size table 常用于减弱某些规则性冲突模式，通常有利于更均匀的散列分布
 > * 为什么用 **多头**？multi-hash ensemble的思路，8 个独立哈希函数同时查表，同一个 N-gram 获得 8 个不同的嵌入向量，大幅降低了单一哈希冲突带来的信息损失
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-7.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-7.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714435019_img-ca100346c8c23fa8c765.png)
 
 ***N-gram 哈希查表的完整过程。从分词压缩到最终拼接记忆向量***
 
@@ -265,7 +265,7 @@ def forward(self, hidden_states, input_ids):
 * **α ≈ 1**：记忆与上下文高度匹配 → 全量注入（如识别到 "Alexander the Great" 这个实体）
 * **α ≈ 0**：记忆与上下文矛盾 → 抑制噪声（如哈希冲突导致的无关嵌入）
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-4.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-4.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714385792_img-d5510e450bbf0d284c2d.png)
 
 ***上下文感知门控机制。h\_t 作为 Query，e\_t 同时提供 Key 和 Value，通过 sigmoid 门控控制融合强度***
 
@@ -306,7 +306,7 @@ Engram 的关键收益主要来自 compressed tokenization、multi-head hashing�
 
 实验给出了一个的结论，**不是记忆越多越好，也不是计算越多越好**：
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-scaling_law.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-scaling_law.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714499044_img-7c9b34791fe233918e8e.png)
 
 ***论文原图。左图为分配比例实验，右图为无限记忆缩放实验，最优分配比例稳定在 ρ≈75-80%***
 
@@ -317,7 +317,7 @@ Engram 的关键收益主要来自 compressed tokenization、multi-head hashing�
    * MoE 主导 (ρ→100%)：模型缺少专门的记忆组件，被迫用计算模拟检索
    * Engram 主导 (ρ→0%)：模型丧失条件计算能力，无法处理需要推理的任务
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-3.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-3.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714365283_img-9d2ccb8c85077af35dc5.png)
 
 ***三种架构的参数分配对比。Engram-27B 将 5.7B 参数从 MoE 专家重新分配给嵌入表***
 
@@ -340,9 +340,9 @@ Engram 的关键收益主要来自 compressed tokenization、multi-head hashing�
 
 ## 5.2 核心结果
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-27b_exp_results.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-27b_exp_results.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714226386_img-c76181eaf70decd99265.png)
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-2.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-2.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714346745_img-348710bebb97d7e99e24.png)
 
 ***精选 8 个 Benchmark 的对比。Engram-27B 在所有类别上全面领先 MoE-27B***
 
@@ -358,7 +358,7 @@ Engram 的关键收益主要来自 compressed tokenization、multi-head hashing�
 
 ## 5.3 长上下文表现
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-long_context_results.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-long_context_results.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714474174_img-fe673eccaa9f55d14aab.png)
 
 ***长上下文（32K）实验结果。Engram 在多查询 NIAH 上从 84.2 提升到 97.0***
 
@@ -376,7 +376,7 @@ Engram 的关键收益主要来自 compressed tokenization、multi-head hashing�
 
 CKA（中心核对齐）是衡量不同模型/层之间表示相似度的工具，分析结果表示 **Engram 第 5 层的表示，与纯 MoE 模型第 12 层的表示最为相似**
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-1759375339a84c6db8803e334a47369f.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-1759375339a84c6db8803e334a47369f.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714211529_img-c255bfae2c9bf8fda7d7.png)
 
 ***CKA 相似度热力图。白色虚线表示 Engram 各层对应的 MoE 等效深度，明显偏离对角线，向上偏移***
 
@@ -386,7 +386,7 @@ CKA（中心核对齐）是衡量不同模型/层之间表示相似度的工具�
 
 论文做了一个破坏性实验，在推理时完全关闭 Engram 模块，只用 Transformer 主干：
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-91640905288346699916b99f0ad0d9ad.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-91640905288346699916b99f0ad0d9ad.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714262707_img-d65f18475b3e2c7eb493.png)
 
 ***关闭 Engram 后的性能保留率。事实知识暴跌，阅读理解基本不变***
 
@@ -400,7 +400,7 @@ CKA（中心核对齐）是衡量不同模型/层之间表示相似度的工具�
 
 ## 6.4 门控可视化
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-case.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-case.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714301071_img-085ad734273a92f8473a.png)
 
 ***门控激活值可视化。红色表示强激活，Engram 在命名实体和固定短语处选择性激活***
 
@@ -417,11 +417,11 @@ CKA（中心核对齐）是衡量不同模型/层之间表示相似度的工具�
 
 Engram 相比 MoE 的一个关键系统优势，**查表索引完全由输入 token 决定，不依赖中间计算状态**。这意味着在 GPU 执行前一层计算的同时，CPU 就可以 **异步预取** 下一层 Engram 需要的嵌入向量。通信与计算完全重叠，几乎零开销
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-287c7604e3de4ae6a8c1173cf85b0fd4.jpeg]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-287c7604e3de4ae6a8c1173cf85b0fd4.jpeg](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714248337_img-a905db06055d1dd8cd50.jpeg)
 
 ***训练和推理阶段的系统架构。训练时 GPU 分片存储 + All-to-All 通信；推理时 CPU 内存卸载 + 异步预取***
 
-![[_Attachments/Images/DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-1.png]]
+![DeepSeek Engram 深度解读：当大模型学会查字典而不是硬背书-image-1.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714322682_img-e4588ee65f5c5e2bcb0d.png)
 
 ***推理流水线时序图。CPU 预取和 PCIe 传输与 GPU 计算完全重叠***
 

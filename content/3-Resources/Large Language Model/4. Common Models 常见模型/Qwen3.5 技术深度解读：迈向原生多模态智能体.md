@@ -94,7 +94,7 @@ Qwen3.5 通过 **Early Fusion 让视觉信号直接参与 LLM 深层计算**。�
 * **Qwen3Next**：**引入 GatedDeltaNet + Gated Attention 混合注意力 + 共享专家**
 * **Qwen3.5**：在 **Qwen3Next 基础上加入 MRoPE + Vision，拆分投影层，去掉 DeepStack**
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-11.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-11.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782715488919_img-ffcbc02005e351d2748f.png)
 
 从 import 语句可以清晰地看到 Qwen3.5 的继承链，Qwen3.5MoE 的 **文本能力** 继承自 Qwen3Next（混合注意力 + MoE），**多模态能力** 继承自 Qwen3VL（VisionModel + MRoPE），并做了关键的简化和改进
 
@@ -161,7 +161,7 @@ from ..qwen3_vl_moe.modeling_qwen3_vl_moe import (
 
 Qwen3.5 的完整模型`Qwen3_5ForConditionalGeneration`是一个复合结构：
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-12.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-12.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782784125011_img-55402b4120465e10ad0c.png)
 
 视觉输入经过 VisionModel 编码后，通过 PatchMerger 映射到文本隐层维度，然后与文本 embedding 拼接，一起送入 TextModel。TextModel`Qwen3_5TextModel`遵循标准的 Transformer Decoder 架构：
 
@@ -173,7 +173,7 @@ Input IDs → Embedding → [DecoderLayer × N] → RMSNorm → LMHead → Logit
 
 Qwen3.5 的关键创新在于 DecoderLayer 有两种类型，根据层索引交替使用：
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-8.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-8.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783488427_img-7fdb795f903341538cb2.png)
 
 层类型分配遵循 `[L, L, L, F, L, L, L, F, ...]` 的 pattern——每 4 层中 3 层 Linear Attention、1 层 Full Attention（`full_attention_interval=4`），即 **75% Linear + 25% Full**
 
@@ -301,7 +301,7 @@ $S_t=\alpha_t S_{t-1}+v_t k_t^\top$
 
 $S_t=S_{t-1}\big(I-\beta_t k_t k_t^\top\big)+\beta_t v_t k_t^\top$
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-9.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-9.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783528894_img-2515ccfc3bc4f67ac690.png)
 
 > Qwen3.5 采用的 Gated DeltaNet 在 Delta Rule 的基础上加入了 **数据依赖的遗忘门 $\alpha_t$ **：$S_t = S_{t-1} \alpha_t (I - \beta_t k_t k_t^\top) + \beta_t v_t k_t^\top$
 > * $S_{t-1}$ (**Memory State**)：上一时刻的记忆矩阵，$S_t \in \mathbb{R}^{d_v \times d_k}$
@@ -355,7 +355,7 @@ class Qwen3_5GatedDeltaNet(Qwen3NextGatedDeltaNet):
 
 GatedDeltaNet 的 forward 过程 `modular_qwen3_5.py` 可分为 6 个步骤：
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-13.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-13.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782784192925_img-cf1982e0a9326fc2581b.png)
 
 ### 步骤 1：输入投影
 
@@ -539,7 +539,7 @@ Full Attention 层只使用 `key_cache` / `value_cache`，Linear Attention 层�
 
 > 这里 **看[[1.3 Attention 注意力]]的 Gated Attention 部分详解**
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-5.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-5.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783398635_img-51b6764e51ff74fb888b.png)
 
 ## 4.1 Q 维度翻倍 + sigmoid 门控
 
@@ -732,7 +732,7 @@ class Qwen3_5MoeSparseMoeBlock(nn.Module):
         return expert_output.reshape(batch_size, sequence_length, hidden_dim)
 ```
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-4.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-4.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783363377_img-00ca0874c10769dd4013.png)
 
 最终输出公式： $\text{output}=\sum_i w_i\cdot \text{expert}_i(x)+\sigma(g(x))\cdot \text{shared}(x)$
 
@@ -942,7 +942,7 @@ Qwen3.5 预训练在 **能力、效率、通用性** 三个维度上推进：
   * 是 Qwen3-235B-A22B 的 **3.5 倍**（32k）/ **7.2 倍**（256k）
 * **通用性（Versatility）**：通过早期文本-视觉融合与扩展的视觉/STEM/视频数据实现原生多模态，在相近规模下优于 Qwen3-VL。多语言覆盖从 119 增至 **201 种语言/方言**；词表从 \~150K 扩展至 **248,320**（25 万词表），在多数语言上带来约 **10-60% 的编码/解码效率提升**
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-2.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-2.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783253454_img-610e767ec8641039f168.png)
 
 从工程角度，预训练 pipeline 如下：
 
@@ -957,7 +957,7 @@ Qwen3.5 预训练在 **能力、效率、通用性** 三个维度上推进：
 * **原生 FP8 流水线**：对激活、MoE 路由与 GEMM 运算采用低精度，通过运行时监控在敏感层保持 BF16，实现约 **50% 的激活显存降低** 与 **超过 10% 的加速**，稳定扩展至数万亿 token
 * **可扩展异步 RL 框架**：支持全尺寸模型的强化学习训练，全面覆盖文本、多模态及多轮交互场景。采用训推分离（Actor-Learner 解耦）架构，配合 FP8 训推、**Rollout 路由回放**、投机采样以及多轮 Rollout 锁定等技术，取得 **3x-5x 的端到端加速**。框架面向原生智能体工作流设计，可扩展百万级规模的 Agent 脚手架与环境
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-7.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-7.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783457627_img-11b9fde6c9a9170e5978.png)
 
 ## 9.3 后训练：SFT + RL
 
@@ -979,25 +979,25 @@ Qwen3.5 的 Post-training 性能提升主要来自于对各类 **RL 任务和环
 
 # 10. 实验与评估
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-3.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-3.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783332582_img-c049702d064b5d3d12c0.png)
 
 ## 10.1 自然语言评估
 
 对比模型包括 GPT5.2、Claude 4.5 Opus、Gemini-3 Pro、Qwen3-Max-Thinking、K2.5-1T-A32B
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-10.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-10.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782715468149_img-f41edb1fb15cbbe9fa02.png)
 
 ## 10.2 视觉语言评估
 
 视觉语言对比中，竞品替换 Qwen3-Max-Thinking 为 Qwen3-VL-235B-A22B
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-6.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-6.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783425524_img-541ec1c8a950301e4513.png)
 
 ## 10.3 基座模型对比
 
 以下为 **base model**（未经后训练）的评估结果：
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782783560189_img-6c944af3e8c1ae6a8267.png)
 
 基座模型评估中，Qwen3.5-397B-A17B 在几乎所有基准上都取得了最高分，尤其在 SuperGPQA（57.96 vs 其他模型的 42-44）、GPQA（54.64）、SWE-agentless（43.26）等基准上优势明显。官方指出：Qwen3.5-397B-A17B 的 base 性能与参数量超过 1T 的 Qwen3-Max-Base 相当，但激活参数量仅为 17B
 
@@ -1005,7 +1005,7 @@ Qwen3.5 的 Post-training 性能提升主要来自于对各类 **RL 任务和环
 
 官方展示了通用 Agent 能力随 RL Environment scaling 的增益曲线。整体性能由各模型在 BFCL-V4、VITA-Bench、DeepPlanning、Tool-Decathlon 和 MCP-Mark 上的平均排名计算。官方强调的训练策略是"***更加强调 RL 环境的难度与可泛化性，而非针对特定指标或狭隘类别的 query 进行优化"***
 
-![[_Attachments/Images/Qwen3.5 技术深度解读：迈向原生多模态智能体-image-1.png]]
+![Qwen3.5 技术深度解读：迈向原生多模态智能体-image-1.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782715448487_img-e811ab92a2aa93665a33.png)
 
 # 11. 总结
 

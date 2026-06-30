@@ -29,7 +29,7 @@ up:: [[3-Resources/· MOC for Resources|· MOC for Resources]]
 
 **控制位**与三次握手和四次挥手息息相关，要牢记。
 
-![](../../../Extras/Media/Images/640.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782696728392_640.png)
 
 首部固定部分各字段意义如下：
 
@@ -94,7 +94,7 @@ SYN = 1 表示这是一个连接请求或连接接受报文。
 
 三次握手过程如下图：
 
-![](../../../Extras/Media/Images/641.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782696732797_641.png)
 
 图中字符的含义：
 
@@ -178,7 +178,7 @@ SYN 攻击就是 **Client 在短时间内伪造大量不存在的 IP 地址，�
 
 TCP 连接的释放需要发送四个包（执行四个步骤），因此称为四次挥手 (`Four-way handshake`)，**客户端或服务端均可主动发起挥手动作**。
 
-![](../../../Extras/Media/Images/642.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782696749303_642.png)
 
 回顾一下上图中符号的意思：
 

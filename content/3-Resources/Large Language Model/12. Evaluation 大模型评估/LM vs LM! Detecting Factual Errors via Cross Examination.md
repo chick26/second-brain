@@ -18,11 +18,11 @@ imported: 2026-05-24
 
 > 研究者提出了一个基于交叉审问的框架，用于评估语言模型的事实性。这个方法涉及到让一个语言模型（作为审查者）通过提问来检测另一个生成了声明的语言模型中的不一致性和错误。
 
-![[_Attachments/Images/LM vs LM! Detecting Factual Errors via Cross Examination-image-1.png]]
+![LM vs LM! Detecting Factual Errors via Cross Examination-image-1.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782715279074_img-e31ed03edcbe597bfddb.png)
 
 > 考虑到一个审查员语言模型和由被审查者生成的主张C，他们的方法建立了两个语言模型之间的多轮交互，每一轮中，另一个语言模型被提示使用一个包含前几轮输出的指定提示。这种交互持续进行，直到审查员没有进一步问题并能提供最终决定。为了建立一个揭示可能不一致性的有意义的交互，为审查定义了三个阶段，每个阶段都由一个特定的提示引导。作为对Examinee或Examiner的每个提示的一部分，他们提供了上一轮生成的输出作为上下文。具体步骤如下图所示；
 
-![[_Attachments/Images/LM vs LM! Detecting Factual Errors via Cross Examination-image.png]]
+![LM vs LM! Detecting Factual Errors via Cross Examination-image.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782715295058_img-c840c3f674bfc3e7b3c9.png)
 
 > **过程细节**：
 > 考虑到一个审查员语言模型和由被审查者生成的主张C，他们的方法建立了两个语言模型之间的多轮交互，每一轮中，另一个语言模型被提示使用一个包含前几轮输出的指定提示。这种交互持续进行，直到审查员没有进一步问题并能提供最终决定。为了建立一个揭示可能不一致性的有意义的交互，为审查定义了三个阶段，每个阶段都由一个特定的提示引导。作为对Examinee或Examiner的每个提示的一部分，他们提供了上一轮生成的输出作为上下文。

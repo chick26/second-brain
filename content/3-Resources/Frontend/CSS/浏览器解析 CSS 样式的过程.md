@@ -186,19 +186,19 @@ div {
 
 浏览器从 body 元素开始，生成它的主盒 (principal box)，它的宽度为`50px`，默认高度为`auto`。
 
-![](../../../Extras/Media/Images/bVbqFWk.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782345030_img-0abd6078c0d9e5900ec1.png)
 
 现在移动到 `p` 标签并生成其主盒 (principal box)，并且由于 `p` 标签默认有边距（margin），这将影响正文的高度，如下所示：
 
-![](../../../Extras/Media/Images/bVbqGLj.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782700465_img-6b3ccbf87fcf647d6abe.png)
 
 现在浏览器移动到 **“Hello world”** 文本，这是 DOM 中的文本节点。因此，我们在布局中生成一个 **行内盒 (line box)** 。请注意，文本溢出了正文，我们将在下一步处理这个问题。
 
-![](../../../Extras/Media/Images/bVbqGLI.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782666497_img-a704abe744ea7cea3cbf.png)
 
 因为加上 “world” 长度后实际长度比较设置大并且我们没有设置 `overflow` 属性，所以引擎会向其父级报告它在布局文本时停止的位置。
 
-![](../../../Extras/Media/Images/bVbqGMV.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782729768_img-a2794e19ad591d380c52.png)
 
 由于父级已收到其子级无法完成所有内容布局的指令，因此它会克隆包含所有样式的 **行内盒 (line box)**，并传递该框的信息以完成布局。
 
@@ -237,11 +237,11 @@ div {
 </style>
 ```
 
-![](../../../Extras/Media/Images/bVbqG2D.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782379058_img-4a245e7e59f5521a0078.png)
 
 该过程开始时遵循与 “Hello world” 示例相同的模式，直接开始处理浮动按钮的位置。
 
-![](../../../Extras/Media/Images/bVbqG2I.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782404149_img-08ddb0161cc58e033e93.png)
 
 由于浮动创建了一个新的块格式化上下文 (BFC)，并且是一个 `shrink-to-fit` 上下文，因此浏览器执行一种称为内容度量的特定布局类型。
 
@@ -249,19 +249,19 @@ div {
 
 在本例中，它使用文本布局一个按钮，因此其最窄的大小 (包括所有其他 CSS 框) 将是最长单词的大小。在最宽的地方，它将是一行的所有文本，加上 CSS Box。注意: 这里按钮的颜色不是文字的颜色。这只是为了说明问题。
 
-![](../../../Extras/Media/Images/bVbqG3q.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782514267_img-4f3795413014070d1881.png)
 
 现在我们知道最小宽度是 86px，最大宽度是 115px，我们将此信息传递回父类的 box，让它决定宽度并适当地放置按钮。在这个场景中，有足够的空间来适应浮动的最大大小，这就是按钮的布局方式。
 
-![](../../../Extras/Media/Images/bVbqG3u.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782536344_img-d044d999f72878e713ea.png)
 
 为了确保浏览器遵循标准，并且内容围绕浮动，浏览器更改了 **article** 的 BFC 的几何形状。这个几何图形被传递给段落，以便在段落布局期间使用。
 
-![](../../../Extras/Media/Images/bVbqG3B.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782448495_img-7cf6228258aa5bd6d9ad.png)
 
 从这里开始，浏览器遵循与第一个示例相同的布局过程——但是它确保任何内联内容的内联和块的起始位置都位于浮动所占用的约束空间之外。
 
-![](../../../Extras/Media/Images/bVbqG3I.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782481501_img-333e88ed508505eb5e3e.png)
 
 当浏览器继续沿着树向下移动并克隆节点时，它将越过约束空间的块位置。这允许最后一行文本 (以及它之前的一行) 以内联方向开始于 content box 的开头。然后浏览器返回到树中，根据需要解析 **auto** 和百分数。
 
@@ -285,15 +285,15 @@ div {
 </body>
 ```
 
-![](../../../Extras/Media/Images/bVbqG4H.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782567641_img-4d2735799f69f286c0b2.png)
 
 一旦浏览器到达 `multicol` 格式化上下文盒子，它就会看到它有一组设定的列。
 
-![](../../../Extras/Media/Images/bVbqG4L.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782601505_img-1989bb817e22a78513ea.png)
 
 它遵循以前类似的克隆模型，并创建了一个具有正确维度的碎片处理程序，以满足作者对其列的要求。
 
-![](../../../Extras/Media/Images/bVbqG4N.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782631565_img-4e8885f268623cd2834e.png)
 
 然后浏览器按照与之前相同的模式尽可能多地布局行，然后浏览器创建另一个碎片管理器，并继续完成布局。
 
@@ -309,7 +309,7 @@ div {
 
 - `SHARE IT` 按钮:
 
-![](../../../Extras/Media/Images/bVbqHdu.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782759500_img-b05491ec43d113e953c2.png)
 
 完成后，它将转换为位图，最终每个布局元素（甚至文本）都成为引擎中的图像。
 
@@ -348,11 +348,11 @@ div {
 
 在大多数情况下，浏览器将选择选项 2 并生成以下内容:
 
-![](../../../Extras/Media/Images/bVbqHif.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782815910_img-4939cbe0cb359de1b9cf.png)
 
 然后，它将重新组合剪辑位图在正确的位置，并处理脉动动画。这对于性能来说是一个很好的优势，因为在许多引擎中，合成程序是在它自己的线程上的，这样就可以解除主线程的阻塞。如果浏览器选择上面的选项 1，它将不得不阻塞每一帧以完成相同的结果，这将对最终用户的性能和响应能力产生负面影响。
 
-![](../../../Extras/Media/Images/bVbqHiN.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782791363_img-89ad33635942a7154cb0.png)
 
 ## 创造互动的视觉
 
@@ -372,7 +372,7 @@ button:hover {
 
 浏览器不断跟踪各种输入，当这些输入正在移动时，它会经历称为**命中测试**的过程。 对于此示例，该过程如下所示：
 
-![](../../../Extras/Media/Images/bVbqHke.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782782855626_img-ffc207d8c6be6e16c43a.png)
 
 1.  用户将鼠标移到按钮上。
 2.  浏览器触发鼠标已移动的事件，并进入命中测试算法，该算法本质上是问 “鼠标正在触摸哪个 box”

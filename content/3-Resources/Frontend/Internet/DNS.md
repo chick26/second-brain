@@ -98,7 +98,7 @@ Cloudflare 维护 Internet 功能不可或缺的基础设施级域名服务器�
 9.  浏览器向该 IP 地址发出 [HTTP](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) 请求。
 10.  位于该 IP 的服务器返回将在浏览器中呈现的网页（第 10 步）。
 
-![](../../../Extras/Media/Images/202202081650807.png)
+![image](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782644209559_202202081650807.png)
 
 
 ## DNS 解析器

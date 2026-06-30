@@ -29,7 +29,7 @@ imported: 2026-05-24
 > \end{cases}$$
 > 为了全面评估LLMs在处理不同类型问题时的泛化能力，作者对每个问题都设置了三种风格的改写（非平凡改述、反事实改写、相似推理问题）。下面详细介绍GEN-U的计算方法及利用。
 
-![[_Attachments/Images/Are Machine Rationales (Not) Useful to Humans! Measuring and Improving Human Utility of Free-Text Ra-image.png]]
+![Are Machine Rationales (Not) Useful to Humans! Measuring and Improving Human Utility of Free-Text Ra-image.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714108758_img-a54d54251b29f98e3c9d.png)
 
 > **1.** 对于一个给定的输入输出对 $(X,Y)$,存在一组泛化问题 $(X_{g},Y_{g} )=[(x_{g1} ,y_{g1}),(x_{g2} ,y_{g2}),..,(x_{gm} ,y_{gm})]$。
 > **2.** 使用两个模型( $F^{IR}$ 和 $F^{I}$)来替换掉H并针对泛化问题进行预测；
@@ -41,9 +41,9 @@ imported: 2026-05-24
 
 # 三、实验结果
 
-![[_Attachments/Images/Are Machine Rationales (Not) Useful to Humans! Measuring and Improving Human Utility of Free-Text Ra-image-2.png]]
+![Are Machine Rationales (Not) Useful to Humans! Measuring and Improving Human Utility of Free-Text Ra-image-2.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714087108_img-8584ea1d4657ffeffa58.png)
 
-![[_Attachments/Images/Are Machine Rationales (Not) Useful to Humans! Measuring and Improving Human Utility of Free-Text Ra-image-1.png]]
+![Are Machine Rationales (Not) Useful to Humans! Measuring and Improving Human Utility of Free-Text Ra-image-1.png](https://2479e837.cloudflare-imgbed-2q4.pages.dev/file/1782714067423_img-a3a13075ff6ca083b205.png)
 
 注意到，更新后的语言模型能够保留大部分任务性能，同时将有用（USEFUL）理由的百分比提高了2%。GEN-U还有助于消除4%误导性（NOT USEFUL）的理由。将更新后的语言模型与GPT-3进行了比较，后者在理由的人类效用方面表现最佳。GEN-U能够使更新后的语言模型在人类效用方面更接近GPT-3，同时确保更新后的语言模型的任务性能仍然优于GPT-3。
 
