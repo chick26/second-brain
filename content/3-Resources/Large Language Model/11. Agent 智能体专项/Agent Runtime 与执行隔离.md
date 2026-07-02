@@ -7,6 +7,10 @@ tags:
   - topic/llm
 topic: "Agent Runtime 与执行隔离"
 source: cubox-review
+dashboard_type: review-output
+dashboard_status: todo
+review_source: cubox-review
+review_batch: 2026-05
 ---
 
 # Agent Runtime 与执行隔离
@@ -41,11 +45,11 @@ Agent sandbox 要解决的不是普通“不可信代码”问题，而是“不
 
 ## 来源
 
-- [[643 - 《Release Helm》-2026-05-24]]
-- [[AI Agent Sandbox 开源项目技术分析：从容器到 MicroVM，谁更适合跑下一代 Agent？-2026-05-18]]
+- [Release Helm](https://blog.sorrycc.com/release-helm)
+- [AI Agent Sandbox 开源项目技术分析：从容器到 MicroVM，谁更适合跑下一代 Agent？](https://mp.weixin.qq.com/s?__biz=MzkwMzE4MTQ3MQ==&mid=2247483873&idx=1&sn=40345a7d3888f280cccbcde97b8335de)
 - [[2-Areas/Journal/Weekly/Cubox Reviews/2026-05 Cubox Review|2026-05 Cubox 复盘]]
 
 ## Cubox 回源复核
 
-- 2026-06-30 已补跑 2026-05 Reviewed 回源；Sandbox 微信公开页抽到约 10522 字正文，证据升级为 `source_fetched_html`，详见 [[2025-12 to 2026-05 Cubox Source Re-Audit]]。
-- [[643 - 《Release Helm》-2026-05-24]] 公开 fetch 仍只能拿到 metadata；daemon、cron、issue loop 等细节应等待浏览器渲染或 repo/README 一手来源核验后再扩写。
+- 2026-06-30 已完成 2026-05 Reviewed 回源；Sandbox 微信公开页抽到约 10522 字正文，证据升级为 `source_fetched_html`，详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-05 Cubox Review|2026-05 Cubox 复盘]]。
+- [Release Helm](https://blog.sorrycc.com/release-helm) 回源核验已完成，公开 fetch 结果为 `metadata_only`；daemon、cron、issue loop 等细节未纳入本笔记强结论。

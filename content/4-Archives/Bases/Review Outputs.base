@@ -1,0 +1,70 @@
+filters:
+  and:
+    - dashboard_type == "review-output"
+    - dashboard_status == "todo"
+properties:
+  file.name:
+    displayName: Note
+  dashboard_status:
+    displayName: Dashboard
+  status:
+    displayName: Note Status
+  topic:
+    displayName: Topic
+  source:
+    displayName: Source
+  review_source:
+    displayName: Review Source
+  review_batch:
+    displayName: Batch
+  file.folder:
+    displayName: Folder
+  file.mtime:
+    displayName: Updated
+views:
+  - type: table
+    name: Review
+    order:
+      - file.name
+      - topic
+      - review_source
+      - review_batch
+      - file.folder
+      - file.mtime
+    sort:
+      - property: review_batch
+        direction: DESC
+      - property: file.mtime
+        direction: DESC
+    columnSize:
+      file.name: 280
+      topic: 220
+      review_source: 160
+      review_batch: 120
+      file.folder: 320
+      file.mtime: 160
+  - type: table
+    name: Manage
+    order:
+      - file.name
+      - dashboard_status
+      - status
+      - topic
+      - review_source
+      - review_batch
+      - file.folder
+      - file.mtime
+    sort:
+      - property: review_batch
+        direction: DESC
+      - property: file.mtime
+        direction: DESC
+    columnSize:
+      file.name: 280
+      dashboard_status: 120
+      status: 120
+      topic: 220
+      review_source: 160
+      review_batch: 120
+      file.folder: 320
+      file.mtime: 160

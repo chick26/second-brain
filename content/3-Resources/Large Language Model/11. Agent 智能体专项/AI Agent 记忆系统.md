@@ -7,6 +7,10 @@ tags:
   - topic/llm
 topic: "AI Agent 记忆系统"
 source: cubox-review
+dashboard_type: review-output
+dashboard_status: todo
+review_source: cubox-review
+review_batch: 2026-06
 ---
 
 # AI Agent 记忆系统
@@ -31,7 +35,7 @@ Agent 记忆系统可以粗略分成四层：工作记忆、程序记忆、语�
 ## 对当前工作流的落地
 
 - Daily Note 和 Thino 负责记录当天发生过的事实，不要求完美整理。
-- `$daily-thino-digest` 负责把零碎记忆提炼成决策、行动项、阻塞和可复用经验。
+- `$daily-note-review` 负责把 Thino 零碎记忆、Daily Note 内容和可选 Dayflow 证据提炼成决策、行动项、阻塞和可复用经验。
 - `$weekly-codex-efficiency-review` 负责从真实 Codex 线程中提炼可复用 prompt、playbook、checklist 或 skill。
 - `$weekly-cubox-review` 负责把外部输入变成候选知识，再由用户决定入库、暂存或丢弃。
 
@@ -70,9 +74,9 @@ Agent 记忆系统可以粗略分成四层：工作记忆、程序记忆、语�
 
 ## 增补来源
 
-- [[刚刚，腾讯开源了一个Agent Memory项目-2026-05-15]]
+- [刚刚，腾讯开源了一个 Agent Memory 项目](https://www.xiaohongshu.com/discovery/item/6a058276000000003503b5b8)
 
 ## Cubox 回源复核
 
-- [[刚刚，腾讯开源了一个Agent Memory项目-2026-05-15]] 已在 2026-06-29 完成公开页回源和 3 张图片 OCR，证据为 `source_fetched_ocr`；详见 [[2025-12 to 2026-05 Cubox Source Re-Audit]]。
-- 2026-06 的 Agent 记忆系统来源已在 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]] 中记录公开回源。长期结论仍应以项目 repo、论文或官方资料补充核验。
+- [刚刚，腾讯开源了一个 Agent Memory 项目](https://www.xiaohongshu.com/discovery/item/6a058276000000003503b5b8) 已在 2026-06-29 完成公开页回源和 3 张图片 OCR，证据为 `source_fetched_ocr`；详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]。
+- 2026-06 的 Agent 记忆系统来源已完成 Cubox 回源核验；如需升级为项目级确定结论，再单独使用 repo、论文或官方资料。

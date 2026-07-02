@@ -7,6 +7,10 @@ tags:
   - topic/llm
 topic: "AI Agent 可用工具清单"
 source: cubox-review
+dashboard_type: review-output
+dashboard_status: todo
+review_source: cubox-review
+review_batch: 2026-06
 ---
 
 # AI Agent 可用工具清单

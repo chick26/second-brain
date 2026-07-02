@@ -7,6 +7,10 @@ tags:
 topic: "Claude Code 原理拆解"
 source: feishu-export
 imported: 2026-05-24
+dashboard_type: review-output
+dashboard_status: todo
+review_source: cubox-review
+review_batch: 2026-03
 ---
 
 ## 先看本质
@@ -73,7 +77,7 @@ checkpoint 也是同一类设计。Claude Code 会在每次编辑前自动记录
 
 再往前一步，就是 sandbox。官方安全文档把 sandboxed bash 定义成带文件系统和网络隔离的执行边界；Anthropic 的工程文章也明确说，沙箱的目标是在预定义边界内减少权限提示，同时保持更高安全性。这里非常关键的一点是：安全不是用来压制自治，而是用来扩大可安全自治的范围。没有边界，agent 只能频繁打断用户；边界一旦清晰，系统反而可以更自动。
 
-## Cubox Review 增补：源码架构视角
+## 源文增补：源码架构视角
 
 `claude code 源码分析-架构篇` 把 Claude Code 看成“终端里的小型 Agent 操作系统”，这个视角适合补充到本笔记：
 
@@ -88,9 +92,9 @@ checkpoint 也是同一类设计。Claude Code 会在每次编辑前自动记录
 
 ## 增补来源
 
-- [[claude code 源码分析-架构篇-2026-03-31]]
+- [claude code 源码分析-架构篇](https://mp.weixin.qq.com/s?__biz=MzYyNTgxNjI1Ng==&mid=2247485102&idx=1&sn=cb8e23d71b5afd3c3481e4889834e354)
 
-## Cubox 回源复核
+## 证据边界
 
-- 2026-06-29 回源审计结果为 `source_unreachable`：微信原页正文不可见；详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-03 Cubox Review|2026-03 Cubox 复盘]] 和 [[2025-12 to 2026-05 Cubox Source Re-Audit]]。
-- 本笔记中的 Claude Code 运行时/工具设计判断应优先用官方文档、源码或可访问的一手材料补充核验。
+- 2026-06-29 回源审计已完成，结果为 `source_unreachable`：微信原页正文不可见；这部分只作为 Claude Code 架构分层的低证据线索。
+- 本笔记中的 Claude Code 运行时/工具设计判断不把该 Cubox 来源作为强证据；如需升级为确定结论，再单独使用官方文档、源码或可访问的一手材料。

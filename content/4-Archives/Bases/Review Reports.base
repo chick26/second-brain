@@ -1,0 +1,80 @@
+filters:
+  and:
+    - dashboard_type == "review-report"
+    - dashboard_status == "todo"
+properties:
+  file.name:
+    displayName: Report
+  dashboard_status:
+    displayName: Dashboard
+  review_type:
+    displayName: Type
+  period:
+    displayName: Period
+  week:
+    displayName: Week
+  review_status:
+    displayName: Review
+  processing_status:
+    displayName: Processing
+  review_priority:
+    displayName: Priority
+  file.mtime:
+    displayName: Updated
+views:
+  - type: table
+    name: Read
+    order:
+      - file.name
+      - review_type
+      - period
+      - week
+      - review_status
+      - processing_status
+      - review_priority
+      - file.mtime
+    sort:
+      - property: review_priority
+        direction: DESC
+      - property: period
+        direction: DESC
+      - property: file.mtime
+        direction: DESC
+    columnSize:
+      file.name: 280
+      review_type: 120
+      period: 140
+      week: 120
+      review_status: 160
+      processing_status: 160
+      review_priority: 100
+      file.mtime: 160
+  - type: table
+    name: Manage
+    order:
+      - file.name
+      - dashboard_status
+      - review_type
+      - period
+      - week
+      - review_status
+      - processing_status
+      - review_priority
+      - file.mtime
+    sort:
+      - property: review_priority
+        direction: DESC
+      - property: period
+        direction: DESC
+      - property: file.mtime
+        direction: DESC
+    columnSize:
+      file.name: 280
+      dashboard_status: 120
+      review_type: 120
+      period: 140
+      week: 120
+      review_status: 160
+      processing_status: 160
+      review_priority: 100
+      file.mtime: 160

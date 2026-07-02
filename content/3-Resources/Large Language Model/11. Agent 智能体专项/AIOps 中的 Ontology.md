@@ -7,6 +7,10 @@ tags:
   - topic/llm
 topic: "AIOps 中的 Ontology"
 source: cubox-review
+dashboard_type: review-output
+dashboard_status: todo
+review_source: cubox-review
+review_batch: 2026-06
 ---
 
 # AIOps 中的 Ontology

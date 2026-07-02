@@ -7,6 +7,10 @@ tags:
   - topic/llm
 topic: "Skill 设计模式与工作流技能"
 source: cubox-review
+dashboard_type: review-output
+dashboard_status: todo
+review_source: cubox-review
+review_batch: 2026-04
 ---
 
 # Skill 设计模式与工作流技能
@@ -44,10 +48,9 @@ my-skill/
 
 ## 来源
 
-- [[工作流的 Skill 怎么写？从 7 个顶级 Skill 中提炼的模式与最佳实践-2026-04-27]]
-- [[2-Areas/Journal/Weekly/Cubox Reviews/2026-04 Cubox Review|2026-04 Cubox 复盘]]
+- [工作流的 Skill 怎么写？从 7 个顶级 Skill 中提炼的模式与最佳实践](https://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&mid=2247559690&idx=1&sn=fed34d2ade198ea8fb75ad5b768c9229)
 
-## Cubox 回源复核
+## 证据边界
 
-- 2026-06-29 已完成公开回源，证据方式为 `source_fetched`；详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-04 Cubox Review|2026-04 Cubox 复盘]]。
+- 2026-06-29 已完成公开回源，证据方式为 `source_fetched`；Cubox 同步源文件已按后续清理删除。
 - 本笔记可保留为 skill 写作模式总结；具体工具或示例仍应在实际采用前检查对应 skill/repo 文档。

@@ -7,6 +7,10 @@ tags:
   - topic/llm
 topic: "金融投研 Agent 工作流"
 source: cubox-review
+dashboard_type: review-output
+dashboard_status: todo
+review_source: cubox-review
+review_batch: 2026-03
 ---
 
 # 金融投研 Agent 工作流
@@ -31,10 +35,9 @@ source: cubox-review
 
 ## 来源
 
-- [[用户分享｜一个指令打造你的金融投研skills-2026-03-10]]
 - [[2-Areas/Journal/Weekly/Cubox Reviews/2026-03 Cubox Review|2026-03 Cubox 复盘]]
 
 ## Cubox 回源复核
 
-- 2026-06-29 回源审计结果为 `source_unreachable`；详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-03 Cubox Review|2026-03 Cubox 复盘]] 和 [[2025-12 to 2026-05 Cubox Source Re-Audit]]。
+- 2026-06-29 回源审计已完成，结果为 `source_unreachable`；详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-03 Cubox Review|2026-03 Cubox 复盘]]。
 - 当前内容只保留工作流骨架，不构成投资建议；真实使用前必须以官方公告、财报、数据源和合规口径核验。
