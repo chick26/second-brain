@@ -54,10 +54,10 @@ Ontology 视角则先定义对象：
 
 ## Cubox 回源复核
 
-- 2026-06-29 已完成公开回源和图片 OCR，证据为 `source_fetched_ocr`；详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]。
+- 2026-06-29 已完成公开回源和图片 OCR，证据为 `source_fetched_ocr`；详见 [[2-Areas/Cubox/Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]。
 - 当前可作为 AIOps ontology/object-layer 线索；具体产品能力仍需以阿里云官方文档核验。
 
 ## 来源
 
 - [[阿里云博客：ontology在AIOps的运用-2026-06-07]]
-- [[2-Areas/Journal/Weekly/Cubox Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]
+- [[2-Areas/Cubox/Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]

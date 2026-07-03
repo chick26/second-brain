@@ -6,7 +6,7 @@ tags:
   - field/finance
   - type/course
 ---
-up:: [[3-Resources/· MOC for Resources|· MOC for Resources]]
+up:: [[3-Resources/Investment Learning/投资学习|投资学习]]
 
  >- interest rates 利率 
  >- required rates of return 要求回报率

@@ -52,7 +52,7 @@ tags:
 
 本轮旧 backlog 已按当时的用户批注完成移动和初步入库，但不代表所有入库项都完成了真实回源。后续重点不再是批注 backlog，而是按新规则校对新入库笔记、补 OCR/回源证据，以及把高价值条目继续沉淀进 Codex playbook。
 
-- 复查某个月的处理依据：打开对应的 `2-Areas/Journal/Weekly/Cubox Reviews/YYYY-MM Cubox Review.md`。
+- 复查某个月的处理依据：打开对应的 `2-Areas/Cubox/Reviews/YYYY-MM Cubox Review.md`。
 - 复查已入库条目：打开对应 review 和目标长期笔记；Reviewed Cubox 同步原文已删除，来源以原始链接为准。
 - 复查丢弃归档：Discarded Cubox 同步源文已删除，只保留各月 compact review 中的处理记录。
 - 继续处理新 Cubox 输入：从 `0-Inbox/• Unsorted` 重新运行 Cubox review skill，不要再把 Backlog 视为待处理来源。

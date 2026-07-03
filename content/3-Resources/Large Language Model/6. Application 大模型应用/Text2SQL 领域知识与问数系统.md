@@ -110,4 +110,4 @@ memory 被拆成四层：
 ## Cubox 回源复核
 
 - 2026-06-30 已从源文 `arXiv:2511.10674v2` 深读并更新本笔记，证据等级可视为 `external_verified`。
-- 原 Cubox 同步页只作为发现线索，已按确认删除；强结论以 arXiv 源文为准。整理记录见 [[2-Areas/Journal/Weekly/Cubox Reviews/2025-12 Cubox Review|2025-12 Cubox 复盘]]。
+- 原 Cubox 同步页只作为发现线索，已按确认删除；强结论以 arXiv 源文为准。整理记录见 [[2-Areas/Cubox/Reviews/2025-12 Cubox Review|2025-12 Cubox 复盘]]。

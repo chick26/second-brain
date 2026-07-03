@@ -49,7 +49,7 @@ Agent 记忆系统可以粗略分成四层：工作记忆、程序记忆、语�
 ## 来源
 
 - [[一口气学会AI Agent记忆系统设计 - 语义记忆-情景记忆-RAG-向量数据库-2026-06-22]]
-- [[2-Areas/Journal/Weekly/Cubox Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]
+- [[2-Areas/Cubox/Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]
 
 ## Cubox Review 增补：分层记忆与证据回溯
 
@@ -78,5 +78,5 @@ Agent 记忆系统可以粗略分成四层：工作记忆、程序记忆、语�
 
 ## Cubox 回源复核
 
-- [刚刚，腾讯开源了一个 Agent Memory 项目](https://www.xiaohongshu.com/discovery/item/6a058276000000003503b5b8) 已在 2026-06-29 完成公开页回源和 3 张图片 OCR，证据为 `source_fetched_ocr`；详见 [[2-Areas/Journal/Weekly/Cubox Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]。
+- [刚刚，腾讯开源了一个 Agent Memory 项目](https://www.xiaohongshu.com/discovery/item/6a058276000000003503b5b8) 已在 2026-06-29 完成公开页回源和 3 张图片 OCR，证据为 `source_fetched_ocr`；详见 [[2-Areas/Cubox/Reviews/2026-06 Cubox Review|2026-06 Cubox 复盘]]。
 - 2026-06 的 Agent 记忆系统来源已完成 Cubox 回源核验；如需升级为项目级确定结论，再单独使用 repo、论文或官方资料。
