@@ -1,0 +1,58 @@
+filters:
+  and:
+    - file.inFolder("2-Areas/Codex/Thread Reviews")
+    - 'file.ext == "md"'
+    - 'file.basename != "Thread Reviews Index"'
+properties:
+  file.name:
+    displayName: Review
+  week:
+    displayName: Week
+  review_status:
+    displayName: Review
+  dashboard_status:
+    displayName: Dashboard
+  file.mtime:
+    displayName: Updated
+views:
+  - type: table
+    name: 最近 3 个月
+    filters:
+      and:
+        - 'file.mtime > now() - "3M"'
+    order:
+      - file.name
+      - week
+      - review_status
+      - dashboard_status
+      - file.mtime
+    sort:
+      - property: week
+        direction: DESC
+      - property: file.mtime
+        direction: DESC
+    columnSize:
+      file.name: 300
+      week: 120
+      review_status: 140
+      dashboard_status: 120
+      file.mtime: 160
+  - type: table
+    name: 全部
+    order:
+      - file.name
+      - week
+      - review_status
+      - dashboard_status
+      - file.mtime
+    sort:
+      - property: week
+        direction: DESC
+      - property: file.mtime
+        direction: DESC
+    columnSize:
+      file.name: 300
+      week: 120
+      review_status: 140
+      dashboard_status: 120
+      file.mtime: 160

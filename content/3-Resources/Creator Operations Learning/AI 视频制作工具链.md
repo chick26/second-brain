@@ -6,10 +6,10 @@ tags:
   - field/other
   - topic/ai
   - topic/llm
-topic: "AI 视频制作工具链"
+topic: AI 视频制作工具链
 source: cubox-review
 dashboard_type: review-output
-dashboard_status: todo
+dashboard_status: done
 review_source: cubox-review
 review_batch: 2026-W27
 ---

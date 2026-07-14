@@ -6,10 +6,10 @@ tags:
   - field/other
   - topic/ai
   - topic/llm
-topic: "Palmier Pro"
+topic: Palmier Pro
 source: cubox-review
 dashboard_type: review-output
-dashboard_status: todo
+dashboard_status: done
 review_source: cubox-review
 review_batch: 2026-W27
 ---

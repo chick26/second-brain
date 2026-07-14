@@ -5,10 +5,10 @@ tags:
   - cubox
   - topic/ai
   - topic/llm
-topic: "Text2SQL 领域知识与问数系统"
+topic: Text2SQL 领域知识与问数系统
 source: cubox-review
 dashboard_type: review-output
-dashboard_status: todo
+dashboard_status: done
 review_source: cubox-review
 review_batch: 2025-12
 ---

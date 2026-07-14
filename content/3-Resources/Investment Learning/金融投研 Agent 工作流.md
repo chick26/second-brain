@@ -7,10 +7,10 @@ tags:
   - field/finance
   - topic/ai
   - topic/llm
-topic: "金融投研 Agent 工作流"
+topic: 金融投研 Agent 工作流
 source: cubox-review
 dashboard_type: review-output
-dashboard_status: todo
+dashboard_status: done
 review_source: cubox-review
 review_batch: 2026-W27
 ---
