@@ -1,7 +1,7 @@
 ---
 status: draft
 created: 2026-06-29
-updated: 2026-07-02
+updated: 2026-07-15
 tags:
   - cubox
   - field/finance
@@ -12,7 +12,7 @@ source: cubox-review
 dashboard_type: review-output
 dashboard_status: done
 review_source: cubox-review
-review_batch: 2026-W27
+review_batch: mixed
 ---
 
 # 金融投研 Agent 工作流
@@ -93,13 +93,38 @@ review_batch: 2026-W27
 - 涉及投资判断时，必须标注来源、日期和不确定性。
 - 技术面 / 均线只能作为状态检查，不应覆盖基本面和风险判断。
 
+## 与量化研究工具的对接边界
+
+[[AI 量化研究工具候选清单|量化研究工具候选清单]] 只补充可复跑的研究实验与资料辅助层，不替代本笔记的三段式判断：
+
+- `Qlib` / `vectorbt` 的结果先作为实验型证据，需记录数据版本、样本外区间、交易成本、基准和失效条件。
+- `OpenBB`、`FinGPT`、`TradingAgents` 只能帮助收集或整理待核验线索，不能绕过公司原始披露与数据源闸门。
+- `LEAN`、`vn.py`、`Qbot` 属于执行工程候选；在当前 eco-learning 只读 Futu 账户、不下单的边界内，保持隔离。
+- 实验信号若要进入实际持仓复盘，仍须经过既有的基本面、估值、趋势、风险与冲突裁决层；任一层不可用时标记 `unavailable`。
+
+## 自动化筛选的接入合同
+
+2026-W29 的自动化缠论项目展示了“标的预检 → 日线缓存 → 规则筛选 → 候选页/批量出图”的完整入口。对 eco-learning 的可取之处是批处理和可视证据，不是直接采用其策略结论。
+
+- **只做候选生成**：筛选器输出标的、命中规则、参数、数据时间和证据图，动作只能是“进入研究”，不能生成组合买卖方向。
+- **先定规则再回测**：缠论或其他技术规则必须变成无歧义公式、测试样例和版本号；无法程序化复现的部分留给人工观察。
+- **实验产物独立**：数据快照、标的池、费用/滑点、样本内外区间、运行日志与结果写入独立 sidecar，再由现有 research council 消费。
+- **风险闸门不绕过**：筛选命中不能替代公司级来源、估值、趋势、资金、组合集中度、现金目标和风险席裁决。
+- **执行继续隔离**：Futu 账户保持只读；即使 LEAN 或其他引擎能实盘，也不接入当前建议工作流。
+
+详细的八维评价表与工具选择见 [[AI 量化研究工具候选清单#自动化筛选项目评价框架]]。
+
 ## 历史来源说明
 
 - 2026-03 Cubox 复盘曾保留一个低证据工作流骨架；2026-06-29 回源审计结果为 `source_unreachable`。
 - 2026-W27 通过公开小红书页面和 7 张图片 OCR 补强了“线索 → 估值 → 趋势健康度 → 数据源优先”的框架。
+- 2026-W29 通过公开原页与 4 张图片 OCR 复核了自动化缠论筛选项目；只吸收批处理、输入预检、日志和候选出图的工程思路，不采信其策略有效性或收益暗示。
 
 ## 来源
 
 - [我给 Codex 装了 3 个投研 Skill](https://www.xiaohongshu.com/discovery/item/6a40a8000000000016024f95)
 - [[2-Areas/Cubox/Reviews/2026-W27 Cubox Review|2026-W27 Cubox 复盘]]
 - [[2-Areas/Cubox/Reviews/2026-03 Cubox Review|2026-03 Cubox 复盘]]
+- [[AI 量化研究工具候选清单]]
+- [13 亿 token + 自动化缠论与交易筛选](https://www.xiaohongshu.com/discovery/item/6a4f80b80000000017029599)
+- [[2-Areas/Cubox/Reviews/2026-W29 Cubox Review|2026-W29 Cubox 复盘]]
